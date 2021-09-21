@@ -1,0 +1,31 @@
+const express = require('express');
+const logisticRouter = express.Router();
+const Logistic = require('../models/Logistic');
+
+
+//GET Routes
+logisticRouter.get('/', (req,res)=> {
+    const { productionLocation, consumerLocation, logisticCO2e } = req.body;
+
+    Logistic.find({})
+    .then((result) => res.status(200).send(result))
+    .catch((err)=> res.status(500).send("Something went wrong"))
+});
+
+
+//POST Routes
+logisticRouter.post('/', (req, res) => {
+    const { productionLocation, consumerLocation, logisticCO2e } = req.body
+
+    Logistic.create({ productionLocation, consumerLocation, logisticCO2e })
+    .then((data) => {
+        res.status(200).send(data)
+    })
+    .catch((err) => {
+        console.log(err)
+        res.status(500).send("Something went wrong")
+    })
+    
+});
+
+module.exports = logisticRouter;
