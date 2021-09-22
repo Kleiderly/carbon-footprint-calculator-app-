@@ -17,7 +17,7 @@ app.use(express.json());
 //Models
 const Logistic = require('./models/Logistic');
 const Material = require('./models/Material');
-const Product = require('./models/Product');
+const Fastening = require('./models/Fastening');
 
 
 //Routes

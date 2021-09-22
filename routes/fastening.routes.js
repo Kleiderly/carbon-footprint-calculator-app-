@@ -13,9 +13,9 @@ fasteningRouter.get('/', (req,res) => {
 
 //POST Routes
 fasteningRouter.post('/', (req, res) => {
-    const { buttons, zipper } = req.body
+    const { kindOfExtra, fasteningCO2 } = req.body
 
-    Fastening.create({ buttons, zipper })
+    Fastening.create({ kindOfExtra, fasteningCO2 })
     .then((result) =>{
         res.status(200).send(result)
     })
