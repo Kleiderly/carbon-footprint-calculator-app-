@@ -33,14 +33,11 @@ app.use('/api/logistic', require('./routes/logistic.routes'));
 app.use('/api/fastening', require('./routes/fastening.routes'));
 app.use('/api/material', require('./routes/material.routes'));
 
-<<<<<<< HEAD
-=======
 
 // Read Frontend from Backend
 app.use((req, res) => res.sendFile(path.join(__dirname, "build", "index.html")));
 
 
->>>>>>> 9affe0b0a9b155ec2d5956b080725922f8e99e2d
 //App listener
 app.listen(port, () => {
    console.log(`Server listening on port ${port}`);
