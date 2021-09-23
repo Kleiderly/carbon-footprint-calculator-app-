@@ -1,43 +1,43 @@
-import React, {useState, useEffect} from 'react'
-import axios from 'axios'
-
-
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
+import ButtonSelection from './ButtonSelection';
 
 const Trial = () => {
     
-    const { selectLogistic, setSelectLogistic } = useState("");
+    const { data, setData } = useState([]);
     const { co2, setCo2 } = useState();
 
     useEffect(()=>{
         axios.get(`/api/logistic`)
-           .then((response) => {
-                console.log(response.data)
-                response.filter((name) => { name.productionLocation.includes(selectLogistic) 
-                    // const co2evalue= name.logisticCO2e
-                    setSelectLogistic(name)
-
-                })
-            })
-            .then((response)=> {
-                response.filter((name)=> {
-                    name.logisticCO2e.includes()
-                })
-            })
-           .catch((error)=>{
+        .then((response) => {
+            console.log(response.data);
+            setData(response.data)
+        })
+        .catch((error)=>{
             console.log(error)
-          })
-      }, [selectLogistic]);
+        })
+    }, []);
 
 
-      const handleClick=(e) => {
-        console.log('CLICKKK')
-        setSelectLogistic(!selectLogistic) 
-        };
+    const handleClick=(e) => {
+        console.log('CLICK')
+        setCo2(co2) 
+    };
+
 
     return(
         <div>
-            <button value ={selectLogistic} onClick={handleClick}>{}</button>
-            <button value ={selectLogistic} onClick={handleClick}>Bangladesh</button>
+            {data.map((info, key) => {
+                return (
+                    <ButtonSelection 
+                    key={key} 
+                    id={info._id}
+                    name={info.selectLogistic}
+                    handleClick={handleClick}
+                    co2={info.logisticCO2e}
+                    />
+                )
+            })}
         </div>
     )
 };
