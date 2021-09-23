@@ -1,8 +1,13 @@
 require('dotenv').config();
 
+const path = require('path')
 const express = require('express');
-const app = express();
 const mongoose = require('mongoose');
+const app = express();
+
+app.use(express.static(path.join(__dirname, "build")));
+
+
 
 const port = process.env.PORT || 5000;
 
@@ -24,6 +29,10 @@ const Fastening = require('./models/Fastening');
 app.use('/api/logistic', require('./routes/logistic.routes'));
 app.use('/api/fastening', require('./routes/fastening.routes'));
 app.use('/api/material', require('./routes/material.routes'));
+
+
+// Read Frontend from Backend
+app.use((req, res) => res.sendFile(path.join(__dirname, "build", "index.html")));
 
 
 //App listener
