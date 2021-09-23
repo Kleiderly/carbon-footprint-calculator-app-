@@ -5,7 +5,7 @@ const ButtonSelection =(props)=> {
     
     return (
         <div className="" id={props.key}>
-            <button value={props.selectLogistic} id={props._id} onClick={props.handleClick}>{props.selectLogistic}</button>
+            <button value={props.name} id={props.id} onClick={props.handleClick}>{props.name}</button>
         </div>
     )
 }
