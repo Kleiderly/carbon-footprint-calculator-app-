@@ -21,13 +21,14 @@ const Trial = () => {
 
     const handleClick=(e) => {
         console.log('CLICK')
-        setCo2(co2) 
+        setCo2("button value") 
     };
 
+    console.log("DIS", data)
 
     return(
         <div>
-            {data.map((info, key) => {
+            {/* {data.map((info, key) => {
                 return (
                     <ButtonSelection 
                     key={key} 
@@ -37,7 +38,7 @@ const Trial = () => {
                     co2={info.logisticCO2e}
                     />
                 )
-            })}
+            })} */}
         </div>
     )
 };
