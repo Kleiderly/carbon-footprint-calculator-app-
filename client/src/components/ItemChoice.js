@@ -1,18 +1,20 @@
 import React from 'react';
 
-const Header =(props)=> {
+const ItemChoice =(props)=> {
     
     return (
         <div className="">
         ______
         <br />
-            logo
+            clothes choices pic
             <br />
-            title
+            cloth item choice icons
+            <br />
+            compare button
         <br />
         ______
         </div>
     )
 }
 
-export default Header
+export default ItemChoice

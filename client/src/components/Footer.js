@@ -1,18 +1,18 @@
 import React from 'react';
 
-const Header =(props)=> {
+const Footer =(props)=> {
     
     return (
         <div className="">
         ______
         <br />
-            logo
+            copyrights
             <br />
-            title
+            admin link
         <br />
         ______
         </div>
     )
 }
 
-export default Header
+export default Footer

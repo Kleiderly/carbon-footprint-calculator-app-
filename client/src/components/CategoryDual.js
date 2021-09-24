@@ -1,18 +1,18 @@
 import React from 'react';
 
-const Header =(props)=> {
+const DualChoice =(props)=> {
     
     return (
         <div className="">
         ______
         <br />
-            logo
+            progress bar
             <br />
-            title
+            material/logistics1-2/fastenings/result/percentages/details
         <br />
         ______
         </div>
     )
 }
 
-export default Header
+export default DualChoice

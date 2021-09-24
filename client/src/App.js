@@ -1,20 +1,24 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Trial from './components/Trial';
+import Header from './components/Header';
+import Cover from './components/Cover';
+import Admin from './components/Admin';
+import Footer from './components/Footer';
 
 function App() {
 
   return (
     <div className="App">
       <Router>
-        <main className="wrapper">
-          {/* <Header name="" /> */}
+          <Header />
           <Switch>
-            <Route exact path="/" component={Trial} />
+            <div>
+              <Route exact path="/" component={Cover} />
+              <Route exact path="/admin" component={Admin} />
+            </div>
           </Switch>
-          {/* <Footer /> */}
-        </main>
+          <Footer />
       </Router>
     </div>
   );
