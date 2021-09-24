@@ -4,41 +4,37 @@ import ButtonSelection from './ButtonSelection';
 
 const Trial = () => {
     
-    const { data, setData } = useState([]);
-    const { co2, setCo2 } = useState();
+    const [data, setData] = useState([]);
+    const [co2, setCo2] = useState();
 
     useEffect(()=>{
         axios.get(`/api/logistic`)
-        .then((response) => {
-            console.log(response.data);
-            setData(response.data)
-        })
-        .catch((error)=>{
-            console.log(error)
-        })
+        .then((res)=> {
+        console.log(res.data);
+        setData(res.data)
+    })
+        .catch((err)=> console.log(err))
     }, []);
 
-
     const handleClick=(e) => {
+        e.preventDefault()
         console.log('CLICK')
-        setCo2("button value") 
+        setCo2(this.value) 
     };
-
-    console.log("DIS", data)
 
     return(
         <div>
-            {/* {data.map((info, key) => {
+            {data.map((info, key) => {
                 return (
                     <ButtonSelection 
                     key={key} 
                     id={info._id}
-                    name={info.selectLogistic}
+                    name={info.productionLocation}
                     handleClick={handleClick}
                     co2={info.logisticCO2e}
                     />
                 )
-            })} */}
+            })}
         </div>
     )
 };
