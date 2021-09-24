@@ -36,7 +36,7 @@ const Trial = () => {
 
     return(
         <div>
-            <button value ={selectLogistic} onClick={handleClick}>{}</button>
+            <button value ={selectLogistic} onClick={handleClick}>Vietnam</button>
             <button value ={selectLogistic} onClick={handleClick}>Bangladesh</button>
         </div>
     )
