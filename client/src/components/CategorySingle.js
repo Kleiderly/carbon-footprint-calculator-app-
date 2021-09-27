@@ -37,29 +37,32 @@ const CategorySingle = () => {
             <Router>
                 <ProgressBar />
                 <Switch>
-                    <Route exact path="/category/single_choice/materials" component={Materials} />
-                    <Route exact path="/category/single_choice/logistics1" component={Logistics1} />
-                    <Route exact path="/category/single_choice/logistics2" component={Logistics2} />
-                    <Route exact path="/category/single_choice/fastenings" component={Fastenings} />
+                    <div>
+                        <Route exact path="/category/single_choice/materials" component={Materials} />
+                        <Route exact path="/category/single_choice/logistics1" component={Logistics1} />
+                        <Route exact path="/category/single_choice/logistics2" component={Logistics2} />
+                        <Route exact path="/category/single_choice/fastenings" component={Fastenings} />
 
-                    {data.map((info, key) => {
-                        return (
-                            <ButtonSelection 
-                            key={key} 
-                            id={info._id}
-                            name={info.productionLocation}
-                            handleClick={handleClick}
-                            co2={info.logisticCO2e}
-                            />
-                        )
-                    })}
-                    <Link to={"back"}>
-                        PREVIOUS QUESTION
-                    </Link>
+                        {data.map((info, key) => {
+                            return (
+                                <ButtonSelection 
+                                key={key} 
+                                id={info._id}
+                                name={info.productionLocation}
+                                handleClick={handleClick}
+                                co2={info.logisticCO2e}
+                                />
+                            )
+                        })};
+
+                        <Link to={"back"}>
+                            PREVIOUS QUESTION
+                        </Link>
+                    </div>
                 </Switch>
             </Router>
         </div>
     )
 };
 
-export default CategorySingle
+export default CategorySingle;

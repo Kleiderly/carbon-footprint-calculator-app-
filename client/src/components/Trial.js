@@ -8,7 +8,7 @@ const Trial = () => {
     const [co2, setCo2] = useState();
 
     useEffect(()=>{
-        axios.get(`/api/logistic`)
+        axios.get(`http://localhost:5000/api/logistic`)
         .then((res)=> {
         console.log(res.data);
         setData(res.data)

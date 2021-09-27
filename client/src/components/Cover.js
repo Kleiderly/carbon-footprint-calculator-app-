@@ -9,9 +9,9 @@ import Details from './Details';
 const Cover =()=> {
     
     const [choice, setChoice] = useState("");
-    const handleClick=(c) => {
-        setChoice(c)
-    };
+    // const handleClick=(c) => {
+    //     setChoice(c)
+    // };
 
     return (
         <div className="">
@@ -24,9 +24,9 @@ const Cover =()=> {
                         <br />
                         {/* <button className={choice === "single_choice" ? "chosen" : "black"} onClick={handleClick("single_choice")}>ONE CHOICE PIC</button>
                         <br />
-                        <button className={choice === "dual_choice" ? "chosen" : "black"} onClick={handleClick("dual_choice")}>TWO CHOICES PIC</button> */}
+                        <button className={choice === "dual_choice" ? "chosen" : "black"} onClick={handleClick("dual_choice")}>TWO CHOICES PIC</button>
                         <br />
-                        <Link to={`/item_choice/${choice}`}>BEGIN!</Link>
+                        <Link to={`/item_choice/${choice}`}>BEGIN!</Link> */}
                         <Route exact path="/category/category_single" component={CategorySingle} />
                         <Route exact path="/category/category_dual" component={CategoryDual} />
                         <Route exact path="/results/:choice" component={Results} />
