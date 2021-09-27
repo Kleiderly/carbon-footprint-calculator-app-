@@ -38,10 +38,10 @@ function CategorySingle() {
                 <ProgressBar />
                 <Switch>
                     <div>
-                        <Route exact path="/category/single_choice/materials" component={Materials} />
-                        <Route exact path="/category/single_choice/logistics1" component={Logistics1} />
-                        <Route exact path="/category/single_choice/logistics2" component={Logistics2} />
-                        <Route exact path="/category/single_choice/fastenings" component={Fastenings} />
+                        <Route exact path="/category/:choice/materials" component={Materials} />
+                        <Route exact path="/category/:choice/logistics1" component={Logistics1} />
+                        <Route exact path="/category/:choice/logistics2" component={Logistics2} />
+                        <Route exact path="/category/:choice/fastenings" component={Fastenings} />
 
                         {data.map((info, key) => {
                             return (
