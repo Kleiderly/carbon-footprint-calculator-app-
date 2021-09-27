@@ -45,5 +45,22 @@ materialRouter.put('/:id', (req, res) => {
     })
 })
 
+//REMOVE ROUTES
+materialRouter.delete('/:id', (req, res)=>{
+    Material.findByIdAndRemove({_id: req.params.id})
+    .then((result)=>{
+        console.log(result)
+        res.status(200).send("Item successfully deleted ")
+    })
+    .catch((err)=>{
+        console.log(err)
+        res.status(500).send("Something went wrong")
+    })
+})
+
+
+
+
+
 
 module.exports = materialRouter;
