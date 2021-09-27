@@ -98,11 +98,11 @@ function AdminForms() {
                         Material: <br />
                         <select className="light-pink">
 
-                        {material.map((type, i) => {
-                            return <option id={type._id} key={i} value={type.name} onChange={setMaterialCo2e(type.materialCO2E) && setModData(type._id)}>
-                            {type.name}
-                            </option>
-                        })}
+                            {material.map((type, i) => {
+                                return <option id={type._id} key={i} value={type.name} onChange={setMaterialCo2e(type.materialCO2E) && setModData(type._id)}>
+                                {type.name}
+                                </option>
+                            })}
 
                         </select>
                     </div>
@@ -125,7 +125,7 @@ function AdminForms() {
                         <select className="light-pink">
 
                             {logistic.map((type, i) => {
-                                return <option id={type._id} key={i} value={type.productionLocation} onChange={setLogisticCo2e(type.logisticCO2e) && setModData(type._id)}>
+                                <option id={type._id} key={i} value={type.productionLocation} onChange={setLogisticCo2e(type.logisticCO2e) && setModData(type._id)}>
                                 {type.productionLocation}
                                 </option>
                             })}
@@ -149,7 +149,7 @@ function AdminForms() {
                         <select className="light-pink">
 
                             {logistic.map((type, i) => {
-                                return <option id={type._id} key={i} value={type.consumerLocation} onChange={setLogisticCo2e(type.logisticCO2e) && setModData(type._id)}>
+                                <option id={type._id} key={i} value={type.consumerLocation} onChange={setLogisticCo2e(type.logisticCO2e) && setModData(type._id)}>
                                 {type.consumerLocation}
                                 </option>
                             })}
@@ -175,7 +175,7 @@ function AdminForms() {
                         <select className="light-pink">
 
                             {fastening.map((type, i) => {
-                                return <option id={type._id} key={i} value={type._id} onChange={setFasteningCo2e(type._id) && setModData(type._id)}>
+                                <option id={type._id} key={i} value={type._id} onChange={setFasteningCo2e(type._id) && setModData(type._id)}>
                                 {type._id}
                                 </option>
                             })}
