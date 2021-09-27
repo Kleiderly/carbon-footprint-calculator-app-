@@ -32,7 +32,7 @@ function App() {
                     <Route exact path="/category/single_choice/logistics1" component={Logistics1} />
                     <Route exact path="/category/single_choice/logistics2" component={Logistics2} />
                     <Route exact path="/category/single_choice/fastenings" component={Fastenings} />
-                    <Route exact path="/category/dual_choice/" component={CategorySingle} />
+                    <Route exact path="/category/single_choice/" component={CategorySingle} />
                     <Route exact path="/category/dual_choice/" component={CategoryDual} />
                     <Route exact path="/itemchoice" component={ItemChoice} />
                     <Route exact path="/category/dual_choice/percentages" component={Percentages} />
