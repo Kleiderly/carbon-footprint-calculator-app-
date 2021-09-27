@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import "./CSS/Cover.css";
 import Category from './Category';
 import Results from './Results';
 import Percentages from './Percentages';
@@ -13,7 +14,7 @@ function Cover() {
     // };
 
     return (
-        <div className="">
+        <div className="cover-wrapper">
             <Router>
                 <Switch>
                     <div>
