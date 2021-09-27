@@ -3,7 +3,7 @@ import axios from 'axios'
 
 
 
-const Trial = () => {
+const ExampleMaterial = () => {
 const [ value, setValue] = useState([])
     useEffect(()=>{
         axios.get(`/api/logistic`)
@@ -22,4 +22,4 @@ const [ value, setValue] = useState([])
     )
 };
 
-export default Trial
+export default ExampleMaterial
