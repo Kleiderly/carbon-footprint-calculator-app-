@@ -5,13 +5,11 @@ import "./CSS/Admin.css";
 function AdminForms() {
 
     const [material, setMaterial] = useState([]);
-    const [materialCo2e, setMaterialCo2e] = useState("");
     const [logistic, setLogistic] = useState([]);
-    const [logisticCo2e, setLogisticCo2e] = useState("");
     const [fastening, setFastening] = useState([]);
-    const [fasteningCo2e, setFasteningCo2e] = useState("");
-    const [co2e, setCo2e] = useState("");
-    const [modData, setModData] = useState("");
+    const [modName, setModName] = useState("");
+    const [modCo2e, setModCo2e] = useState("");
+    const [modId, setModId] = useState("");
 
     const materialAPI = axios.get(`/api/material`);
     const logisticAPI = axios.get(`/api/fastening`);
@@ -28,6 +26,48 @@ function AdminForms() {
         .catch((err)=> console.log(err))
     }, []);
 
+    const clearForm = () => {
+        const inputs = document.querySelectorAll("input,textarea");
+        inputs.forEach((item) => (item.value = ""));
+        };
+
+    const handleAdd = (e)=>{
+        e.preventDefault();
+        console.log("Add")
+        };
+
+    const handleModify = (e)=>{
+        e.preventDefault();
+        console.log("Modify")
+        };
+
+    const handleDelete = (e)=>{
+        e.preventDefault();
+        console.log("Delete")
+        };
+
+    const inputCo2e1 = 
+        <div className="form-input">
+        Co2e per item: <br />
+        <input 
+        className="light-pink"
+        type="text"
+        name="co2e"
+        onChange={(e) => setModCo2e(e.target.value)}
+        ></input>
+        </div>
+
+    const inputCo2e2 = 
+        <input
+        type="text"
+        name="co2e"
+        className="light-pink"
+        placeholder={modCo2e}
+        onChange={(e) => setModCo2e(e.target.value)}
+        value={modCo2e}
+        ></input>
+
+        
     return (
         <div className="forms-wrapper">
 
@@ -37,12 +77,16 @@ function AdminForms() {
                 <div className="form-item">
                     <div className="form-input">
                         Material: <br />
-                        <input className="light-pink" ></input>
+                        <input 
+                        className="light-pink" 
+                        type="text"
+                        name="material"
+                        onChange={(e) => {
+                          setModName(e.target.value);
+                        }}
+                        ></input>
                     </div>
-                    <div className="form-input">
-                        co2e per item: <br />
-                        <input className="light-pink"></input>
-                    </div>
+                        {inputCo2e1}
                 </div>
 
 
@@ -50,40 +94,52 @@ function AdminForms() {
                 <div className="form-item">
                     <div className="form-input">
                         Production Location: <br />
-                        <input className="light-pink"></input>
+                        <input 
+                        className="light-pink" 
+                        type="text"
+                        name="prodLocation"
+                        onChange={(e) => {
+                          setModName(e.target.value);
+                        }}
+                        ></input>
                     </div>
-                    <div className="form-input">
-                        co2e per item: <br />
-                        <input className="light-pink"></input>
-                    </div>
+                        {inputCo2e1}
                 </div>
 
                 <div className="form-item">
                     <div className="form-input">
-                        Consumer Location:: <br />
-                        <input className="light-pink"></input>
+                        Consumer Location: <br />
+                        <input 
+                        className="light-pink" 
+                        type="text"
+                        name="consLocation"
+                        onChange={(e) => {
+                          setModName(e.target.value);
+                        }}
+                        ></input>
                     </div>
-                    <div className="form-input">
-                        co2e per item: <br />
-                        <input className="light-pink"></input>
-                    </div>
+                        {inputCo2e1}
                 </div>
 
             <h4 className="fastenings">Fastenings</h4>
                 <div className="form-item">
                     <div className="form-input">
                         Type: <br />
-                        <input className="light-pink"></input>
+                        <input 
+                        className="light-pink" 
+                        type="text"
+                        name="consLocation"
+                        onChange={(e) => {
+                          setModName(e.target.value);
+                        }}
+                        ></input>
                     </div>
-                    <div className="form-input">
-                        co2e per item: <br />
-                        <input className="light-pink"></input>
-                    </div>
+                        {inputCo2e1}
                 </div>
 
                 <div className="form-input center-align">
-                    <button>ADD</button>
-                    <button>CLEAR FORM</button>
+                    <button onClick={handleAdd() && clearForm()}>ADD</button>
+                    <button onClick={clearForm()}>CLEAR FORM</button>
                 </div>
             </div>
 
@@ -99,21 +155,23 @@ function AdminForms() {
                         <select className="light-pink">
 
                             {material.map((type, i) => {
-                                return <option id={type._id} key={i} value={type.name} onChange={setMaterialCo2e(type.materialCO2E) && setModData(type._id)}>
-                                {type.name}
-                                </option>
-                            })}
+                                return (
+                                    <option 
+                                    id={type._id} 
+                                    key={i} 
+                                    value={type.name} 
+                                    onChange={setModCo2e(type.materialCO2E) && setModId(type._id) && setModName(type.name)}
+                                    >
+                                        {type.name}
+                                    </option>
+                                );
+                            })};
 
                         </select>
                     </div>
                     <div className="form-input">
-                        co2e per item: <br />
-                        <input
-                        className="light-pink"
-                        placeholder={materialCo2e}
-                        onChange={(e)=>setCo2e(e.target.value)}
-                        value={co2e}
-                        ></input>
+                        Co2e per item: <br />
+                        {inputCo2e2}
                     </div>
                 </div>
 
@@ -125,21 +183,23 @@ function AdminForms() {
                         <select className="light-pink">
 
                             {logistic.map((type, i) => {
-                                <option id={type._id} key={i} value={type.productionLocation} onChange={setLogisticCo2e(type.logisticCO2e) && setModData(type._id)}>
-                                {type.productionLocation}
-                                </option>
-                            })}
+                                return (
+                                    <option 
+                                    id={type._id} 
+                                    key={i} 
+                                    value={type.productionLocation} 
+                                    onChange={setModCo2e(type.logisticCO2e) && setModId(type._id) && setModName(type.productionLocation)}
+                                    >
+                                        {type.productionLocation}
+                                    </option>
+                                );
+                            })};
 
                         </select>
                     </div>
                     <div className="form-input">
-                        co2e per item: <br />
-                        <input
-                        className="light-pink"
-                        placeholder={logisticCo2e}
-                        onChange={(e)=>setCo2e(e.target.value)}
-                        value={co2e}
-                        ></input>
+                        Co2e per item: <br />
+                        {inputCo2e2}
                     </div>
                 </div>
 
@@ -149,21 +209,23 @@ function AdminForms() {
                         <select className="light-pink">
 
                             {logistic.map((type, i) => {
-                                <option id={type._id} key={i} value={type.consumerLocation} onChange={setLogisticCo2e(type.logisticCO2e) && setModData(type._id)}>
-                                {type.consumerLocation}
+                               return (
+                                <option 
+                                id={type._id} 
+                                key={i} 
+                                value={type.consumerLocation} 
+                                onChange={setModCo2e(type.logisticCO2e) && setModId(type._id) && setModName(type.consumerLocation)}
+                                >
+                                    {type.consumerLocation}
                                 </option>
-                            })}
+                                );
+                            })};
 
                         </select>
                     </div>
                     <div className="form-input">
                         co2e per item: <br />
-                        <input
-                        className="light-pink"
-                        placeholder={logisticCo2e}
-                        onChange={(e)=>setCo2e(e.target.value)}
-                        value={co2e}
-                        ></input>
+                        {inputCo2e2}
                     </div>
                 </div>
                 
@@ -175,28 +237,29 @@ function AdminForms() {
                         <select className="light-pink">
 
                             {fastening.map((type, i) => {
-                                <option id={type._id} key={i} value={type._id} onChange={setFasteningCo2e(type._id) && setModData(type._id)}>
-                                {type._id}
-                                </option>
-                            })}
+                                return (
+                                    <option 
+                                    id={type._id} 
+                                    key={i} value={type._id} 
+                                    onChange={setModCo2e(type._id) && setModId(type._id) && setModName(type._id)}
+                                    >
+                                        {type._id}
+                                    </option>
+                                );
+                            })};
 
                         </select>
                     </div>
                     <div className="form-input">
-                        co2e per item: <br />
-                        <input
-                        className="light-pink"
-                        placeholder={fasteningCo2e}
-                        onChange={(e)=>setCo2e(e.target.value)}
-                        value={co2e}
-                        ></input>
+                        Co2e per item: <br />
+                        {inputCo2e2}
                     </div>
                 </div>
 
                 <div className="form-input center-align">
-                    <button onClick={console.log("Click modify")}>MODIFY</button>
-                    <button onClick={console.log("Click delete")}>DELETE</button>
-                    <button onClick={setMaterial("") && setMaterialCo2e("") && setLogistic("") && setLogisticCo2e("") && setFastening("") && setFasteningCo2e("") && setCo2e("") && setModData("")}>CLEAR FORM</button>
+                    <button onClick={handleModify() && clearForm()}>MODIFY</button>
+                    <button onClick={handleDelete() && clearForm()}>DELETE</button>
+                    <button onClick={clearForm()}>CLEAR FORM</button>
                 </div>
             </div>
 
