@@ -26,4 +26,21 @@ fasteningRouter.post('/', (req, res) => {
 });
 
 
+//UPDATE Routes
+fasteningRouter.put('/:id', (req, res) => {
+
+    Fastening.findByIdAndUpdate({_id: req.params.id}, req.body)
+    .then(()=>{
+        Fastening.findOne({_id: req.params.id})
+        .then((result)=>{
+            res.status(200).send(result)
+        })
+        .catch((err)=>{
+            console.log(err)
+            res.status(500).send('Something went wrong')
+        })
+    })
+})
+
+
   module.exports = fasteningRouter;

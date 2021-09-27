@@ -28,4 +28,20 @@ logisticRouter.post('/', (req, res) => {
     
 });
 
+//UPDATE Routes
+logisticRouter.put('/:id', (req, res) => {
+
+    Logistic.findByIdAndUpdate({_id: req.params.id}, req.body)
+    .then(()=>{
+        Logistic.findOne({_id: req.params.id})
+        .then((result)=>{
+            res.status(200).send(result)
+        })
+        .catch((err)=>{
+            console.log(err)
+            res.status(500).send('Something went wrong')
+        })
+    })
+})
+
 module.exports = logisticRouter;
