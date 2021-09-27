@@ -20,7 +20,6 @@ function Admin() {
                                 <button>LOGIN</button>
                             </Link>
                         </div>
-                        <Route exact path="/admin/forms" component={AdminForms} />
                     </div>
                 </Switch>
             </Router>
