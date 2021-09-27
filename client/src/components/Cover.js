@@ -6,7 +6,7 @@ import Results from './Results';
 import Percentages from './Percentages';
 import Details from './Details';
 
-const Cover =()=> {
+function Cover() {
     
     const [choice, setChoice] = useState("");
     // const handleClick=(c) => {
@@ -27,6 +27,7 @@ const Cover =()=> {
                         <button className={choice === "dual_choice" ? "chosen" : "black"} onClick={handleClick("dual_choice")}>TWO CHOICES PIC</button>
                         <br />
                         <Link to={`/item_choice/${choice}`}>BEGIN!</Link> */}
+                        
                         <Route exact path="/category/category_single" component={CategorySingle} />
                         <Route exact path="/category/category_dual" component={CategoryDual} />
                         <Route exact path="/results/:choice" component={Results} />

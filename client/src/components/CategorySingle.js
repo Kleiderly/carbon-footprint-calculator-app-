@@ -9,7 +9,7 @@ import Fastenings from './Fastenings';
 import ButtonSelection from './ButtonSelection';
 
 
-const CategorySingle = () => {
+function CategorySingle() {
     
     const [data, setData] = useState([]);
     const [co2, setCo2] = useState();

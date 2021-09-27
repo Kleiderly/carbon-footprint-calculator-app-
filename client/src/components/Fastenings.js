@@ -1,7 +1,7 @@
 import React from 'react';
 import Tips from './Tips';
 
-const Fastenings =(props)=> {
+function Fastenings(props) {
     
     return (
         <div className="">

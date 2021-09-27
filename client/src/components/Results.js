@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Results =(props)=> {
+function Results(props) {
     
     return (
         <div className="">

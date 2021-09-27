@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ItemChoice =(props)=> {
+function ItemChoice(props) {
     
     return (
         <div className="">

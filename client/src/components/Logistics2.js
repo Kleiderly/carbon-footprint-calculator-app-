@@ -1,7 +1,7 @@
 import React from 'react';
 import Tips from './Tips';
 
-const Logistics2 =(props)=> {
+function Logistics2(props) {
     
     return (
         <div className="">

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DualChoice =(props)=> {
+function DualChoice(props) {
     
     return (
         <div className="">

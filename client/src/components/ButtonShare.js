@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ButtonShare =(props)=> {
+function ButtonShare(props) {
     
     return (
         <div className="" id={props.key}>

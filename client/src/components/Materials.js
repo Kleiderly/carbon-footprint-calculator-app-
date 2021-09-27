@@ -1,7 +1,7 @@
 import React from 'react';
 import Tips from './Tips';
 
-const Materials =(props)=> {
+function Materials(props) {
     
     return (
         <div className="">

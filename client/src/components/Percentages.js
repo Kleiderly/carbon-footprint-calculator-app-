@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Percentages =(props)=> {
+function Percentages(props) {
     
     return (
         <div className="">

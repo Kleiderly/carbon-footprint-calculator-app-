@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProgressBar =(props)=> {
+function ProgressBar(props) {
     
     return (
         <div className="">

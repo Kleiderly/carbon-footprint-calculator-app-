@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ButtonSelection =(props)=> {
+function ButtonSelection(props) {
     
     return (
         <div className="" id={props.key}>

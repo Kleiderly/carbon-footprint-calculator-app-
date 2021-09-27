@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ButtonNext =(props)=> {
+function ButtonNext(props) {
     
     return (
         <div className="" id={props.key}>

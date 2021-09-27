@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Tips =(props)=> {
+function Tips(props) {
     
     return (
         <div className="">
