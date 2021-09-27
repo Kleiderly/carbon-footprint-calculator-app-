@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import CategorySingle from './CategorySingle';
-import CategoryDual from './CategoryDual';
+import Category from './Category';
 import Results from './Results';
 import Percentages from './Percentages';
 import Details from './Details';
@@ -28,8 +27,7 @@ function Cover() {
                         <br />
                         <Link to={`/item_choice/${choice}`}>BEGIN!</Link> */}
                         
-                        <Route exact path="/category/category_single" component={CategorySingle} />
-                        <Route exact path="/category/category_dual" component={CategoryDual} />
+                        <Route exact path="/category/:choice" component={Category} />
                         <Route exact path="/results/:choice" component={Results} />
                         <Route exact path="/percentages/:choice" component={Percentages} />
                         <Route exact path="/details/:choice" component={Details} />

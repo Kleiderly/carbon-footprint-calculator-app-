@@ -5,6 +5,10 @@
     padding: 10px;
 }
 
+* {
+    text-decoration: none;
+}
+
 .footer-social, .footer-copyrights, .footer-admin {
     width: 100%;
     text-align: center;

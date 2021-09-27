@@ -28,7 +28,7 @@ function App() {
                     <Route exact path="/admin" component={Admin} />
                     <Route exact path="/admin/forms" component={AdminForms} />
                     <Route exact path="/itemchoice" component={ItemChoice} />
-                    <Route exact path="/category/:choice/" component={Category} />
+                    <Route exact path="/category/:choice" component={Category} />
                     <Route exact path="/category/:choice/materials" component={Materials} />
                     <Route exact path="/category/:choice/logistics1" component={Logistics1} />
                     <Route exact path="/category/:choice/logistics2" component={Logistics2} />
