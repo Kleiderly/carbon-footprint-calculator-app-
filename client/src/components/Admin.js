@@ -15,15 +15,13 @@ function Admin() {
                             <input></input>
                             <p>Password:</p>
                             <input></input>
-                            <Link to="/admin/forms">
-                                <button>LOGIN</button>
-                            </Link>
+                            <Link to="/admin/forms"><button>LOGIN</button></Link>
                         </div>
                     </div>
                 </Switch>
             </Router>
         </div>
     )
-}
+};
 
-export default Admin
+export default Admin;
