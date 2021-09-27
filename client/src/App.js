@@ -8,8 +8,21 @@ import MaterialContext from "./contexts/MaterialContext";
 import FasteningContext from "./contexts/FasteningContext";
 
 // import Components
-import Trial from "./components/Trial";
 import ExampleMaterial "./components/ExampleMaterial"
+import Header from './components/Header';
+import Cover from './components/Cover';
+import Admin from './components/Admin';
+import AdminForms from './components/AdminForms';
+import Materials from './components/Materials';
+import Logistics1 from './components/Logistics1';
+import Logistics2 from './components/Logistics2';
+import Fastenings from './components/Fastenings';
+import Category from './components/Category';
+import Details from './components/Details';
+import Results from './components/Results';
+import ItemChoice from './components/ItemChoice';
+import Footer from './components/Footer';
+import Percentages from './components/Percentages';
 
 function App() {
   const [countries, setCountries] = useState([]);
@@ -37,25 +50,34 @@ function App() {
   }, []);
 
   return (
-    <Router>
-      <div className="App">
-        <Switch>
-          <Route exact path="/category/single_choice/materials" component={Materials}>
-            <MaterialContext.Provider value={{ materials }}>
-              <ExampleMaterial />
-            </MaterialContext.Provider>
-          </Route>
-          {/* <CountryContext.Provider value={{ countries }}>
-            <MoviesList />
-          </CountryContext.Provider>
-          
-          <FasteningContext.Provider value={{ fastenings }}>
-            <MoviesList />
-          </FasteningContext.Provider> */}
-        </Switch>
-      </div>
-    </Router>
+    <div className="App">
+      <Router>
+            <div>
+              <Header />
+                <Switch>
+                    <Route exact path="/category/single_choice/materials" component={Materials}>
+                      <MaterialContext.Provider value={{ materials }}>
+                        <ExampleMaterial />
+                      </MaterialContext.Provider>
+                    </Route>
+                    <Route exact path="/" component={Cover} />
+                    <Route exact path="/admin" component={Admin} />
+                    <Route exact path="/admin/forms" component={AdminForms} />
+                    <Route exact path="/itemchoice" component={ItemChoice} />
+                    <Route exact path="/category/:choice" component={Category} />
+                    <Route exact path="/category/:choice/materials" component={Materials} />
+                    <Route exact path="/category/:choice/logistics1" component={Logistics1} />
+                    <Route exact path="/category/:choice/logistics2" component={Logistics2} />
+                    <Route exact path="/category/:choice/fastenings" component={Fastenings} />
+                    <Route exact path="/:choice/percentages" component={Percentages} />
+                    <Route exact path="/:choice/results" component={Results} />
+                    <Route exact path="/:choice/details" component={Details} />
+                </Switch>
+              <Footer />
+            </div>
+      </Router>
+    </div>
   );
 }
-
-export default App;
+  
+export default App

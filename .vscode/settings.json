@@ -1,0 +1,9 @@
+{
+    "terminal.explorerKind": "external",
+    "terminal.integrated.automationShell.windows": "D:\\Program Files (x86)\\Git\\git-bash.exe",
+    "terminal.integrated.commandsToSkipShell": [
+        "--command=usr/bin/bash.exe",
+        "-l",
+        "-i"
+    ]
+}
