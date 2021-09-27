@@ -24,6 +24,7 @@ const Trial = () => {
 
     return(
         <div>
+
             {data.map((info, key) => {
                 return (
                     <ButtonSelection 
@@ -35,6 +36,10 @@ const Trial = () => {
                     />
                 )
             })}
+
+            <button value ={selectLogistic} onClick={handleClick}>Vietnam</button>
+            <button value ={selectLogistic} onClick={handleClick}>Bangladesh</button>
+
         </div>
     )
 };
