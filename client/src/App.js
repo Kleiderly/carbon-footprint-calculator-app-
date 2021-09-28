@@ -26,7 +26,7 @@ function App() {
                <Header />
                <Switch>
                   <Route exact path="/" component={() => <Cover />} />
-                  <Route exact path="/:choice" component={() => <Category />} />
+                  <Route exact path="/:choice" component={(browser)=> <Category browser={browser}/>} />  
                   <Route
                      exact
                      path="/:choice/materials"
