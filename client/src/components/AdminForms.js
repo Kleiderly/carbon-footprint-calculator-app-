@@ -7,15 +7,15 @@ function AdminForms() {
     const [material, setMaterial] = useState([]);
     const [logistic, setLogistic] = useState([]);
     const [fastening, setFastening] = useState([]);
+
     const [modName, setModName] = useState("");
     const [modName2, setModName2] = useState("");
     const [modCo2e, setModCo2e] = useState();
     const [modId, setModId] = useState("");
-    const [modCo2eMat, setModCo2eMat] = useState();
-    const [modCo2eLog, setModCo2eLog] = useState();
-    const [modCo2eFa, setModCo2eFa] = useState();
+    
     const [filterArr, setFilterArr] = useState([]);
     const [submit, setSubmit] = useState();
+    const [cat, setCat] = useState("");
 
     const materialAPI = axios.get(`/api/material`);
     const logisticAPI = axios.get(`/api/logistic`);
@@ -40,27 +40,27 @@ function AdminForms() {
         setSubmit();
     }, [clearMessage]);
 
+    
     useEffect(()=>{ 
         if(filterArr){
-            setModCo2e("works but needs uniform key");
+            setModCo2e(filterArr.co2e);
             setModId(filterArr._id);
             setModName2(filterArr.consumerLocation);
-            setModCo2eMat(filterArr.materialCO2E);
-            setModCo2eLog(filterArr.logisticCO2e);
-            setModCo2eFa("needs renaming");
-        } else {
-            clearForm()
-        }
+            } else {
+                clearForm()
+            }
     }, [filterArr]);
 
 
     const clearForm = ()=>{
         const inputs = document.querySelectorAll("input,select");
         inputs.forEach((item) => (item.value = ""));
-        setModCo2eFa(); setModCo2eLog(); setModCo2eMat();
-        setModCo2e(); setModId(); setModName2(); 
+        setModCo2e(); setModId(); setModName2(); setCat();
         setModName(); setSubmit(); setFilterArr();
         };
+
+
+/* ROUTES */
 
     const handleAdd = (e)=>{
         e.preventDefault();
@@ -76,9 +76,22 @@ function AdminForms() {
 
     const handleDelete = (e)=>{
         e.preventDefault();
-        console.log("Deleted:", modName, modName2, modCo2e, modId);
-        setSubmit(success);
-        };
+        axios
+        .delete(
+          `URL`
+        )
+        .then((res) => {
+            res.send('Item deleted');
+            console.log("Deleted:", modName, modName2, modCo2e, modId);
+            setSubmit(success);
+        })
+        .catch((err) => {
+            console.log(err);
+            setSubmit(failed);
+        });
+    };
+
+
 
     const inputCo2e1 = 
         <div className="form-input">
@@ -183,7 +196,8 @@ function AdminForms() {
                         onChange={(e) => {
                             setFilterArr(material.find((type)=> type.name === e.target.value));
                             setModName(e.target.value);
-                            console.log("Material", 1, modCo2e, 2, modCo2eMat, 3, modId, 4, modName, 5, filterArr);
+                            setCat("mat");
+                            console.log("Material", 1, modCo2e, 3, modId, 4, modName, 5, filterArr);
                         }}
                         >
                             <option></option>
@@ -206,8 +220,8 @@ function AdminForms() {
                         className="light-pink"
                         type="text"
                         name="co2e"
-                        value={modCo2eMat}
-                        onChange={(e) => setModCo2eMat(e.target.value)}
+                        value={cat === "mat" ? modCo2e : ""}
+                        onChange={(e) => setModCo2e(e.target.value)}
                         ></input>
                     </div>
                 </div>
@@ -222,7 +236,8 @@ function AdminForms() {
                         onChange={(e) => {
                             setFilterArr(logistic.find((type)=> type.productionLocation === e.target.value));
                             setModName(e.target.value);
-                            console.log("Logistics", 1, modCo2e, 2, modCo2eLog, 3, modId, 4, modName, 5, modName2, 6, filterArr)}}
+                            setCat("log");
+                            console.log("Logistics", 1, modCo2e, 3, modId, 4, modName, 5, modName2, 6, filterArr)}}
                         >
                             <option></option>
                             {logistic.map((type, i) => {
@@ -258,8 +273,8 @@ function AdminForms() {
                         className="light-pink"
                         type="text"
                         name="co2e"
-                        value={modCo2eLog}
-                        onChange={(e) => setModCo2eLog(e.target.value)}
+                        value={cat === "log" ? modCo2e : ""}
+                        onChange={(e) => setModCo2e(e.target.value)}
                         ></input>
                     </div>
                 </div>
@@ -272,9 +287,10 @@ function AdminForms() {
                         <select 
                         className="light-pink"
                         onChange={(e) => {
-                            setFilterArr(fastening.find((type)=> type._id === e.target.value));
+                            setFilterArr(fastening.find((type)=> type.name === e.target.value));
                             setModName(e.target.value);
-                            console.log("Fastenings", 1, modCo2e, 2, modCo2eMat, 3, modId, 4, modName, 5, filterArr)}}
+                            setCat("fas");
+                            console.log("Fastenings", 1, modCo2e, 3, modId, 4, modName, 5, filterArr)}}
                         >
                             <option></option>
                             {fastening.map((type, i) => {
@@ -282,9 +298,9 @@ function AdminForms() {
                                     <option 
                                     id={type._id} 
                                     key={i} 
-                                    value={type._id}
+                                    value={type.name}
                                     >
-                                        {type._id}
+                                        {type.name}
                                     </option>
                                 );
                             })};
@@ -296,8 +312,8 @@ function AdminForms() {
                         className="light-pink"
                         type="text"
                         name="co2e"
-                        value={modCo2eFa}
-                        onChange={(e) => setModCo2eFa(e.target.value)}
+                        value={cat === "fas" ? modCo2e : ""}
+                        onChange={(e) => setModCo2e(e.target.value)}
                         ></input>
                     </div>
                 </div>
