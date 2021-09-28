@@ -1,4 +1,5 @@
 .choiceContainer {
+<<<<<<< HEAD
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -40,4 +41,47 @@
    width: 100px;
    height: 100px;
    margin: 20px 0 20px 0;
+=======
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.itemsContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.afterClick {
+  background: rgba(23, 24, 24, 0.79);
+  border: 1px solid gray;
+  width: 200px;
+  height: 200px;
+  margin: 20px;
+}
+.beforeClick {
+  background: rgba(14, 40, 35, 0.79);
+  border: 1px solid gray;
+  width: 200px;
+  height: 200px;
+  margin: 20px;
+}
+
+.typeOfItemContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.typeOfItemContainerRow {
+  flex-direction: column;
+}
+.typeOfItem {
+  border: 1px solid gray;
+  background: rgba(143, 146, 146, 0.79);
+  color: pink;
+  width: 100px;
+  height: 100px;
+  margin: 20px 0 20px 0;
+>>>>>>> 6b5d6d42396c0f2a4637c0365b70b5237d833541
 }
