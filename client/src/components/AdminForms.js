@@ -12,9 +12,10 @@ function AdminForms() {
     const [modCo2e, setModCo2e] = useState();
     const [modId, setModId] = useState("");
     const [modCo2eMat, setModCo2eMat] = useState();
-    const [modCo2eLog1, setModCo2eLog1] = useState();
-    const [modCo2eLog2, setModCo2eLog2] = useState();
+    const [modCo2eLog, setModCo2eLog] = useState();
     const [modCo2eFa, setModCo2eFa] = useState();
+    const [filterArr, setFilterArr] = useState([]);
+    const [submit, setSubmit] = useState();
 
     const materialAPI = axios.get(`/api/material`);
     const logisticAPI = axios.get(`/api/logistic`);
@@ -31,26 +32,37 @@ function AdminForms() {
         .catch((err)=> console.log(err))
     }, []);
 
-    const clearForm = () => {
+    const success = "Submit successful!";
+    const failed = "Submit unsuccessful.";
+    const clearMessage = modId === ""
+
+    useEffect(()=>{
+        setSubmit()
+    }, [clearMessage]);
+
+    const clearForm = ()=>{
         const inputs = document.querySelectorAll("input,select");
         inputs.forEach((item) => (item.value = ""));
-        setModCo2eFa(); setModCo2eLog2(); setModCo2eLog1(); setModCo2eMat();
-        setModCo2e(""); setModId(); setModName(); ; setModName2()
+        setModCo2eFa(); setModCo2eLog(); setModCo2eMat(); setFilterArr();
+        setModCo2e(); setModId(); setModName(); setModName2(); setSubmit()
         };
 
     const handleAdd = (e)=>{
         e.preventDefault();
-        console.log("Add")
+        console.log("Added:", modName, modName2, modCo2e, modId);
+        setSubmit(success);
         };
 
     const handleModify = (e)=>{
         e.preventDefault();
-        console.log("Modify")
+        console.log("Modified:", modName, modName2, modCo2e, modId);
+        setSubmit(success);
         };
 
     const handleDelete = (e)=>{
         e.preventDefault();
-        console.log("Delete")
+        console.log("Deleted:", modName, modName2, modCo2e, modId);
+        setSubmit(success);
         };
 
     const inputCo2e1 = 
@@ -133,9 +145,10 @@ function AdminForms() {
                 </div>
 
                 <div className="form-input center-align">
-                    <button onClick={handleAdd && clearForm}>ADD</button>
+                    <button onClick={handleAdd}>ADD</button>
                     <button onClick={clearForm}>CLEAR FORM</button>
                 </div>
+                <div className="form-submit">{submit}</div>
             </div>
 
             <hr className="hr" />
@@ -153,20 +166,20 @@ function AdminForms() {
                         <select
                         className="light-pink" 
                         onChange={(e) => {
-                            setModCo2e(11);
-                            setModCo2eMat(22);
-                            setModId(33);
+                            setFilterArr(material.find((type)=> type.name === e.target.value));
+                            setModCo2e(filterArr.materialCO2E);
+                            setModCo2eMat(filterArr.materialCO2E);
+                            setModId(filterArr._id);
                             setModName(e.target.value);
-                            console.log("here1", 1, modCo2e, 2, modCo2eMat, 3, modId, 4, modName)}}
+                            console.log("Material", 1, modCo2e, 2, modCo2eMat, 3, modId, 4, modName, 5, filterArr)}}
                         >
+                            <option></option>
                             {material.map((type, i) => {
                                 return (
                                     <option 
                                     id={type._id} 
                                     key={i} 
-                                    name={type.materialCO2E}
-                                    value={type.name} 
-                                    placeholder={type.name}
+                                    value={type.name}
                                     >
                                         {type.name}
                                     </option>
@@ -194,21 +207,21 @@ function AdminForms() {
                         <select 
                         className="light-pink"
                         onChange={(e) => {
-                            setModCo2e(11);
-                            setModCo2eLog1(22);
-                            setModId(33);
+                            setFilterArr(logistic.find((type)=> type.productionLocation === e.target.value));
+                            setModCo2e(filterArr.logisticCO2e);
+                            setModCo2eLog(filterArr.logisticCO2e);
+                            setModId(filterArr._id);
                             setModName(e.target.value);
-                            setModName2(44)
-                            console.log("here2", modCo2e, modCo2eLog1, modId, modName, modName2)}}
+                            setModName2(filterArr.consumerLocation)
+                            console.log("Logistics", 1, modCo2e, 2, modCo2eLog, 3, modId, 4, modName, 5, modName2, 6, filterArr)}}
                         >
+                            <option></option>
                             {logistic.map((type, i) => {
                                 return (
                                     <option 
                                     id={type._id} 
                                     key={i} 
-                                    name={type.logisticCO2e}
-                                    value={type.productionLocation} 
-                                    placeholder={type.productionLocation} 
+                                    value={type.productionLocation}
                                     >
                                         {type.productionLocation}
                                     </option>
@@ -236,8 +249,8 @@ function AdminForms() {
                         className="light-pink"
                         type="text"
                         name="co2e"
-                        value={modCo2eLog2}
-                        onChange={(e) => setModCo2eLog2(e.target.value)}
+                        value={modCo2eLog}
+                        onChange={(e) => setModCo2eLog(e.target.value)}
                         ></input>
                     </div>
                 </div>
@@ -250,19 +263,20 @@ function AdminForms() {
                         <select 
                         className="light-pink"
                         onChange={(e) => {
-                            setModCo2e(11);
-                            setModCo2eFa(22);
-                            setModId(33);
-                            setModName(e.target.value)}}
+                            setFilterArr(fastening.find((type)=> type._id === e.target.value));
+                            setModCo2e(filterArr._id);
+                            setModCo2eFa(filterArr._id);
+                            setModId(filterArr._id);
+                            setModName(e.target.value);
+                            console.log("Fastenings", 1, modCo2e, 2, modCo2eMat, 3, modId, 4, modName, 5, filterArr)}}
                         >
+                            <option></option>
                             {fastening.map((type, i) => {
                                 return (
                                     <option 
                                     id={type._id} 
                                     key={i} 
-                                    name={type._id}
-                                    value={type._id} 
-                                    placeholder={type._id} 
+                                    value={type._id}
                                     >
                                         {type._id}
                                     </option>
@@ -283,10 +297,11 @@ function AdminForms() {
                 </div>
 
                 <div className="form-input center-align">
-                    <button onClick={handleModify && clearForm}>MODIFY</button>
-                    <button onClick={handleDelete && clearForm}>DELETE</button>
+                    <button onClick={handleModify}>MODIFY</button>
+                    <button onClick={handleDelete}>DELETE</button>
                     <button onClick={clearForm}>CLEAR FORM</button>
                 </div>
+                <div className="form-submit">{submit}</div>
             </div>
 
         </div>

@@ -67,6 +67,13 @@
     width: 100%;
 }
 
+.form-submit {
+    margin-top: 10px;
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+}
+
 input, select {
     padding: 8px;
     margin: 2px;
