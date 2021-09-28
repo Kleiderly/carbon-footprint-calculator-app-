@@ -1,68 +1,81 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import ProgressBar from './ProgressBar';
-import Materials from './Materials';
-import Logistics1 from './Logistics1';
-import Logistics2 from './Logistics2';
-import Fastenings from './Fastenings';
-import ButtonSelection from './ButtonSelection';
+import { Link } from 'react-router-dom';
+import './css/Category.css';
 
+function Category({ match }) {
+   const [choice, setChoice] = useState('');
 
-function CategorySingle() {
-    
-    const [data, setData] = useState([]);
-    const [co2, setCo2] = useState();
+   const handleClick1 = () => {
+      console.log('click1');
+      setChoice('1');
+   };
 
-    useEffect(()=>{
-        axios.get(`/api/logistic`)
-        .then((res)=> {
-        setData(res.data)
-        })
-        .catch((err)=> console.log(err))
-    }, []);
+   const handleClick2 = () => {
+      console.log('click2');
+      setChoice('2');
+   };
 
-    const handleClick=(e) => {
-        e.preventDefault()
-        console.log('CLICK')
-        setCo2(this.value) 
-    };
+   return (
+      <div className="choiceContainer">
+         <div>
+            {match.params.itemsNumber === '1' ? (
+               <div>
+                  <div
+                     className="beforeClick"
+                     //   className={choice === "1" ? "afterClick" : "beforeClick"}
+                     //   onClick={handleClick1}
+                     value={choice}
+                  >
+                     <img src="" alt="" />
+                  </div>
+               </div>
+            ) : (
+               <div className="itemsContainer">
+                  <div
+                     className={choice === '1' ? 'afterClick' : 'beforeClick'}
+                     onClick={handleClick1}
+                     value={choice}
+                  >
+                     <img src="" alt="" />
+                  </div>
+                  <div
+                     className={choice === '2' ? 'afterClick' : 'beforeClick'}
+                     onClick={handleClick1}
+                     value={choice}
+                  >
+                     <img src="" alt="" />
+                  </div>
+               </div>
+            )}
+         </div>
+         <div className="typeOfItemContainer">
+            <div className="typeOfItemContainerRow">
+               <div className="typeOfItem" onClick={handleClick1}>
+                  <img src="" alt="" />
+               </div>
+            </div>
+            <div className="typeOfItem" onClick={handleClick1}>
+               <img src="" alt="" />
+            </div>
+            <div className="typeOfItem" onClick={handleClick1}>
+               <img src="" alt="" />
+            </div>
 
-    return(
-        <div>
-            progress bar
-            <br />
-            material/logistics1-2/fastenings/result/percentages/details
+            <div className="typeOfItemContainerRow">
+               <div className="typeOfItem" onClick={handleClick1}>
+                  <img src="" alt="" />
+               </div>
+            </div>
+            <div className="typeOfItem" onClick={handleClick1}>
+               <img src="" alt="" />
+            </div>
+            <div className="typeOfItem" onClick={handleClick1}>
+               <img src="" alt="" />
+            </div>
+         </div>
+      </div>
+   );
+}
 
-            <Router>
-                <ProgressBar />
-                <Switch>
-                    <div>
-                        <Route exact path="/category/:choice/materials" component={Materials} />
-                        <Route exact path="/category/:choice/logistics1" component={Logistics1} />
-                        <Route exact path="/category/:choice/logistics2" component={Logistics2} />
-                        <Route exact path="/category/:choice/fastenings" component={Fastenings} />
-
-                        {data.map((info, key) => {
-                            return (
-                                <ButtonSelection 
-                                key={key} 
-                                id={info._id}
-                                name={info.productionLocation}
-                                handleClick={handleClick}
-                                co2={info.logisticCO2e}
-                                />
-                            )
-                        })};
-
-                        <Link to={"back"}>
-                            PREVIOUS QUESTION
-                        </Link>
-                    </div>
-                </Switch>
-            </Router>
-        </div>
-    )
-};
-
-export default CategorySingle;
+export default Category;

@@ -1,5 +1,5 @@
 import React from 'react';
-import "./CSS/Admin.css";
+import "./css/Admin.css";
 
 function AdminForms() {
     
