@@ -29,19 +29,6 @@ function Category({ match }) {
                   >
                      <img src="" alt="" />
                   </div>
-                  <div className="typeOfItemContainer">
-                     <div>
-                        <div className="typeOfItem" onClick={handleClick1}>
-                           <img src="" alt="" />
-                        </div>
-                     </div>
-                     <div className="typeOfItem" onClick={handleClick1}>
-                        <img src="" alt="" />
-                     </div>
-                     <div className="typeOfItem" onClick={handleClick1}>
-                        <img src="" alt="" />
-                     </div>
-                  </div>
                </div>
             ) : (
                <div className="itemsContainer">
@@ -61,6 +48,31 @@ function Category({ match }) {
                   </div>
                </div>
             )}
+         </div>
+         <div className="typeOfItemContainer">
+            <div className="typeOfItemContainerRow">
+               <div className="typeOfItem" onClick={handleClick1}>
+                  <img src="" alt="" />
+               </div>
+            </div>
+            <div className="typeOfItem" onClick={handleClick1}>
+               <img src="" alt="" />
+            </div>
+            <div className="typeOfItem" onClick={handleClick1}>
+               <img src="" alt="" />
+            </div>
+
+            <div className="typeOfItemContainerRow">
+               <div className="typeOfItem" onClick={handleClick1}>
+                  <img src="" alt="" />
+               </div>
+            </div>
+            <div className="typeOfItem" onClick={handleClick1}>
+               <img src="" alt="" />
+            </div>
+            <div className="typeOfItem" onClick={handleClick1}>
+               <img src="" alt="" />
+            </div>
          </div>
       </div>
    );
