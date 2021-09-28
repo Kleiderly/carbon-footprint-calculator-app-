@@ -34,17 +34,32 @@ function AdminForms() {
 
     const success = "Submit successful!";
     const failed = "Submit unsuccessful.";
-    const clearMessage = modId === ""
+    const clearMessage = filterArr === "";
 
     useEffect(()=>{
-        setSubmit()
+        setSubmit();
     }, [clearMessage]);
+
+    useEffect(()=>{ 
+        if(filterArr){
+            setModCo2e("works but needs uniform key");
+            setModId(filterArr._id);
+            setModName2(filterArr.consumerLocation);
+            setModCo2eMat(filterArr.materialCO2E);
+            setModCo2eLog(filterArr.logisticCO2e);
+            setModCo2eFa("needs renaming");
+        } else {
+            clearForm()
+        }
+    }, [filterArr]);
+
 
     const clearForm = ()=>{
         const inputs = document.querySelectorAll("input,select");
         inputs.forEach((item) => (item.value = ""));
-        setModCo2eFa(); setModCo2eLog(); setModCo2eMat(); setFilterArr();
-        setModCo2e(); setModId(); setModName(); setModName2(); setSubmit()
+        setModCo2eFa(); setModCo2eLog(); setModCo2eMat();
+        setModCo2e(); setModId(); setModName2(); 
+        setModName(); setSubmit(); setFilterArr();
         };
 
     const handleAdd = (e)=>{
@@ -119,13 +134,13 @@ function AdminForms() {
                         type="text"
                         name="consLocation"
                         onChange={(e) => {
-                          setModName(e.target.value);
+                          setModName2(e.target.value);
                         }}
                         ></input>
                     </div>
                 </div>
                 <div className="form-item">
-                        {inputCo2e1}
+                    {inputCo2e1}
                 </div>
 
             <h4 className="admin-title">Fastenings</h4>
@@ -148,7 +163,7 @@ function AdminForms() {
                     <button onClick={handleAdd}>ADD</button>
                     <button onClick={clearForm}>CLEAR FORM</button>
                 </div>
-                <div className="form-submit">{submit}</div>
+                <div className="form-submit">&nbsp;{submit}&nbsp;</div>
             </div>
 
             <hr className="hr" />
@@ -167,11 +182,9 @@ function AdminForms() {
                         className="light-pink" 
                         onChange={(e) => {
                             setFilterArr(material.find((type)=> type.name === e.target.value));
-                            setModCo2e(filterArr.materialCO2E);
-                            setModCo2eMat(filterArr.materialCO2E);
-                            setModId(filterArr._id);
                             setModName(e.target.value);
-                            console.log("Material", 1, modCo2e, 2, modCo2eMat, 3, modId, 4, modName, 5, filterArr)}}
+                            console.log("Material", 1, modCo2e, 2, modCo2eMat, 3, modId, 4, modName, 5, filterArr);
+                        }}
                         >
                             <option></option>
                             {material.map((type, i) => {
@@ -208,11 +221,7 @@ function AdminForms() {
                         className="light-pink"
                         onChange={(e) => {
                             setFilterArr(logistic.find((type)=> type.productionLocation === e.target.value));
-                            setModCo2e(filterArr.logisticCO2e);
-                            setModCo2eLog(filterArr.logisticCO2e);
-                            setModId(filterArr._id);
                             setModName(e.target.value);
-                            setModName2(filterArr.consumerLocation)
                             console.log("Logistics", 1, modCo2e, 2, modCo2eLog, 3, modId, 4, modName, 5, modName2, 6, filterArr)}}
                         >
                             <option></option>
@@ -264,9 +273,6 @@ function AdminForms() {
                         className="light-pink"
                         onChange={(e) => {
                             setFilterArr(fastening.find((type)=> type._id === e.target.value));
-                            setModCo2e(filterArr._id);
-                            setModCo2eFa(filterArr._id);
-                            setModId(filterArr._id);
                             setModName(e.target.value);
                             console.log("Fastenings", 1, modCo2e, 2, modCo2eMat, 3, modId, 4, modName, 5, filterArr)}}
                         >
@@ -301,7 +307,7 @@ function AdminForms() {
                     <button onClick={handleDelete}>DELETE</button>
                     <button onClick={clearForm}>CLEAR FORM</button>
                 </div>
-                <div className="form-submit">{submit}</div>
+                <div className="form-submit">&nbsp;{submit}&nbsp;</div>
             </div>
 
         </div>
