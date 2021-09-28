@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect} from 'react';
+import axios from 'axios'
 import Tips from './Tips';
 
 function Fastenings(props) {
+    const [fastenings, setFastenings] = useState([]);
+
+    useEffect(() => {
+        axios
+          .get(`http://localhost:5000/api/fastening`)
+          .then((response) => setFastenings(response.data))
+          .catch((error) => {
+            console.log(error);
+          });
+    }, []);
     
     return (
         <div className="">
