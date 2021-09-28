@@ -34,7 +34,6 @@ app.use('/api/material', require('./routes/material.routes'));
 // Read Frontend from Backend
 app.use((req, res) => res.sendFile(path.join(__dirname, "build", "index.html")));
 
-
 //App listener
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`)
