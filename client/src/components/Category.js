@@ -74,6 +74,17 @@ function Category({ match }) {
                <img src="" alt="" />
             </div>
          </div>
+         <div>
+            {choice === '1' ? (
+               <Link to="/1/materials">
+                  <button type="button">Compare</button>
+               </Link>
+            ) : (
+               <Link to="/2/materials">
+                  <button type="button">Compare</button>
+               </Link>
+            )}
+         </div>
       </div>
    );
 }

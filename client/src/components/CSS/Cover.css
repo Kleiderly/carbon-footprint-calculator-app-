@@ -19,3 +19,7 @@
    height: 200px;
    margin: 20px;
 }
+
+.disabled-link {
+   pointer-events: none;
+ }
