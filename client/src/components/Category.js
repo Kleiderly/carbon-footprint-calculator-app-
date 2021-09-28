@@ -3,7 +3,10 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './css/Category.css';
 
-function Category({ match }) {
+function Category({browser}) {
+
+   console.log(browser)
+
    const [choice, setChoice] = useState('');
 
    const handleClick1 = () => {
@@ -19,7 +22,7 @@ function Category({ match }) {
    return (
       <div className="choiceContainer">
          <div>
-            {match.params.itemsNumber === '1' ? 
+            {browser.match.params.itemsNumber === '1' ? (
                <div>
                   <div
                      className="beforeClick"

@@ -56,7 +56,7 @@ function Cover() {
                   <p>Compare 2 Items</p>
                </div>
             </div>
-            <Link to={choice} className={choice ? null : 'disabled-link'}>
+            <Link to="/1" className={choice ? null : 'disabled-link'}>
                <button type="button">Begin!</button>
             </Link>
          </div>
