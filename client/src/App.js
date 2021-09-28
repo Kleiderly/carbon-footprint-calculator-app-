@@ -26,35 +26,39 @@ function App() {
                <Header />
                <Switch>
                   <Route exact path="/" component={() => <Cover />} />
-                  <Route exact path="/:choice" component={() => <Category />} />
                   <Route
                      exact
-                     path="/:choice/materials"
+                     path="/:itemsNumber"
+                     component={() => <Category />}
+                  />
+                  <Route
+                     exact
+                     path="/:itemsNumber/materials"
                      component={() => <Materials />}
                   />
                   <Route
                      exact
-                     path="/:choice/logistics"
+                     path="/:itemsNumber/logistics"
                      component={() => <Logistics />}
                   />
                   <Route
                      exact
-                     path="/:choice/fastenings"
+                     path="/:itemsNumber/fastenings"
                      component={() => <Fastenings />}
                   />
                   <Route
                      exact
-                     path="/:choice/percentages"
+                     path="/:itemsNumber/percentages"
                      component={() => <Percentages />}
                   />
                   <Route
                      exact
-                     path="/:choice/results"
+                     path="/:itemsNumber/results"
                      component={() => <Results />}
                   />
                   <Route
                      exact
-                     path="/:choice/details"
+                     path="/:itemsNumber/details"
                      component={() => <Details />}
                   />
                   {/* Admin routes */}

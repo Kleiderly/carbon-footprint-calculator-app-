@@ -19,7 +19,7 @@ function Category({ match }) {
    return (
       <div className="choiceContainer">
          <div>
-            {match.params.itemsNumber === '1' ? (
+            {match.params.itemsNumber === '1' ? 
                <div>
                   <div
                      className="beforeClick"
@@ -30,7 +30,7 @@ function Category({ match }) {
                      <img src="" alt="" />
                   </div>
                </div>
-            ) : (
+            : 
                <div className="itemsContainer">
                   <div
                      className={choice === '1' ? 'afterClick' : 'beforeClick'}
@@ -41,13 +41,13 @@ function Category({ match }) {
                   </div>
                   <div
                      className={choice === '2' ? 'afterClick' : 'beforeClick'}
-                     onClick={handleClick1}
+                     onClick={handleClick2}
                      value={choice}
                   >
                      <img src="" alt="" />
                   </div>
                </div>
-            )}
+            }
          </div>
          <div className="typeOfItemContainer">
             <div className="typeOfItemContainerRow">
