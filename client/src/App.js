@@ -26,7 +26,7 @@ function App() {
                 <Switch>
                     <Route exact path="/" component={Cover} />
                     <Route exact path="/admin" component={Admin} />
-                    <Route exact path="/admin/forms"  render={(props) => <AdminForms {...props} key={Date.now()}/>} />
+                    <Route exact path="/admin/forms" component={AdminForms} />
                     <Route exact path="/itemchoice" component={ItemChoice} />
                     <Route exact path="/category/:choice" component={Category} />
                     <Route exact path="/category/:choice/materials" component={Materials} />

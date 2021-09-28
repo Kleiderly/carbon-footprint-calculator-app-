@@ -6,20 +6,16 @@ function Admin() {
     
     return (
         <div className="admin-wrapper">
-            <Router>
-                <Switch>
-                    <div>
-                        <h2>Admin Login</h2>
-                        <div className="admin-login">
-                            <p>Username:</p>
-                            <input></input>
-                            <p>Password:</p>
-                            <input></input>
-                            <Link to="/admin/forms"><button>LOGIN</button></Link>
-                        </div>
-                    </div>
-                </Switch>
-            </Router>
+            <div>
+                <h2>Admin Login</h2>
+                <div className="admin-login">
+                    <p>Username:</p>
+                    <input></input>
+                    <p>Password:</p>
+                    <input></input>
+                    <Link to="/admin/forms"><button>LOGIN</button></Link>
+                </div>
+            </div>
         </div>
     )
 };
