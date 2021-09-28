@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Tips from "./Tips";
 
-function Materials(props) {
-  const [materials, setMaterials] = useState([]);
+function Logistics(props) {
+  const [countriesFrom, setCountriesFrom] = useState([]);
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/material`)
-      .then((response) => setMaterials(response.data))
+      .get(`http://localhost:5000/api/logistic`)
+      .then((response) => setCountriesFrom(response.data))
       .catch((error) => {
         console.log(error);
       });
@@ -34,4 +34,4 @@ function Materials(props) {
   );
 }
 
-export default Materials;
+export default Logistics;
