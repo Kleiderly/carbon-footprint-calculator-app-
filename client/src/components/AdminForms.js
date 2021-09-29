@@ -463,8 +463,8 @@ function AdminForms() {
                     </div>
                 </div>
                 <div className="form-input center-align">
-                    <button onClick={"x"}>MODIFY</button>
-                    <button onClick={"x"}>DELETE</button>
+                    <button onClick={handleModify}>MODIFY</button>
+                    <button onClick={handleDelete}>DELETE</button>
                     <button onClick={clearForm}>CLEAR FORM</button>
                 </div>
                 <div className="form-submit">&nbsp;{submit}&nbsp;</div>
