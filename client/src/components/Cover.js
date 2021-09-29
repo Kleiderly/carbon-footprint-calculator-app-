@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./css/Cover.css";
+import "./CSS/Cover.css";
 
 function Cover() {
   const [choice, setChoice] = useState("");

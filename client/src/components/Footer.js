@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import "./css/Footer.css";
+import "./CSS/Footer.css";
 
 function Footer() {
     
@@ -13,7 +13,7 @@ function Footer() {
                 © 2021 KLEIDERLY
             </div>
             <div className="footer-admin">
-                <Link to="/admin">ADMIN</Link>
+                <Link to="/adminpage/login">ADMIN</Link>
             </div>
         </div>
     )
