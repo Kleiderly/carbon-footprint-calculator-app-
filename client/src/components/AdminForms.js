@@ -85,6 +85,7 @@ function AdminForms() {
     const modOthers = `/api/${modId}/${modName}/${modCo2e}`;
     const modAdmin = `/api/${modId}/${username}/${password}`;
 
+/* Tells which link to use */
     function postInstruction() {
         if(cat === "logistic"){
             return postLogistics
@@ -163,7 +164,7 @@ function AdminForms() {
             type="text"
             name="co2e"
             onChange={(e) => setModCo2e(e.target.value)}
-            ></input>
+            />
         </div>;
         
 
@@ -186,7 +187,7 @@ function AdminForms() {
                           setModName(e.target.value);
                           setSection("form1");
                         }}
-                        ></input>
+                        />
                     </div>
                         {inputCo2e1}
                 </div>
@@ -204,7 +205,7 @@ function AdminForms() {
                           setModName(e.target.value);
                           setSection("form1");
                         }}
-                        ></input>
+                        />
                     </div>
                     <div className="form-input">
                         Consumer Location: <br />
@@ -215,7 +216,7 @@ function AdminForms() {
                         onChange={(e) => {
                           setModName2(e.target.value);
                         }}
-                        ></input>
+                        />
                     </div>
                 </div>
                 <div className="form-item">
@@ -235,15 +236,15 @@ function AdminForms() {
                           setModName(e.target.value);
                           setSection("form1");
                         }}
-                        ></input>
+                        />
                     </div>
                         {inputCo2e1}
                 </div>
 
 {/* SUBMIT buttons */}
                 <div className="form-input center-align">
-                    <button name="form1" onClick={handleAdd}>ADD</button>
-                    <button name="form1" onClick={clearForm}>CLEAR FORM</button>
+                    <button onClick={handleAdd}>ADD</button>
+                    <button onClick={clearForm}>CLEAR FORM</button>
                 </div>
                 <div className="form-submit">&nbsp;{section === "form1" && submit}&nbsp;</div>
             </div>
@@ -292,7 +293,7 @@ function AdminForms() {
                         name="co2e"
                         value={cat === "material" ? modCo2e : ""}
                         onChange={(e) => setModCo2e(e.target.value)}
-                        ></input>
+                        />
                     </div>
                 </div>
 
@@ -333,7 +334,7 @@ function AdminForms() {
                         name="co2e"
                         value={modName2}
                         onChange={(e) => setModName2(e.target.value)}
-                        ></input>
+                        />
                     </div>
                 </div>
 
@@ -346,7 +347,7 @@ function AdminForms() {
                         name="co2e"
                         value={cat === "logistic" ? modCo2e : ""}
                         onChange={(e) => setModCo2e(e.target.value)}
-                        ></input>
+                        />
                     </div>
                 </div>
                 
@@ -386,14 +387,14 @@ function AdminForms() {
                         name="co2e"
                         value={cat === "fastening" ? modCo2e : ""}
                         onChange={(e) => setModCo2e(e.target.value)}
-                        ></input>
+                        />
                     </div>
                 </div>
 
 {/* SUBMIT buttons */}
                 <div className="form-input center-align">
-                    <button name="form2" onClick={handleModify}>MODIFY</button>
-                    <button name="form2" onClick={handleDelete}>DELETE</button>
+                    <button onClick={handleModify}>MODIFY</button>
+                    <button onClick={handleDelete}>DELETE</button>
                     <button onClick={clearForm}>CLEAR FORM</button>
                 </div>
                 <div className="form-submit">&nbsp;{section === "form2" && submit}&nbsp;</div>
@@ -419,7 +420,7 @@ function AdminForms() {
                           setUsername(e.target.value);
                           setSection("form3");
                         }}
-                        ></input>
+                        />
                     </div>
                     <div className="form-input">
                         Password: <br />
@@ -429,7 +430,7 @@ function AdminForms() {
                         name="password"
                         id="passw"
                         onChange={(e) => setPassword(e.target.value)}
-                        ></input>
+                        />
                     </div>
                 </div>
                 <div className="form-item password-field">
@@ -480,7 +481,7 @@ function AdminForms() {
                         id="passw2"
                         value={cat === "admin" ? password : ""}
                         onChange={(e) => setPassword(e.target.value)}
-                        ></input>
+                        />
                         </div>
                     </div>
                 <div className="form-item password-field">
@@ -488,8 +489,8 @@ function AdminForms() {
                 </div>
                 <div className="form-input center-align">
 {/* DELETE/MODIFY ADMIN buttons*/}
-                    <button name="form3" onClick={handleModify}>MODIFY</button>
-                    <button name="form3" onClick={handleDelete}>DELETE</button>
+                    <button onClick={handleModify}>MODIFY</button>
+                    <button onClick={handleDelete}>DELETE</button>
                     <button onClick={clearForm}>CLEAR FORM</button>
                 </div>
                 <div className="form-submit">&nbsp;{section === "form4" && submit}&nbsp;</div>

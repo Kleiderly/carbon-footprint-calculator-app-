@@ -10,9 +10,13 @@ function Admin() {
                 <h2>Admin Login</h2>
                 <div className="admin-login">
                     <p>Username:</p>
-                    <input></input>
+                    <input
+                        type="text"
+                    />
                     <p>Password:</p>
-                    <input></input>
+                    <input
+                        type="password"
+                    />
                     <Link to="/adminpage/forms">
                         <button>LOGIN</button>
                     </Link>
