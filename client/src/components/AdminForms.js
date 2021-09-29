@@ -33,7 +33,7 @@ function AdminForms() {
     }, []);
 
     const success = "Submit successful!";
-    const failed = "Submit unsuccessful.";
+    const failed = "Submit unsuccessful";
     const clearMessage = filterArr === "";
 
     useEffect(()=>{
@@ -62,23 +62,48 @@ function AdminForms() {
 
 /* ROUTES */
 
+    const postLogistics = `http://localhost:5000/${cat}/${modName}/${modName2}/${modCo2e}`;
+    const postOthers = `http://localhost:5000/${cat}/${modName}/${modCo2e}`;
+
     const handleAdd = (e)=>{
         e.preventDefault();
-        console.log("Added:", modName, modName2, modCo2e, modId);
-        setSubmit(success);
-        };
+        axios
+        .post(
+          cat === "logistic" ? postLogistics : postOthers
+        )
+        .then((res) => {
+          console.log(res);
+          console.log("Added:", modName, modName2, modCo2e, modId);
+          setSubmit(success);
+        })
+        .catch((err) => {
+          console.log(err);
+          setSubmit(failed,`:`, err);
+        });
+    };
 
     const handleModify = (e)=>{
         e.preventDefault();
-        console.log("Modified:", modName, modName2, modCo2e, modId);
-        setSubmit(success);
-        };
+        axios
+        .put(
+          `http://localhost:5000/${cat}/${modId}`
+        )
+        .then((res) => {
+            res.send('Item modified');
+            console.log("Modified:", modName, modName2, modCo2e, modId);
+            setSubmit(success);
+        })
+        .catch((err) => {
+            console.log(err);
+            setSubmit(failed,`:`, err);
+        });
+    };
 
     const handleDelete = (e)=>{
         e.preventDefault();
         axios
         .delete(
-          `URL`
+          `http://localhost:5000/${cat}/${modId}`
         )
         .then((res) => {
             res.send('Item deleted');
@@ -87,7 +112,7 @@ function AdminForms() {
         })
         .catch((err) => {
             console.log(err);
-            setSubmit(failed);
+            setSubmit(failed,`:`, err);
         });
     };
 
@@ -195,7 +220,7 @@ function AdminForms() {
                         onChange={(e) => {
                             setFilterArr(material.find((type)=> type.name === e.target.value));
                             setModName(e.target.value);
-                            setCat("mat");
+                            setCat("material");
                             console.log("Material", modCo2e, modId, modName, filterArr);
                         }}>
                             <option></option>
@@ -218,7 +243,7 @@ function AdminForms() {
                         className="light-pink"
                         type="text"
                         name="co2e"
-                        value={cat === "mat" ? modCo2e : ""}
+                        value={cat === "material" ? modCo2e : ""}
                         onChange={(e) => setModCo2e(e.target.value)}
                         ></input>
                     </div>
@@ -234,7 +259,7 @@ function AdminForms() {
                         onChange={(e) => {
                             setFilterArr(logistic.find((type)=> type.productionLocation === e.target.value));
                             setModName(e.target.value);
-                            setCat("log");
+                            setCat("logistic");
                             console.log("Logistics", modCo2e, modId, modName, modName2, filterArr);
                         }}>
                             <option></option>
@@ -271,7 +296,7 @@ function AdminForms() {
                         className="light-pink"
                         type="text"
                         name="co2e"
-                        value={cat === "log" ? modCo2e : ""}
+                        value={cat === "logistic" ? modCo2e : ""}
                         onChange={(e) => setModCo2e(e.target.value)}
                         ></input>
                     </div>
@@ -287,7 +312,7 @@ function AdminForms() {
                         onChange={(e) => {
                             setFilterArr(fastening.find((type)=> type.name === e.target.value));
                             setModName(e.target.value);
-                            setCat("fas");
+                            setCat("fastening");
                             console.log("Fastenings", modCo2e, modId, modName, filterArr);
                         }}>
                             <option></option>
@@ -310,7 +335,7 @@ function AdminForms() {
                         className="light-pink"
                         type="text"
                         name="co2e"
-                        value={cat === "fas" ? modCo2e : ""}
+                        value={cat === "fastening" ? modCo2e : ""}
                         onChange={(e) => setModCo2e(e.target.value)}
                         ></input>
                     </div>
