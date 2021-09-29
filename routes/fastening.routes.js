@@ -12,8 +12,11 @@ fasteningRouter.get('/', (req,res) => {
 
 
 //POST Routes
+
 fasteningRouter.post('/:name/:co2e', (req, res) => {
     const {name, co2e } = req.params
+
+
 
     Fastening.create({ name, co2e })
     .then((result) =>{

@@ -14,8 +14,10 @@ logisticRouter.get('/', (req,res)=> {
 
 
 //POST Routes
+
 logisticRouter.post('/:productionLocation/:consumerLocation/:co2e', (req, res) => {
     const { productionLocation, consumerLocation, co2e } = req.params
+
 
     Logistic.create({ productionLocation, consumerLocation, co2e })
     .then((data) => {
