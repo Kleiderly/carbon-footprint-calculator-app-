@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap');
 
-.admin-wrapper{
+.admin-wrapper {
     display: flex;
     justify-content: center;
     text-align: center;
@@ -24,15 +24,71 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-input {
+/* FORMS */
+.forms-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #0E2823;
+    font-family: 'Montserrat', sans-serif;
+    padding: 20px;
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 20px;
+}
+
+.form-item {
+    display: flex;
+}
+
+.form-input {
+    margin: 10px;
+    text-align: left;
+}
+
+.admin-title {
+    margin-bottom: 1px;
+}
+
+.light-pink {
+    background-color: #f7ebe89d;
+}
+
+.center-align {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.form-submit {
+    margin-top: 10px;
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+}
+
+input, select {
     padding: 8px;
+    margin: 2px;
     border-radius: 10px;
     border: solid 1px rgba(0, 0, 0, 0.301);
     width: 200px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 input:focus, textarea:focus, select:focus {
     outline: none;
+}
+
+select {
+    width: 220px;
 }
 
 button {
@@ -44,9 +100,15 @@ button {
     border: 0;
     color: #F7EBE8;
     font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
 }
 
 button:hover, button:active {
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
     background-color: #1a4b41;
+}
+
+.hr {
+    border: 1px solid #091b18;
+    width: 500px;
 }

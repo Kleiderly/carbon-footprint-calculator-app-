@@ -1,3 +1,7 @@
+.cover-wrapper {
+  margin: 0 20px 0 20px;
+}
+
 .choiceContainer {
     display: flex;
     flex-direction: column;
@@ -12,6 +16,7 @@
     height: 200px;
     margin: 20px;
  }
+
  .beforeClick {
     background: rgba(14, 40, 35, 0.79);
     border: 1px solid gray;
@@ -19,4 +24,3 @@
     height: 200px;
     margin: 20px;
  }
- 

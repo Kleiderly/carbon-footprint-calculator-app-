@@ -7,8 +7,6 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, "build")));
 
-
-
 const port = process.env.PORT || 5000;
 
 mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.xge0g.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`)
@@ -18,6 +16,8 @@ mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD
 //Middleware needed to receive the req.body
 app.use(express.json());
 
+// To solve issue with dual servers
+app.use((req, res, next)=> { res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000"); res.setHeader("Access-Control-Allow-Credentials", true); next(); });
 
 //Models
 const Logistic = require('./models/Logistic');
