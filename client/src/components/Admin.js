@@ -1,6 +1,6 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import "./CSS/Admin.css";
+import React from "react";
+import { Link } from "react-router-dom";
+import "./css/Admin.css";
 
 function Admin() {
     

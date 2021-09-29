@@ -1,42 +1,61 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import "./CSS/Cover.css";
-import Category from './Category';
-import Results from './Results';
-import Percentages from './Percentages';
-import Details from './Details';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import "./css/Cover.css";
 
 function Cover() {
-    
-    const [choice, setChoice] = useState("");
-    // const handleClick=(c) => {
-    //     setChoice(c)
-    // };
+  const [choice, setChoice] = useState("");
 
-    return (
-        <div className="cover-wrapper">
-            <Router>
-                <Switch>
-                    <div>
-                        INTRO
-                        <br />
-                        What will you calculate?
-                        <br />
-                        {/* <button className={choice === "single_choice" ? "chosen" : "black"} onClick={handleClick("single_choice")}>ONE CHOICE PIC</button>
-                        <br />
-                        <button className={choice === "dual_choice" ? "chosen" : "black"} onClick={handleClick("dual_choice")}>TWO CHOICES PIC</button>
-                        <br />
-                        <Link to={`/item_choice/${choice}`}>BEGIN!</Link> */}
-                        
-                        <Route exact path="/category/:choice" component={Category} />
-                        <Route exact path="/results/:choice" component={Results} />
-                        <Route exact path="/percentages/:choice" component={Percentages} />
-                        <Route exact path="/details/:choice" component={Details} />
-                    </div>
-                </Switch>
-            </Router>
+  const handleClick1 = () => {
+    console.log("click1");
+    setChoice("1");
+  };
+
+  const handleClick2 = () => {
+    console.log("click2");
+    setChoice("2");
+  };
+
+  return (
+    <div className="">
+      <div>
+        INTRO
+        <br />
+        What will you calculate?
+        <br />
+        <div className="choiceContainer">
+          <div>
+            <div
+              className={choice === "1" ? "afterClick" : "beforeClick"}
+              onClick={handleClick1}
+              value={choice}
+            >
+              <img src="" alt="" />
+            </div>
+            <p>Calculate 1 item</p>
+          </div>
+          <div>
+            <div
+              className={choice === "2" ? "afterClick" : "beforeClick"}
+              onClick={handleClick2}
+              value={choice}
+            >
+              <img src="" alt="" />
+            </div>
+            <p>Compare 2 Items</p>
+          </div>
         </div>
-    )
-};
+        {choice === "1" ? (
+          <Link to="/1">
+            <button type="button">Begin!</button>
+          </Link>
+        ) : (
+          <Link to="/2">
+            <button type="button">Begin!</button>
+          </Link>
+        )}
+      </div>
+    </div>
+  );
+}
 
 export default Cover;
