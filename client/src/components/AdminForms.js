@@ -72,7 +72,9 @@ function AdminForms() {
 /* Show/Hide password field */
     const showPw = ()=> {
         const pw = document.getElementById("passw");
+        const pw2 = document.getElementById("passw2");
         pw.type === "password" ? pw.type = "text" : pw.type = "password"
+        pw2.type === "password" ? pw2.type = "text" : pw2.type = "password"
     };
 
 /* ROUTES */
@@ -475,7 +477,7 @@ function AdminForms() {
                         className="light-pink"
                         type="password"
                         name="password"
-                        id="passw"
+                        id="passw2"
                         value={cat === "admin" ? password : ""}
                         onChange={(e) => setPassword(e.target.value)}
                         ></input>
