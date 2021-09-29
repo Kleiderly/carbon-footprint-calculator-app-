@@ -1,0 +1,9 @@
+.typeOfItemContainer {
+   display: flex;
+   justify-content: center;
+   align-content: center;
+}
+
+img {
+   width: 75px;
+}

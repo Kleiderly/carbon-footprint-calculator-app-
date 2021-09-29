@@ -17,7 +17,16 @@ import Footer from './components/Footer';
 import Percentages from './components/Percentages';
 
 function App() {
-   const [result, setResult] = useState({ first: {}, second: {} });
+   const [result, setResult] = useState({
+      itemTypeAdress1: 'fcvb',
+      countryCO2e1: null,
+      materialCO2e1: null,
+      fasteningCO2e1: null,
+      itemTypeAdress2: '',
+      countryCO2e2: null,
+      materialCO2e2: null,
+      fasteningCO2e2: null,
+   });
 
    return (
       <div className="App">
@@ -26,11 +35,16 @@ function App() {
                <Header />
                <Switch>
                   <Route exact path="/" component={() => <Cover />} />
-                  <Route exact path="/:choice" component={(browser)=> <Category browser={browser}/>} />  
                   <Route
                      exact
                      path="/:choice"
-                     component={() => <Category />}
+                     component={(browser) => (
+                        <Category
+                           browser={browser}
+                           result={result}
+                           setResult={setResult}
+                        />
+                     )}
                   />
                   <Route
                      exact
