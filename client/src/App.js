@@ -18,11 +18,11 @@ import Percentages from './components/Percentages';
 
 function App() {
    const [result, setResult] = useState({
-      itemTypeAdress1: 'fcvb',
+      itemTypeAdress1: null,
       countryCO2e1: null,
       materialCO2e1: null,
       fasteningCO2e1: null,
-      itemTypeAdress2: '',
+      itemTypeAdress2: null,
       countryCO2e2: null,
       materialCO2e2: null,
       fasteningCO2e2: null,
