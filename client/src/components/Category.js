@@ -3,7 +3,10 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "./css/Category.css";
 
-function Category({ browser }) {
+import { itemList } from './data';
+import CategoryItemBox from './CategoryItemBox';
+
+function Category({ browser, result, saverAdress01}) {
   console.log(browser);
 
   const [choice, setChoice] = useState("");
@@ -18,6 +21,10 @@ function Category({ browser }) {
     setChoice("2");
   };
 
+  const saverPowerSave = (() => {
+    saverAdress01(result.itemTypeAdress1 = "I got it")
+    console.log(result)
+  })
   return (
     <div className="choiceContainer">
       <div>
@@ -76,6 +83,7 @@ function Category({ browser }) {
           <img src="" alt="" />
         </div>
       </div>
+      <p onClick={saverPowerSave}>click</p>
       <div>
         {choice === "1" ? (
           <Link to="/1/materials">
