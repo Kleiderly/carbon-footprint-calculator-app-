@@ -13,7 +13,7 @@ fasteningRouter.get('/', (req,res) => {
 
 //POST Routes
 fasteningRouter.post('/', (req, res) => {
-    const { buttonPlastic, buttonMetal, zipper } = req.body
+    const { name, co2e } = req.body
 
     Fastening.create({ buttonPlastic, buttonMetal, zipper })
     .then((result) =>{

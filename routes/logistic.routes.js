@@ -5,7 +5,7 @@ const Logistic = require('../models/Logistic');
 
 //GET Routes
 logisticRouter.get('/', (req,res)=> {
-    const { productionLocation, consumerLocation, logisticCO2e } = req.body;
+    const { productionLocation, consumerLocation, co2e } = req.body;
 
     Logistic.find({})
     .then((result) => res.status(200).send(result))
@@ -15,7 +15,7 @@ logisticRouter.get('/', (req,res)=> {
 
 //POST Routes
 logisticRouter.post('/', (req, res) => {
-    const { productionLocation, consumerLocation, logisticCO2e } = req.body
+    const { productionLocation, consumerLocation, co2e } = req.body
 
     Logistic.create({ productionLocation, consumerLocation, logisticCO2e })
     .then((data) => {
