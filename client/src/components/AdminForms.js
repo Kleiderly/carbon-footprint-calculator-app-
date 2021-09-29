@@ -65,10 +65,15 @@ function AdminForms() {
     const clearForm = ()=>{
         const inputs = document.querySelectorAll("input,select");
         inputs.forEach((item) => (item.value = ""));
-        setModCo2e(); setModId(); setModName2(); setCat();
+        setModCo2e(); setModId(); setModName2(); setCat(); setSection();
         setModName(); setSubmit(); setFilterArr(); setUsername(); setPassword();
     };
 
+/* Show/Hide password field */
+    const showPw = ()=> {
+        const pw = document.getElementById("passw");
+        pw.type === "password" ? pw.type = "text" : pw.type = "password"
+    };
 
 /* ROUTES */
     const postLogistics = `/api/${cat}/${modName}/${modName2}/${modCo2e}`;
@@ -104,9 +109,9 @@ function AdminForms() {
         axios
         .post(postInstruction)
         .then((res) => {
-          console.log(res);
-          console.log("Added:", modName, modName2, modCo2e, modId, username, password);
-          setSubmit(success);
+            console.log(res);
+            console.log("Added:", modName, modName2, modCo2e, modId, username, password);
+            setSubmit(success);
         })
         .catch((err) => {
           console.log(err);
@@ -134,7 +139,7 @@ function AdminForms() {
         e.preventDefault();
         axios
         .delete(
-          `/api/${cat}/${modId}`
+            `/api/${cat}/${modId}`
         )
         .then((res) => {
             console.log("Deleted:", modName, modName2, modCo2e, modId, username, password);
@@ -150,13 +155,13 @@ function AdminForms() {
 /* POST to X co2e first form value input HTML (repeated) */
     const inputCo2e1 = 
         <div className="form-input">
-        Co2e per item: <br />
-        <input 
-        className="light-pink"
-        type="text"
-        name="co2e"
-        onChange={(e) => setModCo2e(e.target.value)}
-        ></input>
+            Co2e per item: <br />
+            <input 
+            className="light-pink"
+            type="text"
+            name="co2e"
+            onChange={(e) => setModCo2e(e.target.value)}
+            ></input>
         </div>;
         
 
@@ -177,6 +182,7 @@ function AdminForms() {
                         name="material"
                         onChange={(e) => {
                           setModName(e.target.value);
+                          setSection("form1");
                         }}
                         ></input>
                     </div>
@@ -194,6 +200,7 @@ function AdminForms() {
                         name="prodLocation"
                         onChange={(e) => {
                           setModName(e.target.value);
+                          setSection("form1");
                         }}
                         ></input>
                     </div>
@@ -224,6 +231,7 @@ function AdminForms() {
                         name="consLocation"
                         onChange={(e) => {
                           setModName(e.target.value);
+                          setSection("form1");
                         }}
                         ></input>
                     </div>
@@ -232,8 +240,8 @@ function AdminForms() {
 
 {/* SUBMIT buttons */}
                 <div className="form-input center-align">
-                    <button onClick={handleAdd}>ADD</button>
-                    <button onClick={clearForm}>CLEAR FORM</button>
+                    <button name="form1" onClick={handleAdd}>ADD</button>
+                    <button name="form1" onClick={clearForm}>CLEAR FORM</button>
                 </div>
                 <div className="form-submit">&nbsp;{section === "form1" && submit}&nbsp;</div>
             </div>
@@ -257,6 +265,7 @@ function AdminForms() {
                             setFilterArr(material.find((type)=> type.name === e.target.value));
                             setModName(e.target.value);
                             setCat("material");
+                            setSection("form2");
                             console.log("Material", modCo2e, modId, modName, filterArr);
                         }}>
                             <option></option>
@@ -296,6 +305,7 @@ function AdminForms() {
                             setFilterArr(logistic.find((type)=> type.productionLocation === e.target.value));
                             setModName(e.target.value);
                             setCat("logistic");
+                            setSection("form2");
                             console.log("Logistics", modCo2e, modId, modName, modName2, filterArr);
                         }}>
                             <option></option>
@@ -349,6 +359,7 @@ function AdminForms() {
                             setFilterArr(fastening.find((type)=> type.name === e.target.value));
                             setModName(e.target.value);
                             setCat("fastening");
+                            setSection("form2");
                             console.log("Fastenings", modCo2e, modId, modName, filterArr);
                         }}>
                             <option></option>
@@ -379,8 +390,8 @@ function AdminForms() {
 
 {/* SUBMIT buttons */}
                 <div className="form-input center-align">
-                    <button onClick={handleModify && setSection("form2")}>MODIFY</button>
-                    <button onClick={handleDelete && setSection("form2")}>DELETE</button>
+                    <button name="form2" onClick={handleModify}>MODIFY</button>
+                    <button name="form2" onClick={handleDelete}>DELETE</button>
                     <button onClick={clearForm}>CLEAR FORM</button>
                 </div>
                 <div className="form-submit">&nbsp;{section === "form2" && submit}&nbsp;</div>
@@ -404,6 +415,7 @@ function AdminForms() {
                         name="username"
                         onChange={(e) => {
                           setUsername(e.target.value);
+                          setSection("form3");
                         }}
                         ></input>
                     </div>
@@ -411,17 +423,22 @@ function AdminForms() {
                         Password: <br />
                         <input 
                         className="light-pink"
-                        type="text"
+                        type="password"
                         name="password"
+                        id="passw"
                         onChange={(e) => setPassword(e.target.value)}
                         ></input>
                     </div>
                 </div>
+                <div className="form-item password-field">
+                    <input type="checkbox" className="pw-checkbox" onClick={showPw} />Show Password
+                </div>
                 <div className="form-input center-align">
-                    <button onClick={"x"}>ADD</button>
+{/* POST to ADMIN  buttons*/}
+                    <button onClick={handleAdd}>ADD</button>
                     <button onClick={clearForm}>CLEAR FORM</button>
                 </div>
-                <div className="form-submit">&nbsp;{submit}&nbsp;</div>
+                <div className="form-submit">&nbsp;{section === "form3" && submit}&nbsp;</div>
 
 
 {/* DELETE/MODIFY ADMIN */}
@@ -435,6 +452,7 @@ function AdminForms() {
                             setFilterArr(admin.find((type)=> type.username === e.target.value));
                             setUsername(e.target.value);
                             setCat("admin");
+                            setSection("form4");
                             console.log("Admin", username, password, filterArr);
                         }}>
                             <option></option>
@@ -453,20 +471,26 @@ function AdminForms() {
                     </div>
                     <div className="form-input">
                         Password: <br />
-                        <input 
+                        <input
                         className="light-pink"
-                        type="text"
+                        type="password"
                         name="password"
+                        id="passw"
+                        value={cat === "admin" ? password : ""}
                         onChange={(e) => setPassword(e.target.value)}
                         ></input>
+                        </div>
                     </div>
+                <div className="form-item password-field">
+                    <input type="checkbox" className="pw-checkbox" onClick={showPw} />Show Password
                 </div>
                 <div className="form-input center-align">
-                    <button onClick={handleModify}>MODIFY</button>
-                    <button onClick={handleDelete}>DELETE</button>
+{/* DELETE/MODIFY ADMIN buttons*/}
+                    <button name="form3" onClick={handleModify}>MODIFY</button>
+                    <button name="form3" onClick={handleDelete}>DELETE</button>
                     <button onClick={clearForm}>CLEAR FORM</button>
                 </div>
-                <div className="form-submit">&nbsp;{section === "form3" && submit}&nbsp;</div>
+                <div className="form-submit">&nbsp;{section === "form4" && submit}&nbsp;</div>
             </div>
         </div>
     )
