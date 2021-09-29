@@ -17,10 +17,11 @@ function AdminForms() {
     const [submit, setSubmit] = useState();
     const [cat, setCat] = useState("");
 /* API call links */
-    const materialAPI = axios.get(`http://localhost:5000/api/material`);
-    const logisticAPI = axios.get(`http://localhost:5000/api/logistic`);
-    const fasteningAPI = axios.get(`http://localhost:5000/api/fastening`);
+    const materialAPI = axios.get(`/api/material`);
+    const logisticAPI = axios.get(`/api/logistic`);
+    const fasteningAPI = axios.get(`/api/fastening`);
 
+/* API calls */
     useEffect(()=>{
         axios.all([materialAPI, logisticAPI, fasteningAPI])
         .then(axios.spread((...res) => {
@@ -32,11 +33,11 @@ function AdminForms() {
         .catch((err)=> console.log(err))
     }, []);
 
+/* Clear submit message when form is clear */
     const success = "Submit successful!";
     const failed = "Submit unsuccessful";
     const clearMessage = filterArr === "";
 
-/* Clear submit message when form is clear */
     useEffect(()=>{
         setSubmit();
     }, [clearMessage]);
@@ -58,14 +59,14 @@ function AdminForms() {
         inputs.forEach((item) => (item.value = ""));
         setModCo2e(); setModId(); setModName2(); setCat();
         setModName(); setSubmit(); setFilterArr();
-        };
+    };
 
 
 /* ROUTES */
-    const postLogistics = `http://localhost:5000/api/${cat}/${modName}/${modName2}/${modCo2e}`;
-    const postOthers = `http://localhost:5000/api/${cat}/${modName}/${modCo2e}`;
-    const modLogistics = `http://localhost:5000/api/${modId}/${modName}/${modName2}/${modCo2e}`;
-    const modOthers = `http://localhost:5000/api/${modId}/${modName}/${modCo2e}`;
+    const postLogistics = `/api/${cat}/${modName}/${modName2}/${modCo2e}`;
+    const postOthers = `/api/${cat}/${modName}/${modCo2e}`;
+    const modLogistics = `/api/${modId}/${modName}/${modName2}/${modCo2e}`;
+    const modOthers = `/api/${modId}/${modName}/${modCo2e}`;
 
 /* POST */
     const handleAdd = (e)=>{
@@ -108,7 +109,7 @@ function AdminForms() {
         e.preventDefault();
         axios
         .delete(
-          `http://localhost:5000/${cat}/${modId}`
+          `/api/${cat}/${modId}`
         )
         .then((res) => {
             res.send('Item deleted');
@@ -122,7 +123,7 @@ function AdminForms() {
     };
 
 
-/* ADD to X co2e value input HTML */
+/* ADD to X co2e first form value input HTML (repeated) */
     const inputCo2e1 = 
         <div className="form-input">
         Co2e per item: <br />
@@ -134,6 +135,7 @@ function AdminForms() {
         ></input>
         </div>;
         
+
     return (
         <div className="forms-wrapper">
 
@@ -204,6 +206,7 @@ function AdminForms() {
                         {inputCo2e1}
                 </div>
 
+{/* SUBMIT buttons */}
                 <div className="form-input center-align">
                     <button onClick={handleAdd}>ADD</button>
                     <button onClick={clearForm}>CLEAR FORM</button>
