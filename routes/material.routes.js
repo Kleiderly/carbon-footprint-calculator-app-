@@ -5,7 +5,7 @@ const Material = require('../models/Material');
 
 //GET Routes
 materialRouter.get('/', (req,res)=>{
-    const {name,materialCO2E } = req.body
+    const {name, co2e } = req.body
 
     Material.find({})
     .then((result)=> res.status(200).send(result))
@@ -15,9 +15,9 @@ materialRouter.get('/', (req,res)=>{
 
 //POST Routes
 materialRouter.post('/', (req, res) => {
-    const { name, materialCO2E } = req.body
+    const { name, co2e } = req.body
 
-    Material.create({ name, materialCO2E })
+    Material.create({ name, co2e })
     .then((data) => {
         res.status(200).send(data)
     })

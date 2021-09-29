@@ -10,6 +10,10 @@ adminRouter.get('/', (req, res)=>{
 })
 
 
+adminRouter.post('/', (req, res)=>{
+    
+})
+
 
 
 module.exports = adminRouter;
