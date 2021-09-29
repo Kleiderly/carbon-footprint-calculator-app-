@@ -30,39 +30,39 @@ function App() {
                   <Route
                      exact
                      path="/:choice/materials"
-                     component={() => <Materials />}
+                     component={(browser) => <Materials browser={browser}/>}
                   />
                   <Route
                      exact
                      path="/:choice/logistics"
-                     component={() => <Logistics />}
+                     component={(browser) => <Logistics browser={browser}/>}
                   />
                   <Route
                      exact
                      path="/:choice/fastenings"
-                     component={() => <Fastenings />}
+                     component={(browser) => <Fastenings browser={browser}/>}
                   />
                   <Route
                      exact
                      path="/:choice/percentages"
-                     component={() => <Percentages />}
+                     component={(browser) => <Percentages browser={browser}/>}
                   />
                   <Route
                      exact
                      path="/:choice/results"
-                     component={() => <Results />}
+                     component={(browser) => <Results browser={browser}/>}
                   />
                   <Route
                      exact
                      path="/:choice/details"
-                     component={() => <Details />}
+                     component={(browser) => <Details browser={browser}/>}
                   />
                   {/* Admin routes */}
-                  <Route exact path="/admin" component={() => <Admin />} />
+                  <Route exact path="/adminpage/login" component={(browser) => <Admin browser={browser}/>} />
                   <Route
                      exact
                      path="/admin/forms"
-                     component={() => <AdminForms />}
+                     component={(browser) => <AdminForms browser={browser}/>}
                   />
                </Switch>
                <Footer />
