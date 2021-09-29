@@ -1,5 +1,6 @@
 require('dotenv').config();
 
+
 const path = require('path')
 const express = require('express');
 const mongoose = require('mongoose');
@@ -23,12 +24,15 @@ app.use((req, res, next)=> { res.setHeader("Access-Control-Allow-Origin", "http:
 const Logistic = require('./models/Logistic');
 const Material = require('./models/Material');
 const Fastening = require('./models/Fastening');
+const Admin = require('./models/Admin');
 
 
 //Routes
 app.use('/api/logistic', require('./routes/logistic.routes'));
 app.use('/api/fastening', require('./routes/fastening.routes'));
 app.use('/api/material', require('./routes/material.routes'));
+app.use('/api/admin', require('./routes/admin.routes'));
+
 
 
 // Read Frontend from Backend
