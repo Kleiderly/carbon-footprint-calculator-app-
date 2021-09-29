@@ -7,28 +7,34 @@ function AdminForms() {
     const [material, setMaterial] = useState([]);
     const [logistic, setLogistic] = useState([]);
     const [fastening, setFastening] = useState([]);
+    const [admin, setAdmin] = useState([]);
 /* Chosen values for submission */
     const [modName, setModName] = useState("");
     const [modName2, setModName2] = useState("");
     const [modCo2e, setModCo2e] = useState();
-    const [modId, setModId] = useState("");
+    const [modId, setModId] = useState();
+/* Chosen username/password */
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
 /* Chosen object values / Message after submit / Chosen category */
     const [filterArr, setFilterArr] = useState([]);
-    const [submit, setSubmit] = useState();
+    const [submit, setSubmit] = useState("");
     const [cat, setCat] = useState("");
 /* API call links */
     const materialAPI = axios.get(`/api/material`);
     const logisticAPI = axios.get(`/api/logistic`);
     const fasteningAPI = axios.get(`/api/fastening`);
+    const adminAPI = axios.get(`/api/admin`);
 
 /* API calls */
     useEffect(()=>{
-        axios.all([materialAPI, logisticAPI, fasteningAPI])
+        axios.all([materialAPI, logisticAPI, fasteningAPI, adminAPI])
         .then(axios.spread((...res) => {
-            console.log(res[0].data, res[1].data, res[2].data);
+            console.log(res[0].data, res[1].data, res[2].data, res[3].data);
             setMaterial(res[0].data);
             setLogistic(res[1].data);
             setFastening(res[2].data);
+            setAdmin(res[3].data);
         }))
         .catch((err)=> console.log(err))
     }, []);
@@ -48,6 +54,7 @@ function AdminForms() {
             setModCo2e(filterArr.co2e);
             setModId(filterArr._id);
             setModName2(filterArr.consumerLocation);
+            setPassword(filterArr.password);
             } else {
                 clearForm()
             }
@@ -58,26 +65,46 @@ function AdminForms() {
         const inputs = document.querySelectorAll("input,select");
         inputs.forEach((item) => (item.value = ""));
         setModCo2e(); setModId(); setModName2(); setCat();
-        setModName(); setSubmit(); setFilterArr();
+        setModName(); setSubmit(); setFilterArr(); setUsername(); setPassword();
     };
 
 
-/* ROUTES */
+/* ROUTES MAIN DATABASE */
     const postLogistics = `/api/${cat}/${modName}/${modName2}/${modCo2e}`;
     const postOthers = `/api/${cat}/${modName}/${modCo2e}`;
+    const postAdmin = `/api/admin/${username}/${password}`;
     const modLogistics = `/api/${modId}/${modName}/${modName2}/${modCo2e}`;
     const modOthers = `/api/${modId}/${modName}/${modCo2e}`;
+    const modAdmin = `/api/${modId}/${username}/${password}`;
+
+    function postInstruction() {
+        if(cat === "logistic"){
+            return postLogistics
+        }else if(cat === "admin"){
+            return postAdmin
+        }else{
+            return postOthers
+        }
+    };
+
+    function modInstruction() {
+        if(cat === "logistic"){
+            return modLogistics
+        }else if(cat === "admin"){
+            return modAdmin
+        }else{
+            return modOthers
+        }
+};
 
 /* POST */
     const handleAdd = (e)=>{
         e.preventDefault();
         axios
-        .post(
-          cat === "logistic" ? postLogistics : postOthers
-        )
+        .post(postInstruction)
         .then((res) => {
           console.log(res);
-          console.log("Added:", modName, modName2, modCo2e, modId);
+          console.log("Added:", modName, modName2, modCo2e, modId, username, password);
           setSubmit(success);
         })
         .catch((err) => {
@@ -90,12 +117,10 @@ function AdminForms() {
     const handleModify = (e)=>{
         e.preventDefault();
         axios
-        .put(
-            cat === "logistic" ? modLogistics : modOthers
-        )
+        .put(modInstruction)
         .then((res) => {
             res.send('Item modified');
-            console.log("Modified:", modName, modName2, modCo2e, modId);
+            console.log("Modified:", modName, modName2, modCo2e, modId, username, password);
             setSubmit(success);
         })
         .catch((err) => {
@@ -113,7 +138,7 @@ function AdminForms() {
         )
         .then((res) => {
             res.send('Item deleted');
-            console.log("Deleted:", modName, modName2, modCo2e, modId);
+            console.log("Deleted:", modName, modName2, modCo2e, modId, username, password);
             setSubmit(success);
         })
         .catch((err) => {
@@ -123,7 +148,7 @@ function AdminForms() {
     };
 
 
-/* ADD to X co2e first form value input HTML (repeated) */
+/* POST to X co2e first form value input HTML (repeated) */
     const inputCo2e1 = 
         <div className="form-input">
         Co2e per item: <br />
@@ -142,7 +167,7 @@ function AdminForms() {
             <div className="form-section">
                 <h2>Add item to database</h2>
 
-{/* ADD to MATERIALS */}
+{/* POST to MATERIALS */}
                 <h4 className="admin-title">Materials</h4>
                 <div className="form-item">
                     <div className="form-input">
@@ -159,7 +184,7 @@ function AdminForms() {
                         {inputCo2e1}
                 </div>
 
-{/* ADD to LOGISTICS */}
+{/* POST to LOGISTICS */}
                 <h4 className="admin-title">Logistics</h4>
                 <div className="form-item">
                     <div className="form-input">
@@ -189,11 +214,11 @@ function AdminForms() {
                     {inputCo2e1}
                 </div>
 
-{/* ADD to FASTENINGS */}
+{/* POST to FASTENINGS */}
             <h4 className="admin-title">Fastenings</h4>
                 <div className="form-item">
                     <div className="form-input">
-                        Type: <br />
+                        Name: <br />
                         <input 
                         className="light-pink" 
                         type="text"
@@ -318,7 +343,7 @@ function AdminForms() {
                 <h4 className="admin-title">Fastenings</h4>
                 <div className="form-item">
                     <div className="form-input">
-                        Type: <br />
+                        Name: <br />
                         <select 
                         className="light-pink"
                         onChange={(e) => {
@@ -360,6 +385,93 @@ function AdminForms() {
                     <button onClick={clearForm}>CLEAR FORM</button>
                 </div>
                 <div className="form-submit">&nbsp;{submit}&nbsp;</div>
+            </div>
+
+
+            <hr className="hr" />
+
+    
+            <div className="form-section">
+                <h2>Add / Delete / Modify User</h2>
+
+{/* POST to ADMIN */}
+                <h4 className="admin-title">Add new User</h4>
+                <div className="form-item">
+                    <div className="form-input">
+                        Username: <br />
+                        <input 
+                        className="light-pink" 
+                        type="text"
+                        name="username"
+                        onChange={(e) => {
+                          setUsername(e.target.value);
+                        }}
+                        ></input>
+                    </div>
+                    <div className="form-input">
+                        Password: <br />
+                        <input 
+                        className="light-pink"
+                        type="text"
+                        name="password"
+                        onChange={(e) => setPassword(e.target.value)}
+                        ></input>
+                    </div>
+                </div>
+                <div className="form-input center-align">
+                    <button onClick={"x"}>ADD</button>
+                    <button onClick={clearForm}>CLEAR FORM</button>
+                </div>
+                <div className="form-submit">&nbsp;{submit}&nbsp;</div>
+
+
+{/* DELETE/MODIFY ADMIN */}
+                <h4 className="admin-title">Delete / Modify User</h4>
+                <div className="form-item">
+                    <div className="form-input">
+                        Username: <br />
+                        <select
+                        className="light-pink" 
+                        onChange={(e) => {
+                            setFilterArr(admin.find((type)=> type.username === e.target.value));
+                            setUsername(e.target.value);
+                            setCat("admin");
+                            console.log("Admin", username, password, filterArr);
+                        }}>
+                            <option></option>
+                            {admin.map((type, i) => {
+                                return (
+                                    <option 
+                                    id={type._id} 
+                                    key={i} 
+                                    value={type.username}
+                                    >
+                                        {type.username}
+                                    </option>
+                                );
+                            })};
+                        </select>
+                    </div>
+                    <div className="form-input">
+                        Password: <br />
+                        <input 
+                        className="light-pink"
+                        type="text"
+                        name="password"
+                        onChange={(e) => setPassword(e.target.value)}
+                        ></input>
+                    </div>
+                </div>
+                <div className="form-input center-align">
+                    <button onClick={"x"}>MODIFY</button>
+                    <button onClick={"x"}>DELETE</button>
+                    <button onClick={clearForm}>CLEAR FORM</button>
+                </div>
+                <div className="form-submit">&nbsp;{submit}&nbsp;</div>
+
+
+
+
             </div>
         </div>
     )
