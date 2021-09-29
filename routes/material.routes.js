@@ -14,8 +14,8 @@ materialRouter.get('/', (req,res)=>{
 
 
 //POST Routes
-materialRouter.post('/', (req, res) => {
-    const { name, co2e } = req.body
+materialRouter.post('/:name/:co2e', (req, res) => {
+    const { name, co2e } = req.params
 
     Material.create({ name, co2e })
     .then((data) => {
@@ -30,9 +30,9 @@ materialRouter.post('/', (req, res) => {
 
 
 //UPDATE Routes
-materialRouter.put('/:id', (req, res) => {
+materialRouter.put('/:id/:name/:co2e', (req, res) => {
 
-    Material.findByIdAndUpdate({_id: req.params.id}, req.body)
+    Material.findByIdAndUpdate({_id: req.params.id}, req.params)
     .then(()=>{
         Material.findOne({_id: req.params.id})
         .then((result)=>{

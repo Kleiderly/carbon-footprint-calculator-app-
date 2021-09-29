@@ -41,8 +41,8 @@ function App() {
                     <Route exact path="/:itemsNumber/results" component={Results} />
                     <Route exact path="/:itemsNumber/details" component={() => <Details/>} />
                     {/* Admin routes */}
-                    <Route exact path="/admin" component={() => <Admin/>} />
-                    <Route exact path="/admin/forms" component={() => <AdminForms/>} />
+                    <Route exact path="/adminpage/login" component={(browser) => <Admin browser={browser}/>} />
+                    <Route exact path="/adminpage/forms" component={(browser) => <AdminForms browser={browser}/>} />
                 </Switch>
               <Footer />
             </div>

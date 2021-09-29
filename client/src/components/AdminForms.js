@@ -20,6 +20,7 @@ function AdminForms() {
     const [filterArr, setFilterArr] = useState([]);
     const [submit, setSubmit] = useState("");
     const [cat, setCat] = useState("");
+    const [section, setSection] = useState("");
 /* API call links */
     const materialAPI = axios.get(`/api/material`);
     const logisticAPI = axios.get(`/api/logistic`);
@@ -69,7 +70,7 @@ function AdminForms() {
     };
 
 
-/* ROUTES MAIN DATABASE */
+/* ROUTES */
     const postLogistics = `/api/${cat}/${modName}/${modName2}/${modCo2e}`;
     const postOthers = `/api/${cat}/${modName}/${modCo2e}`;
     const postAdmin = `/api/admin/${username}/${password}`;
@@ -95,7 +96,7 @@ function AdminForms() {
         }else{
             return modOthers
         }
-};
+    };
 
 /* POST */
     const handleAdd = (e)=>{
@@ -119,7 +120,6 @@ function AdminForms() {
         axios
         .put(modInstruction)
         .then((res) => {
-            res.send('Item modified');
             console.log("Modified:", modName, modName2, modCo2e, modId, username, password);
             setSubmit(success);
         })
@@ -137,7 +137,6 @@ function AdminForms() {
           `/api/${cat}/${modId}`
         )
         .then((res) => {
-            res.send('Item deleted');
             console.log("Deleted:", modName, modName2, modCo2e, modId, username, password);
             setSubmit(success);
         })
@@ -236,7 +235,7 @@ function AdminForms() {
                     <button onClick={handleAdd}>ADD</button>
                     <button onClick={clearForm}>CLEAR FORM</button>
                 </div>
-                <div className="form-submit">&nbsp;{submit}&nbsp;</div>
+                <div className="form-submit">&nbsp;{section === "form1" && submit}&nbsp;</div>
             </div>
 
 
@@ -380,11 +379,11 @@ function AdminForms() {
 
 {/* SUBMIT buttons */}
                 <div className="form-input center-align">
-                    <button onClick={handleModify}>MODIFY</button>
-                    <button onClick={handleDelete}>DELETE</button>
+                    <button onClick={handleModify && setSection("form2")}>MODIFY</button>
+                    <button onClick={handleDelete && setSection("form2")}>DELETE</button>
                     <button onClick={clearForm}>CLEAR FORM</button>
                 </div>
-                <div className="form-submit">&nbsp;{submit}&nbsp;</div>
+                <div className="form-submit">&nbsp;{section === "form2" && submit}&nbsp;</div>
             </div>
 
 
@@ -467,11 +466,7 @@ function AdminForms() {
                     <button onClick={handleDelete}>DELETE</button>
                     <button onClick={clearForm}>CLEAR FORM</button>
                 </div>
-                <div className="form-submit">&nbsp;{submit}&nbsp;</div>
-
-
-
-
+                <div className="form-submit">&nbsp;{section === "form3" && submit}&nbsp;</div>
             </div>
         </div>
     )
