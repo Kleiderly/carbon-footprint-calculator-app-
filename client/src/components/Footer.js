@@ -13,8 +13,7 @@ function Footer() {
                 © 2021 KLEIDERLY
             </div>
             <div className="footer-admin">
-                <Link to="/admin">ADMIN</Link>-
-                <Link to="/admin/forms">FORMS</Link>
+                <Link to="/admin">ADMIN</Link>
             </div>
         </div>
     )

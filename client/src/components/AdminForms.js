@@ -17,9 +17,9 @@ function AdminForms() {
     const [submit, setSubmit] = useState();
     const [cat, setCat] = useState("");
 
-    const materialAPI = axios.get(`/api/material`);
-    const logisticAPI = axios.get(`/api/logistic`);
-    const fasteningAPI = axios.get(`/api/fastening`);
+    const materialAPI = axios.get(`http://localhost:5000/api/material`);
+    const logisticAPI = axios.get(`http://localhost:5000/api/logistic`);
+    const fasteningAPI = axios.get(`http://localhost:5000/api/fastening`);
 
     useEffect(()=>{
         axios.all([materialAPI, logisticAPI, fasteningAPI])
@@ -102,7 +102,7 @@ function AdminForms() {
         name="co2e"
         onChange={(e) => setModCo2e(e.target.value)}
         ></input>
-        </div>
+        </div>;
         
     return (
         <div className="forms-wrapper">
@@ -186,7 +186,6 @@ function AdminForms() {
                 <h2>Modify / Delete item from database</h2>
                     
 {/* DELETE/MODIFY MATERIAL*/}
-
                 <h4 className="admin-title">Materials</h4>
                 <div className="form-item">
                     <div className="form-input">
@@ -197,9 +196,8 @@ function AdminForms() {
                             setFilterArr(material.find((type)=> type.name === e.target.value));
                             setModName(e.target.value);
                             setCat("mat");
-                            console.log("Material", 1, modCo2e, 3, modId, 4, modName, 5, filterArr);
-                        }}
-                        >
+                            console.log("Material", modCo2e, modId, modName, filterArr);
+                        }}>
                             <option></option>
                             {material.map((type, i) => {
                                 return (
@@ -237,8 +235,8 @@ function AdminForms() {
                             setFilterArr(logistic.find((type)=> type.productionLocation === e.target.value));
                             setModName(e.target.value);
                             setCat("log");
-                            console.log("Logistics", 1, modCo2e, 3, modId, 4, modName, 5, modName2, 6, filterArr)}}
-                        >
+                            console.log("Logistics", modCo2e, modId, modName, modName2, filterArr);
+                        }}>
                             <option></option>
                             {logistic.map((type, i) => {
                                 return (
@@ -249,7 +247,7 @@ function AdminForms() {
                                     >
                                         {type.productionLocation}
                                     </option>
-                                );
+                                )
                             })};
                         </select>
                     </div>
@@ -268,7 +266,7 @@ function AdminForms() {
 
                 <div className="form-item">
                     <div className="form-input">
-                        co2e per item: <br />
+                        Co2e per item: <br />
                         <input
                         className="light-pink"
                         type="text"
@@ -290,8 +288,8 @@ function AdminForms() {
                             setFilterArr(fastening.find((type)=> type.name === e.target.value));
                             setModName(e.target.value);
                             setCat("fas");
-                            console.log("Fastenings", 1, modCo2e, 3, modId, 4, modName, 5, filterArr)}}
-                        >
+                            console.log("Fastenings", modCo2e, modId, modName, filterArr);
+                        }}>
                             <option></option>
                             {fastening.map((type, i) => {
                                 return (
@@ -302,7 +300,7 @@ function AdminForms() {
                                     >
                                         {type.name}
                                     </option>
-                                );
+                                )
                             })};
                         </select>
                     </div>
@@ -325,7 +323,6 @@ function AdminForms() {
                 </div>
                 <div className="form-submit">&nbsp;{submit}&nbsp;</div>
             </div>
-
         </div>
     )
 };
