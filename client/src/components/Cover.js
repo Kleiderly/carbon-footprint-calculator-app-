@@ -43,7 +43,6 @@ function Cover() {
             </div>
             <p>Compare 2 Items</p>
           </div>
-
         </div>
         {choice === "1" ? (
           <Link to="/1">
