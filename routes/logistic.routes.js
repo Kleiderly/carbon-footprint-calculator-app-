@@ -14,8 +14,8 @@ logisticRouter.get('/', (req,res)=> {
 
 
 //POST Routes
-logisticRouter.post('/', (req, res) => {
-    const { productionLocation, consumerLocation, co2e } = req.body
+logisticRouter.post('/:productionLocation/:consumerLocation/:co2e', (req, res) => {
+    const { productionLocation, consumerLocation, co2e } = req.params
 
     Logistic.create({ productionLocation, consumerLocation, co2e })
     .then((data) => {
@@ -29,9 +29,9 @@ logisticRouter.post('/', (req, res) => {
 });
 
 //UPDATE Routes
-logisticRouter.put('/:id', (req, res) => {
+logisticRouter.put('/:id/:productionLocation/:consumerLocation/:co2e', (req, res) => {
 
-    Logistic.findByIdAndUpdate({_id: req.params.id}, req.body)
+    Logistic.findByIdAndUpdate({_id: req.params.id}, req.params)
     .then(()=>{
         Logistic.findOne({_id: req.params.id})
         .then((result)=>{

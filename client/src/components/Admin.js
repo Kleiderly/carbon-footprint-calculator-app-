@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./css/Admin.css";
+import "./CSS/Admin.css";
 
 function Admin() {
     
@@ -13,7 +13,9 @@ function Admin() {
                     <input></input>
                     <p>Password:</p>
                     <input></input>
-                    <Link to="/admin/forms"><button>LOGIN</button></Link>
+                    <Link to="/adminpage/forms">
+                        <button>LOGIN</button>
+                    </Link>
                 </div>
             </div>
         </div>
