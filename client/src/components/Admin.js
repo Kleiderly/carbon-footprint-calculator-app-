@@ -1,9 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import "./CSS/Admin.css";
 
 function Admin() {
-    
+
     return (
         <div className="admin-wrapper">
             <div>

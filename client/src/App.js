@@ -20,11 +20,7 @@ import Percentages from './components/Percentages';
 
 function App() {
 
-
-
   const [result, setResult] = useState({first:{}, second:{}})
-  
-  
   
   return (
     <div className="App">
@@ -42,7 +38,7 @@ function App() {
                     <Route exact path="/:itemsNumber/details" component={() => <Details/>} />
                     {/* Admin routes */}
                     <Route exact path="/adminpage/login" component={(browser) => <Admin browser={browser}/>} />
-                    <Route exact path="/adminpage/forms" component={(browser) => <AdminForms browser={browser}/>} />
+                    <Route exact path="/adminpage/forms" component={(browser) => <AdminForms browser={browser} />} />
                 </Switch>
               <Footer />
             </div>

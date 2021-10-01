@@ -16,7 +16,7 @@ function AdminForms() {
 /* Chosen username/password */
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-/* Chosen object values / Message after submit / Chosen category */
+/* Chosen object values / Message after submit / Chosen category / Active form */
     const [filterArr, setFilterArr] = useState([]);
     const [submit, setSubmit] = useState("");
     const [cat, setCat] = useState("");
@@ -26,6 +26,8 @@ function AdminForms() {
     const logisticAPI = axios.get(`/api/logistic`);
     const fasteningAPI = axios.get(`/api/fastening`);
     const adminAPI = axios.get(`/api/admin`);
+/* Sets forms to admin level */
+    const [user , setUser] = useState(true);
 
 /* API calls */
     useEffect(()=>{
@@ -40,14 +42,9 @@ function AdminForms() {
         .catch((err)=> console.log(err))
     }, []);
 
-/* Clear submit message when form is clear */
+/* Submit message */
     const success = "Submit successful!";
     const failed = "Submit unsuccessful";
-    const clearMessage = filterArr === "";
-
-    useEffect(()=>{
-        setSubmit();
-    }, [clearMessage]);
 
 /* Fill chosen object values on input change */
     useEffect(()=>{ 
@@ -76,6 +73,11 @@ function AdminForms() {
         pw.type === "password" ? pw.type = "text" : pw.type = "password"
         pw2.type === "password" ? pw2.type = "text" : pw2.type = "password"
     };
+
+    // useEffect(()=>{
+    //     const event = ()=> inputs.name !== cat ? inputs.value = "" : inputs.name
+    //     const inputs = document.querySelectorAll("input,select").addEventListener("change", event())
+    // }, []);
 
 /* ROUTES */
     const postLogistics = `/api/${cat}/${modName}/${modName2}/${modCo2e}`;
@@ -115,6 +117,7 @@ function AdminForms() {
             console.log(res);
             console.log("Added:", modName, modName2, modCo2e, modId, username, password);
             setSubmit(success);
+            setTimeout(()=> clearForm(), 1000);
         })
         .catch((err) => {
           console.log(err);
@@ -130,6 +133,7 @@ function AdminForms() {
         .then((res) => {
             console.log("Modified:", modName, modName2, modCo2e, modId, username, password);
             setSubmit(success);
+            setTimeout(()=> clearForm(), 1000);
         })
         .catch((err) => {
             console.log(err);
@@ -147,6 +151,7 @@ function AdminForms() {
         .then((res) => {
             console.log("Deleted:", modName, modName2, modCo2e, modId, username, password);
             setSubmit(success);
+            setTimeout(()=> clearForm(), 1000);
         })
         .catch((err) => {
             console.log(err);
@@ -189,7 +194,7 @@ function AdminForms() {
                         }}
                         />
                     </div>
-                        {inputCo2e1}
+                    {inputCo2e1}
                 </div>
 
 {/* POST to LOGISTICS */}
@@ -200,7 +205,7 @@ function AdminForms() {
                         <input 
                         className="light-pink" 
                         type="text"
-                        name="prodLocation"
+                        name="logistics"
                         onChange={(e) => {
                           setModName(e.target.value);
                           setSection("form1");
@@ -212,7 +217,7 @@ function AdminForms() {
                         <input 
                         className="light-pink" 
                         type="text"
-                        name="consLocation"
+                        name="logistics"
                         onChange={(e) => {
                           setModName2(e.target.value);
                         }}
@@ -231,14 +236,14 @@ function AdminForms() {
                         <input 
                         className="light-pink" 
                         type="text"
-                        name="consLocation"
+                        name="fastenings"
                         onChange={(e) => {
                           setModName(e.target.value);
                           setSection("form1");
                         }}
                         />
                     </div>
-                        {inputCo2e1}
+                    {inputCo2e1}
                 </div>
 
 {/* SUBMIT buttons */}
@@ -255,7 +260,8 @@ function AdminForms() {
 
 {/* DELETE/MODIFY FORM */}
             <div className="form-section">
-                <h2>Modify / Delete item from database</h2>
+                <h2 className={user ? "form-admin" : "form-member"}>Modify / Delete item from database</h2>
+                <h2 className={user ? "form-member" : "form-admin"}>Modify item from database</h2>
                     
 {/* DELETE/MODIFY MATERIAL*/}
                 <h4 className="admin-title">Materials</h4>
@@ -277,9 +283,10 @@ function AdminForms() {
                                     <option 
                                     id={type._id} 
                                     key={i} 
+                                    name="material"
                                     value={type.name}
                                     >
-                                        {type.name}
+                                    {type.name}
                                     </option>
                                 );
                             })};
@@ -317,6 +324,7 @@ function AdminForms() {
                                     <option 
                                     id={type._id} 
                                     key={i} 
+                                    name="logistic"
                                     value={type.productionLocation}
                                     >
                                         {type.productionLocation}
@@ -331,7 +339,7 @@ function AdminForms() {
                         <input
                         className="light-pink"
                         type="text"
-                        name="co2e"
+                        name="logistic"
                         value={modName2}
                         onChange={(e) => setModName2(e.target.value)}
                         />
@@ -371,6 +379,7 @@ function AdminForms() {
                                     <option 
                                     id={type._id} 
                                     key={i} 
+                                    name="fastening"
                                     value={type.name}
                                     >
                                         {type.name}
@@ -394,7 +403,7 @@ function AdminForms() {
 {/* SUBMIT buttons */}
                 <div className="form-input center-align">
                     <button onClick={handleModify}>MODIFY</button>
-                    <button onClick={handleDelete}>DELETE</button>
+                    <button className={user ? "form-admin" : "form-member"} onClick={handleDelete}>DELETE</button>
                     <button onClick={clearForm}>CLEAR FORM</button>
                 </div>
                 <div className="form-submit">&nbsp;{section === "form2" && submit}&nbsp;</div>
@@ -405,10 +414,10 @@ function AdminForms() {
 
     
             <div className="form-section">
-                <h2>Add / Delete / Modify User</h2>
+                <h2>Add / Modify User</h2>
 
 {/* POST to ADMIN */}
-                <h4 className="admin-title">Add new User</h4>
+                <h4>Add new User</h4>
                 <div className="form-item">
                     <div className="form-input">
                         Username: <br />
@@ -445,7 +454,9 @@ function AdminForms() {
 
 
 {/* DELETE/MODIFY ADMIN */}
-                <h4 className="admin-title">Delete / Modify User</h4>
+                <h4 className={user ? "form-admin" : "form-member"}>Delete / Modify User</h4>
+                <h4 className={user ? "form-member" : "form-admin"}>Modify User</h4>
+
                 <div className="form-item">
                     <div className="form-input">
                         Username: <br />
@@ -490,7 +501,7 @@ function AdminForms() {
                 <div className="form-input center-align">
 {/* DELETE/MODIFY ADMIN buttons*/}
                     <button onClick={handleModify}>MODIFY</button>
-                    <button onClick={handleDelete}>DELETE</button>
+                    <button className={user ? "form-admin" : "form-member"} onClick={handleDelete}>DELETE</button>
                     <button onClick={clearForm}>CLEAR FORM</button>
                 </div>
                 <div className="form-submit">&nbsp;{section === "form4" && submit}&nbsp;</div>
