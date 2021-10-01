@@ -13,8 +13,8 @@ fasteningRouter.get('/', (req,res) => {
 
 //POST Routes
 
-fasteningRouter.post('/:name/:co2e', (req, res) => {
-    const {name, co2e } = req.params
+fasteningRouter.post('/', (req, res) => {
+    const {name, co2e } = req.body
 
 
 

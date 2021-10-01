@@ -9,7 +9,7 @@ const middleware = {
       if(req.isAuthenticated()){
         return next()
       } else {
-       res.send('You did not pass the middleware')
+       res.send('The middleware does not let you pass ;)')
      }}}
 
 

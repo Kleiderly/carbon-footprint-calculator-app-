@@ -17,8 +17,8 @@ materialRouter.get('/', (req,res)=>{
 
 //POST Routes
 
-materialRouter.post('/:name/:co2e', (req, res) => {
-    const { name, co2e } = req.params
+materialRouter.post('/', (req, res) => {
+    const { name, co2e } = req.body
 
 
     Material.create({ name, co2e })
