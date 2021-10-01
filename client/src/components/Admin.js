@@ -12,7 +12,7 @@ function Admin() {
           <input></input>
           <p>Password:</p>
           <input></input>
-          <Link to="/admin/forms">
+          <Link to="/adminpage/forms">
             <button>LOGIN</button>
           </Link>
         </div>

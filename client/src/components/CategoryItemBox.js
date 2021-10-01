@@ -13,7 +13,7 @@ const CategoryItemBox = ({ type, adress }) => {
    };
 
    return (
-      <div className="typeOfItemContainer">
+      <div className="typeOfItemContainer" >
          <div
             className={selectType ? 'selected' : 'deselected'}
             onClick={handleClick}

@@ -3,8 +3,8 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './css/Category.css';
 
-import CategoryItemBox from './CategoryItemBox';
 import { itemList } from './data';
+import CategoryItemBox from './CategoryItemBox';
 
 function Category({ browser, result, setResult }) {
    const [choice, setChoice] = useState('');
@@ -13,18 +13,22 @@ function Category({ browser, result, setResult }) {
    const handleClick1 = () => {
       console.log('click2');
       setChoice('1');
+<<<<<<< HEAD
       console.log(setResult);
+=======
+      console.log(result)
+>>>>>>> 4880ba0f88b60db42330d6c9b518147595548777
    };
 
    const handleClick2 = () => {
       console.log('click2');
       setChoice('2');
    };
-   // const handleClick3 = () => {
-   //    console.log('click3');
-   // };
-   // const setTypeOfClo1 = () => setResult(...result, itemTypeAdress1:'belt')
 
+   // const handleClickSaverAdress = () => {
+      
+   //    console.log(result)
+   // }
    return (
       <div className="choiceContainer">
          <div>
@@ -64,12 +68,13 @@ function Category({ browser, result, setResult }) {
                         onClick={handleClick2}
                         value={choice}
                      >
-                        <img src={selectType} alt="" />
+                        <img src={result.itemTypeAdress1} alt="" />
                      </div>
                   </div>
                </div>
             )}
          </div>
+<<<<<<< HEAD
          <div className="typeOfItemContainer">
             {itemList.map((item) => (
                <div
@@ -83,8 +88,23 @@ function Category({ browser, result, setResult }) {
                      type={item.type}
                      adress={item.adress}
                   />
+=======
+         <p>Click</p>
+         <div
+            className="typeOfItemContainer"
+         >
+            
+            {itemList.map((item) => (
+               <div onClick={()=>setResult({...result, itemTypeAdress1 : item.adress})} key={item.id}>
+               <CategoryItemBox 
+                  index={item.id}
+                  type={item.type}
+                  adress={item.adress}
+               />
+>>>>>>> 4880ba0f88b60db42330d6c9b518147595548777
                </div>
             ))}
+            
          </div>
          <div>
             {/* {choice === '1' ? (
@@ -99,7 +119,11 @@ function Category({ browser, result, setResult }) {
             <Link to={`/${choice}`} className={choice ? null : 'disabled-link'}>
                <button type="button">Compare</button>
             </Link>
+<<<<<<< HEAD
             {result.itemTypeAdress1 ? 'Some Image' : null}
+=======
+            {result.itemTypeAdress1 ? <p>Hey adress changed</p> : null}
+>>>>>>> 4880ba0f88b60db42330d6c9b518147595548777
          </div>
       </div>
    );
