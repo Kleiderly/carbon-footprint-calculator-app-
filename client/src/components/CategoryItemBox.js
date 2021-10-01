@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './css/Category.css';
 import './css/CategoryItemBox.css';
 
-const CategoryItemBox = ({ type, adress, setSelectType }) => {
+const CategoryItemBox = ({ type, adress }) => {
    const [selectType, setSelectType] = useState(false);
 
    const handleClick = () => {
