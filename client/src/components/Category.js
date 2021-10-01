@@ -6,24 +6,25 @@ import './css/Category.css';
 import { itemList } from './data';
 import CategoryItemBox from './CategoryItemBox';
 
-function Category({ browser, result, saveTypeAdress }) {
+function Category({ browser, result, setResult }) {
    const [choice, setChoice] = useState('');
    const [selectType, setSelectType] = useState();
 
    const handleClick1 = () => {
       console.log('click2');
       setChoice('1');
+      console.log(result)
    };
 
    const handleClick2 = () => {
       console.log('click2');
       setChoice('2');
    };
-   // const handleClick3 = () => {
-   //    console.log('click3');
-   // };
-   // const setTypeOfClo1 = () => setResult(...result, itemTypeAdress1:'belt')
 
+   // const handleClickSaverAdress = () => {
+      
+   //    console.log(result)
+   // }
    return (
       <div className="choiceContainer">
          <div>
@@ -38,7 +39,7 @@ function Category({ browser, result, saveTypeAdress }) {
                      onClick={handleClick1}
                      value={choice}
                   >
-                     <img src="" alt="" />
+                     <img src={result.itemTypeAdress1} alt="firstBoxImage" />
                   </div>
                </div>
             ) : (
@@ -54,7 +55,7 @@ function Category({ browser, result, saveTypeAdress }) {
                         onClick={handleClick1}
                         value={choice}
                      >
-                        <img src="" alt="" />
+                        <img src={result.itemTypeAdress1} alt="" />
                      </div>
                      <div
                         className={
@@ -63,27 +64,27 @@ function Category({ browser, result, saveTypeAdress }) {
                         onClick={handleClick2}
                         value={choice}
                      >
-                        <img src={selectType} alt="" />
+                        <img src={result.itemTypeAdress1} alt="" />
                      </div>
                   </div>
                </div>
             )}
          </div>
+         <p>Click</p>
          <div
             className="typeOfItemContainer"
-            // onClick={setTypeOfClo1}
          >
-            <p onClick={saveTypeAdress}>Result update check</p>
+            
             {itemList.map((item) => (
-               <CategoryItemBox
+               <div onClick={()=>setResult({...result, itemTypeAdress1 : item.adress})} key={item.id}>
+               <CategoryItemBox 
+                  index={item.id}
                   type={item.type}
                   adress={item.adress}
-                  setSelectType={setSelectType}
-                  // onClick={setResult(
-                  //    (result.first.itemTypeAdress = item.adress)
-                  // )}
                />
+               </div>
             ))}
+            
          </div>
          <div>
             {/* {choice === '1' ? (
@@ -98,6 +99,7 @@ function Category({ browser, result, saveTypeAdress }) {
             <Link to={`/${choice}`} className={choice ? null : 'disabled-link'}>
                <button type="button">Compare</button>
             </Link>
+            {result.itemTypeAdress1 ? <p>Hey adress changed</p> : null}
          </div>
       </div>
    );
