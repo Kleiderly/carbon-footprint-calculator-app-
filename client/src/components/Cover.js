@@ -6,13 +6,13 @@ function Cover() {
    const [choice, setChoice] = useState(null);
 
    const handleClick1 = () => {
-      console.log('click1');
-      setChoice('option-1');
+      console.log('calculate');
+      setChoice('calculate');
    };
 
    const handleClick2 = () => {
-      console.log('click2');
-      setChoice('option-2');
+      console.log('compare');
+      setChoice('compare');
    };
 
    return (
@@ -40,29 +40,42 @@ function Cover() {
                <div>
                   <div
                      className={
-                        choice === 'option-1' ? 'afterClick' : 'beforeClick'
+                        choice === 'calculate' ? 'afterClick' : 'beforeClick'
                      }
                      onClick={handleClick1}
                      value={choice}
                   >
-                     <img src="" alt="" />
+                     <img
+                        className="imgCover"
+                        src="./img/items-images/t-shirtW.png"
+                        alt="T-shirt Image"
+                     />
                   </div>
                   <p className="directionText2">Calculate 1 item</p>
                </div>
                <div>
                   <div
                      className={
-                        choice === 'option-2' ? 'afterClick2' : 'beforeClick2'
+                        choice === 'compare' ? 'afterClick2' : 'beforeClick2'
                      }
                      onClick={handleClick2}
                      value={choice}
                   >
-                     <img src="" alt="" />
+                     <img
+                        className="imgCover"
+                        src="../img/items-images/t-shirtW.png"
+                        alt="T-shirt Image"
+                     />
+                     <img
+                        className="imgCover"
+                        src="./img/items-images/t-shirtW.png"
+                        alt="T-shirt Image"
+                     />
                   </div>
                   <p className="directionText2">Compare 2 Items</p>
                </div>
             </div>
-            <Link to={`/${choice}`}>
+            <Link to={`/${choice}/category`}>
                <button type="button">Begin!</button>
             </Link>
          </div>

@@ -3,8 +3,9 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './css/Category.css';
 import './css/CategoryItemBox.css';
+import './css/Materials.css';
 
-const CategoryItemBox = ({ type, adress }) => {
+const MaterialsItemBox = ({ type, adress, country, name }) => {
    const [selectType, setSelectType] = useState(false);
 
    const handleClick = () => {
@@ -13,15 +14,15 @@ const CategoryItemBox = ({ type, adress }) => {
    };
 
    return (
-      <div className="typeOfItemContainer">
+      <div>
          <div
-            className={selectType ? 'selected' : 'deselected'}
+            className={selectType ? 'selectedMaterial' : 'deselectedMaterial'}
             onClick={handleClick}
          >
-            <img className="imgCategoryItemBox" src={adress} alt={type} />
+            <p>{name}</p>
          </div>
       </div>
    );
 };
 
-export default CategoryItemBox;
+export default MaterialsItemBox;
