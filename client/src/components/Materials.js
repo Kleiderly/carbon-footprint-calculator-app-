@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Tips from "./Tips";
+import { useLocation } from "react-router";
+
+import "./css/Materials.css";
 
 function Materials(props) {
-  const [materials, setMaterials] = useState([]);
+  const location = useLocation();
+  const { adress1, adress2 } = location.state;
 
+  const [materials, setMaterials] = useState([]);
   useEffect(() => {
     axios
       .get(`http://localhost:5000/api/material`)
@@ -16,6 +21,15 @@ function Materials(props) {
 
   return (
     <div className="">
+      <div>
+        <img src={adress1.selectType1} alt="fgh" />
+        <img src={adress2.selectType2} alt="fgh" />
+      </div>
+      <p>{adress1.selectType1}</p>
+      <p>{adress2.selectType2}</p>
+      <div>
+        <img src='./img/items-images/skirt.png' alt="fgh" />
+      </div>{" "}
       ______
       <br />
       title

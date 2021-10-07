@@ -28,11 +28,6 @@ function App() {
     fasteningCO2e2: null,
   });
 
-  // const saverAdress01 = (valueForUpate) => {
-  //   setResult(Object.assign(result, {itemTypeAdress1 : valueForUpate}))
-  //   console.log(result)
-  // }
-
   return (
     <div className="App">
       <Router>

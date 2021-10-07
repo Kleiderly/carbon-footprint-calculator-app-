@@ -8,23 +8,20 @@ import CategoryItemBox from './CategoryItemBox';
 
 function Category({ browser, result, setResult }) {
    const [choice, setChoice] = useState('');
-   const [selectType, setSelectType] = useState();
+   const [selectType1, setSelectType1] = useState(null);
+   const [selectType2, setSelectType2] = useState(null);
+
 
    const handleClick1 = () => {
       console.log('click2');
       setChoice('1');
-      console.log(result)
    };
 
    const handleClick2 = () => {
       console.log('click2');
       setChoice('2');
    };
-
-   // const handleClickSaverAdress = () => {
-      
-   //    console.log(result)
-   // }
+ 
    return (
       <div className="choiceContainer">
          <div>
@@ -39,7 +36,7 @@ function Category({ browser, result, setResult }) {
                      onClick={handleClick1}
                      value={choice}
                   >
-                     <img src={result.itemTypeAdress1} alt="firstBoxImage" />
+                     <img src={selectType1} alt="firstBoxImage" />
                   </div>
                </div>
             ) : (
@@ -55,7 +52,7 @@ function Category({ browser, result, setResult }) {
                         onClick={handleClick1}
                         value={choice}
                      >
-                        <img src={result.itemTypeAdress1} alt="" />
+                        <img src={selectType1} alt="" />
                      </div>
                      <div
                         className={
@@ -64,7 +61,7 @@ function Category({ browser, result, setResult }) {
                         onClick={handleClick2}
                         value={choice}
                      >
-                        <img src={result.itemTypeAdress1} alt="" />
+                        <img src={selectType2} alt="" />
                      </div>
                   </div>
                </div>
@@ -76,7 +73,7 @@ function Category({ browser, result, setResult }) {
          >
             
             {itemList.map((item) => (
-               <div onClick={()=>setResult({...result, itemTypeAdress1 : item.adress})} key={item.id}>
+                <div onClick={()=> selectType1 ? setSelectType2(item.adress) : setSelectType1(item.adress)} key={item.id}>
                <CategoryItemBox 
                   index={item.id}
                   type={item.type}
@@ -87,19 +84,18 @@ function Category({ browser, result, setResult }) {
             
          </div>
          <div>
-            {/* {choice === '1' ? (
-               <Link to="/1/materials">
-                  <button type="button">Compare</button>
-               </Link>
-            ) : (
-               <Link to="/2/materials">
-                  <button type="button">Compare</button>
-               </Link>
-            )} */}
-            <Link to={`/${choice}`} className={choice ? null : 'disabled-link'}>
+            <Link 
+            // className={choice ? null : 'disabled-link'} 
+                  to={{
+                     pathname:`/${browser.match.params.choice}/materials`,
+                     state: {adress1: {selectType1},
+                             adress2: {selectType2}
+                     }
+                  }} 
+            >
                <button type="button">Compare</button>
             </Link>
-            {result.itemTypeAdress1 ? <p>Hey adress changed</p> : null}
+            {selectType1 || selectType2 ? <p>Hey adress changed</p> : null}
          </div>
       </div>
    );
