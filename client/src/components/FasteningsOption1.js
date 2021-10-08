@@ -34,14 +34,6 @@ const FasteningsOption1 = (browser) => {
       history.push('/option-2');
    };
 
-<<<<<<< HEAD
-   const handleOnChange = (e) => {
-      setInputValue(e.target.value);
-      setInputValue([...inputValue]);
-   };
-
-=======
->>>>>>> 06846d2c7bea3a857c734cb85b023db414e52cf2
    useEffect(() => {
       axios
          .get(`http://localhost:5000/api/fastening`)

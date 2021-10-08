@@ -42,19 +42,10 @@ const CategoryOption1 = (props) => {
             </div>
          </div>
          <div className="typeOfItemContainer">
-<<<<<<< HEAD
             {itemList.map((item, i) => (
                <div onClick={() => mapOnItemClickImageClassHandler(item, i)} key={item.id} >
                   <CategoryItemBox1
                      index={i}
-=======
-            {itemList.map((item) => (
-               <div onClick={() => setSelectType(item.adress)} key={item.id}>
-                  <CategoryItemBox
-                     selectType={selectType}
-                     setSelectType={setSelectType}
-                     index={item.id}
->>>>>>> 06846d2c7bea3a857c734cb85b023db414e52cf2
                      type={item.type}
                      adress={item.adress}
                      selected={selected}
