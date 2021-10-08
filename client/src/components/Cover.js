@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./CSS/Cover.css";
 
-function Cover() {
+function Cover(props) {
   const [choice, setChoice] = useState("");
 
   const handleClick1 = () => {
@@ -14,7 +14,7 @@ function Cover() {
     console.log("click2");
     setChoice("2");
   };
-
+  console.log(props)
   return (
     <div className="">
       <div>

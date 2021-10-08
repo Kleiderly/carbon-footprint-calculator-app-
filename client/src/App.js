@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // import Components
 import Header from './components/Header';
 import Cover from './components/Cover';
-import Admin from './components/Admin';
+import Login from './components/Login';
 import AdminForms from './components/AdminForms';
 import Materials from './components/Materials';
 import Logistics from './components/Logistics';
@@ -41,7 +41,7 @@ function App() {
                     <Route exact path="/:itemsNumber/results" component={Results} />
                     <Route exact path="/:itemsNumber/details" component={() => <Details/>} />
                     {/* Admin routes */}
-                    <Route exact path="/adminpage/login" component={(browser) => <Admin browser={browser}/>} />
+                    <Route exact path="/adminpage/login" component={(browser) => <Login />} />
                     <Route exact path="/adminpage/forms" component={(browser) => <AdminForms browser={browser}/>} />
                 </Switch>
               <Footer />
