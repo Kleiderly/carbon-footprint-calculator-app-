@@ -4,19 +4,23 @@ import { Link } from 'react-router-dom';
 import './css/Category.css';
 import './css/CategoryItemBox.css';
 
-const CategoryItemBox = ({ type, adress, selectType, setSelectType }) => {
-   // const [selectType, setSelectType] = useState(false);
+const CategoryItemBox2 = ({ type, adress }) => {
+   const [selectType1, setSelectType1] = useState(false);
+   const [selectType2, setSelectType2] = useState(false);
 
    const handleClick = () => {
       console.log('click');
-      setSelectType(adress);
-      // setSelectType(!selectType);
+      setSelectType1(adress);
    };
 
+   const handleClick2 = () => {
+      console.log('click');
+      setSelectType2(adress);
+   };
    return (
       <div className="typeOfItemContainer">
          <div
-            className={selectType ? 'deselected' : 'selected'}
+            className={selectType1 ? 'selected' : 'deselected'}
             onClick={handleClick}
          >
             <img className="imgCategoryItemBox" src={adress} alt={type} />
@@ -25,4 +29,4 @@ const CategoryItemBox = ({ type, adress, selectType, setSelectType }) => {
    );
 };
 
-export default CategoryItemBox;
+export default CategoryItemBox2;

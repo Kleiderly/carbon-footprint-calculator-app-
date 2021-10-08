@@ -50,52 +50,30 @@ function MaterialsOption2({ browser, match, result, setResult }) {
       <div className="choiceContainer">
          <p>Clothes</p>
          <div>
-            {browser.match.params.choice === 'option-1' ? (
-               <div>
-                  <br />
-                  <p className="directionText">Choose Your Material</p>
-                  <br />
+            <div>
+               <br />
+               <p className="directionText">Choose Your Materials</p>
+               <br />
+               <div className="itemsContainer">
                   <div
                      className={choice === '1' ? 'afterClick' : 'beforeClick'}
-                     //  onClick={handleClick1}
+                     onClick={handleClick1}
+                     value={choice}
+                  >
+                     <img src={adress1} alt="firstBoxImage" />
+                  </div>
+                  <div
+                     className={choice === '2' ? 'afterClick' : 'beforeClick'}
+                     onClick={handleClick2}
                      value={choice}
                   >
                      <img
                         src="./img/items-images/skirt.png"
-                        alt="firstBoxImage"
+                        alt="secondBoxImage"
                      />
                   </div>
                </div>
-            ) : (
-               <div>
-                  <br />
-                  <p className="directionText">Choose Your Materials</p>
-                  <br />
-                  <div className="itemsContainer">
-                     <div
-                        className={
-                           choice === '1' ? 'afterClick' : 'beforeClick'
-                        }
-                        onClick={handleClick1}
-                        value={choice}
-                     >
-                        <img src={adress1} alt="firstBoxImage" />
-                     </div>
-                     <div
-                        className={
-                           choice === '2' ? 'afterClick' : 'beforeClick'
-                        }
-                        onClick={handleClick2}
-                        value={choice}
-                     >
-                        <img
-                           src="./img/items-images/skirt.png"
-                           alt="secondBoxImage"
-                        />
-                     </div>
-                  </div>
-               </div>
-            )}
+            </div>
          </div>
          <div className="materialBigContainer">
             <div className="materialContainer">
@@ -131,11 +109,11 @@ function MaterialsOption2({ browser, match, result, setResult }) {
             Go Back
          </button>
          <Link
-            className={
-               selectMaterial2 && selectMaterial2 ? null : 'disabled-link'
-            }
+            // className={
+            //    selectMaterial1 && selectMaterial2 ? null : 'disabled-link'
+            // }
             to={{
-               pathname: `/${browser.match.params.choice}/fastenings`,
+               pathname: '/compare/fastenings',
                state: {
                   adress1,
                   adress2,
@@ -150,11 +128,11 @@ function MaterialsOption2({ browser, match, result, setResult }) {
             <button type="button" onClick={handleClickPreviousSection}>
                Go Back
             </button>
-            <div>
+            {/* <div>
                <Link to="/materials">
                   <button type="button">Calculate</button>
                </Link>
-            </div>
+            </div> */}
          </div>
       </div>
    );

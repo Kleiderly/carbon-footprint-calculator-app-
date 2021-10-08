@@ -46,6 +46,8 @@ const CategoryOption1 = (browser) => {
             {itemList.map((item) => (
                <div onClick={() => setSelectType(item.adress)} key={item.id}>
                   <CategoryItemBox
+                     selectType={selectType}
+                     setSelectType={setSelectType}
                      index={item.id}
                      type={item.type}
                      adress={item.adress}

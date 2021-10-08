@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
 import './css/Category.css';
-import CategoryItemBox from './CategoryItemBox';
+import CategoryItemBox2 from './CategoryItemBox2';
 import { itemList } from './data';
 
 const CategoryOption2 = ({ browser }) => {
@@ -61,13 +61,13 @@ const CategoryOption2 = ({ browser }) => {
                {itemList.map((item) => (
                   <div
                      onClick={() =>
-                        setSelectType1
+                        selectType1
                            ? setSelectType2(item.adress)
                            : setSelectType1(item.adress)
                      }
                      key={item.id}
                   >
-                     <CategoryItemBox
+                     <CategoryItemBox2
                         index={item.id}
                         type={item.type}
                         adress={item.adress}
@@ -80,8 +80,8 @@ const CategoryOption2 = ({ browser }) => {
             </button>
             <div>
                <Link
-                  className={choice ? null : 'disabled-link'}
-                  to="/materials"
+                  // className={choice ? null : 'disabled-link'}
+                  to="/compare/materials"
                >
                   <button type="button">Compare</button>
                </Link>
