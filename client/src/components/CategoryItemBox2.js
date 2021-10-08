@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import './css/Category.css';
 import './css/CategoryItemBox.css';
 
@@ -9,7 +7,7 @@ const CategoryItemBox = ({ type, adress }) => {
 
    const handleClick = () => {
       console.log('click');
-      setSelectType(adress);
+      setSelectType(!selectType);
    };
 
    return (

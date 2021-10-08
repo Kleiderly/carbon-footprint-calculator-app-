@@ -25,7 +25,7 @@ const FasteningsOption1 = (browser) => {
 
    const handleOnChange = (e) => {
       setInputValue(e.target.value);
-      settInputValue([...inputValue]);
+      setInputValue([...inputValue]);
    };
 
    useEffect(() => {

@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
 import './css/Category.css';
-
-import CategoryItemBox from './CategoryItemBox';
 import { itemList } from './data';
 
 const FasteningsOption2 = () => {

@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import './css/Category.css';
-import CategoryItemBox from './CategoryItemBox';
+import CategoryItemBox2 from './CategoryItemBox2';
 import { itemList } from './data';
 
 const CategoryOption2 = ({ browser }) => {
@@ -67,7 +66,7 @@ const CategoryOption2 = ({ browser }) => {
                      }
                      key={item.id}
                   >
-                     <CategoryItemBox
+                     <CategoryItemBox2
                         index={item.id}
                         type={item.type}
                         adress={item.adress}
