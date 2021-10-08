@@ -60,7 +60,7 @@ const CategoryOption2 = ({ browser }) => {
                {itemList.map((item) => (
                   <div
                      onClick={() =>
-                        setSelectType1
+                        selectType1
                            ? setSelectType2(item.adress)
                            : setSelectType1(item.adress)
                      }
@@ -79,8 +79,8 @@ const CategoryOption2 = ({ browser }) => {
             </button>
             <div>
                <Link
-                  className={choice ? null : 'disabled-link'}
-                  to="/materials"
+                  // className={choice ? null : 'disabled-link'}
+                  to="/compare/materials"
                >
                   <button type="button">Compare</button>
                </Link>
