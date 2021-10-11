@@ -27,9 +27,9 @@ fasteningRouter.post('/', (req, res) => {
 
 
 //UPDATE Routes
-fasteningRouter.put('/:id/:name/:co2e', (req, res) => {
+fasteningRouter.put('/:id', (req, res) => {
 
-    Fastening.findByIdAndUpdate({_id: req.params.id}, req.params)
+    Fastening.findByIdAndUpdate({_id: req.params.id}, req.body)
     .then(()=>{
         Fastening.findOne({_id: req.params.id})
         .then((result)=>{

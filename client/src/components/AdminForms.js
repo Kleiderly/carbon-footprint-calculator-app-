@@ -8,6 +8,11 @@ function AdminForms() {
     const [logistic, setLogistic] = useState([]);
     const [fastening, setFastening] = useState([]);
     const [admin, setAdmin] = useState([]);
+/* Chosen object values / Message after submit / Chosen category / Active form */
+    const [filterArr, setFilterArr] = useState([]);
+    const [submit, setSubmit] = useState("");
+    const [cat, setCat] = useState("");
+    const [section, setSection] = useState("");
 /* Chosen values for submission */
     const [modName, setModName] = useState("");
     const [modName2, setModName2] = useState("");
@@ -16,17 +21,12 @@ function AdminForms() {
 /* Chosen username/password */
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-/* Chosen object values / Message after submit / Chosen category / Active form */
-    const [filterArr, setFilterArr] = useState([]);
-    const [submit, setSubmit] = useState("");
-    const [cat, setCat] = useState("");
-    const [section, setSection] = useState("");
 /* API call links */
     const materialAPI = axios.get(`/api/material`);
     const logisticAPI = axios.get(`/api/logistic`);
     const fasteningAPI = axios.get(`/api/fastening`);
     const adminAPI = axios.get(`/api/admin`);
-/* Sets forms to admin level */
+/* Sets forms to display admin level */
     const [user , setUser] = useState(true);
 
 /* API calls */
@@ -80,85 +80,49 @@ function AdminForms() {
 /* Tells which category to post to */
     function postInstruction() {
         if(cat === "logistic"){
-            return postLogistics
+            return {productionLocation: modName, consumerLocation: modName2, co2e: modCo2e}
         }else if(cat === "admin"){
-            return postAdmin
+            return {username: username, password: password}
         }else{
-            return postOthers
-        }
-    };
-
-    const postLogistics = (e) =>{
-        e.preventDefault();
-        axios.post('/api/logistic', {productionLocation: `"${modName}"`, consumerLocation: `"${modName2}"`, co2e: `${modCo2e}`})
-        .then((response)=>{
-        console.log('worked')
-        })
-        .catch((err)=>{
-        console.log(err)
-        })
-    };
-    
-    const postOthers = (e) =>{
-        e.preventDefault();
-        axios.post('/api/material', {name: `"${modName}"`, co2e: `${modCo2e}`})
-        .then((response)=>{
-        console.log('worked')
-        })
-        .catch((err)=>{
-        console.log(err)
-        })
-    };
-
-    const postAdmin = (e) =>{
-        e.preventDefault();
-        axios.post('/api/admin', {username: `"${username}"`, password: `"${password}"`})
-        .then((response)=>{
-        console.log('worked')
-        })
-        .catch((err)=>{
-        console.log(err)
-        })
+            console.log("post instruction")
+            return {name: modName, co2e: modCo2e}
+        }             
     };
 
 /* Tells which category to modify */
     function modInstruction() {
         if(cat === "logistic"){
-            return modLogistics
+            return {productionLocation: modName, consumerLocation: modName2, co2e: modCo2e}
         }else if(cat === "admin"){
-            return modAdmin
+            return {username: username, password: password}
         }else{
-            return modOthers
+            return {name: modName, co2e: modCo2e}
         }
     };
-
-    const modLogistics = `/api/${modId}/${modName}/${modName2}/${modCo2e}`;
-    const modOthers = `/api/${modId}/${modName}/${modCo2e}`;
-    const modAdmin = `/api/${modId}/${username}/${password}`;
-
 
 /* POST */
     const handleAdd = (e)=>{
         e.preventDefault();
-        axios(postInstruction)
-        .then((res) => {
+        axios.post(`/api/${cat}`, postInstruction())
+        .then((res)=>{
             console.log(res);
             console.log("Added:", modName, modName2, modCo2e, modId, username, password);
             setSubmit(success);
             setTimeout(()=> clearForm(), 1000);
         })
-        .catch((err) => {
-          console.log(err);
-          setSubmit(failed,`:`, err);
-        });
+        .catch((err)=>{
+            console.log(err);
+            setSubmit(failed, `:`, err);
+        })
     };
 
 /* PUT */
     const handleModify = (e)=>{
         e.preventDefault();
         axios
-        .put(modInstruction)
+        .put(`/api/${modId}`, modInstruction())
         .then((res) => {
+            console.log(res);
             console.log("Modified:", modName, modName2, modCo2e, modId, username, password);
             setSubmit(success);
             setTimeout(()=> clearForm(), 1000);
@@ -221,6 +185,7 @@ function AdminForms() {
                         onChange={(e) => {
                           setModName(e.target.value);
                           setSection("form1");
+                          setCat("material");
                         }}
                         />
                     </div>
@@ -238,6 +203,7 @@ function AdminForms() {
                         name="logistics"
                         onChange={(e) => {
                           setModName(e.target.value);
+                          setCat("logistic")
                           setSection("form1");
                         }}
                         />
@@ -249,6 +215,7 @@ function AdminForms() {
                         type="text"
                         name="logistics"
                         onChange={(e) => {
+                            setCat("logistic")
                           setModName2(e.target.value);
                         }}
                         />
@@ -270,6 +237,7 @@ function AdminForms() {
                         onChange={(e) => {
                           setModName(e.target.value);
                           setSection("form1");
+                          setCat("fastening")
                         }}
                         />
                     </div>
@@ -303,8 +271,8 @@ function AdminForms() {
                         onChange={(e) => {
                             setFilterArr(material.find((type)=> type.name === e.target.value));
                             setModName(e.target.value);
-                            setCat("material");
                             setSection("form2");
+                            setCat("material");
                             console.log("Material", modCo2e, modId, modName, filterArr);
                         }}>
                             <option></option>
