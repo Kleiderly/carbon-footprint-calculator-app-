@@ -5,7 +5,7 @@ import './css/Category.css';
 import './css/CategoryItemBox.css';
 import './css/Materials.css';
 
-const MaterialsItemBox = ({ type, adress, country, name }) => {
+const MaterialsItemBox1 = ({ type, adress, country, name }) => {
    const [selectType, setSelectType] = useState(false);
 
    const handleClick = () => {
@@ -14,7 +14,7 @@ const MaterialsItemBox = ({ type, adress, country, name }) => {
    };
 
    return (
-      <div>
+      <div className="materialNameContainer">
          <div
             className={selectType ? 'selectedMaterial' : 'deselectedMaterial'}
             onClick={handleClick}
@@ -25,4 +25,4 @@ const MaterialsItemBox = ({ type, adress, country, name }) => {
    );
 };
 
-export default MaterialsItemBox;
+export default MaterialsItemBox1;

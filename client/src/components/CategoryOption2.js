@@ -1,14 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import './css/Category.css';
 import CategoryItemBox2 from './CategoryItemBox2';
 import { itemList } from './data';
+import Context from '../contexts/ContextApi';
 
-const CategoryOption2 = ({ browser }) => {
+const CategoryOption2 = (props) => {
+   const {
+      itemTypeAdress1,
+      setItemTypeAdress1,
+      itemTypeAdress2,
+      setItemTypeAdress2,
+   } = useContext(Context);
    const [choice, setChoice] = useState('');
    const [selectType1, setSelectType1] = useState(null);
    const [selectType2, setSelectType2] = useState(null);
 
+   //To Go Back
    let history = useHistory();
    const handleClickPreviousSection = () => {
       history.push('/');
@@ -23,6 +31,14 @@ const CategoryOption2 = ({ browser }) => {
       console.log('click2');
       setChoice('2');
    };
+
+   const handleClick3 = () => {
+      setItemTypeAdress1(selectType1);
+      setItemTypeAdress2(selectType2);
+   };
+
+   console.log(selectType1);
+   console.log(selectType2);
 
    return (
       <div className="choiceContainer">
@@ -82,7 +98,9 @@ const CategoryOption2 = ({ browser }) => {
                   // className={choice ? null : 'disabled-link'}
                   to="/compare/materials"
                >
-                  <button type="button">Compare</button>
+                  <button type="button" onClick={handleClick3}>
+                     Next
+                  </button>
                </Link>
             </div>
          </div>

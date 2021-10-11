@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router';
 import { Link, useHistory } from 'react-router-dom';
-import FasteningsItemBox from './FasteningsItemBox';
+// import FasteningsItemBox from './FasteningsItemBox2';
 import axios from 'axios';
 import Tips from './Tips';
 
