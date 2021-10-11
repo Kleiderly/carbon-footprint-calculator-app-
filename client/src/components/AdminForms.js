@@ -11,7 +11,7 @@ function AdminForms() {
 /* Chosen values for submission */
     const [modName, setModName] = useState("");
     const [modName2, setModName2] = useState("");
-    const [modCo2e, setModCo2e] = useState();
+    const [modCo2e, setModCo2e] = useState(0);
     const [modId, setModId] = useState();
 /* Chosen username/password */
     const [username, setUsername] = useState("");
@@ -40,7 +40,7 @@ function AdminForms() {
             setAdmin(res[3].data);
         }))
         .catch((err)=> console.log(err))
-    }, []);
+    }, [submit]);
 
 /* Submit message */
     const success = "Submit successful!";
@@ -76,58 +76,44 @@ function AdminForms() {
 
 
 /* ROUTES */
-    const [postInfo, setPostInfo] = useState({name: "", co2e: ""})
+    const postLogistics = (e) =>{
+        e.preventDefault();
+        axios.post('http://localhost:5000/api/logistic', {productionLocation: `"${modName}"`, consumerLocation: `"${modName2}"`, co2e: `${modCo2e}`})
+        .then((response)=>{
+        console.log('worked')
+        })
+        .catch((err)=>{
+        console.log(err)
+        })
+    };
+    
+    const postOthers = (e) =>{
+        e.preventDefault();
+        axios.post('http://localhost:5000/api/material', {name: `"${modName}"`, co2e: `${modCo2e}`})
+        .then((response)=>{
+        console.log('worked')
+        })
+        .catch((err)=>{
+        console.log(err)
+        })
+    };
 
-    const postLogistics = `/api/${cat}/${modName}/${modName2}/${modCo2e}`;
+    const postAdmin = (e) =>{
+        e.preventDefault();
+        axios.post('http://localhost:5000/api/admin', {username: `"${username}"`, password: `"${password}"`})
+        .then((response)=>{
+        console.log('worked')
+        })
+        .catch((err)=>{
+        console.log(err)
+        })
+    };
 
-const materials = {setModName, setModCo2e};
-
- const postOthers =   fetch(`/api/material`, {
-  method: "POST",
-  headers: {
-    Accept: "application/json",
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify(materials)
-}).then(()=>{
-    console.log("worked")
-}).catch((err)=>{
-    console.log(err)
-})
-
-    // const axioshandler = async () =>{
-    //     const config  = {
-    //         header:  {
-    //             "Content-Type": "application/json",
-    //         },
-    //     };
-    //     try {
-    //         const {material} = await axios.post (
-    //             `/api/material`,
-    //             {name, co2e},
-    //             config
-    //         );
-    //     } catch(error) {
-
-    //     }
-
-
-    // const postOthers = {
-    //                     method: "post",
-    //                     url: `/api/${cat}`,
-    //                     data: postInfo,
-    //                     headers: {
-    //                       "Access-Control-Allow-Origin": "*",
-    //                       "Content-type": "application/json",
-    //                     },
-    //                     };
-
-    const postAdmin = `/api/admin/${username}/${password}`;
     const modLogistics = `/api/${modId}/${modName}/${modName2}/${modCo2e}`;
     const modOthers = `/api/${modId}/${modName}/${modCo2e}`;
     const modAdmin = `/api/${modId}/${username}/${password}`;
 
-/* Tells which link to use */
+/* Tells which category to post to */
     function postInstruction() {
         if(cat === "logistic"){
             return postLogistics
@@ -209,7 +195,6 @@ const materials = {setModName, setModCo2e};
             name="co2e"
             onChange={(e) => {
                 setModCo2e(e.target.value); 
-                setPostInfo({ ...postInfo, co2e: e.target.value })
             }}
             />
         </div>;
@@ -233,7 +218,6 @@ const materials = {setModName, setModCo2e};
                         onChange={(e) => {
                           setModName(e.target.value);
                           setSection("form1");
-                          setPostInfo({ ...postInfo, name: e.target.value });
                         }}
                         />
                     </div>

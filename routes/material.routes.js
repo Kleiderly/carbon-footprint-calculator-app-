@@ -13,7 +13,7 @@ materialRouter.get('/', (req,res)=>{
 
 //POST Routes
 materialRouter.post('/', (req, res) => {
-    const { name, co2e } = req.params
+    const { name, co2e } = req.body
 
     console.log(name, co2e)
 
