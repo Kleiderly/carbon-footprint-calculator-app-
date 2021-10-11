@@ -24,4 +24,4 @@ const MaterialsItemBox = ({ selected, index, name }) => {
    );
 };
 
-export default MaterialsItemBox;
+export default MaterialsItemBox1;

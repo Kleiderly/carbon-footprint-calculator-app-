@@ -9,12 +9,15 @@
    display: flex;
    flex-direction: row;
    align-items: center;
+   justify-content: center;
 }
 
 .imgCover {
    width: 150px;
 }
-
+.imgCategoryItemBox {
+   width: 75px;
+}
 /* .afterClick {
    background: rgba(23, 24, 24, 0.79);
    border: 1px solid gray;
@@ -93,6 +96,7 @@
    width: 120px;
    height: 120px;
    margin: 20px 5px 20px 5px;
+   border-radius: 10px;
 }
 
 .deselected {
@@ -107,4 +111,5 @@
    width: 120px;
    height: 120px;
    margin: 20px 5px 20px 5px;
+   border-radius: 10px;
 }

@@ -1,19 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useLocation } from 'react-router';
 import axios from 'axios';
+import Context from '../contexts/ContextApi';
 // import Tips from './Tips';
-import MaterialsItemBox2 from './MaterialsItemBox2.js';
+import MaterialsItemBox2 from './MaterialsItemBox2';
+import { itemList } from './data';
 import './css/Category.css';
 import './css/Materials.css';
 
-function MaterialsOption2(props) {
-   const location = useLocation();
-   const { adress1, adress2 } = location.state;
+const MaterialsOption2 = (props) => {
+   const {
+      itemTypeAdress1,
+      itemTypeAdress2,
+      setMaterialCO2e1,
+      setMaterialCO2e2,
+   } = useContext(Context);
+   // console.log(result);
 
    const [materials, setMaterials] = useState([]);
 
-   const [choice, setChoice] = useState('');
    const [selectMaterial1, setSelectMaterial1] = useState(null);
    const [selectMaterial2, setSelectMaterial2] = useState(null);
 
@@ -29,20 +35,21 @@ function MaterialsOption2(props) {
          });
    }, []);
 
+   //To Go Back
    let history = useHistory();
    const handleClickPreviousSection = () => {
-      history.push('/option-2');
+      history.push('/compare/category');
    };
 
-   const handleClick1 = () => {
-      console.log('click2');
-      setChoice('1');
+   const handleClick = () => {
+      setMaterialCO2e1(selectMaterial1);
+      setMaterialCO2e2(selectMaterial2);
    };
 
-   const handleClick2 = () => {
-      console.log('click2');
-      setChoice('2');
-   };
+   console.log(itemTypeAdress1);
+   console.log(itemTypeAdress2);
+   console.log(selectMaterial1);
+   console.log(selectMaterial2);
 
    return (
       <div className="choiceContainer">
@@ -53,22 +60,11 @@ function MaterialsOption2(props) {
                <p className="directionText">Choose Your Materials</p>
                <br />
                <div className="itemsContainer">
-                  <div
-                     className={choice === '1' ? 'afterClick' : 'beforeClick'}
-                     onClick={handleClick1}
-                     value={choice}
-                  >
-                     <img src={adress1} alt="firstBoxImage" />
+                  <div className="beforeClickCategory">
+                     <img src={itemTypeAdress1} alt={itemTypeAdress1} />
                   </div>
-                  <div
-                     className={choice === '2' ? 'afterClick' : 'beforeClick'}
-                     onClick={handleClick2}
-                     value={choice}
-                  >
-                     <img
-                        src="./img/items-images/skirt.png"
-                        alt="secondBoxImage"
-                     />
+                  <div className="beforeClickCategory">
+                     <img src={itemTypeAdress2} alt={itemTypeAdress2} />
                   </div>
                </div>
             </div>
@@ -106,34 +102,13 @@ function MaterialsOption2(props) {
          <button type="button" onClick={handleClickPreviousSection}>
             Go Back
          </button>
-         <Link
-            // className={
-            //    selectMaterial1 && selectMaterial2 ? null : 'disabled-link'
-            // }
-            to={{
-               pathname: '/compare/fastenings',
-               state: {
-                  adress1,
-                  adress2,
-                  material1: { selectMaterial1 },
-                  material2: { selectMaterial2 },
-               },
-            }}
-         >
-            <button type="button">Compare</button>
-         </Link>
-         <div>
-            <button type="button" onClick={handleClickPreviousSection}>
-               Go Back
+         <Link to="/compare/fastenings">
+            <button type="button" onClick={handleClick}>
+               Next
             </button>
-            {/* <div>
-               <Link to="/materials">
-                  <button type="button">Calculate</button>
-               </Link>
-            </div> */}
-         </div>
+         </Link>
       </div>
    );
-}
+};
 
 export default MaterialsOption2;

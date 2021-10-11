@@ -22,13 +22,17 @@ import AdminForms from "./components/AdminForms";
 
 function App() {
   // CALCULATE STATES
-  const [itemTypeAdress1, setItemTypeAdress1] = useState("../img/items-images/t-shirtW.png");
+  const [itemTypeAdress1, setItemTypeAdress1] = useState(
+    "../img/items-images/t-shirtW.png"
+  );
   const [materialCO2e1, setMaterialCO2e1] = useState();
   const [fasteningCO2e1, setFasteningCO2e1] = useState({});
   const [countryCO2e1, setCountryCO2e1] = useState();
 
   // COMPARE STATES
-  const [itemTypeAdress2, setItemTypeAdress2] = useState("../img/items-images/t-shirtW.png");
+  const [itemTypeAdress2, setItemTypeAdress2] = useState(
+    "../img/items-images/t-shirtW.png"
+  );
   const [materialCO2e2, setMaterialCO2e2] = useState();
   const [fasteningCO2e2, setFasteningCO2e2] = useState();
   const [countryCO2e2, setCountryCO2e2] = useState();

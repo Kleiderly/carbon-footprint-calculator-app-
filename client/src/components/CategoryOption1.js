@@ -1,32 +1,31 @@
 import React, { useState, useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import './css/Category.css';
-import './css/Cover.css';
+// import './css/Cover.css';
 
 import CategoryItemBox1 from './CategoryItemBox1';
 import { itemList } from './data';
-import Context from "../contexts/ContextApi";
-
-
-
-  
+import Context from '../contexts/ContextApi';
 
 const CategoryOption1 = (props) => {
 
-   const {itemTypeAdress1, setItemTypeAdress1} = useContext(Context);
+   const {setItemTypeAdress1} = useContext(Context);
 
    const [selected, setSelected] = useState('');
-   const [selectType, setSelectType] = useState("../img/items-images/t-shirtW.png");
-   console.log(selected)
+   const [selectType, setSelectType] = useState(
+      '../img/items-images/t-shirtW.png'
+   );
+   console.log(selected);
+
    let history = useHistory();
    const handleClickPreviousSection = () => {
       history.push('/');
    };
 
    const mapOnItemClickImageClassHandler = (item, i) => {
-      setSelectType(item.adress)
-      setSelected(i)
-   }
+      setSelectType(item.adress);
+      setSelected(i);
+   };
 
    return (
       <div className="choiceContainer">
@@ -36,14 +35,17 @@ const CategoryOption1 = (props) => {
                <p className="directionText">Choose Your Item</p>
                <br />
 
-               <div className='beforeClickCategory'>
+               <div className="beforeClickCategory">
                   <img src={selectType} alt="" />
                </div>
             </div>
          </div>
          <div className="typeOfItemContainer">
             {itemList.map((item, i) => (
-               <div onClick={() => mapOnItemClickImageClassHandler(item, i)} key={item.id} >
+               <div
+                  onClick={() => mapOnItemClickImageClassHandler(item, i)}
+                  key={item.id}
+               >
                   <CategoryItemBox1
                      index={i}
                      type={item.type}

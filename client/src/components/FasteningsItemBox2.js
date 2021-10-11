@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './css/Category.css';
 import './css/CategoryItemBox.css';
 
-const FasteningsItemBox = ({ type, adress, name, co2e }) => {
+const FasteningsItemBox2 = ({ type, adress, name, co2e }) => {
    const [selectType, setSelectType] = useState(false);
 
    return (
@@ -16,4 +16,4 @@ const FasteningsItemBox = ({ type, adress, name, co2e }) => {
    );
 };
 
-export default FasteningsItemBox;
+export default FasteningsItemBox2;

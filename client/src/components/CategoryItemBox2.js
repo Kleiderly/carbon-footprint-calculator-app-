@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './css/Category.css';
-import './css/CategoryItemBox.css';
 
 const CategoryItemBox2 = ({ type, adress }) => {
    const [selectType1, setSelectType1] = useState(false);
