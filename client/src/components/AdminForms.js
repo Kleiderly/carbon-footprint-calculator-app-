@@ -74,14 +74,54 @@ function AdminForms() {
         pw2.type === "password" ? pw2.type = "text" : pw2.type = "password"
     };
 
-    // useEffect(()=>{
-    //     const event = ()=> inputs.name !== cat ? inputs.value = "" : inputs.name
-    //     const inputs = document.querySelectorAll("input,select").addEventListener("change", event())
-    // }, []);
 
 /* ROUTES */
+    const [postInfo, setPostInfo] = useState({name: "", co2e: ""})
+
     const postLogistics = `/api/${cat}/${modName}/${modName2}/${modCo2e}`;
-    const postOthers = `/api/${cat}/${modName}/${modCo2e}`;
+
+const materials = {setModName, setModCo2e};
+
+ const postOthers =   fetch(`/api/material`, {
+  method: "POST",
+  headers: {
+    Accept: "application/json",
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify(materials)
+}).then(()=>{
+    console.log("worked")
+}).catch((err)=>{
+    console.log(err)
+})
+
+    // const axioshandler = async () =>{
+    //     const config  = {
+    //         header:  {
+    //             "Content-Type": "application/json",
+    //         },
+    //     };
+    //     try {
+    //         const {material} = await axios.post (
+    //             `/api/material`,
+    //             {name, co2e},
+    //             config
+    //         );
+    //     } catch(error) {
+
+    //     }
+
+
+    // const postOthers = {
+    //                     method: "post",
+    //                     url: `/api/${cat}`,
+    //                     data: postInfo,
+    //                     headers: {
+    //                       "Access-Control-Allow-Origin": "*",
+    //                       "Content-type": "application/json",
+    //                     },
+    //                     };
+
     const postAdmin = `/api/admin/${username}/${password}`;
     const modLogistics = `/api/${modId}/${modName}/${modName2}/${modCo2e}`;
     const modOthers = `/api/${modId}/${modName}/${modCo2e}`;
@@ -111,8 +151,7 @@ function AdminForms() {
 /* POST */
     const handleAdd = (e)=>{
         e.preventDefault();
-        axios
-        .post(postInstruction)
+        axios(postInstruction)
         .then((res) => {
             console.log(res);
             console.log("Added:", modName, modName2, modCo2e, modId, username, password);
@@ -168,7 +207,10 @@ function AdminForms() {
             className="light-pink"
             type="text"
             name="co2e"
-            onChange={(e) => setModCo2e(e.target.value)}
+            onChange={(e) => {
+                setModCo2e(e.target.value); 
+                setPostInfo({ ...postInfo, co2e: e.target.value })
+            }}
             />
         </div>;
         
@@ -191,6 +233,7 @@ function AdminForms() {
                         onChange={(e) => {
                           setModName(e.target.value);
                           setSection("form1");
+                          setPostInfo({ ...postInfo, name: e.target.value });
                         }}
                         />
                     </div>
@@ -508,6 +551,6 @@ function AdminForms() {
             </div>
         </div>
     )
-};
+}
 
 export default AdminForms;
