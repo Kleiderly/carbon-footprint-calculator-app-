@@ -5,7 +5,7 @@ import './css/Category.css';
 import './css/CategoryItemBox.css';
 import './css/Materials.css';
 
-const MaterialsItemBox = ({ selected, index, name }) => {
+const MaterialsItemBox1 = ({ selected, index, name }) => {
    const [selectType, setSelectType] = useState(false);
 
    const handleClick = () => {
