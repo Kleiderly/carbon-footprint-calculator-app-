@@ -3,13 +3,11 @@ import { Link, useHistory } from 'react-router-dom';
 import { useLocation } from 'react-router';
 import axios from 'axios';
 // import Tips from './Tips';
-import MaterialsItemBox from './MaterialsItemBox';
-import { itemList } from './data';
+import MaterialsItemBox2 from './MaterialsItemBox2.js';
 import './css/Category.css';
 import './css/Materials.css';
 
-function MaterialsOption2({ browser, match, result, setResult }) {
-   // console.log(result);
+function MaterialsOption2(props) {
    const location = useLocation();
    const { adress1, adress2 } = location.state;
 
@@ -86,7 +84,7 @@ function MaterialsOption2({ browser, match, result, setResult }) {
                      }
                      key={item.id}
                   >
-                     <MaterialsItemBox name={item.name} />
+                     <MaterialsItemBox2 name={item.name} />
                   </div>
                ))}
             </div>
@@ -100,7 +98,7 @@ function MaterialsOption2({ browser, match, result, setResult }) {
                      }
                      key={item.id}
                   >
-                     <MaterialsItemBox name={item.name} />
+                     <MaterialsItemBox2 name={item.name} />
                   </div>
                ))}
             </div>

@@ -1,18 +1,26 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { useLocation } from "react-router";
 import axios from "axios";
 import Context from "../contexts/ContextApi";
-// import Tips from './Tips';
-import MaterialsItemBox from "./MaterialsItemBox";
-import { itemList } from "./data";
+import MaterialsItemBox1 from "./MaterialsItemBox1";
 import "./css/Category.css";
 import "./css/Materials.css";
 
 const MaterialsOption1 = (props) => {
-   const {itemTypeAdress1} = useContext(Context);
+  
+  const {itemTypeAdress1, setMaterialCO2e1} = useContext(Context);
+
+  const [selected, setSelected] = useState('');
   const [materials, setMaterials] = useState([]);
   const [selectMaterial1, setSelectMaterial1] = useState(null);
+
+
+  console.log(itemTypeAdress1)
+
+  const mapOnItemClickImageClassHandler = (item, i) => {
+    setSelectMaterial1(item.co2e)
+    setSelected(i)
+  }
 
   useEffect(() => {
     axios
@@ -27,10 +35,8 @@ const MaterialsOption1 = (props) => {
 
   let history = useHistory();
   const handleClickPreviousSection = () => {
-    history.push("/option-2");
+    history.push("/calculate/category");
   };
-
-  console.log(itemTypeAdress1);
 
   return (
     <div className="choiceContainer">
@@ -43,9 +49,13 @@ const MaterialsOption1 = (props) => {
         </div>
       </div>
       <div className="materialContainer">
-        {materials.map((item) => (
-          <div onClick={() => selectMaterial1(item.co2e)} key={item._id}>
-            <MaterialsItemBox name={item.name} />
+        {materials.map((item, i) => (
+          <div onClick={() => mapOnItemClickImageClassHandler(item, i)} key={item._id}>
+            <MaterialsItemBox1 
+              index={i}
+              name={item.name}
+              selected={selected} 
+            />
           </div>
         ))}
       </div>
@@ -53,8 +63,8 @@ const MaterialsOption1 = (props) => {
         Go Back
       </button>
       <div>
-        <Link to="/fastenings">
-          <button type="button">Calculate</button>
+        <Link to="/calculate/fastenings">
+          <button type="button"onClick={() => setMaterialCO2e1(selectMaterial1)}>Calculate</button>
         </Link>
       </div>
     </div>

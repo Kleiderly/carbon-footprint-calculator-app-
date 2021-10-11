@@ -22,13 +22,13 @@ import AdminForms from "./components/AdminForms";
 
 function App() {
   // CALCULATE STATES
-  const [itemTypeAdress1, setItemTypeAdress1] = useState();
+  const [itemTypeAdress1, setItemTypeAdress1] = useState("../img/items-images/t-shirtW.png");
   const [materialCO2e1, setMaterialCO2e1] = useState();
-  const [fasteningCO2e1, setFasteningCO2e1] = useState();
+  const [fasteningCO2e1, setFasteningCO2e1] = useState({});
   const [countryCO2e1, setCountryCO2e1] = useState();
 
   // COMPARE STATES
-  const [itemTypeAdress2, setItemTypeAdress2] = useState();
+  const [itemTypeAdress2, setItemTypeAdress2] = useState("../img/items-images/t-shirtW.png");
   const [materialCO2e2, setMaterialCO2e2] = useState();
   const [fasteningCO2e2, setFasteningCO2e2] = useState();
   const [countryCO2e2, setCountryCO2e2] = useState();
@@ -97,17 +97,17 @@ function App() {
               <Route
                 exact
                 path="/compare/materials"
-                component={(browser) => <MaterialsOption1 />}
+                component={(browser) => <MaterialsOption2 />}
               />
               <Route
                 exact
                 path="/compare/logistics"
-                component={(browser) => <LogisticsOption1 />}
+                component={(browser) => <LogisticsOption2 />}
               />
               <Route
                 exact
                 path="/compare/fastenings"
-                component={(browser) => <FasteningsOption1 />}
+                component={(browser) => <FasteningsOption2 />}
               />
 
               <Route

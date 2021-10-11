@@ -5,22 +5,21 @@ import './css/Category.css';
 import './css/CategoryItemBox.css';
 import './css/Materials.css';
 
-const MaterialsItemBox = ({ type, adress, country, name }) => {
+const MaterialsItemBox = ({ selected, index, name }) => {
    const [selectType, setSelectType] = useState(false);
 
    const handleClick = () => {
-      console.log('click');
-      setSelectType(adress);
+      console.log(`${name} Clicked`);
+      setSelectType(name);
    };
 
    return (
       <div>
-         <div
-            className={selectType ? 'selectedMaterial' : 'deselectedMaterial'}
-            onClick={handleClick}
+         <button
+            className={selected === index ? 'selectedMaterial' : 'deselectedMaterial'}
          >
             <p>{name}</p>
-         </div>
+         </button>
       </div>
    );
 };

@@ -47,8 +47,8 @@ function Cover() {
                   >
                      <img
                         className="imgCover"
-                        src="./img/items-images/t-shirtW.png"
-                        alt="T-shirt Image"
+                        src="../img/items-images/t-shirtW.png"
+                        alt="T-shirt"
                      />
                   </div>
                   <p className="directionText2">Calculate 1 item</p>
@@ -64,12 +64,12 @@ function Cover() {
                      <img
                         className="imgCover"
                         src="../img/items-images/t-shirtW.png"
-                        alt="T-shirt Image"
+                        alt="T-shirt"
                      />
                      <img
                         className="imgCover"
-                        src="./img/items-images/t-shirtW.png"
-                        alt="T-shirt Image"
+                        src="../img/items-images/t-shirtW.png"
+                        alt="T-shirt"
                      />
                   </div>
                   <p className="directionText2">Compare 2 Items</p>

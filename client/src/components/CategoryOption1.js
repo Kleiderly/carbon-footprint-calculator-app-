@@ -13,7 +13,7 @@ import Context from "../contexts/ContextApi";
 
 const CategoryOption1 = (props) => {
 
-   const {ItemTypeAdress1, setItemTypeAdress1} = useContext(Context);
+   const {itemTypeAdress1, setItemTypeAdress1} = useContext(Context);
 
    const [selected, setSelected] = useState('');
    const [selectType, setSelectType] = useState("../img/items-images/t-shirtW.png");
@@ -59,7 +59,7 @@ const CategoryOption1 = (props) => {
          </button>
          <div>
             <Link to="/calculate/materials">
-               <button type="button" onClick={()=> setItemTypeAdress1(selectType)}>Calculate</button>
+               <button type="button" onClick={() => setItemTypeAdress1(selectType)}>Calculate</button>
             </Link>
          </div>
       </div>

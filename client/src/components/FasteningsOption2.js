@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
 import { useLocation } from 'react-router';
 import './css/Category.css';
-import { itemList } from './data';
+
 
 const FasteningsOption2 = () => {
    const [selectFastening1, setSelectFastening1] = useState({

@@ -30,3 +30,4 @@ export const itemList = [
       adress: '../img/items-images/jacket.png',
    },
 ];
+
