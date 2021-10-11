@@ -76,42 +76,6 @@ function AdminForms() {
 
 
 /* ROUTES */
-    const postLogistics = (e) =>{
-        e.preventDefault();
-        axios.post('http://localhost:5000/api/logistic', {productionLocation: `"${modName}"`, consumerLocation: `"${modName2}"`, co2e: `${modCo2e}`})
-        .then((response)=>{
-        console.log('worked')
-        })
-        .catch((err)=>{
-        console.log(err)
-        })
-    };
-    
-    const postOthers = (e) =>{
-        e.preventDefault();
-        axios.post('http://localhost:5000/api/material', {name: `"${modName}"`, co2e: `${modCo2e}`})
-        .then((response)=>{
-        console.log('worked')
-        })
-        .catch((err)=>{
-        console.log(err)
-        })
-    };
-
-    const postAdmin = (e) =>{
-        e.preventDefault();
-        axios.post('http://localhost:5000/api/admin', {username: `"${username}"`, password: `"${password}"`})
-        .then((response)=>{
-        console.log('worked')
-        })
-        .catch((err)=>{
-        console.log(err)
-        })
-    };
-
-    const modLogistics = `/api/${modId}/${modName}/${modName2}/${modCo2e}`;
-    const modOthers = `/api/${modId}/${modName}/${modCo2e}`;
-    const modAdmin = `/api/${modId}/${username}/${password}`;
 
 /* Tells which category to post to */
     function postInstruction() {
@@ -124,6 +88,40 @@ function AdminForms() {
         }
     };
 
+    const postLogistics = (e) =>{
+        e.preventDefault();
+        axios.post('/api/logistic', {productionLocation: `"${modName}"`, consumerLocation: `"${modName2}"`, co2e: `${modCo2e}`})
+        .then((response)=>{
+        console.log('worked')
+        })
+        .catch((err)=>{
+        console.log(err)
+        })
+    };
+    
+    const postOthers = (e) =>{
+        e.preventDefault();
+        axios.post('/api/material', {name: `"${modName}"`, co2e: `${modCo2e}`})
+        .then((response)=>{
+        console.log('worked')
+        })
+        .catch((err)=>{
+        console.log(err)
+        })
+    };
+
+    const postAdmin = (e) =>{
+        e.preventDefault();
+        axios.post('/api/admin', {username: `"${username}"`, password: `"${password}"`})
+        .then((response)=>{
+        console.log('worked')
+        })
+        .catch((err)=>{
+        console.log(err)
+        })
+    };
+
+/* Tells which category to modify */
     function modInstruction() {
         if(cat === "logistic"){
             return modLogistics
@@ -133,6 +131,11 @@ function AdminForms() {
             return modOthers
         }
     };
+
+    const modLogistics = `/api/${modId}/${modName}/${modName2}/${modCo2e}`;
+    const modOthers = `/api/${modId}/${modName}/${modCo2e}`;
+    const modAdmin = `/api/${modId}/${username}/${password}`;
+
 
 /* POST */
     const handleAdd = (e)=>{
