@@ -17,6 +17,9 @@ import Results from './components/Results';
 import Footer from './components/Footer';
 import Percentages from './components/Percentages';
 
+import PrivateRoute from "./components/PrivateRoute";
+import ForgotPassword from "./components/ForgotPassword";
+import ResetPassword from "./components/ResetPassword";
 
 function App() {
 
@@ -41,8 +44,10 @@ function App() {
                     <Route exact path="/:itemsNumber/results" component={Results} />
                     <Route exact path="/:itemsNumber/details" component={() => <Details/>} />
                     {/* Admin routes */}
-                    <Route exact path="/adminpage/login" component={(browser) => <Login />} />
-                    <Route exact path="/adminpage/forms" component={(browser) => <AdminForms browser={browser}/>} />
+                    <PrivateRoute exact path="/adminpage/forms" component={AdminForms} />
+                    <Route exact path="/adminpage/login" component={Login} />
+                    <Route exact path="/adminpage/forgotpassword" component={ForgotPassword} />
+                    <Route exact path="/adminpage/passwordreset/:resetToken" component={ResetPassword} />
                 </Switch>
               <Footer />
             </div>

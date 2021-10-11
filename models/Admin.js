@@ -1,4 +1,4 @@
-const crypt = require('crypto');
+const crypto = require('crypto');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const bcrypt = require('bcryptjs');
@@ -39,18 +39,20 @@ adminSchema.methods.getSignedToken = function () {
     return jwt.sign({id: this._id}, process.env.JWT_SECRET, {expiresIn: process.env.JWT_EXPIRE} )
 }
 
-adminSchema.methods.getResetPasswordToken  = function() {
-    const resetToken = crypto.randomBytes(20).toString('hex');
-
-    this.getResetPasswordToken = crypto
-    .createHash('23fd09g')
-    .update(resetToken)
-    .digest('hex');
-
-    this.getResetPasswordExpire =  Date.now() + 10 * (60 * 1000);
-
+adminSchema.methods.getResetPasswordToken = function () {
+    const resetToken = crypto.randomBytes(20).toString("hex");
+  
+    
+    this.resetPasswordToken = crypto
+      .createHash("sha256")
+      .update(resetToken)
+      .digest("hex");
+  
+   
+    this.resetPasswordExpire = Date.now() + 10 * (60 * 1000); 
+  
     return resetToken;
-}
+  };
 
 const Admin = mongoose.model('Admin', adminSchema);
 

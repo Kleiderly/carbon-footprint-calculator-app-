@@ -1,6 +1,8 @@
-require('dotenv').config(); 
+require('dotenv').config();
+const crypto = require('crypto') 
 const Admin = require('../models/Admin')
 const ErrorResponse = require('../Utils/ErrorResponse')
+const sendEmail = require('../Utils/SendEmail')
 
 exports.register =  async (req, res, next) => {
     const {username, email, password} = req.body
@@ -59,11 +61,11 @@ exports.forgotpassword =  async (req, res, next) => {
             return next(new ErrorResponse('Email could not be sent', 404))
         }
 
-        const resetToken = admin.getResertPasswordToken();
+        const resetToken = admin.getResetPasswordToken();
 
         await admin.save();
 
-        const resetUrl = `http://localhost:5000/passwordreset/${resetToken}`;
+        const resetUrl = `http://localhost:5000/adminpage/passwordreset/${resetToken}`;
 
         const message = `
         <h1> You have requested a password reset</h1>
@@ -72,20 +74,57 @@ exports.forgotpassword =  async (req, res, next) => {
         `
 
         try {
-            
+            await sendEmail({
+                to: admin.email,
+                subject: 'Password Reset Request',
+                text: message
+            })
+            res.status(200).json({
+                success: true,
+                data: 'Email Sent'
+            })
         } catch (error) {
-            
+            admin.resetPasswordToken = undefined;
+            admin.resetPasswordExpire = undefined;
+
+            await admin.save();
+            return next(new ErrorResponse('Email could not be sent', 500))
         }
 
     } catch (error) {
-        
+        next(error)
     }
 
 
 }
 
-exports.resetpassword = (req, res, next) => {
-    res.send('Reset Password Route')
+exports.resetpassword = async (req, res, next) => {
+    const resetPasswordToken =  crypto.createHash('sha256').update(req.params.resetToken).digest('hex')
+
+    try {
+        const admin = await Admin.findOne({
+            resetPasswordToken,
+            resetPasswordExpire: {$gt: Date.now()}
+        })
+
+        if(!admin){
+            return next (new ErrorResponse('Invalid  Reset Token', 400))
+        }
+
+        admin.password = req.body.password;
+        admin.resetPasswordToken = undefined;
+        admin.resetPasswordExpire = undefined;
+
+        await admin.save(); 
+
+        res.status(201).json({
+            success: true,
+            data:'Password Reset Success '
+        })
+
+    } catch (error) {
+        next(error)
+    }
 }
 
 
