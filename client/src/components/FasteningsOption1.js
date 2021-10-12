@@ -1,40 +1,14 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link, useHistory } from "react-router-dom";
-import FasteningsForm from "./FasteningsForm";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Context from "../contexts/ContextApi";
+import { Link } from 'react-router-dom'
 
 
 const FasteningsOption1 = (props) => {
-  const {itemTypeAdress1, setFasteningCO2e1} = useContext(Context)
-
-
-
+  const {itemTypeAdress1, setFasteningCO2e1, fasteningCO2e1} = useContext(Context)
+  
   const [fastenings, setFastenings] = useState([]);
-
-  const [selectFastening1, setSelectFastening1] = useState({
-    plasticButton1: 0,
-    metalButton1: 0,
-    zip1: 0,
-  });
-  // const [plastic1, setPlastic1] = useState(0);
-  // const [metal1, setMetal1] = useState(0);
-  // const [zipper1, setZipper1] = useState(0);
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   setSelectFastening1({
-  //     ...selectFastening1,
-  //     plasticButton1: Number(plastic1),
-  //     metalButton1: Number(metal1),
-  //     zip1: Number(zipper1),
-  //   });
-  // };
-
-  let history = useHistory();
-  const handleClickPreviousSection = () => {
-    history.push('/calculate/materials');
-  };
 
   useEffect(() => {
     axios
@@ -45,11 +19,39 @@ const FasteningsOption1 = (props) => {
       });
   }, []);
 
+  const [listOfQuantities, setlistOfQuantities] = useState([]);
+  const copyOfQuantities = [...listOfQuantities];
+  
+
+  let history = useHistory();
+  const handleClickPreviousSection = () => {
+    history.push('/calculate/materials');
+  };
+
+  useEffect(() => {
+    const temporalArray = [];
+    fastenings.forEach((fastening) => {
+      temporalArray.push({ quantity: 0 });
+    });
+    setlistOfQuantities([...temporalArray]);
+  }, [fastenings]);
+
+  const addFastenings = () => {
+    let result = 0;
+    for (let i = 0; i < fastenings.length; i++) {
+      result += listOfQuantities[i].quantity * fastenings[i].co2e;
+    }
+    setFasteningCO2e1(result)
+  };
+
+    console.log('result Fastening: ', fasteningCO2e1)
+
+
+  
   return (
     <div className="choiceContainer">
-      <div>
         <br />
-        <p className="directionText">How Many Fanstenings Are there?</p>
+        <p className="directionText">How Many Fastenings Are there?</p>
         <br />
         <div className="beforeClick">
           <img
@@ -57,22 +59,36 @@ const FasteningsOption1 = (props) => {
             alt="firstBoxImage"
             className="imgCover"
           />
-        </div>
       </div>
-      {fastenings.map((item) => {
-         return (
-            <FasteningsForm name={item.name} selectFastening1={selectFastening1} setSelectFastening1={setSelectFastening1}/>  
-         )
-      })}
-      
-      <button type="button" onClick={handleClickPreviousSection}>
-        Go Back
-      </button>
-      {/* <div>
-            <Link to="calculate/fastenings">
-               <button type="button">Calculate</button>
+      <div>
+      {listOfQuantities.length > 0 &&
+        fastenings.map((fastening, i) => {
+          return (
+            <div key={i}>
+              <h3>{fastening.name}</h3>
+              <input
+                type="text"
+                value={listOfQuantities[i].quantity}
+                onChange={(e) => {
+                  copyOfQuantities[i].quantity = e.target.value;
+                  setlistOfQuantities([...copyOfQuantities]);
+                }}
+              />
+            </div>
+          );
+        })}
+
+
+
+    </div>
+      <div>
+            <Link to="/calculate/logistics">
+               <button type="button" onClick={addFastenings}>Next</button>
             </Link>
-         </div> */}
+         </div>
+      <h4 type="button" onClick={handleClickPreviousSection}>
+        Go Back
+      </h4>
     </div>
   );
 };

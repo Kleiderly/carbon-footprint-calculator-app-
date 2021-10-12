@@ -2,9 +2,8 @@ import React, { useState, useEffect, useContext } from 'react';
 import Context from '../contexts/ContextApi';
 import axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
-import { useLocation } from 'react-router';
 import './css/Category.css';
-import FasteningsItemBox2 from './FasteningsItemBox2';
+
 
 const FasteningsOption2 = () => {
    const {

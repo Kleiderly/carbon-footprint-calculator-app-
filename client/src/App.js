@@ -14,7 +14,7 @@ import LogisticsOption1 from "./components/LogisticsOption1";
 import LogisticsOption2 from "./components/LogisticsOption2";
 import FasteningsOption1 from "./components/FasteningsOption1";
 import FasteningsOption2 from "./components/FasteningsOption2";
-import Results from "./components/Results";
+import ResultsOption1 from "./components/ResultsOption1";
 import Percentages from "./components/Percentages";
 import Details from "./components/Details";
 import Admin from "./components/Admin";
@@ -26,7 +26,7 @@ function App() {
     "../img/items-images/t-shirtW.png"
   );
   const [materialCO2e1, setMaterialCO2e1] = useState();
-  const [fasteningCO2e1, setFasteningCO2e1] = useState({});
+  const [fasteningCO2e1, setFasteningCO2e1] = useState();
   const [countryCO2e1, setCountryCO2e1] = useState();
 
   // COMPARE STATES
@@ -90,6 +90,11 @@ function App() {
                 path="/calculate/fastenings"
                 component={(browser) => <FasteningsOption1 />}
               />
+              <Route
+                exact
+                path="/calculate/results"
+                component={(browser) => <ResultsOption1 />}
+              />
 
               {/* COMPARE FLOW */}
 
@@ -122,7 +127,7 @@ function App() {
               <Route
                 exact
                 path="/results"
-                component={(browser) => <Results />}
+                component={(browser) => <ResultsOption1 />}
               />
               <Route
                 exact

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './css/Category.css';
 
 const CategoryItemBox = ({ selected, index, type, adress }) => {
