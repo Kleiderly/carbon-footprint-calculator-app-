@@ -8,8 +8,12 @@ function AdminForms() {
 
     const [error, setError] = useState("");
     const [privateData, setPrivateData] = useState("");
-  
+    let history = useHistory();
     useEffect(() => {
+
+      if(!localStorage.getItem("authToken")){
+        history.push("/adminpage/login")
+      }
       const fetchPrivateDate = async () => {
         const config = {
           headers: {
@@ -28,11 +32,20 @@ function AdminForms() {
       };
   
       fetchPrivateDate();
-    }, []);
+    }, [history]);
+
+    const logoutHandler = () =>{
+      localStorage.removeItem('authToken');
+      history.push('/adminpage/login')
+    }
     return error ? (
       <span >{error}</span>
     ) : (
-      <div>{privateData} heelo</div>
+      <>
+      <div>{privateData} heello</div>
+      <button onClick={logoutHandler}>Logout</button>
+
+      </>
     );
   };
   
