@@ -4,17 +4,20 @@ import axios from "axios";
 
 
 
-const ResetPassword = ({ history, match }) => {
+
+const ResetPassword = ({ match }) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
+
+
   const resetPasswordHandler = async (e) => {
     e.preventDefault();
 
     const config = {
-      header: {
+      headers: {
         "Content-Type": "application/json",
       },
     };
@@ -30,7 +33,7 @@ const ResetPassword = ({ history, match }) => {
 
     try {
       const { data } = await axios.put(
-        `/api/auth/passwordreset/${match.params.resetToken}`,
+        `/api/auth/resetpassword/${match.params.resetToken}`,
         {
           password,
         },
