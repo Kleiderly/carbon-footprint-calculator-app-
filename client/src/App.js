@@ -17,8 +17,13 @@ import FasteningsOption2 from "./components/FasteningsOption2";
 import ResultsOption1 from "./components/ResultsOption1";
 import Percentages from "./components/Percentages";
 import Details from "./components/Details";
-import Admin from "./components/Admin";
+
+
 import AdminForms from "./components/AdminForms";
+import Login from "./components/Login";
+import PrivateRoute from "./components/PrivateRoute";
+import ForgotPassword from "./components/ForgotPassword";
+import ResetPassword from "./components/ResetPassword";
 
 function App() {
   // CALCULATE STATES
@@ -137,15 +142,21 @@ function App() {
 
               {/* ADMIN ROUTES */}
 
+              <PrivateRoute
+                exact
+                path="/adminpage/forms"
+                component={AdminForms}
+              />
+              <Route exact path="/adminpage/login" component={Login} />
               <Route
                 exact
-                path="/adminpage/login"
-                component={(browser) => <Admin />}
+                path="/adminpage/forgotpassword"
+                component={ForgotPassword}
               />
               <Route
                 exact
-                path="/adminpage/forms"
-                component={(browser) => <AdminForms />}
+                path="/adminpage/passwordreset/:resetToken"
+                component={ResetPassword}
               />
             </Switch>
             <Footer />
