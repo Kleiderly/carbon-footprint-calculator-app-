@@ -1,7 +1,7 @@
 import {React, useState, useEffect }from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
-import "./CSS/Admin.css";
+import "./css/Admin.css";
 import axios from "axios";
 
 function Login() {
