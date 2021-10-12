@@ -4,7 +4,6 @@ import axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
 import { useLocation } from 'react-router';
 import './css/Fastenings.css';
-import FasteningsItemBox2 from './FasteningsItemBox2';
 
 const FasteningsOption2 = () => {
    const {
@@ -12,6 +11,8 @@ const FasteningsOption2 = () => {
       itemTypeAdress2,
       setFasteningCO2e1,
       fasteningCO2e1,
+      setFasteningCO2e2,
+      fasteningCO2e2,
    } = useContext(Context);
 
    const [fastenings, setFastenings] = useState([]);
@@ -26,32 +27,33 @@ const FasteningsOption2 = () => {
    }, []);
 
    const [listOfQuantities, setlistOfQuantities] = useState([]);
+   const [listOfQuantities2, setlistOfQuantities2] = useState([]);
+
    const copyOfQuantities = [...listOfQuantities];
+   const copyOfQuantities2 = [...listOfQuantities2];
 
    useEffect(() => {
       const temporalArray = [];
+      const temporalArray2 = [];
       fastenings.forEach((fastening) => {
          temporalArray.push({ quantity: 0 });
+         temporalArray2.push({ quantity: 0 });
       });
       setlistOfQuantities([...temporalArray]);
+      setlistOfQuantities2([...temporalArray2]);
    }, [fastenings]);
-
-   const [totalFasteningCo2e, setTotalFasteningCo2e] = useState(0);
 
    const addFastenings = () => {
       let result = 0;
+      let result2 = 0;
       let resultObj = {};
       for (let i = 0; i < fastenings.length; i++) {
          result += listOfQuantities[i].quantity * fastenings[i].co2e;
-         resultObj[fastenings[i].name] = `${
-            listOfQuantities[i].quantity * fastenings[i].co2e
-         }`;
+         result2 += listOfQuantities2[i].quantity * fastenings[i].co2e;
       }
-      setTotalFasteningCo2e(result);
-      setFasteningCO2e1(resultObj);
+      setFasteningCO2e1(result);
+      setFasteningCO2e2(result2);
    };
-
-   console.log('result Fastening: ', fasteningCO2e1);
 
    //To Go Back
    let history = useHistory();
@@ -96,17 +98,17 @@ const FasteningsOption2 = () => {
                   })}
             </div>
             <div className="materialContainer">
-               {listOfQuantities.length > 0 &&
+               {listOfQuantities2.length > 0 &&
                   fastenings.map((fastening, i) => {
                      return (
                         <div key={i}>
                            <h3>{fastening.name}</h3>
                            <input
                               type="number"
-                              value={listOfQuantities[i].quantity}
+                              value={listOfQuantities2[i].quantity}
                               onChange={(e) => {
-                                 copyOfQuantities[i].quantity = e.target.value;
-                                 setlistOfQuantities([...copyOfQuantities]);
+                                 copyOfQuantities2[i].quantity = e.target.value;
+                                 setlistOfQuantities2([...copyOfQuantities2]);
                               }}
                            />
                         </div>
@@ -119,7 +121,7 @@ const FasteningsOption2 = () => {
             Go Back
          </button>
          <div>
-            <Link to="/calculate/logistics">
+            <Link to="/compare/logistics">
                <button type="button" onClick={addFastenings}>
                   Next
                </button>

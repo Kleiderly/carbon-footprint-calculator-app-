@@ -12,9 +12,10 @@ const CategoryOption2 = (props) => {
       itemTypeAdress2,
       setItemTypeAdress2,
    } = useContext(Context);
-   const [choice, setChoice] = useState('');
+   const [choice, setChoice] = useState(true);
    const [selectType1, setSelectType1] = useState(null);
    const [selectType2, setSelectType2] = useState(null);
+   const [toggle, setToggle] = useState(true);
 
    //To Go Back
    let history = useHistory();
@@ -24,12 +25,14 @@ const CategoryOption2 = (props) => {
 
    const handleClick1 = () => {
       console.log('click2');
-      setChoice('1');
+      setChoice(true);
+      setToggle(true);
    };
 
    const handleClick2 = () => {
       console.log('click2');
-      setChoice('2');
+      setChoice(false);
+      setToggle(false);
    };
 
    const handleClick3 = () => {
@@ -39,6 +42,12 @@ const CategoryOption2 = (props) => {
 
    console.log(selectType1);
    console.log(selectType2);
+
+   const handleClickTypes = (item) => {
+      setChoice(!choice);
+      setToggle(!toggle);
+      toggle ? setSelectType1(item.adress) : setSelectType2(item.adress);
+   };
 
    return (
       <div className="choiceContainer">
@@ -50,7 +59,7 @@ const CategoryOption2 = (props) => {
                <div className="itemsContainer">
                   <div
                      className={
-                        choice === '1'
+                        choice === true
                            ? 'afterClickCategory'
                            : 'beforeClickCategory'
                      }
@@ -61,7 +70,7 @@ const CategoryOption2 = (props) => {
                   </div>
                   <div
                      className={
-                        choice === '2'
+                        choice === false
                            ? 'afterClickCategory'
                            : 'beforeClickCategory'
                      }
@@ -73,17 +82,10 @@ const CategoryOption2 = (props) => {
                </div>
             </div>
             <div className="typeOfItemContainer">
-               {itemList.map((item) => (
-                  <div
-                     onClick={() =>
-                        selectType1
-                           ? setSelectType2(item.adress)
-                           : setSelectType1(item.adress)
-                     }
-                     key={item.id}
-                  >
+               {itemList.map((item, i) => (
+                  <div onClick={() => handleClickTypes(item)} key={item._id}>
                      <CategoryItemBox2
-                        index={item.id}
+                        index={item._id}
                         type={item.type}
                         adress={item.adress}
                      />

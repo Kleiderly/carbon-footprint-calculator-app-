@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './css/Category.css';
 import './css/CategoryItemBox.css';
 import './css/Materials.css';
+import './css/ItemBox.css';
 
 const MaterialsItemBox2 = ({ type, adress, country, name }) => {
    const [selectType, setSelectType] = useState(false);

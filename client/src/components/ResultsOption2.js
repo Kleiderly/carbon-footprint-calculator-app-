@@ -2,17 +2,35 @@ import React, { useState, useEffect, useContext } from 'react';
 import Context from '../contexts/ContextApi';
 import { Link, useHistory } from 'react-router-dom';
 
-const ResultsOption1 = (props) => {
-   const { itemTypeAdress1, materialCO2e1, fasteningCO2e1, countryCO2e1 } =
-      useContext(Context);
+const ResultsOption2 = (props) => {
+   const {
+      itemTypeAdress1,
+      itemTypeAdress2,
+      materialCO2e1,
+      materialCO2e2,
+      fasteningCO2e1,
+      fasteningCO2e2,
+      countryCO2e1,
+      countryCO2e2,
+   } = useContext(Context);
 
    //Calculation
    const [totalCo2e, setTotalCo2e] = useState();
+   const [totalCo2e2, setTotalCo2e2] = useState();
 
    useEffect(() => {
       setTotalCo2e((materialCO2e1 + fasteningCO2e1 + countryCO2e1).toFixed(4));
-   }, [materialCO2e1, fasteningCO2e1, countryCO2e1]);
+      setTotalCo2e2((materialCO2e2 + fasteningCO2e2 + countryCO2e2).toFixed(4));
+   }, [
+      materialCO2e1,
+      fasteningCO2e1,
+      countryCO2e1,
+      materialCO2e2,
+      fasteningCO2e2,
+      countryCO2e2,
+   ]);
    console.log(totalCo2e);
+
    //To Go Back
    let history = useHistory();
    const handleClickPreviousSection = () => {
@@ -30,11 +48,18 @@ const ResultsOption1 = (props) => {
                   <div className="beforeClickCategory">
                      <img src={itemTypeAdress1} alt={itemTypeAdress1} />
                   </div>
+                  <div>
+                     The total carbon footprint of your item is {totalCo2e}
+                  </div>
+                  <div className="beforeClickCategory">
+                     <img src={itemTypeAdress1} alt={itemTypeAdress1} />
+                  </div>
+                  <div>
+                     The total carbon footprint of your item is {totalCo2e2}
+                  </div>
                </div>
             </div>
          </div>
-
-         <div>The total carbon footprint of your item is {totalCo2e}</div>
 
          <button type="button" onClick={handleClickPreviousSection}>
             Go Back
@@ -49,4 +74,4 @@ const ResultsOption1 = (props) => {
    );
 };
 
-export default ResultsOption1;
+export default ResultsOption2;
