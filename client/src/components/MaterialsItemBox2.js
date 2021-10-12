@@ -21,12 +21,6 @@ const MaterialsItemBox2 = ({ type, adress, country, name }) => {
          >
             <p>{name}</p>
          </div>
-         {/* <div
-            className={selectType ? 'selectedMaterial' : 'deselectedMaterial'}
-            onClick={handleClick}
-         >
-            <p>{name}</p>
-         </div> */}
       </div>
    );
 };

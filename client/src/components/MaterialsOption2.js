@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { useLocation } from 'react-router';
+// import { useLocation } from 'react-router';
 import axios from 'axios';
 import Context from '../contexts/ContextApi';
 // import Tips from './Tips';
@@ -16,10 +16,11 @@ const MaterialsOption2 = (props) => {
       setMaterialCO2e1,
       setMaterialCO2e2,
    } = useContext(Context);
-   // console.log(result);
 
+   //For data from database
    const [materials, setMaterials] = useState([]);
 
+   //For selection by user through button click
    const [selectMaterial1, setSelectMaterial1] = useState(null);
    const [selectMaterial2, setSelectMaterial2] = useState(null);
 
