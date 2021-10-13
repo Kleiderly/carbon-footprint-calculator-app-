@@ -4,7 +4,7 @@ import { Link, useHistory } from 'react-router-dom';
 import './css/Category.css';
 import './css/Results.css';
 
-const PercentagesOption2 = (props) => {
+const PercentagesOption1 = (props) => {
    const {
       itemTypeAdress1,
 
@@ -72,4 +72,4 @@ const PercentagesOption2 = (props) => {
    );
 };
 
-export default PercentagesOption2;
+export default PercentagesOption1;

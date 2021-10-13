@@ -16,10 +16,14 @@ import FasteningsOption1 from './components/FasteningsOption1';
 import FasteningsOption2 from './components/FasteningsOption2';
 import ResultsOption1 from './components/ResultsOption1';
 import ResultsOption2 from './components/ResultsOption2';
+import PercentagesOption1 from './components/PercentagesOption1';
 import PercentagesOption2 from './components/PercentagesOption2';
 import Details from './components/Details';
-import Admin from './components/Admin';
 import AdminForms from './components/AdminForms';
+import Login from './components/Login';
+import PrivateRoute from './components/PrivateRoute';
+import ForgotPassword from './components/ForgotPassword';
+import ResetPassword from './components/ResetPassword';
 
 function App() {
    // CALCULATE STATES
@@ -105,6 +109,11 @@ function App() {
                         exact
                         path="/calculate/results"
                         component={(browser) => <ResultsOption1 />}
+                     />
+                     <Route
+                        exact
+                        path="/calculate/percentages"
+                        component={(browser) => <PercentagesOption1 />}
                      />
 
                      {/* COMPARE FLOW */}
