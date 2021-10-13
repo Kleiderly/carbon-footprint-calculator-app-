@@ -4,9 +4,8 @@ import { Link } from 'react-router-dom';
 import './css/Category.css';
 import './css/CategoryItemBox.css';
 import './css/Materials.css';
-import './css/ItemBox.css';
 
-const MaterialsItemBox2 = ({ type, adress, country, name }) => {
+const LogisticsItemBox2 = ({ type, adress, country, name }) => {
    const [selectType, setSelectType] = useState(false);
 
    const handleClick = () => {
@@ -26,4 +25,4 @@ const MaterialsItemBox2 = ({ type, adress, country, name }) => {
    );
 };
 
-export default MaterialsItemBox2;
+export default LogisticsItemBox2;

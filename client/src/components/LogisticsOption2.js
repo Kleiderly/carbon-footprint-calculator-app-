@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Context from '../contexts/ContextApi';
 import { Link, useHistory } from 'react-router-dom';
-import LogisticsItemBox2 from './MaterialsItemBox2';
+import ItemBox from './ItemBox';
 import axios from 'axios';
 import Tips from './Tips';
 
@@ -9,10 +9,6 @@ function Logistics(props) {
    const {
       itemTypeAdress1,
       itemTypeAdress2,
-      setMaterialCO2e1,
-      setMaterialCO2e2,
-      setFasteningCO2e1,
-      setFasteningCO2e2,
       setCountryCO2e1,
       setCountryCO2e2,
    } = useContext(Context);
@@ -23,6 +19,9 @@ function Logistics(props) {
    //For selection by user through button click
    const [selectCountry1, setSelectCountry1] = useState(null);
    const [selectCountry2, setSelectCountry2] = useState(null);
+
+   const [selected1, setSelected1] = useState('');
+   const [selected2, setSelected2] = useState('');
 
    useEffect(() => {
       axios
@@ -44,10 +43,19 @@ function Logistics(props) {
       setCountryCO2e2(selectCountry2);
    };
 
+   const handleClickMappedItem1 = (item, i) => {
+      setSelectCountry1(item.co2e);
+      setSelected1(i);
+   };
+
+   const handleClickMappedItem2 = (item, i) => {
+      setSelectCountry2(item.co2e);
+      setSelected2(i);
+   };
    //  console.log(itemTypeAdress1);
    //  console.log(itemTypeAdress2);
-   //  console.log(selectMaterial1);
-   //  console.log(selectMaterial2);
+   console.log(selectCountry1);
+   console.log(selectCountry2);
 
    return (
       <div className="choiceContainer">
@@ -68,30 +76,30 @@ function Logistics(props) {
          </div>
          <div className="materialBigContainer">
             <div className="materialContainer">
-               {countriesFrom.map((item) => (
+               {countriesFrom.map((item, i) => (
                   <div
-                     onClick={() =>
-                        selectCountry1
-                           ? setSelectCountry2(item.co2e)
-                           : setSelectCountry1(item.co2e)
-                     }
-                     key={item.id}
+                     onClick={() => handleClickMappedItem1(item, i)}
+                     key={item._id}
                   >
-                     <LogisticsItemBox2 name={item.productionLocation} />
+                     <ItemBox
+                        name={item.productionLocation}
+                        index={i}
+                        selected={selected1}
+                     />
                   </div>
                ))}
             </div>
             <div className="materialContainer">
-               {countriesFrom.map((item) => (
+               {countriesFrom.map((item, i) => (
                   <div
-                     onClick={() =>
-                        selectCountry2
-                           ? setSelectCountry2(item.co2e)
-                           : setSelectCountry1(item.co2e)
-                     }
-                     key={item.id}
+                     onClick={() => handleClickMappedItem2(item, i)}
+                     key={item._id}
                   >
-                     <LogisticsItemBox2 name={item.productionLocation} />
+                     <ItemBox
+                        name={item.productionLocation}
+                        index={i}
+                        selected={selected2}
+                     />
                   </div>
                ))}
             </div>
@@ -99,7 +107,7 @@ function Logistics(props) {
          <button type="button" onClick={handleClickPreviousSection}>
             Go Back
          </button>
-         <Link to="/compare/results">
+         <Link to="/compare/results" className={selectCountry1 && selectCountry2 ? null : 'disabled-link'}>
             <button type="button" onClick={handleClick}>
                Next
             </button>
