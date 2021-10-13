@@ -153,15 +153,21 @@ function App() {
 
                      {/* ADMIN ROUTES */}
 
+                     <PrivateRoute
+                        exact
+                        path="/adminpage/forms"
+                        component={AdminForms}
+                     />
+                     <Route exact path="/adminpage/login" component={Login} />
                      <Route
                         exact
-                        path="/adminpage/login"
-                        component={(browser) => <Admin />}
+                        path="/adminpage/forgotpassword"
+                        component={ForgotPassword}
                      />
                      <Route
                         exact
-                        path="/adminpage/forms"
-                        component={(browser) => <AdminForms />}
+                        path="/adminpage/passwordreset/:resetToken"
+                        component={ResetPassword}
                      />
                   </Switch>
                   <Footer />

@@ -2,9 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const fasteningSchema = new Schema({
-    buttonPlastic: { type: Number },
-    buttonMetal: { type: Number },
-    zipper: { type: Number },
+    name: { type: String, required: true },
+    co2e: { type: Number, required: true }
 });
 
 const Fastening = mongoose.model('Fastening', fasteningSchema);
