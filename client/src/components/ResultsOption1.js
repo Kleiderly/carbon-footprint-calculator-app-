@@ -27,7 +27,7 @@ const ResultsOption1 = (props) => {
       <div>
         <div>
           <br />
-          <p className="directionText">Where Is Your Product From?</p>
+          <p className="directionText">Results</p>
           <br />
           <div className="itemsContainer">
             <div className="beforeClickCategory">

@@ -51,12 +51,13 @@ const MaterialsOption1 = (props) => {
       <div className="materialContainer">
         {materials.map((item, i) => (
           <div onClick={() => mapOnItemClickImageClassHandler(item, i)} key={item._id}>
-            <ItemBox 
-              index={i}
-              name={item.name}
-              selected={selected} 
-            />
-          </div>
+          <ItemBox 
+            index={i}
+            name={item.name}
+            selected={selected} 
+          />
+        </div>
+          
         ))}
       </div>
       <button type="button" onClick={handleClickPreviousSection}>
