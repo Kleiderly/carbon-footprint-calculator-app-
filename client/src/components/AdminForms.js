@@ -31,9 +31,11 @@ function AdminForms() {
 
 /* API calls */
     useEffect(()=>{
+    /* !!! add adminAPI to list */
         axios.all([materialAPI, logisticAPI, fasteningAPI])
         .then(axios.spread((...res) => {
-            console.log(res[0].data, res[1].data, res[2].data, res[3].data);
+    /* !!! add res[3].data to list */
+            console.log(res[0].data, res[1].data, res[2].data);
             setMaterial(res[0].data);
             setLogistic(res[1].data);
             setFastening(res[2].data);
