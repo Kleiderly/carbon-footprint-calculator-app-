@@ -75,7 +75,7 @@ function Cover() {
                   <p className="directionText2">Compare 2 Items</p>
                </div>
             </div>
-            <Link to={`/${choice}/category`}>
+            <Link to={`/${choice}/category`} className={choice ? null : 'disabled-link'}>
                <button type="button">Begin!</button>
             </Link>
          </div>

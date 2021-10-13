@@ -1,7 +1,6 @@
 const materialRouter = require('express').Router();
 const Material = require('../models/Material');
 
-
 //GET Routes
 materialRouter.get('/', (req,res)=>{
     const { name, co2e } = req.body;
@@ -9,7 +8,6 @@ materialRouter.get('/', (req,res)=>{
     .then((result)=> res.status(200).send(result))
     .catch((err)=>res.status.apply(500).send('Something wrong'))
 });
-
 
 //POST Routes
 materialRouter.post('/', (req, res) => {
@@ -27,7 +25,6 @@ materialRouter.post('/', (req, res) => {
     })
     
 });
-
 
 //UPDATE Routes
 materialRouter.put('/:id', (req, res) => { 

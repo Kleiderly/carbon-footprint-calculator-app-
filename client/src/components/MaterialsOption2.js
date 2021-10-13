@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { useLocation } from 'react-router';
+// import { useLocation } from 'react-router';
 import axios from 'axios';
 import Context from '../contexts/ContextApi';
 // import Tips from './Tips';
-import MaterialsItemBox2 from './MaterialsItemBox2';
-import { itemList } from './data';
+import ItemBox from './ItemBox';
+
 import './css/Category.css';
 import './css/Materials.css';
+import './css/ItemBox.css';
 
 const MaterialsOption2 = (props) => {
    const {
@@ -16,12 +17,16 @@ const MaterialsOption2 = (props) => {
       setMaterialCO2e1,
       setMaterialCO2e2,
    } = useContext(Context);
-   // console.log(result);
 
+   //For data from database
    const [materials, setMaterials] = useState([]);
 
+   //For selection by user through button click
    const [selectMaterial1, setSelectMaterial1] = useState(null);
    const [selectMaterial2, setSelectMaterial2] = useState(null);
+
+   const [selected1, setSelected1] = useState('');
+   const [selected2, setSelected2] = useState('');
 
    useEffect(() => {
       axios
@@ -44,6 +49,16 @@ const MaterialsOption2 = (props) => {
    const handleClick = () => {
       setMaterialCO2e1(selectMaterial1);
       setMaterialCO2e2(selectMaterial2);
+   };
+
+   const handleClickMappedItem1 = (item, i) => {
+      setSelectMaterial1(item.co2e);
+      setSelected1(i);
+   };
+
+   const handleClickMappedItem2 = (item, i) => {
+      setSelectMaterial2(item.co2e);
+      setSelected2(i);
    };
 
    console.log(itemTypeAdress1);
@@ -71,30 +86,22 @@ const MaterialsOption2 = (props) => {
          </div>
          <div className="materialBigContainer">
             <div className="materialContainer">
-               {materials.map((item) => (
+               {materials.map((item, i) => (
                   <div
-                     onClick={() =>
-                        selectMaterial1
-                           ? setSelectMaterial2(item.co2e)
-                           : setSelectMaterial1(item.co2e)
-                     }
-                     key={item.id}
+                     onClick={() => handleClickMappedItem1(item, i)}
+                     key={item._id}
                   >
-                     <MaterialsItemBox2 name={item.name} />
+                     <ItemBox index={i} name={item.name} selected={selected1} />
                   </div>
                ))}
             </div>
             <div className="materialContainer">
-               {materials.map((item) => (
+               {materials.map((item, i) => (
                   <div
-                     onClick={() =>
-                        selectMaterial1
-                           ? setSelectMaterial2(item.co2e)
-                           : setSelectMaterial1(item.co2e)
-                     }
-                     key={item.id}
+                     onClick={() => handleClickMappedItem2(item, i)}
+                     key={item._id}
                   >
-                     <MaterialsItemBox2 name={item.name} />
+                     <ItemBox index={i} name={item.name} selected={selected2} />
                   </div>
                ))}
             </div>
@@ -102,7 +109,8 @@ const MaterialsOption2 = (props) => {
          <button type="button" onClick={handleClickPreviousSection}>
             Go Back
          </button>
-         <Link to="/compare/fastenings">
+         <Link 
+         to="/compare/fastenings" className={selectMaterial1 && selectMaterial2 ? null : 'disabled-link'}>
             <button type="button" onClick={handleClick}>
                Next
             </button>
