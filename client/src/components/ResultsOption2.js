@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Context from '../contexts/ContextApi';
 import { Link, useHistory } from 'react-router-dom';
+import './css/Category.css';
+import './css/Results.css';
 
 const ResultsOption2 = (props) => {
    const {
@@ -17,6 +19,7 @@ const ResultsOption2 = (props) => {
    //Calculation
    const [totalCo2e, setTotalCo2e] = useState();
    const [totalCo2e2, setTotalCo2e2] = useState();
+   const [percentage, setPercentage] = useState();
 
    useEffect(() => {
       setTotalCo2e((materialCO2e1 + fasteningCO2e1 + countryCO2e1).toFixed(4));
@@ -31,6 +34,16 @@ const ResultsOption2 = (props) => {
    ]);
    console.log(totalCo2e);
 
+   useEffect(() => {
+      setPercentage(
+         (totalCo2e > totalCo2e2
+            ? (1 - totalCo2e2 / totalCo2e) * 100
+            : (1 - totalCo2e / totalCo2e2) * 100
+         ).toFixed(2)
+      );
+   }, [totalCo2e, totalCo2e2]);
+
+   console.log(percentage);
    //To Go Back
    let history = useHistory();
    const handleClickPreviousSection = () => {
@@ -44,20 +57,26 @@ const ResultsOption2 = (props) => {
                <br />
                <p className="directionText">Results</p>
                <br />
-               <div className="itemsContainer">
-                  <div className="beforeClickCategory">
-                     <img src={itemTypeAdress1} alt={itemTypeAdress1} />
+               <div className="resultsBigContainer">
+                  <div className="resultsContainer">
+                     <div className="beforeClickCategory">
+                        <img src={itemTypeAdress1} alt={itemTypeAdress1} />
+                     </div>
+                     <p>Carbon Footprint: {totalCo2e}</p>
                   </div>
-                  <div>
-                     The total carbon footprint of your item is {totalCo2e}
-                  </div>
-                  <div className="beforeClickCategory">
-                     <img src={itemTypeAdress1} alt={itemTypeAdress1} />
-                  </div>
-                  <div>
-                     The total carbon footprint of your item is {totalCo2e2}
+                  <div className="resultsContainer">
+                     <div className="beforeClickCategory">
+                        <img src={itemTypeAdress2} alt={itemTypeAdress2} />
+                     </div>
+                     <p>Carbon Footprint: {totalCo2e2}</p>
                   </div>
                </div>
+               <h3>
+                  The {totalCo2e < totalCo2e2 ? 'First Item' : 'Second Item'} is
+                  better than the{' '}
+                  {totalCo2e > totalCo2e2 ? 'First Item' : 'Second Item'} by{' '}
+                  {percentage} percent
+               </h3>
             </div>
          </div>
 
@@ -67,9 +86,9 @@ const ResultsOption2 = (props) => {
          <Link to="/compare/details">
             <button type="button">Check Details</button>
          </Link>
-         {/* <Link to="/calculate/category">
-        <button type="button">Calculate Another Item</button>
-      </Link> */}
+         <Link to="/">
+            <button type="button">Compare New Items</button>
+         </Link>
       </div>
    );
 };

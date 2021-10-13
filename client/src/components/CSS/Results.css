@@ -1,0 +1,17 @@
+.resultsBigContainer {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+.resultsContainer {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+
+@media only screen and (min-device-width: 768px) {
+   .resultsBigContainer {
+      flex-direction: row;
+      width: 600px;
+   }
+}

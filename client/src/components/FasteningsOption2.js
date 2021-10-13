@@ -87,6 +87,8 @@ const FasteningsOption2 = () => {
                            <h3>{fastening.name}</h3>
                            <input
                               type="number"
+                              min="0"
+                              step="1"
                               value={listOfQuantities[i].quantity}
                               onChange={(e) => {
                                  copyOfQuantities[i].quantity = e.target.value;
@@ -105,6 +107,8 @@ const FasteningsOption2 = () => {
                            <h3>{fastening.name}</h3>
                            <input
                               type="number"
+                              min="0"
+                              step="1"
                               value={listOfQuantities2[i].quantity}
                               onChange={(e) => {
                                  copyOfQuantities2[i].quantity = e.target.value;

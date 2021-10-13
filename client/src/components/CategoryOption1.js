@@ -8,8 +8,7 @@ import { itemList } from './data';
 import Context from '../contexts/ContextApi';
 
 const CategoryOption1 = (props) => {
-
-   const {setItemTypeAdress1} = useContext(Context);
+   const { setItemTypeAdress1 } = useContext(Context);
 
    const [selected, setSelected] = useState('');
    const [selectType, setSelectType] = useState(
@@ -34,9 +33,10 @@ const CategoryOption1 = (props) => {
                <br />
                <p className="directionText">Choose Your Item</p>
                <br />
-
-               <div className="beforeClickCategory">
-                  <img src={selectType} alt="" />
+               <div className="itemsContainer">
+                  <div className="beforeClickCategory">
+                     <img src={selectType} alt="" />
+                  </div>
                </div>
             </div>
          </div>
@@ -61,7 +61,12 @@ const CategoryOption1 = (props) => {
          </button>
          <div>
             <Link to="/calculate/materials">
-               <button type="button" onClick={() => setItemTypeAdress1(selectType)}>Calculate</button>
+               <button
+                  type="button"
+                  onClick={() => setItemTypeAdress1(selectType)}
+               >
+                  Next
+               </button>
             </Link>
          </div>
       </div>

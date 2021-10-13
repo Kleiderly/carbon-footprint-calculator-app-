@@ -34,7 +34,7 @@ const ResultsOption1 = (props) => {
             </div>
          </div>
 
-         <div>The total carbon footprint of your item is {totalCo2e}</div>
+         <div>Carbon Footprint: {totalCo2e}</div>
 
          <button type="button" onClick={handleClickPreviousSection}>
             Go Back
@@ -42,9 +42,9 @@ const ResultsOption1 = (props) => {
          <Link to="/compare/details">
             <button type="button">Check Details</button>
          </Link>
-         {/* <Link to="/calculate/category">
-        <button type="button">Calculate Another Item</button>
-      </Link> */}
+         <Link to="/">
+            <button type="button">Calculate Another Item</button>
+         </Link>
       </div>
    );
 };

@@ -42,12 +42,14 @@ const MaterialsOption1 = (props) => {
          <br />
          <p className="directionText">Choose Your Material</p>
          <br />
-         <div className="beforeClick">
-            <img
-               src={itemTypeAdress1}
-               alt="firstBoxImage"
-               className="imgCover"
-            />
+         <div className="itemsContainer">
+            <div className="beforeClick">
+               <img
+                  src={itemTypeAdress1}
+                  alt="firstBoxImage"
+                  className="imgCover"
+               />
+            </div>
          </div>
 
          <div className="materialContainer">
@@ -69,7 +71,7 @@ const MaterialsOption1 = (props) => {
                   type="button"
                   onClick={() => setMaterialCO2e1(selectMaterial1)}
                >
-                  Calculate
+                  Next
                </button>
             </Link>
          </div>
