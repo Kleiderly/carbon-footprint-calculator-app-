@@ -74,6 +74,28 @@
     font-weight: bold;
 }
 
+.show-password {
+    text-align: right;
+}
+
+.password-field {
+    margin-left: auto;
+    margin-right: 15px;
+    font-size: small;
+}
+
+.pw-checkbox {
+    width: auto;
+}
+
+.form-admin {
+    display: block;
+}
+
+.form-member {
+    display: none;
+}
+
 input, select {
     padding: 8px;
     margin: 2px;
