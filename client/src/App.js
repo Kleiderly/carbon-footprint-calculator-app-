@@ -15,6 +15,7 @@ import LogisticsOption2 from "./components/LogisticsOption2";
 import FasteningsOption1 from "./components/FasteningsOption1";
 import FasteningsOption2 from "./components/FasteningsOption2";
 import ResultsOption1 from "./components/ResultsOption1";
+import ResultsOption2 from "./components/ResultsOption2";
 import Percentages from "./components/Percentages";
 import Details from "./components/Details";
 
