@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from "axios";
-import "./CSS/Admin.css";
+import "./css/Admin.css";
 
 function AdminForms() {
 /* API call results */
