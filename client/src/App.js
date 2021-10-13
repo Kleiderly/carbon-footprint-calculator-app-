@@ -3,23 +3,27 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import React, { useState } from 'react';
 import Context from './contexts/ContextApi';
 // import Components
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Cover from './components/Cover';
-import CategoryOption1 from './components/CategoryOption1';
-import CategoryOption2 from './components/CategoryOption2';
-import MaterialsOption1 from './components/MaterialsOption1';
-import MaterialsOption2 from './components/MaterialsOption2';
-import LogisticsOption1 from './components/LogisticsOption1';
-import LogisticsOption2 from './components/LogisticsOption2';
-import FasteningsOption1 from './components/FasteningsOption1';
-import FasteningsOption2 from './components/FasteningsOption2';
-import ResultsOption1 from './components/ResultsOption1';
-import ResultsOption2 from './components/ResultsOption2';
-import Percentages from './components/Percentages';
-import Details from './components/Details';
-import Admin from './components/Admin';
-import AdminForms from './components/AdminForms';
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Cover from "./components/Cover";
+import CategoryOption1 from "./components/CategoryOption1";
+import CategoryOption2 from "./components/CategoryOption2";
+import MaterialsOption1 from "./components/MaterialsOption1";
+import MaterialsOption2 from "./components/MaterialsOption2";
+import LogisticsOption1 from "./components/LogisticsOption1";
+import LogisticsOption2 from "./components/LogisticsOption2";
+import FasteningsOption1 from "./components/FasteningsOption1";
+import FasteningsOption2 from "./components/FasteningsOption2";
+import ResultsOption1 from "./components/ResultsOption1";
+import Percentages from "./components/Percentages";
+import Details from "./components/Details";
+
+
+import AdminForms from "./components/AdminForms";
+import Login from "./components/Login";
+import PrivateRoute from "./components/PrivateRoute";
+import ForgotPassword from "./components/ForgotPassword";
+import ResetPassword from "./components/ResetPassword";
 
 function App() {
    // CALCULATE STATES
@@ -143,23 +147,29 @@ function App() {
 
                      {/* ADMIN ROUTES */}
 
-                     <Route
-                        exact
-                        path="/adminpage/login"
-                        component={(browser) => <Admin />}
-                     />
-                     <Route
-                        exact
-                        path="/adminpage/forms"
-                        component={(browser) => <AdminForms />}
-                     />
-                  </Switch>
-                  <Footer />
-               </Context.Provider>
-            </div>
-         </Router>
-      </div>
-   );
+              <PrivateRoute
+                exact
+                path="/adminpage/forms"
+                component={AdminForms}
+              />
+              <Route exact path="/adminpage/login" component={Login} />
+              <Route
+                exact
+                path="/adminpage/forgotpassword"
+                component={ForgotPassword}
+              />
+              <Route
+                exact
+                path="/adminpage/passwordreset/:resetToken"
+                component={ResetPassword}
+              />
+            </Switch>
+            <Footer />
+          </Context.Provider>
+        </div>
+      </Router>
+    </div>
+  );
 }
 
 export default App;

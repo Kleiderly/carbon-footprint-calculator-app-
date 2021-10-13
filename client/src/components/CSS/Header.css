@@ -10,11 +10,12 @@
     width: auto;
 }
 
-.header-title {
+.header-title, .header-title a {
     width: 100%;
     text-align: center;
     margin: auto;
     color: #F7EBE8;
     letter-spacing: 3px;
     font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
 }

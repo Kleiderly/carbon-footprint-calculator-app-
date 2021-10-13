@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const logisticSchema = new Schema({
     productionLocation: { type: String, required: true },
     consumerLocation: { type: String, required: true },
-    logisticCO2e: { type: Number, required: true },
+    co2e: { type: Number, required: true },
     
 });
 

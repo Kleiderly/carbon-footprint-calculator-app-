@@ -5,7 +5,7 @@ const Logistic = require('../models/Logistic');
 
 //GET Routes
 logisticRouter.get('/', (req,res)=> {
-    const { productionLocation, consumerLocation, logisticCO2e } = req.body;
+    const { productionLocation, consumerLocation, co2e } = req.body;
 
     Logistic.find({})
     .then((result) => res.status(200).send(result))
@@ -14,10 +14,12 @@ logisticRouter.get('/', (req,res)=> {
 
 
 //POST Routes
-logisticRouter.post('/', (req, res) => {
-    const { productionLocation, consumerLocation, logisticCO2e } = req.body
 
-    Logistic.create({ productionLocation, consumerLocation, logisticCO2e })
+logisticRouter.post('/', (req, res) => {
+    const { productionLocation, consumerLocation, co2e } = req.body
+
+
+    Logistic.create({ productionLocation, consumerLocation, co2e })
     .then((data) => {
         res.status(200).send(data)
     })
@@ -29,9 +31,9 @@ logisticRouter.post('/', (req, res) => {
 });
 
 //UPDATE Routes
-logisticRouter.put('/:id', (req, res) => {
+logisticRouter.put('/:id/:productionLocation/:consumerLocation/:co2e', (req, res) => {
 
-    Logistic.findByIdAndUpdate({_id: req.params.id}, req.body)
+    Logistic.findByIdAndUpdate({_id: req.params.id}, req.params)
     .then(()=>{
         Logistic.findOne({_id: req.params.id})
         .then((result)=>{
