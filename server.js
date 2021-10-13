@@ -15,7 +15,7 @@ app.use('/api/private', require('./routes/private.routes'))
 Routes(app)
 
 
-// app.use(express.static(path.join(__dirname, "build")));
+app.use(express.static(path.join(__dirname, "build")));
 
 // //Middleware needed to receive the req.body
 
