@@ -29,20 +29,16 @@ logisticRouter.post('/', (req, res) => {
 });
 
 //UPDATE Routes
-logisticRouter.put('/:id/:productionLocation/:consumerLocation/:co2e', (req, res) => {
-
-    Logistic.findByIdAndUpdate({_id: req.params.id}, req.params)
-    .then(()=>{
-        Logistic.findOne({_id: req.params.id})
-        .then((result)=>{
-            res.status(200).send(result)
-        })
-        .catch((err)=>{
-            console.log(err)
-            res.status(500).send('Something went wrong')
-        })
-    })
-})
+logisticRouter.put('/:id', (req, res) => { 
+    Logistic.findByIdAndUpdate({_id: req.params.id}, req.body) 
+        .then(()=>{ Logistic.findOne({_id: req.params.id}) 
+        .then((result)=>{ res.status(200).send(result) }) 
+        .catch((err)=>{ 
+            console.log(err) 
+            res.status(500).send('Something went wrong') 
+        }) 
+    }) 
+});
 
 
 //REMOVE ROUTES

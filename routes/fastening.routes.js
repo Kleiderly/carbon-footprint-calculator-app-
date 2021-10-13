@@ -27,23 +27,16 @@ fasteningRouter.post('/', (req, res) => {
 
 
 //UPDATE Routes
-fasteningRouter.put('/:id', (req, res) => {
-    
-    const { name, co2e } = req.body;
-    const { id } = req.params;
-
-    Fastening.findByIdAndUpdate({_id: id}, {name: name}, {co2e: co2e})
-    .then(()=>{
-        Fastening.findOne({_id: req.params.id})
-        .then((result)=>{
-            res.status(200).send(result)
-        })
-        .catch((err)=>{
-            console.log(err)
-            res.status(500).send('Something went wrong')
-        })
-    })
-})
+fasteningRouter.put('/:id', (req, res) => { 
+    Fastening.findByIdAndUpdate({_id: req.params.id}, req.body) 
+        .then(()=>{ Fastening.findOne({_id: req.params.id}) 
+        .then((result)=>{ res.status(200).send(result) }) 
+        .catch((err)=>{ 
+            console.log(err) 
+            res.status(500).send('Something went wrong') 
+        }) 
+    }) 
+});
 
 
 //REMOVE ROUTES

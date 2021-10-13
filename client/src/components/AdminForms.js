@@ -119,7 +119,7 @@ function AdminForms() {
     const handleModify = (e)=>{
         e.preventDefault();
         axios
-        .put(`/api/${modId}`, modInstruction())
+        .put(`/api/${cat}/${modId}`, modInstruction())
         .then((res) => {
             console.log(res);
             console.log("Modified:", modName, modName2, modCo2e, modId, username, password);
