@@ -3,7 +3,8 @@ const express = require('express')
 const mongoose = require('mongoose')
 const path = require('path')
 const Routes = require('./routes/routes')
-const errorHandler =  require('./Middleware/error')
+const errorHandler =  require('./Middleware/error');
+
 
 const app = express()
 
@@ -11,13 +12,14 @@ app.use(express.json());
 
 app.use('/api/auth', require('./routes/auth.routes'))
 app.use('/api/private', require('./routes/private.routes'))
+Routes(app)
 
 
 // app.use(express.static(path.join(__dirname, "build")));
 
 // //Middleware needed to receive the req.body
 
-// app.use(express.urlencoded({extended: false}))
+app.use(express.urlencoded({extended: false}))
 
 
 mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.xge0g.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`)
