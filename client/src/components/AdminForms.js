@@ -84,7 +84,6 @@ function AdminForms() {
         }else if(cat === "admin"){
             return {username: username, password: password}
         }else{
-            console.log("post instruction")
             return {name: modName, co2e: modCo2e}
         }             
     };
@@ -112,7 +111,7 @@ function AdminForms() {
         })
         .catch((err)=>{
             console.log(err);
-            setSubmit(failed, `:`, err);
+            setSubmit(failed);
         })
     };
 
@@ -129,7 +128,7 @@ function AdminForms() {
         })
         .catch((err) => {
             console.log(err);
-            setSubmit(failed,`:`, err);
+            setSubmit(failed);
         });
     };
 
@@ -147,7 +146,7 @@ function AdminForms() {
         })
         .catch((err) => {
             console.log(err);
-            setSubmit(failed,`:`, err);
+            setSubmit(failed);
         });
     };
 
