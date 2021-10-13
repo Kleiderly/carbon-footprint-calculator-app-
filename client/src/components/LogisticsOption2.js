@@ -107,7 +107,7 @@ function Logistics(props) {
          <button type="button" onClick={handleClickPreviousSection}>
             Go Back
          </button>
-         <Link to="/compare/results">
+         <Link to="/compare/results" className={selectCountry1 && selectCountry2 ? null : 'disabled-link'}>
             <button type="button" onClick={handleClick}>
                Next
             </button>

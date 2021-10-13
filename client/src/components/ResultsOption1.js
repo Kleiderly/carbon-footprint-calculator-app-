@@ -3,16 +3,14 @@ import Context from '../contexts/ContextApi';
 import { Link, useHistory } from 'react-router-dom';
 
 const ResultsOption1 = (props) => {
-   const { itemTypeAdress1, materialCO2e1, fasteningCO2e1, countryCO2e1 } =
+   const { itemTypeAdress1, materialCO2e1, fasteningCO2e1, countryCO2e1, totalCo2e1, setTotalCo2e1 } =
       useContext(Context);
 
    //Calculation
-   const [totalCo2e, setTotalCo2e] = useState();
-
    useEffect(() => {
-      setTotalCo2e((materialCO2e1 + fasteningCO2e1 + countryCO2e1).toFixed(4));
+      setTotalCo2e1((materialCO2e1 + fasteningCO2e1 + countryCO2e1).toFixed(4));
    }, [materialCO2e1, fasteningCO2e1, countryCO2e1]);
-   console.log(totalCo2e);
+   console.log(totalCo2e1);
    //To Go Back
    let history = useHistory();
    const handleClickPreviousSection = () => {
@@ -34,7 +32,7 @@ const ResultsOption1 = (props) => {
             </div>
          </div>
 
-         <div>Carbon Footprint: {totalCo2e}</div>
+         <div>Carbon Footprint: {totalCo2e1}</div>
 
          <button type="button" onClick={handleClickPreviousSection}>
             Go Back

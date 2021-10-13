@@ -83,7 +83,8 @@ const FasteningsOption1 = (props) => {
             Go Back
          </button>
          <div>
-            <Link to="/calculate/logistics">
+            <Link 
+            to="/calculate/logistics">
                <button type="button" onClick={addFastenings}>
                   Next
                </button>

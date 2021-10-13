@@ -97,7 +97,7 @@ const CategoryOption2 = (props) => {
             </button>
             <div>
                <Link
-                  // className={choice ? null : 'disabled-link'}
+                  className={selectType1 && selectType2 ? null : 'disabled-link'}
                   to="/compare/materials"
                >
                   <button type="button" onClick={handleClick3}>

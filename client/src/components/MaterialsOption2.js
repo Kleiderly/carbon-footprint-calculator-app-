@@ -109,7 +109,8 @@ const MaterialsOption2 = (props) => {
          <button type="button" onClick={handleClickPreviousSection}>
             Go Back
          </button>
-         <Link to="/compare/fastenings">
+         <Link 
+         to="/compare/fastenings" className={selectMaterial1 && selectMaterial2 ? null : 'disabled-link'}>
             <button type="button" onClick={handleClick}>
                Next
             </button>
