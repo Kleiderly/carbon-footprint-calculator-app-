@@ -25,19 +25,19 @@ function AdminForms() {
     const materialAPI = axios.get(`/api/material`);
     const logisticAPI = axios.get(`/api/logistic`);
     const fasteningAPI = axios.get(`/api/fastening`);
-    const adminAPI = axios.get(`/api/admin`);
+    // const adminAPI = axios.get(`/api/admin`);
 /* Sets forms to display admin level */
     const [user , setUser] = useState(true);
 
 /* API calls */
     useEffect(()=>{
-        axios.all([materialAPI, logisticAPI, fasteningAPI, adminAPI])
+        axios.all([materialAPI, logisticAPI, fasteningAPI])
         .then(axios.spread((...res) => {
             console.log(res[0].data, res[1].data, res[2].data, res[3].data);
             setMaterial(res[0].data);
             setLogistic(res[1].data);
             setFastening(res[2].data);
-            setAdmin(res[3].data);
+            // setAdmin(res[3].data);
         }))
         .catch((err)=> console.log(err))
     }, [submit]);
@@ -92,8 +92,6 @@ function AdminForms() {
     function modInstruction() {
         if(cat === "logistic"){
             return {productionLocation: modName, consumerLocation: modName2, co2e: modCo2e}
-        }else if(cat === "admin"){
-            return {username: username, password: password}
         }else{
             return {name: modName, co2e: modCo2e}
         }
@@ -410,8 +408,8 @@ function AdminForms() {
             <hr className="hr" />
 
     
-            <div className="form-section">
-                <h2>Add / Modify User</h2>
+            <div className={user ? "form-admin form-section" : "form-member"}>
+                <h2>Add User</h2>
 
 {/* POST to ADMIN */}
                 <h4>Add new User</h4>
@@ -451,8 +449,7 @@ function AdminForms() {
 
 
 {/* DELETE/MODIFY ADMIN */}
-                <h4 className={user ? "form-admin" : "form-member"}>Delete / Modify User</h4>
-                <h4 className={user ? "form-member" : "form-admin"}>Modify User</h4>
+                <h4 className={user ? "form-admin" : "form-member"}>Delete User</h4>
 
                 <div className="form-item">
                     <div className="form-input">
@@ -467,7 +464,7 @@ function AdminForms() {
                             console.log("Admin", username, password, filterArr);
                         }}>
                             <option></option>
-                            {admin.map((type, i) => {
+                            {/* {admin.map((type, i) => {
                                 return (
                                     <option 
                                     id={type._id} 
@@ -477,7 +474,7 @@ function AdminForms() {
                                         {type.username}
                                     </option>
                                 );
-                            })};
+                            })}; */}
                         </select>
                     </div>
                     <div className="form-input">
@@ -497,7 +494,6 @@ function AdminForms() {
                 </div>
                 <div className="form-input center-align">
 {/* DELETE/MODIFY ADMIN buttons*/}
-                    <button onClick={handleModify}>MODIFY</button>
                     <button className={user ? "form-admin" : "form-member"} onClick={handleDelete}>DELETE</button>
                     <button onClick={clearForm}>CLEAR FORM</button>
                 </div>
