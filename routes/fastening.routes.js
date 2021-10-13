@@ -12,11 +12,8 @@ fasteningRouter.get('/', (req,res) => {
 
 
 //POST Routes
-
 fasteningRouter.post('/', (req, res) => {
-    const {name, co2e } = req.body
-
-
+    const { name, co2e } = req.body
 
     Fastening.create({ name, co2e })
     .then((result) =>{
@@ -30,20 +27,16 @@ fasteningRouter.post('/', (req, res) => {
 
 
 //UPDATE Routes
-fasteningRouter.put('/:id/:name/:co2e', (req, res) => {
-
-    Fastening.findByIdAndUpdate({_id: req.params.id}, req.params)
-    .then(()=>{
-        Fastening.findOne({_id: req.params.id})
-        .then((result)=>{
-            res.status(200).send(result)
-        })
-        .catch((err)=>{
-            console.log(err)
-            res.status(500).send('Something went wrong')
-        })
-    })
-})
+fasteningRouter.put('/:id', (req, res) => { 
+    Fastening.findByIdAndUpdate({_id: req.params.id}, req.body) 
+        .then(()=>{ Fastening.findOne({_id: req.params.id}) 
+        .then((result)=>{ res.status(200).send(result) }) 
+        .catch((err)=>{ 
+            console.log(err) 
+            res.status(500).send('Something went wrong') 
+        }) 
+    }) 
+});
 
 
 //REMOVE ROUTES
