@@ -16,7 +16,7 @@ import FasteningsOption1 from './components/FasteningsOption1';
 import FasteningsOption2 from './components/FasteningsOption2';
 import ResultsOption1 from './components/ResultsOption1';
 import ResultsOption2 from './components/ResultsOption2';
-import Percentages from './components/Percentages';
+import PercentagesOption2 from './components/PercentagesOption2';
 import Details from './components/Details';
 import Admin from './components/Admin';
 import AdminForms from './components/AdminForms';
@@ -29,6 +29,7 @@ function App() {
    const [materialCO2e1, setMaterialCO2e1] = useState();
    const [fasteningCO2e1, setFasteningCO2e1] = useState();
    const [countryCO2e1, setCountryCO2e1] = useState();
+   const [totalCo2e1, setTotalCo2e1] = useState();
 
    // COMPARE STATES
    const [itemTypeAdress2, setItemTypeAdress2] = useState(
@@ -37,6 +38,9 @@ function App() {
    const [materialCO2e2, setMaterialCO2e2] = useState();
    const [fasteningCO2e2, setFasteningCO2e2] = useState();
    const [countryCO2e2, setCountryCO2e2] = useState();
+
+   const [totalCo2e2, setTotalCo2e2] = useState();
+   const [percentage, setPercentage] = useState();
 
    return (
       <div className="App">
@@ -53,6 +57,8 @@ function App() {
                      setFasteningCO2e1,
                      countryCO2e1,
                      setCountryCO2e1,
+                     totalCo2e1,
+                     setTotalCo2e1,
 
                      // COMPARE PROPS
                      itemTypeAdress2,
@@ -63,6 +69,10 @@ function App() {
                      setFasteningCO2e2,
                      countryCO2e2,
                      setCountryCO2e2,
+                     totalCo2e2,
+                     setTotalCo2e2,
+                     percentage,
+                     setPercentage,
                   }}
                >
                   <Header />
@@ -127,8 +137,8 @@ function App() {
 
                      <Route
                         exact
-                        path="/percentages"
-                        component={(browser) => <Percentages />}
+                        path="/compare/percentages"
+                        component={(browser) => <PercentagesOption2 />}
                      />
                      <Route
                         exact

@@ -39,7 +39,7 @@ const ResultsOption1 = (props) => {
          <button type="button" onClick={handleClickPreviousSection}>
             Go Back
          </button>
-         <Link to="/compare/details">
+         <Link to="/calculate/percentages">
             <button type="button">Check Details</button>
          </Link>
          <Link to="/">
