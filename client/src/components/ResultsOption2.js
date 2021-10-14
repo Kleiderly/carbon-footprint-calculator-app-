@@ -3,6 +3,7 @@ import Context from '../contexts/ContextApi';
 import { Link, useHistory } from 'react-router-dom';
 import './css/Category.css';
 import './css/Results.css';
+import ButtonShareModal from './ButtonShareModal';
 
 const ResultsOption2 = (props) => {
    const {
@@ -95,6 +96,7 @@ const ResultsOption2 = (props) => {
          <Link to="/">
             <button type="button">Compare New Items</button>
          </Link>
+         <ButtonShareModal />
       </div>
    );
 };

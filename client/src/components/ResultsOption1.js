@@ -1,10 +1,17 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Context from '../contexts/ContextApi';
 import { Link, useHistory } from 'react-router-dom';
+import ButtonShareModal from './ButtonShareModal';
 
 const ResultsOption1 = (props) => {
-   const { itemTypeAdress1, materialCO2e1, fasteningCO2e1, countryCO2e1, totalCo2e1, setTotalCo2e1 } =
-      useContext(Context);
+   const {
+      itemTypeAdress1,
+      materialCO2e1,
+      fasteningCO2e1,
+      countryCO2e1,
+      totalCo2e1,
+      setTotalCo2e1,
+   } = useContext(Context);
 
    //Calculation
    useEffect(() => {
@@ -43,6 +50,7 @@ const ResultsOption1 = (props) => {
          <Link to="/">
             <button type="button">Calculate Another Item</button>
          </Link>
+         <ButtonShareModal />
       </div>
    );
 };
