@@ -25,21 +25,21 @@ function AdminForms() {
     const materialAPI = axios.get(`/api/material`);
     const logisticAPI = axios.get(`/api/logistic`);
     const fasteningAPI = axios.get(`/api/fastening`);
-    // const adminAPI = axios.get(`/api/admin`);
+    const adminAPI = axios.get(`/api/admin`);
 /* Sets forms to display admin level */
     const [user , setUser] = useState(true);
 
 /* API calls */
     useEffect(()=>{
     /* !!! add adminAPI to list */
-        axios.all([materialAPI, logisticAPI, fasteningAPI])
+        axios.all([materialAPI, logisticAPI, fasteningAPI, adminAPI])
         .then(axios.spread((...res) => {
     /* !!! add res[3].data to list */
-            console.log(res[0].data, res[1].data, res[2].data);
+            console.log(res[0].data, res[1].data, res[2].data, res[3].data);
             setMaterial(res[0].data);
             setLogistic(res[1].data);
             setFastening(res[2].data);
-            // setAdmin(res[3].data);
+            setAdmin(res[3].data ? res[3].data : "");
         }))
         .catch((err)=> console.log(err))
     }, [submit]);
@@ -466,7 +466,7 @@ function AdminForms() {
                             console.log("Admin", username, password, filterArr);
                         }}>
                             <option></option>
-                            {/* {admin.map((type, i) => {
+                            {admin && admin.map((type, i) => {
                                 return (
                                     <option 
                                     id={type._id} 
@@ -476,7 +476,7 @@ function AdminForms() {
                                         {type.username}
                                     </option>
                                 );
-                            })}; */}
+                            })};
                         </select>
                     </div>
                     <div className="form-input">
