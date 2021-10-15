@@ -21,6 +21,7 @@ const ButtonShareModal = () => {
             showCloseIcon={false}
             onClose={onCloseModal}
             closeOnEsc={true}
+            center
          >
             <ButtonShare />
          </Modal>

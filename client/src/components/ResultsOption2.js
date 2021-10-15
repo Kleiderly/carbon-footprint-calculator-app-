@@ -23,14 +23,29 @@ const ResultsOption2 = (props) => {
       setPercentage,
    } = useContext(Context);
 
+   console.log(`${totalCo2e1} TRUE OR FALSE ${totalCo2e1 < totalCo2e2}`);
+
+   console.log(totalCo2e1 < totalCo2e2 ? ' YES ITS TRUE' : 'IT IS FALSE');
+   console.log(typeof totalCo2e1);
+   console.log(typeof totalCo2e2);
    //Calculation
    // const [totalCo2e1, setTotalCo2e1] = useState();
    // const [totalCo2e2, setTotalCo2e2] = useState();
    // const [percentage, setPercentage] = useState();
 
    useEffect(() => {
-      setTotalCo2e1((materialCO2e1 + fasteningCO2e1 + countryCO2e1).toFixed(4));
-      setTotalCo2e2((materialCO2e2 + fasteningCO2e2 + countryCO2e2).toFixed(4));
+      setTotalCo2e1(
+         Number((materialCO2e1 + fasteningCO2e1 + countryCO2e1).toFixed(4))
+      );
+      setTotalCo2e2(
+         Number((materialCO2e2 + fasteningCO2e2 + countryCO2e2).toFixed(4))
+      );
+
+      setPercentage(
+         totalCo2e1 > totalCo2e2
+            ? ((1 - totalCo2e2 / totalCo2e1) * 100).toFixed(2)
+            : ((1 - totalCo2e1 / totalCo2e2) * 100).toFixed(2)
+      );
    }, [
       materialCO2e1,
       fasteningCO2e1,
@@ -38,17 +53,12 @@ const ResultsOption2 = (props) => {
       materialCO2e2,
       fasteningCO2e2,
       countryCO2e2,
+      totalCo2e2,
+      totalCo2e1,
    ]);
-   console.log(totalCo2e1);
 
-   useEffect(() => {
-      setPercentage(
-         (totalCo2e1 > totalCo2e2
-            ? (1 - totalCo2e2 / totalCo2e1) * 100
-            : (1 - totalCo2e1 / totalCo2e2) * 100
-         ).toFixed(2)
-      );
-   }, [totalCo2e1, totalCo2e2]);
+   console.log(totalCo2e1);
+   console.log(totalCo2e2);
 
    console.log(percentage);
    //To Go Back
