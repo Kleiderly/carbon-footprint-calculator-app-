@@ -1,18 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap');
 .footer-wrapper {
-    display: flex;
-    background-color: #000000;
-    padding: 10px 0 10px 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+   display: flex;
+   background-color: #000000;
+   padding: 10px 0 10px 0;
+   /* position: fixed; */
+   width: 100%;
+   bottom: 0;
 }
 
-.footer-social, .footer-copyrights, .footer-admin, .footer-social a, .footer-copyrights a, .footer-admin a {
-    width: 100%;
-    text-align: center;
-    margin: auto;
-    color: #F7EBE8;
-    font-family: 'Montserrat', sans-serif;
-    text-decoration: none;
+.footer-social,
+.footer-copyrights,
+.footer-admin,
+.footer-social a,
+.footer-copyrights a,
+.footer-admin a {
+   width: 100%;
+   text-align: center;
+   margin: auto;
+   color: #f7ebe8;
+   font-family: 'Montserrat', sans-serif;
+   text-decoration: none;
 }

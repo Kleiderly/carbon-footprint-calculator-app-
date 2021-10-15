@@ -19,9 +19,15 @@
    flex-direction: column;
    align-items: center;
    justify-content: center;
+   height: 100%;
 }
-.imgCover {
-   width: 150px;
+
+.afterClick {
+   background: rgba(23, 24, 24, 0.79);
+   border: 1px solid gray;
+   width: 200px;
+   height: 200px;
+   margin: 20px;
 }
 
 .beforeClick {
