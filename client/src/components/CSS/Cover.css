@@ -15,7 +15,6 @@
    font-size: 20px;
 }
 .choiceContainer {
-<<<<<<< HEAD
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,16 +29,6 @@
     height: 200px;
     margin: 20px;
  }
-=======
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
-}
-.imgCover {
-   width: 150px;
-}
->>>>>>> 5204ff238e1cdefd35c3e13523fbbbf3cb24c86b
 
 .beforeClick {
    display: flex;
