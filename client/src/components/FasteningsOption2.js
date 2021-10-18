@@ -12,9 +12,8 @@ const FasteningsOption2 = () => {
       itemTypeAdress1,
       itemTypeAdress2,
       setFasteningCO2e1,
-      fasteningCO2e1,
+
       setFasteningCO2e2,
-      fasteningCO2e2,
    } = useContext(Context);
 
    const [fastenings, setFastenings] = useState([]);

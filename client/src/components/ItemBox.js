@@ -8,7 +8,7 @@ const LogistictsItemBox1 = ({ selected, index, name }) => {
          <button
             className={selected === index ? 'itembox-selected-item-box' : 'itembox-deselected-item-box'}
          >
-            <p>{name}</p>
+            {name}
          </button>
       </div>
    );
