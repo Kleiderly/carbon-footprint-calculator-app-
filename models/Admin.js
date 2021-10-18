@@ -17,7 +17,8 @@ const adminSchema = new Schema({
     },
     password: { type: String, required: [true, 'Please add a password'], minlength:6, select:false },
     resetPasswordToken : String,
-    resetPasswordExpire : Date
+    resetPasswordExpire : Date,
+    role:{ type: Number, default:0}
 });
 
 //verify is the password is modified

@@ -2,12 +2,14 @@ import React, {useState, useEffect} from 'react';
 import axios from "axios";
 import "./css/Admin.css";
 
+
 function AdminForms() {
 /* API call results */
     const [material, setMaterial] = useState([]);
     const [logistic, setLogistic] = useState([]);
     const [fastening, setFastening] = useState([]);
-    const [admin, setAdmin] = useState([]);
+    const [auth, setAuth] = useState([]);
+    const [role, setRole] = useState([]);
 /* Chosen object values / Message after submit / Chosen category / Active form */
     const [filterArr, setFilterArr] = useState([]);
     const [submit, setSubmit] = useState("");
@@ -20,29 +22,38 @@ function AdminForms() {
     const [modId, setModId] = useState();
 /* Chosen username/password */
     const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
+    const [confirmpassword, setConfirmPassword] = useState("")
     const [password, setPassword] = useState("");
+    const [error, setError] = useState("")
 /* API call links */
     const materialAPI = axios.get(`/api/material`);
     const logisticAPI = axios.get(`/api/logistic`);
     const fasteningAPI = axios.get(`/api/fastening`);
-    // const adminAPI = axios.get(`/api/admin`);
+    const adminAPI = axios.get(`/api/auth/`);
 /* Sets forms to display admin level */
     const [user , setUser] = useState(true);
-
+    
+   
 /* API calls */
     useEffect(()=>{
-    /* !!! add adminAPI to list */
-        axios.all([materialAPI, logisticAPI, fasteningAPI])
+        axios.all([materialAPI, logisticAPI, fasteningAPI, adminAPI])
         .then(axios.spread((...res) => {
-    /* !!! add res[3].data to list */
-            console.log(res[0].data, res[1].data, res[2].data);
+            console.log(res)
+            console.log(res[0].data, res[1].data, res[2].data, res[3].data);
             setMaterial(res[0].data);
             setLogistic(res[1].data);
-            setFastening(res[2].data);
-            // setAdmin(res[3].data);
+            (setAuth(res[3].data));
+            console.log(setRole(res[3].data.role))
         }))
         .catch((err)=> console.log(err))
     }, [submit]);
+
+//   console.log(res[3].data)
+
+    // const verifySuperAdmin = () =>{
+    //     if(user === adminAPI )
+    // }
 
 /* Submit message */
     const success = "Submit successful!";
@@ -65,7 +76,7 @@ function AdminForms() {
         const inputs = document.querySelectorAll("input,select");
         inputs.forEach((item) => (item.value = ""));
         setModCo2e(); setModId(); setModName2(); setCat(); setSection();
-        setModName(); setSubmit(); setFilterArr(); setUsername(); setPassword();
+        setModName(); setSubmit(); setFilterArr(); setUsername(); setPassword(); setConfirmPassword(); setEmail();
     };
 
 /* Show/Hide password field */
@@ -83,8 +94,8 @@ function AdminForms() {
     function postInstruction() {
         if(cat === "logistic"){
             return {productionLocation: modName, consumerLocation: modName2, co2e: modCo2e}
-        }else if(cat === "admin"){
-            return {username: username, password: password}
+        }else if(cat === "register"){
+            return {username: username, email: email, password: password}
         }else{
             return {name: modName, co2e: modCo2e}
         }             
@@ -94,6 +105,8 @@ function AdminForms() {
     function modInstruction() {
         if(cat === "logistic"){
             return {productionLocation: modName, consumerLocation: modName2, co2e: modCo2e}
+        }else if(cat === "/auth/admin"){
+            return {username: username, password: password}
         }else{
             return {name: modName, co2e: modCo2e}
         }
@@ -102,12 +115,13 @@ function AdminForms() {
 /* POST */
     const handleAdd = (e)=>{
         e.preventDefault();
-        axios.post(`/api/${cat}`, postInstruction())
+         axios.post(`/api/${cat}`, postInstruction())
         .then((res)=>{
             console.log(res);
-            console.log("Added:", modName, modName2, modCo2e, modId, username, password);
+            console.log("Added:", modName, modName2, modCo2e, modId)
             setSubmit(success);
             setTimeout(()=> clearForm(), 1000);
+           
         })
         .catch((err)=>{
             console.log(err);
@@ -115,9 +129,42 @@ function AdminForms() {
         })
     };
 
+    /* POST ADMINS */
+
+    const handledAddAdmins = async (e) =>{
+        e.preventDefault();
+        const config = {
+            header: {
+                "Content-type": "application/json",
+            }
+        };
+        if(password !== confirmpassword){
+            setPassword("");
+            setConfirmPassword("");
+            setTimeout(()=>{
+                setError("");
+            }, 5000)
+            return setError("Passwords do not match")
+        }
+        try {
+            const {data} = await axios.post('/api/auth/register', {username, email, password}, config);
+            localStorage.setItem("authToken", data.token);
+
+            setSubmit(success);
+            setTimeout(()=> clearForm(), 1000);
+            
+        } catch (error) {
+            setError(error.response.data.error);
+            setTimeout(()=>{
+                setError("");
+            }, 5000)
+        }
+    }
+    
 /* PUT */
     const handleModify = (e)=>{
         e.preventDefault();
+        
         axios
         .put(`/api/${cat}/${modId}`, modInstruction())
         .then((res) => {
@@ -149,6 +196,22 @@ function AdminForms() {
             setSubmit(failed);
         });
     };
+
+
+    // Delete Addmins 
+
+    const handleDeleteAdmin = (e) => {
+        e.preventDefault();
+        axios.delete(`/api/auth/${modId}`)
+        .then((res)=>{
+            setSubmit(success);
+            setTimeout(()=> clearForm(), 1000);
+        })
+        .catch((err)=>{
+            console.log(err);
+            setSubmit(failed)
+        })
+    }
 
 
 /* POST to X co2e first form value input HTML (repeated) */
@@ -410,8 +473,8 @@ function AdminForms() {
             <hr className="hr" />
 
     
-            <div className={user ? "form-admin form-section" : "form-member"}>
-                <h2>Add User</h2>
+            <div className="form-section">
+                <h2>Add / Modify User</h2>
 
 {/* POST to ADMIN */}
                 <h4>Add new User</h4>
@@ -422,9 +485,23 @@ function AdminForms() {
                         className="light-pink" 
                         type="text"
                         name="username"
+                        value={username}
                         onChange={(e) => {
                           setUsername(e.target.value);
                           setSection("form3");
+                        }}
+                        />
+                    </div>
+                    <div className="form-input">
+                        Email: <br />
+                        <input 
+                        className="light-pink" 
+                        type="text"
+                        name="email"
+                        value={email}
+                        onChange={(e) => {
+                          setEmail(e.target.value);
+
                         }}
                         />
                     </div>
@@ -435,7 +512,20 @@ function AdminForms() {
                         type="password"
                         name="password"
                         id="passw"
+                        value={password}
                         onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </div>
+                    
+                    <div className="form-input">
+                        Confirm Password: <br />
+                        <input 
+                        className="light-pink"
+                        type="confirmpassword"
+                        name="confirmpassword"
+                        id="passw"
+                        value={confirmpassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
                         />
                     </div>
                 </div>
@@ -444,14 +534,15 @@ function AdminForms() {
                 </div>
                 <div className="form-input center-align">
 {/* POST to ADMIN  buttons*/}
-                    <button onClick={handleAdd}>ADD</button>
+                    <button onClick={handledAddAdmins}>ADD</button>
                     <button onClick={clearForm}>CLEAR FORM</button>
                 </div>
-                <div className="form-submit">&nbsp;{section === "form3" && submit}&nbsp;</div>
+                <div className="form-submit">&nbsp; {error &&  <span>{error}</span>}{section === "form3" && submit}&nbsp;</div>
 
 
 {/* DELETE/MODIFY ADMIN */}
-                <h4 className={user ? "form-admin" : "form-member"}>Delete User</h4>
+                <h4 className={user ? "form-admin" : "form-member"}>Delete / Modify User</h4>
+                <h4 className={user ? "form-member" : "form-admin"}>Modify User</h4>
 
                 <div className="form-item">
                     <div className="form-input">
@@ -459,14 +550,14 @@ function AdminForms() {
                         <select
                         className="light-pink" 
                         onChange={(e) => {
-                            setFilterArr(admin.find((type)=> type.username === e.target.value));
+                            setFilterArr(auth.find((type)=> type.username === e.target.value));
                             setUsername(e.target.value);
                             setCat("admin");
                             setSection("form4");
                             console.log("Admin", username, password, filterArr);
                         }}>
                             <option></option>
-                            {/* {admin.map((type, i) => {
+                            {auth.map((type, i) => {
                                 return (
                                     <option 
                                     id={type._id} 
@@ -476,7 +567,7 @@ function AdminForms() {
                                         {type.username}
                                     </option>
                                 );
-                            })}; */}
+                            })};
                         </select>
                     </div>
                     <div className="form-input">
@@ -486,7 +577,7 @@ function AdminForms() {
                         type="password"
                         name="password"
                         id="passw2"
-                        value={cat === "admin" ? password : ""}
+                        value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         />
                         </div>
@@ -496,7 +587,8 @@ function AdminForms() {
                 </div>
                 <div className="form-input center-align">
 {/* DELETE/MODIFY ADMIN buttons*/}
-                    <button className={user ? "form-admin" : "form-member"} onClick={handleDelete}>DELETE</button>
+                    <button onClick={handleModify}>MODIFY</button>
+                    <button className={user ? "form-admin" : "form-member"} onClick={handleDeleteAdmin}>DELETE</button>
                     <button onClick={clearForm}>CLEAR FORM</button>
                 </div>
                 <div className="form-submit">&nbsp;{section === "form4" && submit}&nbsp;</div>
