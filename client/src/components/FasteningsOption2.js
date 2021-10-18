@@ -2,8 +2,10 @@ import React, { useState, useEffect, useContext } from 'react';
 import Context from '../contexts/ContextApi';
 import axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
+import ProgressBar from './ProgressBar';
 import { useLocation } from 'react-router';
 import './css/Fastenings.css';
+import Tips from './Tips';
 
 const FasteningsOption2 = () => {
    const {
@@ -62,31 +64,34 @@ const FasteningsOption2 = () => {
    };
 
    return (
-      <div className="choiceContainer">
+      <div className="fastening-choice-container">
+         <ProgressBar stage={2} previous="Material" next="Fabrication" />
          <div>
             <div>
-               <br />
-               <p className="directionText">How Many Fatenings Are There?</p>
-               <br />
-               <div className="itemsContainer">
-                  <div className="beforeClickCategory">
-                     <img src={itemTypeAdress1} alt={itemTypeAdress1} />
+               <p className="fastening-direction-text">Do they have fastenings?</p>
+               <div className="fastening-items-container">
+                  <div className="fastening-before-click-category">
+                     <img src={itemTypeAdress1} alt={itemTypeAdress1} className="fastening-img-cover" />
+                     <span>1st Item</span>
                   </div>
-                  <div className="beforeClickCategory">
-                     <img src={itemTypeAdress2} alt={itemTypeAdress2} />
+                  <div className="fastening-after-click-category">
+                     <img src={itemTypeAdress2} alt={itemTypeAdress2} className="fastening-img-cover" />
+                     <span>2nd Item</span>
                   </div>
                </div>
             </div>
          </div>
-         <div className="materialBigContainer">
-            <div className="materialContainer">
+         <div className="fastening-big-container">
+            <div className="fastening-container ">
                {listOfQuantities.length > 0 &&
                   fastenings.map((fastening, i) => {
                      return (
-                        <div key={i}>
-                           <h3>{fastening.name}</h3>
+                        <div key={i} className="fastenings-item">
+                           <span className="fastening-name">{fastening.name}</span>
+                           <br />
                            <input
                               type="number"
+                              className="fastenings-input"
                               min="0"
                               step="1"
                               value={listOfQuantities[i].quantity}
@@ -99,14 +104,16 @@ const FasteningsOption2 = () => {
                      );
                   })}
             </div>
-            <div className="materialContainer">
+            <div className="fastening-container">
                {listOfQuantities2.length > 0 &&
                   fastenings.map((fastening, i) => {
                      return (
-                        <div key={i}>
-                           <h3>{fastening.name}</h3>
+                        <div key={i} className="fastenings-item">
+                           <span className="fastening-name">{fastening.name}</span>
+                           <br />
                            <input
                               type="number"
+                              className="fastenings-input"
                               min="0"
                               step="1"
                               value={listOfQuantities2[i].quantity}
@@ -120,17 +127,21 @@ const FasteningsOption2 = () => {
                   })}
             </div>
          </div>
-
-         <button type="button" onClick={handleClickPreviousSection}>
-            Go Back
-         </button>
-         <div>
-            <Link to="/compare/logistics">
-               <button type="button" onClick={addFastenings}>
-                  Next
-               </button>
-            </Link>
+         <div className="fastening-back-next-buttons">
+            <button className="back-button" type="button" onClick={handleClickPreviousSection}>
+               BACK
+            </button>
+               <Link to="/compare/logistics">
+                  <button className="next-button" type="button" onClick={addFastenings}>
+                     NEXT
+                  </button>
+               </Link>
          </div>
+
+         <div className="tips">
+            <Tips category="fastenings" />
+         </div>
+
       </div>
    );
 };

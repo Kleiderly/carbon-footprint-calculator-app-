@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Context from '../contexts/ContextApi';
 import { Link, useHistory } from 'react-router-dom';
+import './css/Results.css';
 
 const ResultsOption1 = (props) => {
    const { itemTypeAdress1, materialCO2e1, fasteningCO2e1, countryCO2e1, totalCo2e1, setTotalCo2e1 } =
@@ -18,15 +19,13 @@ const ResultsOption1 = (props) => {
    };
 
    return (
-      <div className="choiceContainer">
+      <div className="results-choice-container">
          <div>
             <div>
-               <br />
-               <p className="directionText">Results</p>
-               <br />
-               <div className="itemsContainer">
-                  <div className="beforeClickCategory">
-                     <img src={itemTypeAdress1} alt={itemTypeAdress1} />
+               <p className="results-direction-text">Results!</p>
+               <div className="results-items-container">
+                  <div className="results-before-click-category">
+                     <img src={itemTypeAdress1} alt={itemTypeAdress1} className="results-img-cover" />
                   </div>
                </div>
             </div>
@@ -34,9 +33,9 @@ const ResultsOption1 = (props) => {
 
          <div>Carbon Footprint: {totalCo2e1}</div>
 
-         <button type="button" onClick={handleClickPreviousSection}>
+         <span className="results-back-link" onClick={handleClickPreviousSection}>
             Go Back
-         </button>
+         </span>
          <Link to="/calculate/percentages">
             <button type="button">Check Details</button>
          </Link>

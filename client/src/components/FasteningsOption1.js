@@ -3,6 +3,9 @@ import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import Context from '../contexts/ContextApi';
 import { Link } from 'react-router-dom';
+import ProgressBar from './ProgressBar';
+import './css/Fastenings.css';
+import Tips from './Tips';
 
 const FasteningsOption1 = (props) => {
    const { itemTypeAdress1, setFasteningCO2e1, fasteningCO2e1 } =
@@ -46,17 +49,17 @@ const FasteningsOption1 = (props) => {
    console.log('result Fastening: ', fasteningCO2e1);
 
    return (
-      <div className="choiceContainer">
-         <br />
-         <p className="directionText">How Many Fastenings Are there?</p>
-         <br />
-         <div className="itemsContainer">
-            <div className="beforeClick">
+      <div className="fastening-choice-container">
+         <ProgressBar stage={2} previous="Material" next="Fabrication" />
+         <p className="fastening-direction-text">Does it have fastenings?</p>
+         <div className="fastening-items-container">
+            <div className="fastening-before-click">
                <img
                   src={itemTypeAdress1}
                   alt="firstBoxImage"
-                  className="imgCover"
+                  className="fastening-img-cover"
                />
+               <span className="fastening-small-text">Fastenings</span>
             </div>
          </div>
          <div>
@@ -64,7 +67,7 @@ const FasteningsOption1 = (props) => {
                fastenings.map((fastening, i) => {
                   return (
                      <div key={i}>
-                        <h3>{fastening.name}</h3>
+                        <h3 className="fastenings-option-text">{fastening.name}</h3>
                         <input
                            type="number"
                            min="0"
@@ -79,17 +82,22 @@ const FasteningsOption1 = (props) => {
                   );
                })}
          </div>
-         <button type="button" onClick={handleClickPreviousSection}>
-            Go Back
-         </button>
-         <div>
-            <Link 
-            to="/calculate/logistics">
-               <button type="button" onClick={addFastenings}>
-                  Next
-               </button>
-            </Link>
+         <div className="fastening-back-next-buttons">
+            <button className="back-button" type="button" onClick={handleClickPreviousSection}>
+               BACK
+            </button>
+               <Link 
+               to="/calculate/logistics">
+                  <button className="next-button" type="button" onClick={addFastenings}>
+                     NEXT
+                  </button>
+               </Link>
          </div>
+
+         <div className="tips">
+            <Tips category="fastenings" />
+         </div>
+
       </div>
    );
 };

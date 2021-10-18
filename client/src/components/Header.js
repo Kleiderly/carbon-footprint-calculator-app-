@@ -10,7 +10,7 @@ function Header() {
          </div>
          <div className="header-title">
             <Link to="/">
-               <h1>CARBON FOOTPRINT CALCULATOR</h1>
+               <p>CARBON FOOTPRINT CALCULATOR</p>
             </Link>
          </div>
       </div>

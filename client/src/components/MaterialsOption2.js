@@ -3,12 +3,11 @@ import { Link, useHistory } from 'react-router-dom';
 // import { useLocation } from 'react-router';
 import axios from 'axios';
 import Context from '../contexts/ContextApi';
-// import Tips from './Tips';
+import Tips from './Tips';
+import ProgressBar from './ProgressBar';
 import ItemBox from './ItemBox';
 
-import './css/Category.css';
 import './css/Materials.css';
-import './css/ItemBox.css';
 
 const MaterialsOption2 = (props) => {
    const {
@@ -67,25 +66,25 @@ const MaterialsOption2 = (props) => {
    console.log(selectMaterial2);
 
    return (
-      <div className="choiceContainer">
-         <p>Clothes</p>
+      <div className="material-choice-container">
+      <ProgressBar stage={1} previous="Choice" next="Fastenings" />
          <div>
             <div>
-               <br />
-               <p className="directionText">Choose Your Materials</p>
-               <br />
-               <div className="itemsContainer">
-                  <div className="beforeClickCategory">
-                     <img src={itemTypeAdress1} alt={itemTypeAdress1} />
+               <p className="material-direction-text">What material are they made of?</p>
+               <div className="material-items-container">
+                  <div className="material-before-click-category">
+                     <img src={itemTypeAdress1} alt={itemTypeAdress1} className="material-img-cover" />
+                     <span>1st Item</span>
                   </div>
-                  <div className="beforeClickCategory">
-                     <img src={itemTypeAdress2} alt={itemTypeAdress2} />
+                  <div className="material-after-click-category">
+                     <img src={itemTypeAdress2} alt={itemTypeAdress2} className="material-img-cover" />
+                     <span>2nd Item</span>
                   </div>
                </div>
             </div>
          </div>
-         <div className="materialBigContainer">
-            <div className="materialContainer">
+         <div className="material-big-container">
+            <div className="material-container">
                {materials.map((item, i) => (
                   <div
                      onClick={() => handleClickMappedItem1(item, i)}
@@ -95,7 +94,7 @@ const MaterialsOption2 = (props) => {
                   </div>
                ))}
             </div>
-            <div className="materialContainer">
+            <div className="material-container">
                {materials.map((item, i) => (
                   <div
                      onClick={() => handleClickMappedItem2(item, i)}
@@ -106,15 +105,23 @@ const MaterialsOption2 = (props) => {
                ))}
             </div>
          </div>
-         <button type="button" onClick={handleClickPreviousSection}>
-            Go Back
-         </button>
-         <Link 
-         to="/compare/fastenings" className={selectMaterial1 && selectMaterial2 ? null : 'disabled-link'}>
-            <button type="button" onClick={handleClick}>
-               Next
+
+         <div className="material-back-next-buttons">
+            <button className="back-button" type="button" onClick={handleClickPreviousSection}>
+               BACK
             </button>
-         </Link>
+            <Link 
+            to="/compare/fastenings" className={selectMaterial1 && selectMaterial2 ? null : 'disabled-link'}>
+               <button className="next-button" type="button" onClick={handleClick}>
+                  NEXT
+               </button>
+            </Link>
+         </div>
+
+         <div className="tips">
+            <Tips category="materials" />
+         </div>
+
       </div>
    );
 };

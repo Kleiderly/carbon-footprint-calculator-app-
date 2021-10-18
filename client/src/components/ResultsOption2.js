@@ -57,22 +57,20 @@ const ResultsOption2 = (props) => {
    };
 
    return (
-      <div className="choiceContainer">
+      <div className="results-choice-container">
          <div>
             <div>
-               <br />
-               <p className="directionText">Results</p>
-               <br />
-               <div className="resultsBigContainer">
-                  <div className="resultsContainer">
-                     <div className="beforeClickCategory">
-                        <img src={itemTypeAdress1} alt={itemTypeAdress1} />
+               <p className="results-direction-text">Results!</p>
+               <div className="results-big-container">
+                  <div className="results-container">
+                     <div className="results-before-click-category">
+                        <img src={itemTypeAdress1} alt={itemTypeAdress1} className="results-img-cover" />
                      </div>
                      <p>Carbon Footprint: {totalCo2e1}</p>
                   </div>
-                  <div className="resultsContainer">
-                     <div className="beforeClickCategory">
-                        <img src={itemTypeAdress2} alt={itemTypeAdress2} />
+                  <div className="results-container">
+                     <div className="results-after-click-category">
+                        <img src={itemTypeAdress2} alt={itemTypeAdress2} className="results-img-cover" />
                      </div>
                      <p>Carbon Footprint: {totalCo2e2}</p>
                   </div>
