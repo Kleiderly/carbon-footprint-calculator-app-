@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-.choiceContainer {
-=======
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap');
 
 * {
@@ -39,28 +36,10 @@
 }
 
 .cover-choice-container {
->>>>>>> 522644cdabfdf2a7bb190f30e8c0a1d0b91f08de
    display: flex;
    flex-direction: column;
    align-items: center;
    justify-content: center;
-<<<<<<< HEAD
-}
-.choiceContainer .choice1 {
-   background: rgba(14, 40, 35, 0.79);
-   color: gray;
-   border: 1px solid gray;
-   width: 200px;
-   height: 200px;
-}
-.choiceContainer .choice2 {
-   background: rgba(14, 40, 35, 0.79);
-   color: gray;
-   border: 1px solid gray;
-   width: 300px;
-   height: 200px;
-}
-=======
    margin: 0 10px 0 10px;
 }
 
@@ -69,7 +48,10 @@
    margin: 10px;
 }
 
-.cover-before-click, .cover-after-click, .cover-before-click2, .cover-after-click2 {
+.cover-before-click,
+.cover-after-click,
+.cover-before-click2,
+.cover-after-click2 {
    display: flex;
    flex-direction: row;
    align-items: center;
@@ -82,11 +64,13 @@
    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
 }
 
-.cover-after-click, .cover-after-click2 {
+.cover-after-click,
+.cover-after-click2 {
    background-color: #415551;
 }
 
-.cover-before-click2, .cover-after-click2 {
+.cover-before-click2,
+.cover-after-click2 {
    width: 270px;
 }
 
@@ -101,4 +85,3 @@
 .tips {
    width: 100%;
 }
->>>>>>> 522644cdabfdf2a7bb190f30e8c0a1d0b91f08de

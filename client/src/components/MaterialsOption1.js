@@ -6,6 +6,8 @@ import ItemBox from './ItemBox';
 import ProgressBar from './ProgressBar';
 import Tips from './Tips';
 import './css/Materials.css';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
 const MaterialsOption1 = (props) => {
    const { itemTypeAdress1, setMaterialCO2e1 } = useContext(Context);
@@ -64,10 +66,14 @@ const MaterialsOption1 = (props) => {
          </div>
 
          <div className="category-back-next-buttons">
-            <button className="back-button" type="button" onClick={handleClickPreviousSection}>
+            <button
+               className="back-button"
+               type="button"
+               onClick={handleClickPreviousSection}
+            >
                BACK
             </button>
-               <Link className={selectMaterial1? null : 'disabled-link'}
+            {/* <Link className={selectMaterial1? null : 'disabled-link'}
                to="/calculate/fastenings">
                   <button className="next-button"
                      type="button"
@@ -75,13 +81,30 @@ const MaterialsOption1 = (props) => {
                   >
                      NEXT
                   </button>
+               </Link> */}
+            {selectMaterial1 ? (
+               <Link to="/calculate/fastenings">
+                  <button
+                     className="next-button"
+                     type="button"
+                     onClick={() => setMaterialCO2e1(selectMaterial1)}
+                  >
+                     NEXT
+                  </button>
                </Link>
+            ) : (
+               <Popup
+                  trigger={<button className="next-button"> NEXT</button>}
+                  position="top center"
+               >
+                  <div>Please make your selection!</div>
+               </Popup>
+            )}
          </div>
 
          <div className="tips">
             <Tips category="materials" />
          </div>
-
       </div>
    );
 };
