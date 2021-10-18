@@ -29,9 +29,7 @@ const PercentagesOption1 = (props) => {
       <div className="choiceContainer">
          <div>
             <div>
-               <br />
                <p className="directionText">Percentages</p>
-               <br />
                <div className="resultsBigContainer">
                   <div className="resultsContainer">
                      <div className="beforeClickCategory">

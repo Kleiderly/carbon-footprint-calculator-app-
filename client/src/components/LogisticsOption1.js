@@ -2,8 +2,10 @@ import React, { useState, useEffect, useContext } from 'react';
 import Context from '../contexts/ContextApi';
 import { Link, useHistory } from 'react-router-dom';
 import ItemBox from './ItemBox';
+import ProgressBar from './ProgressBar';
 import axios from 'axios';
-// import Tips from './Tips';
+import Tips from './Tips';
+import './css/Logistics.css';
 
 const LogisticsOption1 = (props) => {
    const { itemTypeAdress1, setCountryCO2e1 } = useContext(Context);
@@ -42,21 +44,21 @@ const LogisticsOption1 = (props) => {
    };
 
    return (
-      <div className="choiceContainer">
+      <div className="logistics-choice-container">
+         <ProgressBar stage={3}  previous="Fastenings" next="Results" />
          <div>
             <div>
-               <br />
-               <p className="directionText">Where Is Your Product From?</p>
-               <br />
-               <div className="itemsContainer">
-                  <div className="beforeClickCategory">
-                     <img src={itemTypeAdress1} alt={itemTypeAdress1} />
+               <p className="logistics-direction-text">Where was it produced?</p>
+               <div className="logistics-items-container ">
+                  <div className="logistics-before-click-category">
+                     <img src={itemTypeAdress1} alt={itemTypeAdress1} className="logistics-img-cover" />
+                     <span className="logistics-small-text">Origin</span>
                   </div>
                </div>
             </div>
          </div>
-         <div className="materialBigContainer">
-            <div className="materialContainer">
+         <div className="logistics-big-container">
+            <div className="logistics-container">
                {countriesFrom.map((item, i) => (
                   <div
                      onClick={() => handleClickMappedItem(item, i)}
@@ -71,15 +73,22 @@ const LogisticsOption1 = (props) => {
                ))}
             </div>
          </div>
-         <button type="button" onClick={handleClickPreviousSection}>
-            Go Back
-         </button>
-         <Link className={selectCountry1? null : 'disabled-link'}
-         to="/calculate/results">
-            <button type="button" onClick={handleClick}>
-               Calculate
+         <div className="category-back-next-buttons">
+            <button className="back-button" type="button" onClick={handleClickPreviousSection}>
+               BACK
             </button>
-         </Link>
+            <Link className={selectCountry1? null : 'disabled-link'}
+            to="/calculate/results">
+               <button className="next-button" type="button" onClick={handleClick}>
+                  NEXT
+               </button>
+            </Link>
+         </div>
+
+         <div className="tips">
+            <Tips category="logistics" />
+         </div>
+
       </div>
    );
 };
