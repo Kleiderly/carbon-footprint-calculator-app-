@@ -66,6 +66,19 @@ const ResultsOption2 = (props) => {
       history.push('/calculate/logistics');
    };
 
+   const messageUneven =
+      <span className="results-message">
+         The <b>{totalCo2e1 < totalCo2e2 ? 'first item' : 'second item'} </b> 
+         is <b>{percentage}%</b> more eco-responsible than the
+         <b> {totalCo2e1 > totalCo2e2 ? 'first Item' : 'second Item'}</b>.
+      </span>;
+
+   const messageEven = 
+      <span className="results-message">
+         It's a tie!
+      </span>;
+
+
    return (
       <div className="results-choice-container">
          <div>
@@ -73,37 +86,38 @@ const ResultsOption2 = (props) => {
                <p className="results-direction-text">Results!</p>
                <div className="results-big-container">
                   <div className="results-container">
-                     <div className="results-before-click-category">
+                     <div className={totalCo2e1 < totalCo2e2 ? "results-before-click-category" : "results-after-click-category"}>
                         <img src={itemTypeAdress1} alt={itemTypeAdress1} className="results-img-cover" />
+                     <div>
+                        First item
+                        <p className="results-carbon-result">Total: {totalCo2e1}</p>
                      </div>
-                     <p>Carbon Footprint: {totalCo2e1}</p>
+                     </div>
                   </div>
                   <div className="results-container">
-                     <div className="results-after-click-category">
+                     <div className={totalCo2e1 > totalCo2e2 ? "results-before-click-category" : "results-after-click-category"}>
                         <img src={itemTypeAdress2} alt={itemTypeAdress2} className="results-img-cover" />
+                     <div>
+                        Second item
+                        <p className="results-carbon-result">Total: {totalCo2e2}</p>
                      </div>
-                     <p>Carbon Footprint: {totalCo2e2}</p>
+                     </div>
                   </div>
                </div>
-               <h3>
-                  The {totalCo2e1 < totalCo2e2 ? 'First Item' : 'Second Item'}{' '}
-                  is better than the{' '}
-                  {totalCo2e1 > totalCo2e2 ? 'First Item' : 'Second Item'} by{' '}
-                  {percentage} percent
-               </h3>
             </div>
          </div>
 
-         <button type="button" onClick={handleClickPreviousSection}>
+         {totalCo2e1 === totalCo2e2 ? messageEven : messageUneven }
+         {/* <button type="button" onClick={handleClickPreviousSection}>
             Go Back
-         </button>
-         <Link to="/compare/percentages">
-            <button type="button">Check Summary</button>
-         </Link>
-         <Link to="/">
-            <button type="button">Compare New Items</button>
+         </button> */}
+         <Link to="/compare/percentages" className="results-details">
+            SEE DETAILS
          </Link>
          <ButtonShareModal />
+         <Link to="/">
+            <button type="button">COMPARE NEW ITEMS</button>
+         </Link>
       </div>
    );
 };

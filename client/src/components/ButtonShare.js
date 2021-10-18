@@ -1,4 +1,5 @@
 import React from 'react';
+import './css/ButtonShare.css';
 
 import {
    EmailShareButton,
@@ -48,7 +49,7 @@ import {
 function ButtonShare(props) {
    const sharedUrl = 'https://kleiderly.com/';
    return (
-      <div>
+      <div className="buttonshare-wrapper">
          <TwitterShareButton url={sharedUrl}>
             <TwitterIcon size={32} round={true} style={{ margin: '5px' }} />
          </TwitterShareButton>

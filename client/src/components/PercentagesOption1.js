@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Context from '../contexts/ContextApi';
 import { Link, useHistory } from 'react-router-dom';
-import './css/Category.css';
-import './css/Results.css';
+import './css/Percentages.css';
 
 const PercentagesOption1 = (props) => {
    const {
@@ -26,24 +25,25 @@ const PercentagesOption1 = (props) => {
    };
 
    return (
-      <div className="choiceContainer">
+      <div className="percentages-wrapper">
          <div>
             <div>
-               <p className="directionText">Percentages</p>
-               <div className="resultsBigContainer">
-                  <div className="resultsContainer">
-                     <div className="beforeClickCategory">
-                        <img src={itemTypeAdress1} alt={itemTypeAdress1} />
+               <p className="percentages-direction-text">Co2E Details</p>
+               <div className="percentages-big-container">
+                  <div className="percentages-container">
+                     <div className="percentages-before-click-category">
+                        <img src={itemTypeAdress1} alt={itemTypeAdress1} className="percentages-img-cover" />
                      </div>
                   </div>
 
-                  <div className="percentagesContainer">
+                  <div className="percentages-container">
                      <div>
-                        <div>Material</div>
-                        <div>Fastenings</div>
-                        <div>Logistics</div>
-                        <div>Total</div>
+                        <div><b>Material:</b></div>
+                        <div><b>Fastenings:</b></div>
+                        <div><b>Logistics:</b></div>
+                        <div><b>Total:</b></div>
                      </div>
+                     <div>&nbsp;&nbsp;&nbsp;</div>
                      <div>
                         <div>{materialCO2e1}</div>
                         <div>{fasteningCO2e1}</div>
@@ -52,18 +52,19 @@ const PercentagesOption1 = (props) => {
                      </div>
                   </div>
 
-                  <h3>Text</h3>
+                  <p className="percentages-explanation">Text explaining the Co2E principles, etc.</p>
                </div>
             </div>
 
             <button type="button" onClick={handleClickPreviousSection}>
-               Go Back
+               BACK
             </button>
-            <Link to="/calculate/details">
+            <br />
+            {/* <Link to="/calculate/details">
                <button type="button">Check Details</button>
-            </Link>
+            </Link> */}
             <Link to="/">
-               <button type="button">Compare New Items</button>
+               <button type="button">COMPARE NEW ITEMS</button>
             </Link>
          </div>
       </div>

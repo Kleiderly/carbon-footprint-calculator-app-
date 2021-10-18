@@ -70,7 +70,7 @@ function Logistics(props) {
                      <img src={itemTypeAdress1} alt={itemTypeAdress1} className="logistics-img-cover" />
                      <span>1st Item</span>
                   </div>
-                  <div className="logistics-after-click-category">
+                  <div className="logistics-before-click-category">
                      <img src={itemTypeAdress2} alt={itemTypeAdress2} className="logistics-img-cover" />
                      <span>2nd Item</span>
                   </div>

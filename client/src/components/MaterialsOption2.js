@@ -76,7 +76,7 @@ const MaterialsOption2 = (props) => {
                      <img src={itemTypeAdress1} alt={itemTypeAdress1} className="material-img-cover" />
                      <span>1st Item</span>
                   </div>
-                  <div className="material-after-click-category">
+                  <div className="material-before-click-category">
                      <img src={itemTypeAdress2} alt={itemTypeAdress2} className="material-img-cover" />
                      <span>2nd Item</span>
                   </div>

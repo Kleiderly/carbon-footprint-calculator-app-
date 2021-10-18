@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Context from '../contexts/ContextApi';
 import { Link, useHistory } from 'react-router-dom';
-import './css/Category.css';
-import './css/Results.css';
+import './css/Percentages.css';
 
 const PercentagesOption2 = (props) => {
    const {
@@ -27,38 +26,46 @@ const PercentagesOption2 = (props) => {
    };
 
    return (
-      <div className="choiceContainer">
+      <div className="percentages-wrapper">
          <div>
             <div>
-               <p className="directionText">Percentages</p>
-               <div className="resultsBigContainer">
-                  <div className="resultsContainer">
-                     <div className="beforeClickCategory">
-                        <img src={itemTypeAdress1} alt={itemTypeAdress1} />
+               <p className="percentages-direction-text">Percentages</p>
+               <div className="percentages-big-container2">
+                  <div className="percentages-container">
+                     <div className={totalCo2e1 < totalCo2e2 ? "percentages-before-click-category" : "percentages-after-click-category"}>
+                        <img src={itemTypeAdress1} alt={itemTypeAdress1} className="percentages-img-cover2" />
+                        <div>
+                           First item
+                           <p className="percentages-carbon-result">Total: {totalCo2e1}</p>
+                        </div>
                      </div>
                   </div>
 
-                  <div className="resultsContainer">
-                     <div className="beforeClickCategory">
-                        <img src={itemTypeAdress2} alt={itemTypeAdress2} />
+                  <div className="percentages-container">
+                     <div className={totalCo2e1 > totalCo2e2 ? "percentages-before-click-category" : "percentages-after-click-category"}>
+                        <img src={itemTypeAdress2} alt={itemTypeAdress2} className="percentages-img-cover2" />
+                        <div>
+                           Second item
+                           <p className="percentages-carbon-result">Total: {totalCo2e2}</p>
+                        </div>
                      </div>
                   </div>
                </div>
 
-               <div className="percentagesContainer">
-                  <div>
+               <div className="percentages-container2">
+                  <div className="percentages-totals">
                      <div>{materialCO2e1}</div>
                      <div>{fasteningCO2e1}</div>
                      <div>{countryCO2e1}</div>
                      <div>{totalCo2e1}</div>
                   </div>
-                  <div>
-                     <div>Material</div>
-                     <div>Fastenings</div>
-                     <div>Logistics</div>
-                     <div>Total</div>
+                  <div className="percentages-categories">
+                     <div><b>Material</b></div>
+                     <div><b>Fastenings</b></div>
+                     <div><b>Logistics</b></div>
+                     <div><b>Total</b></div>
                   </div>
-                  <div>
+                  <div className="percentages-totals">
                      <div>{materialCO2e2}</div>
                      <div>{fasteningCO2e2}</div>
                      <div>{countryCO2e2}</div>
@@ -66,18 +73,18 @@ const PercentagesOption2 = (props) => {
                   </div>
                </div>
 
-               <h3>Text</h3>
+               <p className="percentages-explanation">Text explaining the Co2E principles, etc.</p>
             </div>
          </div>
 
          <button type="button" onClick={handleClickPreviousSection}>
-            Go Back
+            BACK
          </button>
-         <Link to="/compare/details">
+         {/* <Link to="/compare/details">
             <button type="button">Check Details</button>
-         </Link>
+         </Link> */}
          <Link to="/">
-            <button type="button">Compare New Items</button>
+            <button type="button">COMPARE NEW ITEMS</button>
          </Link>
       </div>
    );

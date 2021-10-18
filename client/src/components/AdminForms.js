@@ -25,7 +25,7 @@ function AdminForms() {
     const materialAPI = axios.get(`/api/material`);
     const logisticAPI = axios.get(`/api/logistic`);
     const fasteningAPI = axios.get(`/api/fastening`);
-    const adminAPI = axios.get(`/api/admin`);
+    const adminAPI = axios.get(`/api/auth`);
 /* Sets forms to display admin level */
     const [user , setUser] = useState(true);
 

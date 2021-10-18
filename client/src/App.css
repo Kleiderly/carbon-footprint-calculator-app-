@@ -6,6 +6,10 @@
   height: 100%;
 }
 
+a {
+  text-decoration: none;
+}
+
 input, select {
   padding: 8px;
   margin: 2px;

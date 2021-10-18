@@ -1,0 +1,87 @@
+.percentages-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+ }
+ 
+ .percentages-direction-text {
+    font-size: 6vw;
+    color: #0e2823;
+    margin: 10px 0 10px 0;
+ }
+ 
+ .percentages-img-cover,  .percentages-img-cover2 {
+    width: 100px;
+    margin-bottom: 3px;
+    filter: drop-shadow(0px 3px 1px rgba(0, 0, 0, 0.644));
+ }
+
+ .percentages-img-cover2 {
+    width: 80px;
+ }
+
+ .percentages-big-container, .percentages-big-container2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ }
+
+ .percentages-categories, .percentages-totals {
+     text-align: center;
+     width: 100px;
+     font-size: small;
+ }
+
+ .percentages-totals {
+     width: 100%;
+ }
+
+ .percentages-carbon-result {
+    font-size: 5vw;
+    font-weight: bold;
+    margin: 5px;
+ }
+
+ .percentages-big-container2 {
+    flex-direction: row;
+ }
+ 
+ .percentages-container, .percentages-container2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 5px;
+    width: 100%;
+ }
+
+ .percentages-container2 {
+    text-align: left;
+ }
+
+ .percentages-explanation {
+    font-size: 3.8vw;
+    margin: 20px;
+ }
+
+.percentages-before-click-category, .percentages-after-click-category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000;
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    color: #F7EBE8;
+ }
+
+ .percentages-after-click-category {
+    background-color: #F7EBE8;
+    color: #000000;
+ }

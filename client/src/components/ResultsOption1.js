@@ -33,23 +33,25 @@ const ResultsOption1 = (props) => {
                <div className="results-items-container">
                   <div className="results-before-click-category">
                      <img src={itemTypeAdress1} alt={itemTypeAdress1} className="results-img-cover" />
+                     <div className="results-carbon-result">
+                        Total: {totalCo2e1}
+                     </div>
                   </div>
                </div>
             </div>
          </div>
 
-         <div>Carbon Footprint: {totalCo2e1}</div>
 
-         <span className="results-back-link" onClick={handleClickPreviousSection}>
+         {/* <span className="results-back-link" onClick={handleClickPreviousSection}>
             Go Back
-         </span>
-         <Link to="/calculate/percentages">
-            <button type="button">Check Details</button>
-         </Link>
-         <Link to="/">
-            <button type="button">Calculate Another Item</button>
+         </span> */}
+         <Link to="/calculate/percentages" className="results-details">
+            SEE DETAILS
          </Link>
          <ButtonShareModal />
+         <Link to="/">
+            <button type="button">CALCULATE ANOTHER ITEM</button>
+         </Link>
       </div>
    );
 };

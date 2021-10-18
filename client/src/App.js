@@ -148,7 +148,6 @@ function App() {
                         path="/compare/results"
                         component={(browser) => <ResultsOption2 />}
                      />
-
                      <Route
                         exact
                         path="/compare/percentages"
