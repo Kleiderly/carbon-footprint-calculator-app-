@@ -1,21 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap');
 .header-wrapper {
     display: flex;
+    align-items: center;
     background-color: #000000;
     border-bottom: solid 1px #000000;
 }
 
 .logo {
-    height: 100px;
+    height: 50px;
     width: auto;
 }
 
 .header-title, .header-title a {
     width: 100%;
     text-align: center;
-    margin: auto;
+    margin: 0;
     color: #F7EBE8;
     letter-spacing: 3px;
     font-family: 'Montserrat', sans-serif;
     text-decoration: none;
+    font-size: 3vw;
+    font-weight: bold;
+}
+
+@media only screen and (min-device-width: 660px) {
+.logo {
+    height: 100px;
+}
+
+.header-title, .header-title a {
+    font-size: 24px;
+}
 }

@@ -2,8 +2,10 @@ import React, { useState, useEffect, useContext } from 'react';
 import Context from '../contexts/ContextApi';
 import { Link, useHistory } from 'react-router-dom';
 import ItemBox from './ItemBox';
+import ProgressBar from './ProgressBar';
 import axios from 'axios';
 import Tips from './Tips';
+import './css/Logistics.css';
 
 function Logistics(props) {
    const {
@@ -58,24 +60,25 @@ function Logistics(props) {
    console.log(selectCountry2);
 
    return (
-      <div className="choiceContainer">
+      <div className="logistics-choice-container">
+         <ProgressBar stage={3}  previous="Fastenings" next="Results" />
          <div>
             <div>
-               <br />
-               <p className="directionText">Where Is Your Product From?</p>
-               <br />
-               <div className="itemsContainer">
-                  <div className="beforeClickCategory">
-                     <img src={itemTypeAdress1} alt={itemTypeAdress1} />
+               <p className="logistics-direction-text">Where were they produced?</p>
+               <div className="logistics-items-container">
+                  <div className="logistics-before-click-category">
+                     <img src={itemTypeAdress1} alt={itemTypeAdress1} className="logistics-img-cover" />
+                     <span>1st Item</span>
                   </div>
-                  <div className="beforeClickCategory">
-                     <img src={itemTypeAdress2} alt={itemTypeAdress2} />
+                  <div className="logistics-after-click-category">
+                     <img src={itemTypeAdress2} alt={itemTypeAdress2} className="logistics-img-cover" />
+                     <span>2nd Item</span>
                   </div>
                </div>
             </div>
          </div>
-         <div className="materialBigContainer">
-            <div className="materialContainer">
+         <div className="logistics-big-container">
+            <div className="logistics-container">
                {countriesFrom.map((item, i) => (
                   <div
                      onClick={() => handleClickMappedItem1(item, i)}
@@ -89,7 +92,7 @@ function Logistics(props) {
                   </div>
                ))}
             </div>
-            <div className="materialContainer">
+            <div className="logistics-container">
                {countriesFrom.map((item, i) => (
                   <div
                      onClick={() => handleClickMappedItem2(item, i)}
@@ -104,14 +107,21 @@ function Logistics(props) {
                ))}
             </div>
          </div>
-         <button type="button" onClick={handleClickPreviousSection}>
-            Go Back
-         </button>
-         <Link to="/compare/results" className={selectCountry1 && selectCountry2 ? null : 'disabled-link'}>
-            <button type="button" onClick={handleClick}>
-               Next
+         <div className="category-back-next-buttons">
+            <button className="back-button" type="button" onClick={handleClickPreviousSection}>
+               BACK
             </button>
-         </Link>
+            <Link to="/compare/results" className={selectCountry1 && selectCountry2 ? null : 'disabled-link'}>
+               <button className="next-button" type="button" onClick={handleClick}>
+                  NEXT
+               </button>
+            </Link>
+         </div>
+
+      <div className="tips">
+         <Tips category="logistics" />
+      </div>
+
       </div>
    );
 }

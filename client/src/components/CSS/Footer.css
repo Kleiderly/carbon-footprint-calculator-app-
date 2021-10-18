@@ -3,7 +3,7 @@
     display: flex;
     background-color: #000000;
     padding: 10px 0 10px 0;
-    position: fixed;
+    /* position: fixed; */
     width: 100%;
     bottom: 0;
 }
@@ -15,4 +15,5 @@
     color: #F7EBE8;
     font-family: 'Montserrat', sans-serif;
     text-decoration: none;
+    font-size: 3vw;
 }

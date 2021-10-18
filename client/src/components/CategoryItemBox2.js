@@ -17,12 +17,12 @@ const CategoryItemBox2 = ({ type, adress }) => {
       setSelectType2(adress);
    };
    return (
-      <div className="typeOfItemContainer">
+      <div className="category-type-of-item-container">
          <div
-            className={selectType1 ? 'selected' : 'deselected'}
+            className={selectType1 ? 'category-selected' : 'category-deselected'}
             onClick={handleClick}
          >
-            <img className="imgCategoryItemBox" src={adress} alt={type} />
+            <img className="category-img-category-item-box" src={adress} alt={type} />
          </div>
       </div>
    );

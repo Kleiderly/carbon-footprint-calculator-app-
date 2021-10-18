@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import './css/Category.css';
+import ProgressBar from './ProgressBar';
 import CategoryItemBox2 from './CategoryItemBox2';
 import { itemList } from './data';
 import Context from '../contexts/ContextApi';
@@ -50,38 +51,39 @@ const CategoryOption2 = (props) => {
    };
 
    return (
-      <div className="choiceContainer">
+      <div className="category-choice-container">
+      <ProgressBar stage={0} previous="Start" next="Material" />
          <div>
             <div>
-               <br />
-               <p className="directionText">Choose Your Items</p>
-               <br />
-               <div className="itemsContainer">
+               <p className="category-direction-text">Choose your items</p>
+               <div className="category-items-container">
                   <div
                      className={
                         choice === true
-                           ? 'afterClickCategory'
-                           : 'beforeClickCategory'
+                           ? 'category-after-click-category'
+                           : 'category-before-click-category'
                      }
                      onClick={handleClick1}
                      value={choice}
-                  >
+                     >
                      <img src={selectType1} alt={selectType1} />
+                     <span>1st Item</span>
                   </div>
                   <div
                      className={
                         choice === false
-                           ? 'afterClickCategory'
-                           : 'beforeClickCategory'
+                           ? 'category-after-click-category'
+                           : 'category-before-click-category'
                      }
                      onClick={handleClick2}
                      value={choice}
-                  >
+                     >
                      <img src={selectType2} alt={selectType2} />
+                     <span>2nd Item</span>
                   </div>
                </div>
             </div>
-            <div className="typeOfItemContainer">
+            <div className="category-type-of-item-container">
                {itemList.map((item, i) => (
                   <div onClick={() => handleClickTypes(item)} key={item._id}>
                      <CategoryItemBox2
@@ -92,18 +94,18 @@ const CategoryOption2 = (props) => {
                   </div>
                ))}
             </div>
-            <button type="button" onClick={handleClickPreviousSection}>
-               Go Back
-            </button>
-            <div>
-               <Link
-                  className={selectType1 && selectType2 ? null : 'disabled-link'}
-                  to="/compare/materials"
-               >
-                  <button type="button" onClick={handleClick3}>
-                     Next
-                  </button>
-               </Link>
+            <div className="category-back-next-buttons">
+               <button className="back-button" type="button" onClick={handleClickPreviousSection}>
+                  BACK
+               </button>
+                  <Link
+                     className={selectType1 && selectType2 ? null : 'disabled-link'}
+                     to="/compare/materials"
+                  >
+                     <button className="next-button" type="button" onClick={handleClick3}>
+                        NEXT
+                     </button>
+                  </Link>
             </div>
          </div>
       </div>
