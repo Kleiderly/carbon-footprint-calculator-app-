@@ -2,17 +2,18 @@
 .footer-wrapper {
     display: flex;
     background-color: #000000;
-    padding: 10px;
+    padding: 10px 0 10px 0;
+    /* position: fixed; */
+    width: 100%;
+    bottom: 0;
 }
 
-* {
-    text-decoration: none;
-}
-
-.footer-social, .footer-copyrights, .footer-admin {
+.footer-social, .footer-copyrights, .footer-admin, .footer-social a, .footer-copyrights a, .footer-admin a {
     width: 100%;
     text-align: center;
     margin: auto;
     color: #F7EBE8;
     font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    font-size: 3vw;
 }

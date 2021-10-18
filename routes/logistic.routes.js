@@ -5,7 +5,7 @@ const Logistic = require('../models/Logistic');
 
 //GET Routes
 logisticRouter.get('/', (req,res)=> {
-    const { productionLocation, consumerLocation, logisticCO2e } = req.body;
+    const { productionLocation, consumerLocation, co2e } = req.body;
 
     Logistic.find({})
     .then((result) => res.status(200).send(result))
@@ -15,9 +15,9 @@ logisticRouter.get('/', (req,res)=> {
 
 //POST Routes
 logisticRouter.post('/', (req, res) => {
-    const { productionLocation, consumerLocation, logisticCO2e } = req.body
+    const { productionLocation, consumerLocation, co2e } = req.body
 
-    Logistic.create({ productionLocation, consumerLocation, logisticCO2e })
+    Logistic.create({ productionLocation, consumerLocation, co2e })
     .then((data) => {
         res.status(200).send(data)
     })
@@ -27,5 +27,31 @@ logisticRouter.post('/', (req, res) => {
     })
     
 });
+
+//UPDATE Routes
+logisticRouter.put('/:id', (req, res) => { 
+    Logistic.findByIdAndUpdate({_id: req.params.id}, req.body) 
+        .then(()=>{ Logistic.findOne({_id: req.params.id}) 
+        .then((result)=>{ res.status(200).send(result) }) 
+        .catch((err)=>{ 
+            console.log(err) 
+            res.status(500).send('Something went wrong') 
+        }) 
+    }) 
+});
+
+
+//REMOVE ROUTES
+logisticRouter.delete('/:id', (req, res)=>{
+    Logistic.findByIdAndRemove({_id: req.params.id})
+    .then((result)=>{
+        console.log(result)
+        res.status(200).send("Item successfully deleted ")
+    })
+    .catch((err)=>{
+        console.log(err)
+        res.status(500).send("Something went wrong")
+    })
+})
 
 module.exports = logisticRouter;

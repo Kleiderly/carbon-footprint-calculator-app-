@@ -1,47 +1,195 @@
 import './App.css';
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React, { useState } from 'react';
+import Context from './contexts/ContextApi';
+// import Components
 import Header from './components/Header';
-import Cover from './components/Cover';
-import Admin from './components/Admin';
-import AdminForms from './components/AdminForms';
-import Materials from './components/Materials';
-import Logistics1 from './components/Logistics1';
-import Logistics2 from './components/Logistics2';
-import Fastenings from './components/Fastenings';
-import Category from './components/Category';
-import Details from './components/Details';
-import Results from './components/Results';
-import ItemChoice from './components/ItemChoice';
 import Footer from './components/Footer';
-import Percentages from './components/Percentages';
+import Cover from './components/Cover';
+import CategoryOption1 from './components/CategoryOption1';
+import CategoryOption2 from './components/CategoryOption2';
+import MaterialsOption1 from './components/MaterialsOption1';
+import MaterialsOption2 from './components/MaterialsOption2';
+import LogisticsOption1 from './components/LogisticsOption1';
+import LogisticsOption2 from './components/LogisticsOption2';
+import FasteningsOption1 from './components/FasteningsOption1';
+import FasteningsOption2 from './components/FasteningsOption2';
+import ResultsOption1 from './components/ResultsOption1';
+import ResultsOption2 from './components/ResultsOption2';
+import PercentagesOption1 from './components/PercentagesOption1';
+import PercentagesOption2 from './components/PercentagesOption2';
+import Details from './components/Details';
+import AdminForms from './components/AdminForms';
+import Login from './components/Login';
+import PrivateRoute from './components/PrivateRoute';
+import ForgotPassword from './components/ForgotPassword';
+import ResetPassword from './components/ResetPassword';
 
 function App() {
+   // CALCULATE STATES
+   const [itemTypeAdress1, setItemTypeAdress1] = useState(
+      '../img/items-images/t-shirtW.png'
+   );
+   const [materialCO2e1, setMaterialCO2e1] = useState();
+   const [fasteningCO2e1, setFasteningCO2e1] = useState();
+   const [countryCO2e1, setCountryCO2e1] = useState();
+   const [totalCo2e1, setTotalCo2e1] = useState();
 
-  return (
-    <div className="App">
-      <Router>
+   // COMPARE STATES
+   const [itemTypeAdress2, setItemTypeAdress2] = useState(
+      '../img/items-images/t-shirtW.png'
+   );
+   const [materialCO2e2, setMaterialCO2e2] = useState();
+   const [fasteningCO2e2, setFasteningCO2e2] = useState();
+   const [countryCO2e2, setCountryCO2e2] = useState();
+
+   const [totalCo2e2, setTotalCo2e2] = useState();
+   const [percentage, setPercentage] = useState();
+
+   return (
+      <div className="App">
+         <Router>
             <div>
-              <Header />
-                <Switch>
-                    <Route exact path="/" component={Cover} />
-                    <Route exact path="/admin" component={Admin} />
-                    <Route exact path="/admin/forms" component={AdminForms} />
-                    <Route exact path="/itemchoice" component={ItemChoice} />
-                    <Route exact path="/category/:choice" component={Category} />
-                    <Route exact path="/category/:choice/materials" component={Materials} />
-                    <Route exact path="/category/:choice/logistics1" component={Logistics1} />
-                    <Route exact path="/category/:choice/logistics2" component={Logistics2} />
-                    <Route exact path="/category/:choice/fastenings" component={Fastenings} />
-                    <Route exact path="/:choice/percentages" component={Percentages} />
-                    <Route exact path="/:choice/results" component={Results} />
-                    <Route exact path="/:choice/details" component={Details} />
-                </Switch>
-              <Footer />
+               <Context.Provider
+                  value={{
+                     // CALCULATE PROPS
+                     itemTypeAdress1,
+                     setItemTypeAdress1,
+                     materialCO2e1,
+                     setMaterialCO2e1,
+                     fasteningCO2e1,
+                     setFasteningCO2e1,
+                     countryCO2e1,
+                     setCountryCO2e1,
+                     totalCo2e1,
+                     setTotalCo2e1,
+
+                     // COMPARE PROPS
+                     itemTypeAdress2,
+                     setItemTypeAdress2,
+                     materialCO2e2,
+                     setMaterialCO2e2,
+                     fasteningCO2e2,
+                     setFasteningCO2e2,
+                     countryCO2e2,
+                     setCountryCO2e2,
+                     totalCo2e2,
+                     setTotalCo2e2,
+                     percentage,
+                     setPercentage,
+                  }}
+               >
+                  <Header />
+                  <Switch>
+                     <Route exact path="/" component={(browser) => <Cover />} />
+
+                     {/*  CALCULATE FLOW  */}
+
+                     <Route
+                        exact
+                        path="/calculate/category"
+                        component={(browser) => <CategoryOption1 />}
+                     />
+                     <Route
+                        exact
+                        path="/calculate/materials"
+                        component={(browser) => <MaterialsOption1 />}
+                     />
+                     <Route
+                        exact
+                        path="/calculate/logistics"
+                        component={(browser) => <LogisticsOption1 />}
+                     />
+                     <Route
+                        exact
+                        path="/calculate/fastenings"
+                        component={(browser) => <FasteningsOption1 />}
+                     />
+                     <Route
+                        exact
+                        path="/calculate/results"
+                        component={(browser) => <ResultsOption1 />}
+                     />
+                     <Route
+                        exact
+                        path="/calculate/percentages"
+                        component={(browser) => <PercentagesOption1 />}
+                     />
+                     <Route
+                        exact
+                        path="calculate/details"
+                        component={(browser) => <Details />}
+                     />
+
+                     {/* COMPARE FLOW */}
+
+                     <Route
+                        exact
+                        path="/compare/category"
+                        component={(browser) => <CategoryOption2 />}
+                     />
+                     <Route
+                        exact
+                        path="/compare/materials"
+                        component={(browser) => <MaterialsOption2 />}
+                     />
+                     <Route
+                        exact
+                        path="/compare/logistics"
+                        component={(browser) => <LogisticsOption2 />}
+                     />
+                     <Route
+                        exact
+                        path="/compare/fastenings"
+                        component={(browser) => <FasteningsOption2 />}
+                     />
+                     <Route
+                        exact
+                        path="/compare/results"
+                        component={(browser) => <ResultsOption2 />}
+                     />
+
+                     <Route
+                        exact
+                        path="/compare/percentages"
+                        component={(browser) => <PercentagesOption2 />}
+                     />
+                     <Route
+                        exact
+                        path="compare/results"
+                        component={(browser) => <ResultsOption2 />}
+                     />
+                     <Route
+                        exact
+                        path="compare/details"
+                        component={(browser) => <Details />}
+                     />
+
+                     {/* ADMIN ROUTES */}
+
+                     <PrivateRoute
+                        exact
+                        path="/adminpage/forms"
+                        component={AdminForms}
+                     />
+                     <Route exact path="/adminpage/login" component={Login} />
+                     <Route
+                        exact
+                        path="/adminpage/forgotpassword"
+                        component={ForgotPassword}
+                     />
+                     <Route
+                        exact
+                        path="/adminpage/passwordreset/:resetToken"
+                        component={ResetPassword}
+                     />
+                  </Switch>
+                  <Footer />
+               </Context.Provider>
             </div>
-      </Router>
-    </div>
-  );
+         </Router>
+      </div>
+   );
 }
 
 export default App;

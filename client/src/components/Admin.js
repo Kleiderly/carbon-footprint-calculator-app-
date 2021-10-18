@@ -1,29 +1,29 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import "./CSS/Admin.css";
+import React, {useState} from "react";
+import { Link } from "react-router-dom";
+import "./css/Admin.css";
 
 function Admin() {
-    
+
     return (
         <div className="admin-wrapper">
-            <Router>
-                <Switch>
-                    <div>
-                        <h2>Admin Login</h2>
-                        <div className="admin-login">
-                            <p>Username:</p>
-                            <input></input>
-                            <p>Password:</p>
-                            <input></input>
-                            <Link to="/admin/forms">
-                                <button>LOGIN</button>
-                            </Link>
-                        </div>
-                    </div>
-                </Switch>
-            </Router>
+            <div>
+                <h2>Admin Login</h2>
+                <div className="admin-login">
+                    <p>Username:</p>
+                    <input
+                        type="text"
+                    />
+                    <p>Password:</p>
+                    <input
+                        type="password"
+                    />
+                    <Link to="/adminpage/forms">
+                        <button>LOGIN</button>
+                    </Link>
+                </div>
+            </div>
         </div>
     )
-}
+};
 
-export default Admin
+export default Admin;

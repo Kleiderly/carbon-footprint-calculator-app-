@@ -1,0 +1,126 @@
+.material-choice-container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   margin: 10px;
+}
+
+.material-direction-text {
+   font-size: 6vw;
+   color: #0e2823;
+   margin: 20px 0 10px 0;
+}
+
+.material-items-container {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+}
+
+.material-before-click, .material-after-click {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   background: #000000;
+   width: 150px;
+   height: 150px;
+   margin: 10px;
+   border-radius: 20px;
+   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+   color: #F7EBE8;
+}
+
+.material-after-click {
+   background-color: #415551;
+}
+
+.material-before-click2, .material-after-click2 {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: space-around;
+   background: #000000;
+   width: 270px;
+   height: 150px;
+   margin: 10px;
+   border-radius: 20px;
+   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.material-after-click2 {
+   background-color: #415551;
+}
+
+.material-after-click-category, .material-before-click-category {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   background-color: #415551;
+   width: 150px;
+   height: 150px;
+   margin: 10px;
+   border-radius: 20px;
+   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+   color: #F7EBE8;
+}
+
+.material-before-click-category {
+   background: #000000;
+}
+
+.material-small-text {
+   font-size: small;
+}
+
+.material-img-cover {
+   width: 100px;
+}
+
+.material-back-next-buttons {
+   display: flex;
+   justify-content: center;
+   margin: 20px;
+}
+
+.material-big-container {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+}
+
+.material-container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.material-name-container {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+}
+
+.deselected-material, .selected-material {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   color: white;
+   font-weight: 600;
+   background-color: #818181;
+   background-size: 100%;
+   background-repeat: no-repeat;
+   width: 200px;
+   height: 50px;
+   margin: 20px 20px 20px 20px;
+   border-radius: 10px;
+   box-shadow: 0px 2px 2px rgb(0 0 0 / 25%);
+}
+
+.selected-material {
+   background-color: #404040;
+}
+

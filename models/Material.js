@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const materialSchema = new Schema({
     name: { type: String, required: true },
-    materialCO2E: { type: Number, required: true }
+    co2e: { type: Number, required: true }
 });
 
 const Material = mongoose.model('Material', materialSchema);
