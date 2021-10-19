@@ -1,16 +1,20 @@
 import {React, useState, useEffect }from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
+import './css/Admin.css';
 
 import axios from "axios";
 
 function Login() {
 
-
-
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
+    /* Show/Hide password field */
+    const showPw = ()=> {
+      const pw = document.getElementById("pwbox");
+      pw.type === "password" ? pw.type = "text" : pw.type = "password"
+    };
 
     let history = useHistory();
   
@@ -54,7 +58,7 @@ function Login() {
                 {error && <span className="error-message">{error}</span>}
                 <div className="admin-login">
                     <form onSubmit={loginHandler}>
-                    <p>Email:</p>
+                    <p className="admin-text">Email:</p>
                     <input 
                     type="text"
                     name="username"
@@ -63,22 +67,26 @@ function Login() {
                     value={email}
                 
                     ></input>
-                    <p>Password:</p>
-                    
-                    <Link to="/adminpage/forgotpassword" >
-                        Forgot Password?
-                    </Link>
+                    <p className="admin-text">Password:</p>
                     <input
+                    id="pwbox"
                     type="password" 
                     name="password"
                     autoComplete="true"
                     placeholder="Enter your password"
                     onChange={(e)=> setPassword(e.target.value)}
                     value={password}
-                    
                     ></input>
-                        
-                        <button type="submit">LOGIN</button>
+
+                    <div className="form-item password-field height">
+                      <input type="checkbox" className="pw-checkbox" onClick={showPw} />&nbsp;Show Password
+                    </div>
+
+                    <button type="submit">LOGIN</button>
+
+                    <Link to="/adminpage/forgotpassword" className="admin-password-text">
+                        Forgot Password?
+                    </Link>
                    
                     </form>
                 </div>

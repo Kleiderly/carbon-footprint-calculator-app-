@@ -18,6 +18,109 @@
    border-radius: 20px;
    margin: 20px;
    padding: 20px;
+   width: 250px;
+   background-color: #f7ebe8;
+   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+   font-family: 'Montserrat', sans-serif;
+}
+
+.admin-text {
+    margin: 15px 0 5px 0;
+}
+
+.admin-password-text {
+    font-size: 3vw;
+    margin: 5px 0 10px 0;
+    display: block;
+}
+
+/* FORMS */
+.forms-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    color: #0E2823;
+    font-family: 'Montserrat', sans-serif;
+    padding: 20px;
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 20px;
+}
+
+.form-item {
+    display: flex;
+}
+
+.form-input {
+    margin: 10px;
+    text-align: left;
+}
+
+.admin-title {
+    margin-bottom: 1px;
+}
+
+.form-submit {
+    margin-top: 10px;
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+}
+
+.show-password {
+    text-align: right;
+}
+
+.password-field {
+    margin: 3px 15px 0 auto;
+    font-size: small;
+}
+
+.pw-checkbox {
+    width: auto;
+}
+
+.form-admin {
+    display: block;
+}
+
+.form-member {
+    display: none;
+}
+
+.hr {
+    border: 1px solid #091b18;
+    width: 500px;
+}
+
+
+
+@media only screen and (min-device-width: 660px) {
+.admin-wrapper {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    color: #0E2823;
+    font-family: 'Montserrat', sans-serif;
+    padding: 20px;
+}
+
+.admin-login {
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   align-items: center;
+   border-radius: 20px;
+   margin: 20px;
+   padding: 20px;
    width: 300px;
    background-color: #f7ebe8;
    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -100,4 +203,4 @@
     border: 1px solid #091b18;
     width: 500px;
 }
-
+}

@@ -87,3 +87,13 @@ button:hover, button:active {
 .dark-green {
   background-color: #0E2823;
 }
+
+.center-align {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.height {
+  padding-bottom: 10px;
+}

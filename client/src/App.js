@@ -18,7 +18,6 @@ import ResultsOption1 from './components/ResultsOption1';
 import ResultsOption2 from './components/ResultsOption2';
 import PercentagesOption1 from './components/PercentagesOption1';
 import PercentagesOption2 from './components/PercentagesOption2';
-import Details from './components/Details';
 import AdminForms from './components/AdminForms';
 import Login from './components/Login';
 import PrivateRoute from './components/PrivateRoute';
@@ -115,11 +114,6 @@ function App() {
                         path="/calculate/percentages"
                         component={(browser) => <PercentagesOption1 />}
                      />
-                     <Route
-                        exact
-                        path="/calculate/details"
-                        component={(browser) => <Details />}
-                     />
 
                      {/* COMPARE FLOW */}
 
@@ -152,11 +146,6 @@ function App() {
                         exact
                         path="/compare/percentages"
                         component={(browser) => <PercentagesOption2 />}
-                     />
-                     <Route
-                        exact
-                        path="/compare/details"
-                        component={(browser) => <Details />}
                      />
 
                      {/* ADMIN ROUTES */}
