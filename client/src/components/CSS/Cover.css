@@ -1,9 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap');
-
-* {
-   font-family: 'Montserrat', sans-serif;
-}
-
 .cover-wrapper {
    margin: 10px;
    height: 100%;
@@ -33,6 +27,7 @@
 .cover-direction-text2 {
    font-size: 3.5vw;
    color: #0e2823;
+   margin: 0 0 20px 0;
 }
 
 .cover-choice-container {
@@ -46,6 +41,12 @@
 .cover-img-cover {
    width: 100px;
    margin: 10px;
+}
+
+.cover-item-container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
 }
 
 .cover-before-click,
@@ -75,7 +76,10 @@
    width: 270px;
 }
 
-.cover-before-click:hover, .cover-after-click:hover, .cover-before-click2:hover, .cover-after-click2:hover {
+.cover-before-click:hover,
+ .cover-after-click:hover,
+  .cover-before-click2:hover,
+   .cover-after-click2:hover {
    background-color:#415551;
 }
 
@@ -85,4 +89,29 @@
 
 .tips {
    width: 100%;
+}
+
+@media only screen and (min-device-width: 660px) {
+.cover-wrapper {
+   margin: 10px 30px 10px 30px;
+}
+
+.cover-title {
+   font-size: 20px;
+   margin: 30px;
+}
+
+.cover-paragraph {
+   font-size: 16px;
+   margin: 0 0 40px 0;
+}
+
+.cover-direction-text {
+   font-size: 28px;
+   margin: 30px;
+}
+
+.cover-direction-text2 {
+   font-size: 17px;
+}
 }

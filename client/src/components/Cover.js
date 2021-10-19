@@ -31,7 +31,7 @@ function Cover() {
             </div>
             <p className="cover-direction-text">What will you calculate?</p>
             <div className="cover-choice-container">
-               <div>
+               <div className="cover-item-container">
                   <div
                      className={
                         choice === 'calculate'
@@ -49,7 +49,7 @@ function Cover() {
                   </div>
                   <p className="cover-direction-text2">Calculate one item</p>
                </div>
-               <div>
+               <div className="cover-item-container">
                   <div
                      className={
                         choice === 'compare'

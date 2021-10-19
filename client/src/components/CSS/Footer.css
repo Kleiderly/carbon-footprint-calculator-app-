@@ -17,3 +17,10 @@
     text-decoration: none;
     font-size: 3vw;
 }
+
+
+@media only screen and (min-device-width: 660px) {
+.footer-social, .footer-copyrights, .footer-admin, .footer-social a, .footer-copyrights a, .footer-admin a {
+    font-size: 15px;
+}
+}

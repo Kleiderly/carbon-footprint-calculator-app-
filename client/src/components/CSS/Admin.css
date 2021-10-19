@@ -29,7 +29,7 @@
 }
 
 .admin-password-text {
-    font-size: 3vw;
+    font-size: 3.5vw;
     margin: 5px 0 10px 0;
     display: block;
 }
@@ -97,53 +97,28 @@
 
 .hr {
     border: 1px solid #091b18;
-    width: 500px;
+    width: 200px;
 }
+
 
 
 
 @media only screen and (min-device-width: 660px) {
-.admin-wrapper {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    margin: auto;
-    color: #0E2823;
-    font-family: 'Montserrat', sans-serif;
-    padding: 20px;
-}
 
 .admin-login {
-   display: flex;
-   justify-content: center;
-   flex-direction: column;
-   align-items: center;
-   border-radius: 20px;
-   margin: 20px;
-   padding: 20px;
-   width: 300px;
-   background-color: #f7ebe8;
-   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-   font-family: 'Montserrat', sans-serif;
+    width: 300px;
+}
+
+.admin-password-text {
+    font-size: 14px;
 }
 
 /* FORMS */
 .forms-wrapper {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    text-align: left;
-    color: #0E2823;
-    font-family: 'Montserrat', sans-serif;
     padding: 20px;
 }
 
 .form-section {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
     margin: 20px;
 }
 
@@ -160,25 +135,9 @@
     margin-bottom: 1px;
 }
 
-.light-pink {
-    background-color: #f7ebe89d;
-}
-
-.center-align {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
 .form-submit {
     margin-top: 10px;
-    text-align: center;
     width: 100%;
-    font-weight: bold;
-}
-
-.show-password {
-    text-align: right;
 }
 
 .password-field {
@@ -191,16 +150,7 @@
     width: auto;
 }
 
-.form-admin {
-    display: block;
-}
-
-.form-member {
-    display: none;
-}
-
 .hr {
-    border: 1px solid #091b18;
     width: 500px;
 }
 }
