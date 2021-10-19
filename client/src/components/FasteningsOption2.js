@@ -3,7 +3,6 @@ import Context from '../contexts/ContextApi';
 import axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
 import ProgressBar from './ProgressBar';
-import { useLocation } from 'react-router';
 import './css/Fastenings.css';
 import Tips from './Tips';
 
@@ -47,7 +46,6 @@ const FasteningsOption2 = () => {
    const addFastenings = () => {
       let result = 0;
       let result2 = 0;
-      let resultObj = {};
       for (let i = 0; i < fastenings.length; i++) {
          result += listOfQuantities[i].quantity * fastenings[i].co2e;
          result2 += listOfQuantities2[i].quantity * fastenings[i].co2e;

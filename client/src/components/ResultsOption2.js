@@ -1,26 +1,26 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import Context from '../contexts/ContextApi';
 import { Link, useHistory } from 'react-router-dom';
 import './css/Results.css';
 import ButtonShareModal from './ButtonShareModal';
 
 const ResultsOption2 = (props) => {
-   const {
-      itemTypeAdress1,
-      itemTypeAdress2,
-      materialCO2e1,
-      materialCO2e2,
-      fasteningCO2e1,
-      fasteningCO2e2,
-      countryCO2e1,
-      countryCO2e2,
-      totalCo2e1,
-      setTotalCo2e1,
-      totalCo2e2,
-      setTotalCo2e2,
-      percentage,
-      setPercentage,
-   } = useContext(Context);
+  const {
+    itemTypeAdress1,
+    itemTypeAdress2,
+    materialCO2e1,
+    materialCO2e2,
+    fasteningCO2e1,
+    fasteningCO2e2,
+    countryCO2e1,
+    countryCO2e2,
+    totalCo2e1,
+    setTotalCo2e1,
+    totalCo2e2,
+    setTotalCo2e2,
+    percentage,
+    setPercentage,
+  } = useContext(Context);
 
    console.log(`${totalCo2e1} TRUE OR FALSE ${totalCo2e1 < totalCo2e2}`);
 
@@ -59,15 +59,16 @@ const ResultsOption2 = (props) => {
    console.log(totalCo2e1);
    console.log(totalCo2e2);
 
-   console.log(percentage);
-   //To Go Back
-   let history = useHistory();
-   const handleClickPreviousSection = () => {
-      history.push('/calculate/logistics');
-   };
+  console.log(percentage);
+  //To Go Back
+  let history = useHistory();
+  const handleClickPreviousSection = () => {
+    history.push("/calculate/logistics");
+  };
 
    return (
-      <div className="results-choice-container">
+    <div className="results-choice-container">
+      <div>
          <div>
             <div>
                <p className="results-direction-text">Results!</p>
@@ -105,7 +106,18 @@ const ResultsOption2 = (props) => {
          </Link>
          <ButtonShareModal />
       </div>
-   );
+
+      <button type="button" onClick={handleClickPreviousSection}>
+        Go Back
+      </button>
+      <Link to="/compare/percentages">
+        <button type="button">Check Summary</button>
+      </Link>
+      <Link to="/">
+        <button type="button">Compare New Items</button>
+      </Link>
+    </div>
+  );
 };
 
 export default ResultsOption2;
