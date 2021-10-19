@@ -14,6 +14,7 @@ const CategoryOption1 = (props) => {
       '../img/items-images/t-shirtW.png'
    );
    console.log(selected);
+   console.log(selectType);
 
    let history = useHistory();
    const handleClickPreviousSection = () => {
@@ -54,17 +55,25 @@ const CategoryOption1 = (props) => {
             ))}
          </div>
          <div className="category-back-next-buttons">
-            <button className="back-button" type="button" onClick={handleClickPreviousSection}>
+            <button
+               className="back-button"
+               type="button"
+               onClick={handleClickPreviousSection}
+            >
                BACK
             </button>
-               <Link to="/calculate/materials">
-                  <button className="next-button"
-                     type="button"
-                     onClick={() => setItemTypeAdress1(selectType)}
-                  >
-                     NEXT
-                  </button>
-               </Link>
+            <Link
+               className={selectType ? null : 'disabled-link'}
+               to="/calculate/materials"
+            >
+               <button
+                  className="next-button"
+                  type="button"
+                  onClick={() => setItemTypeAdress1(selectType)}
+               >
+                  NEXT
+               </button>
+            </Link>
          </div>
       </div>
    );

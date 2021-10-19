@@ -47,10 +47,10 @@ const PercentagesOption2 = (props) => {
 
                <div className="percentagesContainer">
                   <div>
-                     <div>{materialCO2e1}</div>
-                     <div>{fasteningCO2e1}</div>
-                     <div>{countryCO2e1}</div>
-                     <div>{totalCo2e1}</div>
+                     <div>{materialCO2e1.toFixed(2)}</div>
+                     <div>{fasteningCO2e1.toFixed(2)}</div>
+                     <div>{countryCO2e1.toFixed(2)}</div>
+                     <div>{totalCo2e1.toFixed(2)}</div>
                   </div>
                   <div>
                      <div>Material</div>
@@ -59,10 +59,10 @@ const PercentagesOption2 = (props) => {
                      <div>Total</div>
                   </div>
                   <div>
-                     <div>{materialCO2e2}</div>
-                     <div>{fasteningCO2e2}</div>
-                     <div>{countryCO2e2}</div>
-                     <div>{totalCo2e2}</div>
+                     <div>{materialCO2e2.toFixed(2)}</div>
+                     <div>{fasteningCO2e2.toFixed(2)}</div>
+                     <div>{countryCO2e2.toFixed(2)}</div>
+                     <div>{totalCo2e2.toFixed(2)}</div>
                   </div>
                </div>
 

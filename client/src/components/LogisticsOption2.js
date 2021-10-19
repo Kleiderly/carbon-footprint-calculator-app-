@@ -6,6 +6,8 @@ import ProgressBar from './ProgressBar';
 import axios from 'axios';
 import Tips from './Tips';
 import './css/Logistics.css';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
 function Logistics(props) {
    const {
@@ -61,17 +63,27 @@ function Logistics(props) {
 
    return (
       <div className="logistics-choice-container">
-         <ProgressBar stage={3}  previous="Fastenings" next="Results" />
+         <ProgressBar stage={3} previous="Fastenings" next="Results" />
          <div>
             <div>
-               <p className="logistics-direction-text">Where were they produced?</p>
+               <p className="logistics-direction-text">
+                  Where were they produced?
+               </p>
                <div className="logistics-items-container">
                   <div className="logistics-before-click-category">
-                     <img src={itemTypeAdress1} alt={itemTypeAdress1} className="logistics-img-cover" />
+                     <img
+                        src={itemTypeAdress1}
+                        alt={itemTypeAdress1}
+                        className="logistics-img-cover"
+                     />
                      <span>1st Item</span>
                   </div>
                   <div className="logistics-after-click-category">
-                     <img src={itemTypeAdress2} alt={itemTypeAdress2} className="logistics-img-cover" />
+                     <img
+                        src={itemTypeAdress2}
+                        alt={itemTypeAdress2}
+                        className="logistics-img-cover"
+                     />
                      <span>2nd Item</span>
                   </div>
                </div>
@@ -108,20 +120,37 @@ function Logistics(props) {
             </div>
          </div>
          <div className="category-back-next-buttons">
-            <button className="back-button" type="button" onClick={handleClickPreviousSection}>
+            <button
+               className="back-button"
+               type="button"
+               onClick={handleClickPreviousSection}
+            >
                BACK
             </button>
-            <Link to="/compare/results" className={selectCountry1 && selectCountry2 ? null : 'disabled-link'}>
-               <button className="next-button" type="button" onClick={handleClick}>
-                  NEXT
-               </button>
-            </Link>
+
+            {selectCountry1 && selectCountry2 ? (
+               <Link to="/compare/results">
+                  <button
+                     className="next-button"
+                     type="button"
+                     onClick={handleClick}
+                  >
+                     NEXT
+                  </button>
+               </Link>
+            ) : (
+               <Popup
+                  trigger={<button className="next-button"> NEXT</button>}
+                  position="top center"
+               >
+                  <div>Please make your selections!</div>
+               </Popup>
+            )}
          </div>
 
-      <div className="tips">
-         <Tips category="logistics" />
-      </div>
-
+         <div className="tips">
+            <Tips category="logistics" />
+         </div>
       </div>
    );
 }
