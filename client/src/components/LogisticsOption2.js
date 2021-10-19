@@ -127,11 +127,7 @@ function Logistics(props) {
             >
                BACK
             </button>
-            {/* <Link to="/compare/results" className={selectCountry1 && selectCountry2 ? null : 'disabled-link'}>
-               <button className="next-button" type="button" onClick={handleClick}>
-                  NEXT
-               </button>
-            </Link> */}
+
             {selectCountry1 && selectCountry2 ? (
                <Link to="/compare/results">
                   <button

@@ -73,15 +73,7 @@ const MaterialsOption1 = (props) => {
             >
                BACK
             </button>
-            {/* <Link className={selectMaterial1? null : 'disabled-link'}
-               to="/calculate/fastenings">
-                  <button className="next-button"
-                     type="button"
-                     onClick={() => setMaterialCO2e1(selectMaterial1)}
-                  >
-                     NEXT
-                  </button>
-               </Link> */}
+
             {selectMaterial1 ? (
                <Link to="/calculate/fastenings">
                   <button

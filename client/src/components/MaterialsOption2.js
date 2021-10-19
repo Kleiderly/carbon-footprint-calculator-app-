@@ -125,12 +125,7 @@ const MaterialsOption2 = (props) => {
             >
                BACK
             </button>
-            {/* <Link 
-            to="/compare/fastenings" className={selectMaterial1 && selectMaterial2 ? null : 'disabled-link'}>
-               <button className="next-button" type="button" onClick={handleClick}>
-                  NEXT
-               </button>
-            </Link> */}
+
             {selectMaterial1 && selectMaterial2 ? (
                <Link to="/compare/fastenings">
                   <button

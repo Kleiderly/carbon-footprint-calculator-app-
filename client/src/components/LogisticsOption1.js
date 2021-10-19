@@ -89,12 +89,7 @@ const LogisticsOption1 = (props) => {
             >
                BACK
             </button>
-            {/* <Link className={selectCountry1? null : 'disabled-link'}
-            to="/calculate/results">
-               <button className="next-button" type="button" onClick={handleClick}>
-                  NEXT
-               </button>
-            </Link> */}
+
             {selectCountry1 ? (
                <Link to="/calculate/results">
                   <button

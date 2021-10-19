@@ -104,14 +104,7 @@ const CategoryOption2 = (props) => {
                >
                   BACK
                </button>
-               {/* <Link
-                     className={selectType1 && selectType2 ? null : 'disabled-link'}
-                     to="/compare/materials"
-                  >
-                     <button className="next-button" type="button" onClick={handleClick3}>
-                        NEXT
-                     </button>
-                  </Link> */}
+
                {selectType1 && selectType2 ? (
                   <Link to="/compare/materials">
                      <button
