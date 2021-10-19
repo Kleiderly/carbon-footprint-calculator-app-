@@ -51,23 +51,23 @@ function ButtonShare(props) {
    return (
       <div className="buttonshare-wrapper">
          <TwitterShareButton url={sharedUrl}>
-            <TwitterIcon size={32} round={true} style={{ margin: '5px' }} />
+            <TwitterIcon size={32} round={true} className="buttonshare-button" />
          </TwitterShareButton>
 
          <FacebookShareButton url={sharedUrl}>
-            <FacebookIcon size={32} round={true} style={{ margin: '5px' }} />
+            <FacebookIcon size={32} round={true} className="buttonshare-button" />
          </FacebookShareButton>
 
          <WhatsappShareButton url={sharedUrl}>
-            <WhatsappIcon size={32} round={true} style={{ margin: '5px' }} />
+            <WhatsappIcon size={32} round={true} className="buttonshare-button" />
          </WhatsappShareButton>
 
          <LinkedinShareButton url={sharedUrl}>
-            <LinkedinIcon size={32} round={true} style={{ margin: '5px' }} />
+            <LinkedinIcon size={32} round={true} className="buttonshare-button" />
          </LinkedinShareButton>
 
          <EmailShareButton url={sharedUrl}>
-            <EmailIcon size={32} round={true} style={{ margin: '5px' }} />
+            <EmailIcon size={32} round={true} className="buttonshare-button" />
          </EmailShareButton>
       </div>
    );

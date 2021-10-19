@@ -83,6 +83,7 @@ const MaterialsOption2 = (props) => {
                </div>
             </div>
          </div>
+         
          <div className="material-big-container">
             <div className="material-container">
                {materials.map((item, i) => (

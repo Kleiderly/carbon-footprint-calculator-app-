@@ -29,12 +29,12 @@ select {
   width: 220px;
 }
 
-button, .buttonnext-button, .back-button, .next-button {
+button, .buttonnext-button {
   margin: 10px;
   padding: 10px 20px 10px 20px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-  border-radius: 50px;
-  background-color: #415551;
+  border-radius: 30px;
+  background-color: #0E2823;
   border: 0;
   color: #F7EBE8;
   font-size: 4vw;
@@ -44,8 +44,37 @@ button, .buttonnext-button, .back-button, .next-button {
 
 button:hover, button:active {
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-  background-color: #0E2823;
+  background-color: #415551;
 }
+
+.back-button, .next-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 15px;
+  margin: 0 5px 5px 5px;
+  width: 90px;
+  height: 30px;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  background-color: #ffffff;
+  border: solid 2px #0E2823;
+  color: #0E2823;
+  font-size: 3vw;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0);
+}
+
+.back-button:hover, .next-button:hover {
+  background-color: #0E2823;
+  color: #ffffff;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0);
+}
+
+.buttonnext-button {
+  margin: 10px;
+  padding: 10px 25px 10px 25px;
+}
+
 
 .light-pink {
   background-color: #F7EBE8;
@@ -57,19 +86,4 @@ button:hover, button:active {
 
 .dark-green {
   background-color: #0E2823;
-}
-
-.back-button {
-  border-radius: 50px 0px 0px 50px;
-  margin: 5px;
-}
-
-.next-button {
-  border-radius: 0px 50px 50px 0px;
-  margin: 5px;
-}
-
-.buttonnext-button {
-  margin: 10px;
-  padding: 10px 25px 10px 25px;
 }

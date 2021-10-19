@@ -83,6 +83,7 @@ const CategoryOption2 = (props) => {
                   </div>
                </div>
             </div>
+
             <div className="category-type-of-item-container">
                {itemList.map((item, i) => (
                   <div onClick={() => handleClickTypes(item)} key={item._id}>
@@ -94,19 +95,23 @@ const CategoryOption2 = (props) => {
                   </div>
                ))}
             </div>
-            <div className="category-back-next-buttons">
-               <button className="back-button" type="button" onClick={handleClickPreviousSection}>
-                  BACK
-               </button>
-                  <Link
-                     className={selectType1 && selectType2 ? null : 'cover-disabled-link'}
-                     to="/compare/materials"
-                  >
-                     <button className="next-button" type="button" onClick={handleClick3}>
-                        NEXT
+
+            <div className="category-container">
+               <div className="category-back-next-buttons">
+                     <button className="back-button" type="button" onClick={handleClickPreviousSection}>
+                        BACK
                      </button>
-                  </Link>
+                        <Link
+                           className={selectType1 && selectType2 ? null : 'cover-disabled-link'}
+                           to="/compare/materials"
+                        >
+                           <button className="next-button" type="button" onClick={handleClick3}>
+                              NEXT
+                           </button>
+                        </Link>
+               </div>
             </div>
+
          </div>
       </div>
    );

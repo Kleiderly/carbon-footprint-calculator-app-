@@ -45,7 +45,7 @@ const MaterialsOption1 = (props) => {
             <div className="material-before-click">
                <img
                   src={itemTypeAdress1}
-                  alt="firstBoxImage"
+                  alt={itemTypeAdress1}
                   className="material-img-cover"
                />
                <span className="material-small-text">Material</span>

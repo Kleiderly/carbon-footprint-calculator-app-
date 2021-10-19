@@ -63,6 +63,7 @@
    width: 150px;
    height: 150px;
    margin: 10px;
+   padding: 5px;
    border-radius: 10px;
    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
    color: #F7EBE8;
@@ -83,8 +84,9 @@
 
 .material-back-next-buttons {
    display: flex;
-   justify-content: center;
-   margin: 20px;
+   justify-content: space-around;
+   align-items: center;
+   margin: 30px 0 20px 0;
 }
 
 .material-big-container {

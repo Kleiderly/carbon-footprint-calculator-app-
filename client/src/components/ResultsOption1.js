@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import Context from '../contexts/ContextApi';
 import { Link, useHistory } from 'react-router-dom';
 import ButtonShareModal from './ButtonShareModal';
+import Leaves from './Leaves';
 import './css/Results.css';
 
 const ResultsOption1 = (props) => {
@@ -27,6 +28,7 @@ const ResultsOption1 = (props) => {
 
    return (
       <div className="results-choice-container">
+      {/* <Leaves /> */}
          <div>
             <div>
                <p className="results-direction-text">Results!</p>
@@ -48,7 +50,9 @@ const ResultsOption1 = (props) => {
          <Link to="/calculate/percentages" className="results-details">
             SEE DETAILS
          </Link>
+
          <ButtonShareModal />
+         
          <Link to="/">
             <button type="button">CALCULATE ANOTHER ITEM</button>
          </Link>
