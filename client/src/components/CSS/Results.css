@@ -43,13 +43,18 @@
    color: #F7EBE8;
 }
 
+.results-explanation {
+   font-size: 3.8vw;
+   margin: 20px;
+}
+
 .results-back-link {
    font-size: 3vw;
    font-weight: bold;
 }
 
 .results-carbon-result {
-   font-size: 6vw;
+   font-size: 5vw;
    font-weight: bold;
    margin: 5px;
 }
@@ -71,6 +76,9 @@
 .results-message {
    margin: 10px;
    font-size: 4.5vw;
+   background-color: #d2cdc62a;
+   border-radius: 5px;
+   padding: 3px;
 }
 
 .results-big-container {

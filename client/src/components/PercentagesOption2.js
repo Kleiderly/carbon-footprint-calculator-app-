@@ -29,7 +29,7 @@ const PercentagesOption2 = (props) => {
       <div className="percentages-wrapper">
          <div>
             <div>
-               <p className="percentages-direction-text">Percentages</p>
+               <p className="percentages-direction-text">Co2E Details</p>
                <div className="percentages-big-container2">
                   <div className="percentages-container">
                      <div className={totalCo2e1 < totalCo2e2 ? "percentages-before-click-category" : "percentages-after-click-category"}>
@@ -54,22 +54,22 @@ const PercentagesOption2 = (props) => {
 
                <div className="percentages-container2">
                   <div className="percentages-totals">
-                     <div>{materialCO2e1}</div>
-                     <div>{fasteningCO2e1}</div>
-                     <div>{countryCO2e1}</div>
-                     <div>{totalCo2e1}</div>
+                     <div className="percentages-detail">{materialCO2e1}</div>
+                     <div className="percentages-detail">{fasteningCO2e1}</div>
+                     <div className="percentages-detail">{countryCO2e1}</div>
+                     <div className="percentages-detail light-pink">{totalCo2e1}</div>
                   </div>
                   <div className="percentages-categories">
-                     <div><b>Material</b></div>
-                     <div><b>Fastenings</b></div>
-                     <div><b>Logistics</b></div>
-                     <div><b>Total</b></div>
+                     <div className="percentages-detail"><b>Material</b></div>
+                     <div className="percentages-detail"><b>Fastenings</b></div>
+                     <div className="percentages-detail"><b>Logistics</b></div>
+                     <div className="percentages-detail light-pink"><b>TOTAL</b></div>
                   </div>
                   <div className="percentages-totals">
-                     <div>{materialCO2e2}</div>
-                     <div>{fasteningCO2e2}</div>
-                     <div>{countryCO2e2}</div>
-                     <div>{totalCo2e2}</div>
+                     <div className="percentages-detail">{materialCO2e2}</div>
+                     <div className="percentages-detail">{fasteningCO2e2}</div>
+                     <div className="percentages-detail">{countryCO2e2}</div>
+                     <div className="percentages-detail light-pink">{totalCo2e2}</div>
                   </div>
                </div>
 
@@ -77,9 +77,9 @@ const PercentagesOption2 = (props) => {
             </div>
          </div>
 
-         <button type="button" onClick={handleClickPreviousSection}>
-            BACK
-         </button>
+         <span className="percentages-go-back" type="button" onClick={handleClickPreviousSection}>
+               GO BACK TO RESULTS
+         </span>
          {/* <Link to="/compare/details">
             <button type="button">Check Details</button>
          </Link> */}

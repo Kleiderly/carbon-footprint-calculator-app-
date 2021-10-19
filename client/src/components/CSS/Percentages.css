@@ -32,11 +32,14 @@
  .percentages-categories, .percentages-totals {
      text-align: center;
      width: 100px;
-     font-size: small;
  }
 
  .percentages-totals {
      width: 100%;
+ }
+
+ .percentages-detail {
+     padding: 4px;
  }
 
  .percentages-carbon-result {
@@ -45,21 +48,31 @@
     margin: 5px;
  }
 
+ .percentages-go-back {
+     font-size: 3vw;
+     font-weight: bold;
+     margin: 10px;
+ }
  .percentages-big-container2 {
     flex-direction: row;
  }
  
  .percentages-container, .percentages-container2 {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     text-align: center;
     margin-top: 5px;
-    width: 100%;
+    color: #0E2823;
+    font-size: 3.5vw;
  }
 
  .percentages-container2 {
     text-align: left;
+    width: 100%;
+    background-color: #d2cdc62a;
+    border-radius: 5px;
+    padding: 3px;
  }
 
  .percentages-explanation {

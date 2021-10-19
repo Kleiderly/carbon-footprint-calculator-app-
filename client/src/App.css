@@ -47,6 +47,18 @@ button:hover, button:active {
   background-color: #0E2823;
 }
 
+.light-pink {
+  background-color: #F7EBE8;
+}
+
+.light-green {
+  background-color: #415551;
+}
+
+.dark-green {
+  background-color: #0E2823;
+}
+
 .back-button {
   border-radius: 50px 0px 0px 50px;
   margin: 5px;

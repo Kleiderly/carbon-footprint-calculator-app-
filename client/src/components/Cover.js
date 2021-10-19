@@ -57,10 +57,10 @@ function Cover() {
                         className="cover-img-cover"
                         src="../img/items-images/t-shirtW.png"
                         alt="T-shirt"
-                     />
+                     /> VS 
                      <img
                         className="cover-img-cover"
-                        src="../img/items-images/t-shirtW.png"
+                        src="../img/items-images/skirtW.png"
                         alt="T-shirt"
                      />
                   </div>

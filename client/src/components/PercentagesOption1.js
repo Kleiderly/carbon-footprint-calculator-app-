@@ -36,7 +36,7 @@ const PercentagesOption1 = (props) => {
                      </div>
                   </div>
 
-                  <div className="percentages-container">
+                  <div className="percentages-container2">
                      <div>
                         <div><b>Material:</b></div>
                         <div><b>Fastenings:</b></div>
@@ -56,9 +56,9 @@ const PercentagesOption1 = (props) => {
                </div>
             </div>
 
-            <button type="button" onClick={handleClickPreviousSection}>
-               BACK
-            </button>
+            <span className="percentages-go-back" type="button" onClick={handleClickPreviousSection}>
+               GO BACK TO RESULTS
+            </span>
             <br />
             {/* <Link to="/calculate/details">
                <button type="button">Check Details</button>

@@ -40,7 +40,7 @@ const ResultsOption1 = (props) => {
                </div>
             </div>
          </div>
-
+         <p className="results-explanation">Text explaining what this means.</p>
 
          {/* <span className="results-back-link" onClick={handleClickPreviousSection}>
             Go Back

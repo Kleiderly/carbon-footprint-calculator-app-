@@ -54,6 +54,7 @@
    align-items: center;
    justify-content: center;
    background-color: #000000;
+   color: #F7EBE8;
    width: 150px;
    height: 150px;
    margin: 10px;
@@ -67,10 +68,6 @@
 
 .cover-before-click2, .cover-after-click2 {
    width: 270px;
-}
-
-.cover-after-click2 {
-   background-color: #415551;
 }
 
 .cover-disabled-link {
