@@ -78,7 +78,7 @@ function Logistics(props) {
                      />
                      <span>1st Item</span>
                   </div>
-                  <div className="logistics-after-click-category">
+                  <div className="logistics-before-click-category">
                      <img
                         src={itemTypeAdress2}
                         alt={itemTypeAdress2}

@@ -75,7 +75,7 @@ const MaterialsOption2 = (props) => {
                   What material are they made of?
                </p>
                <div className="material-items-container">
-                  <div className="material-before-click-category">
+                  <div className="material-before-click">
                      <img
                         src={itemTypeAdress1}
                         alt={itemTypeAdress1}
@@ -83,7 +83,7 @@ const MaterialsOption2 = (props) => {
                      />
                      <span>1st Item</span>
                   </div>
-                  <div className="material-after-click-category">
+                  <div className="material-before-click">
                      <img
                         src={itemTypeAdress2}
                         alt={itemTypeAdress2}
