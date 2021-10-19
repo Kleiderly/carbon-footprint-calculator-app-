@@ -1,11 +1,11 @@
 .buttonshare-wrapper {
-}
-
-.buttonshare-container {
     background-color: #000000;
 }
 
-.buttonshare-button {
+.buttonshare-container {
+}
+
+.buttonshare-detail {
     border: solid 2px #F7EBE8;
     border-radius: 50px;
 }

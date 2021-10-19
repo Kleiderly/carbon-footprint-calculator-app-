@@ -6,8 +6,9 @@ import Context from '../contexts/ContextApi';
 import Tips from './Tips';
 import ProgressBar from './ProgressBar';
 import ItemBox from './ItemBox';
-
 import './css/Materials.css';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
 const MaterialsOption2 = (props) => {
    const {
@@ -67,13 +68,19 @@ const MaterialsOption2 = (props) => {
 
    return (
       <div className="material-choice-container">
-      <ProgressBar stage={1} previous="Choice" next="Fastenings" />
+         <ProgressBar stage={1} previous="Choice" next="Fastenings" />
          <div>
             <div>
-               <p className="material-direction-text">What material are they made of?</p>
+               <p className="material-direction-text">
+                  What material are they made of?
+               </p>
                <div className="material-items-container">
-                  <div className="material-before-click-category">
-                     <img src={itemTypeAdress1} alt={itemTypeAdress1} className="material-img-cover" />
+                  <div className="material-before-click">
+                     <img
+                        src={itemTypeAdress1}
+                        alt={itemTypeAdress1}
+                        className="material-img-cover"
+                     />
                      <span>1st Item</span>
                   </div>
                   <div className="material-before-click-category">
@@ -108,21 +115,37 @@ const MaterialsOption2 = (props) => {
          </div>
 
          <div className="material-back-next-buttons">
-            <button className="back-button" type="button" onClick={handleClickPreviousSection}>
+            <button
+               className="back-button"
+               type="button"
+               onClick={handleClickPreviousSection}
+            >
                BACK
             </button>
-            <Link 
-            to="/compare/fastenings" className={selectMaterial1 && selectMaterial2 ? null : 'disabled-link'}>
-               <button className="next-button" type="button" onClick={handleClick}>
-                  NEXT
-               </button>
-            </Link>
+
+            {selectMaterial1 && selectMaterial2 ? (
+               <Link to="/compare/fastenings">
+                  <button
+                     className="next-button"
+                     type="button"
+                     onClick={handleClick}
+                  >
+                     NEXT
+                  </button>
+               </Link>
+            ) : (
+               <Popup
+                  trigger={<button className="next-button"> NEXT</button>}
+                  position="top center"
+               >
+                  <div>Please make your selections!</div>
+               </Popup>
+            )}
          </div>
 
          <div className="tips">
             <Tips category="materials" />
          </div>
-
       </div>
    );
 };

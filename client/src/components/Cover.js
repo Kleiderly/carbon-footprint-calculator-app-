@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ButtonNext from './ButtonNext';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 import './css/Cover.css';
 
 function Cover() {
@@ -27,12 +29,14 @@ function Cover() {
                   standard dummy text ever since the 1500s.
                </p>
             </div>
-               <p className="cover-direction-text">What will you calculate?</p>
+            <p className="cover-direction-text">What will you calculate?</p>
             <div className="cover-choice-container">
                <div>
                   <div
                      className={
-                        choice === 'calculate' ? 'cover-after-click' : 'cover-before-click'
+                        choice === 'calculate'
+                           ? 'cover-after-click'
+                           : 'cover-before-click'
                      }
                      onClick={handleClick1}
                      value={choice}
@@ -48,7 +52,9 @@ function Cover() {
                <div>
                   <div
                      className={
-                        choice === 'compare' ? 'cover-after-click2' : 'cover-before-click2'
+                        choice === 'compare'
+                           ? 'cover-after-click2'
+                           : 'cover-before-click2'
                      }
                      onClick={handleClick2}
                      value={choice}
@@ -67,9 +73,20 @@ function Cover() {
                   <p className="cover-direction-text2">Compare two items</p>
                </div>
             </div>
-            <Link to={`/${choice}/category`} className={choice ? null : 'disabled-link'}>
-               <ButtonNext name="BEGIN!" />
-            </Link>
+            {choice ? (
+               <Link to={`/${choice}/category`}>
+                  <button className="buttonnext-button">BEGIN!</button>
+               </Link>
+            ) : (
+               <Popup
+                  trigger={
+                     <button className="buttonnext-button">BEGIN!</button>
+                  }
+                  position="top center"
+               >
+                  <div>Please make a selection!</div>
+               </Popup>
+            )}
          </div>
       </div>
    );

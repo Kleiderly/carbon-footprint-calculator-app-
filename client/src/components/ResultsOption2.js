@@ -1,26 +1,26 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import Context from '../contexts/ContextApi';
 import { Link, useHistory } from 'react-router-dom';
 import './css/Results.css';
 import ButtonShareModal from './ButtonShareModal';
 
 const ResultsOption2 = (props) => {
-   const {
-      itemTypeAdress1,
-      itemTypeAdress2,
-      materialCO2e1,
-      materialCO2e2,
-      fasteningCO2e1,
-      fasteningCO2e2,
-      countryCO2e1,
-      countryCO2e2,
-      totalCo2e1,
-      setTotalCo2e1,
-      totalCo2e2,
-      setTotalCo2e2,
-      percentage,
-      setPercentage,
-   } = useContext(Context);
+  const {
+    itemTypeAdress1,
+    itemTypeAdress2,
+    materialCO2e1,
+    materialCO2e2,
+    fasteningCO2e1,
+    fasteningCO2e2,
+    countryCO2e1,
+    countryCO2e2,
+    totalCo2e1,
+    setTotalCo2e1,
+    totalCo2e2,
+    setTotalCo2e2,
+    percentage,
+    setPercentage,
+  } = useContext(Context);
 
    console.log(`${totalCo2e1} TRUE OR FALSE ${totalCo2e1 < totalCo2e2}`);
 
@@ -59,12 +59,12 @@ const ResultsOption2 = (props) => {
    console.log(totalCo2e1);
    console.log(totalCo2e2);
 
-   console.log(percentage);
-   //To Go Back
-   let history = useHistory();
-   const handleClickPreviousSection = () => {
-      history.push('/calculate/logistics');
-   };
+  console.log(percentage);
+  //To Go Back
+  let history = useHistory();
+  const handleClickPreviousSection = () => {
+    history.push("/calculate/logistics");
+  };
 
    const messageUneven =
       <span className="results-message">
@@ -79,47 +79,47 @@ const ResultsOption2 = (props) => {
       </span>;
 
 
-   return (
-      <div className="results-choice-container">
+return (
+   <div className="results-choice-container">
+      <div>
          <div>
-            <div>
-               <p className="results-direction-text">Results!</p>
-               <div className="results-big-container">
-                  <div className="results-container">
-                     <div className={totalCo2e1 < totalCo2e2 ? "results-before-click-category" : "results-after-click-category"}>
-                        <img src={itemTypeAdress1} alt={itemTypeAdress1} className="results-img-cover" />
-                     <div>
-                        First item
-                        <p className="results-carbon-result">Total: {totalCo2e1}</p>
-                     </div>
-                     </div>
+            <p className="results-direction-text">Results!</p>
+            <div className="results-big-container">
+               <div className="results-container">
+                  <div className={totalCo2e1 < totalCo2e2 ? "results-before-click-category" : "results-after-click-category"}>
+                     <img src={itemTypeAdress1} alt={itemTypeAdress1} className="results-img-cover" />
+                  <div>
+                     First item
+                     <p className="results-carbon-result">Total: {totalCo2e1}</p>
                   </div>
-                  <div className="results-container">
-                     <div className={totalCo2e1 > totalCo2e2 ? "results-before-click-category" : "results-after-click-category"}>
-                        <img src={itemTypeAdress2} alt={itemTypeAdress2} className="results-img-cover" />
-                     <div>
-                        Second item
-                        <p className="results-carbon-result">Total: {totalCo2e2}</p>
-                     </div>
-                     </div>
+                  </div>
+               </div>
+               <div className="results-container">
+                  <div className={totalCo2e1 > totalCo2e2 ? "results-before-click-category" : "results-after-click-category"}>
+                     <img src={itemTypeAdress2} alt={itemTypeAdress2} className="results-img-cover" />
+                  <div>
+                     Second item
+                     <p className="results-carbon-result">Total: {totalCo2e2}</p>
+                  </div>
                   </div>
                </div>
             </div>
          </div>
-
-         {totalCo2e1 === totalCo2e2 ? messageEven : messageUneven }
-         {/* <button type="button" onClick={handleClickPreviousSection}>
-            Go Back
-         </button> */}
-         <Link to="/compare/percentages" className="results-details">
-            SEE DETAILS
-         </Link>
-         <ButtonShareModal />
-         <Link to="/">
-            <button type="button">COMPARE NEW ITEMS</button>
-         </Link>
       </div>
-   );
+
+      {totalCo2e1 === totalCo2e2 ? messageEven : messageUneven }
+      {/* <button type="button" onClick={handleClickPreviousSection}>
+         Go Back
+      </button> */}
+      <Link to="/compare/percentages" className="results-details">
+         SEE DETAILS
+      </Link>
+      <ButtonShareModal />
+      <Link to="/">
+         <button type="button">COMPARE NEW ITEMS</button>
+      </Link>
+   </div>
+);
 };
 
 export default ResultsOption2;

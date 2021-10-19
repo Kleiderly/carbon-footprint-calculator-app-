@@ -4,46 +4,16 @@ import './css/ButtonShare.css';
 import {
    EmailShareButton,
    FacebookShareButton,
-   HatenaShareButton,
-   InstapaperShareButton,
-   LineShareButton,
    LinkedinShareButton,
-   LivejournalShareButton,
-   MailruShareButton,
-   OKShareButton,
-   PinterestShareButton,
-   PocketShareButton,
-   RedditShareButton,
-   TelegramShareButton,
-   TumblrShareButton,
    TwitterShareButton,
-   ViberShareButton,
-   VKShareButton,
    WhatsappShareButton,
-   WorkplaceShareButton,
 } from 'react-share';
 import {
    EmailIcon,
    FacebookIcon,
-   FacebookMessengerIcon,
-   HatenaIcon,
-   InstapaperIcon,
-   LineIcon,
    LinkedinIcon,
-   LivejournalIcon,
-   MailruIcon,
-   OKIcon,
-   PinterestIcon,
-   PocketIcon,
-   RedditIcon,
-   TelegramIcon,
-   TumblrIcon,
    TwitterIcon,
-   ViberIcon,
-   VKIcon,
-   WeiboIcon,
    WhatsappIcon,
-   WorkplaceIcon,
 } from 'react-share';
 
 function ButtonShare(props) {
@@ -51,23 +21,23 @@ function ButtonShare(props) {
    return (
       <div className="buttonshare-wrapper">
          <TwitterShareButton url={sharedUrl}>
-            <TwitterIcon size={32} round={true} className="buttonshare-button" />
+            <TwitterIcon size={32} round={true} className="buttonshare-detail" />
          </TwitterShareButton>
 
          <FacebookShareButton url={sharedUrl}>
-            <FacebookIcon size={32} round={true} className="buttonshare-button" />
+            <FacebookIcon size={32} round={true} className="buttonshare-detail" />
          </FacebookShareButton>
 
          <WhatsappShareButton url={sharedUrl}>
-            <WhatsappIcon size={32} round={true} className="buttonshare-button" />
+            <WhatsappIcon size={32} round={true} className="buttonshare-detail" />
          </WhatsappShareButton>
 
          <LinkedinShareButton url={sharedUrl}>
-            <LinkedinIcon size={32} round={true} className="buttonshare-button" />
+            <LinkedinIcon size={32} round={true} className="buttonshare-detail" />
          </LinkedinShareButton>
 
          <EmailShareButton url={sharedUrl}>
-            <EmailIcon size={32} round={true} className="buttonshare-button" />
+            <EmailIcon size={32} round={true} className="buttonshare-detail" />
          </EmailShareButton>
       </div>
    );

@@ -117,7 +117,7 @@ function App() {
                      />
                      <Route
                         exact
-                        path="calculate/details"
+                        path="/calculate/details"
                         component={(browser) => <Details />}
                      />
 
@@ -155,12 +155,7 @@ function App() {
                      />
                      <Route
                         exact
-                        path="compare/results"
-                        component={(browser) => <ResultsOption2 />}
-                     />
-                     <Route
-                        exact
-                        path="compare/details"
+                        path="/compare/details"
                         component={(browser) => <Details />}
                      />
 

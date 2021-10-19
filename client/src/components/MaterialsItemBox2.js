@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './css/Materials.css';
 
 const MaterialsItemBox2 = ({ type, adress, country, name }) => {
