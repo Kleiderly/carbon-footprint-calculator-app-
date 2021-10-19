@@ -15,7 +15,7 @@ const ButtonShareModal = () => {
    };
 
    return (
-      <div className="buttonshare-wrapper">
+      <div className="buttonshare-container">
          <button className="buttonshare-share-button" onClick={onOpenModal}>
             SHARE!
          </button>
