@@ -54,7 +54,7 @@ const LogisticsOption1 = (props) => {
                   Where was it produced?
                </p>
                <div className="logistics-items-container ">
-                  <div className="logistics-before-click-category">
+                  <div className="logistics-before-click">
                      <img
                         src={itemTypeAdress1}
                         alt={itemTypeAdress1}

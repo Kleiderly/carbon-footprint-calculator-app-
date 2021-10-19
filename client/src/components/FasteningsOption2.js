@@ -71,7 +71,7 @@ const FasteningsOption2 = () => {
                      <img src={itemTypeAdress1} alt={itemTypeAdress1} className="fastening-img-cover" />
                      <span>1st Item</span>
                   </div>
-                  <div className="fastening-after-click-category">
+                  <div className="fastening-before-click-category">
                      <img src={itemTypeAdress2} alt={itemTypeAdress2} className="fastening-img-cover" />
                      <span>2nd Item</span>
                   </div>
