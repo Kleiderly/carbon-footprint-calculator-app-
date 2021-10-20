@@ -55,7 +55,7 @@ const PercentagesOption1 = (props) => {
 
          <p className="percentages-explanation">Text explaining the Co2E principles, etc.</p>
          
-         <span className="percentages-go-back" type="button" onClick={handleClickPreviousSection}>
+         <span className="percentages-go-back" onClick={handleClickPreviousSection}>
             GO BACK TO RESULTS
          </span>
          <br />
