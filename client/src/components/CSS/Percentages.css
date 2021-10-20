@@ -51,7 +51,10 @@
  .percentages-go-back {
      font-size: 3vw;
      font-weight: bold;
+<<<<<<< HEAD
      margin: 10px 0 -5px 0;
+=======
+>>>>>>> 40c5deeec96af5e2bd372a03f1c688ea25cb0a47
      cursor: pointer;
  }
 
