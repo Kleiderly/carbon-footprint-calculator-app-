@@ -45,6 +45,7 @@ function App() {
 
    const [totalCo2e2, setTotalCo2e2] = useState();
    const [percentage, setPercentage] = useState();
+   const [email, setEmail] = useState()
 
    return (
       <div className="App">
@@ -77,6 +78,8 @@ function App() {
                      setTotalCo2e2,
                      percentage,
                      setPercentage,
+                     email,
+                     setEmail
                   }}
                >
                   <Header />
