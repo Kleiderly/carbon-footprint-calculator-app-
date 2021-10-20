@@ -80,6 +80,7 @@ const PercentagesOption2 = (props) => {
          <span className="percentages-go-back" onClick={handleClickPreviousSection}>
                GO BACK TO RESULTS
          </span>
+         <br />
 
          <Link to="/">
             <button type="button">COMPARE NEW ITEMS</button>
