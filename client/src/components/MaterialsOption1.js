@@ -42,7 +42,7 @@ const MaterialsOption1 = (props) => {
    return (
       <div className="material-wrapper">
          <ProgressBar stage={1} previous="Choice" next="Fastenings" />
-         <p className="title">What material is it made of?</p>
+         <p className="material-title">What material is it made of?</p>
          <div className="material-items-container">
             <div className="material-before-click">
                <img
