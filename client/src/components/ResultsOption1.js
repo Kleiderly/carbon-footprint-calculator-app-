@@ -34,7 +34,7 @@ const ResultsOption1 = (props) => {
 
          <div className="results-items-container">
             <div className="results-before-click">
-               <img src={itemTypeAdress1} alt={itemTypeAdress1} className="results-img-cover" />
+               <img src={itemTypeAdress1} alt={itemTypeAdress1} className="results-img-cover1" />
                <div className="results-carbon-result">
                   Total: {totalCo2e1}
                </div>

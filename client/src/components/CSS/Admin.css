@@ -34,6 +34,14 @@
     display: block;
 }
 
+.admin-forgotpassword {
+    display: block;
+    width: 300px;
+    text-align: left;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
 /* FORMS */
 .forms-wrapper {
     display: flex;

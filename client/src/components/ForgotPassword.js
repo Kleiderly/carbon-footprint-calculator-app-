@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import './css/Admin.css';
 
 
 const ForgotPassword = () => {
@@ -34,21 +35,21 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className="forgotpassword-screen">
+    <div className="admin-wrapper">
       <form
         onSubmit={forgotPasswordHandler}
-        className="forgotpassword-screen__form"
       >
-        <h3 className="forgotpassword-screen__title">Forgot Password</h3>
+        <h3>Password Recovery</h3>
         {error && <span >{error}</span>}
         {success && <span >{success}</span>}
-        <div >
-          <p >
-            Please enter the email address you register your account with. We
-            will send you reset password confirmation to this email
+        <div>
+          <p className="admin-forgotpassword">
+            Please enter the email address you registered your account with, and we
+            will send you a reset password confirmation to this email.
           </p>
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="email">Email: </label>
           <input
+            cmassName="light-pink"
             type="email"
             required
             id="email"
@@ -58,7 +59,7 @@ const ForgotPassword = () => {
           />
         </div>
         <button type="submit">
-          Send Email
+          SEND EMAIL
         </button>
       </form>
     </div>

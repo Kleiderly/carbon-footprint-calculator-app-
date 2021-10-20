@@ -31,8 +31,8 @@ const PercentagesOption2 = (props) => {
          <p className="percentages-title">Co2E Details</p>
          <div className="percentages-main-container2">
                <div className="percentages-item-group">
-                  <div className={totalCo2e1 > totalCo2e2 ? "percentages-before-click-category" : "percentages-after-click-category"}>
-                     <img src={itemTypeAdress1} alt={itemTypeAdress1} className="percentages-img-cover2" />
+                  <div className={totalCo2e1 > totalCo2e2 ? "percentages-before-click" : "percentages-after-click"}>
+                     <img src={itemTypeAdress1} alt={itemTypeAdress1} className="percentages-img-cover" />
                      <div>
                         First item
                         <p className="percentages-carbon-result">Total: {totalCo2e1.toFixed(2)}</p>
@@ -41,8 +41,8 @@ const PercentagesOption2 = (props) => {
                </div>
 
                <div className="percentages-item-group">
-                  <div className={totalCo2e1 < totalCo2e2 ? "percentages-before-click-category" : "percentages-after-click-category"}>
-                     <img src={itemTypeAdress2} alt={itemTypeAdress2} className="percentages-img-cover2" />
+                  <div className={totalCo2e1 < totalCo2e2 ? "percentages-before-click" : "percentages-after-click"}>
+                     <img src={itemTypeAdress2} alt={itemTypeAdress2} className="percentages-img-cover" />
                      <div>
                         Second item
                         <p className="percentages-carbon-result">Total: {totalCo2e2.toFixed(2)}</p>

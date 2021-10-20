@@ -29,8 +29,8 @@ const PercentagesOption1 = (props) => {
          <p className="percentages-title">Co2E Details</p>
          <div className="percentages-main-container">
             <div className="percentages-item-group">
-               <div className="percentages-after-click-category">
-                  <img src={itemTypeAdress1} alt={itemTypeAdress1} className="percentages-img-cover" />
+               <div className="percentages-after-click">
+                  <img src={itemTypeAdress1} alt={itemTypeAdress1} className="percentages-img-cover1" />
                </div>
             </div>
 

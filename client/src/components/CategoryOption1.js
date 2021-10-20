@@ -41,10 +41,7 @@ const CategoryOption1 = (props) => {
          </div>
          <div className="category-type-of-item-container">
             {itemList.map((item, i) => (
-               <div
-                  onClick={() => mapOnItemClickImageClassHandler(item, i)}
-                  key={item.id}
-               >
+               <div onClick={() => mapOnItemClickImageClassHandler(item, i)} key={item.id} >
                   <CategoryItemBox1
                      index={i}
                      type={item.type}
@@ -55,22 +52,11 @@ const CategoryOption1 = (props) => {
             ))}
          </div>
          <div className="category-back-next-buttons">
-            <button
-               className="back-button"
-               type="button"
-               onClick={handleClickPreviousSection}
-            >
+            <button className="back-button" type="button" onClick={handleClickPreviousSection} >
                BACK
             </button>
-            <Link
-               className={selectType ? null : 'disabled-link'}
-               to="/calculate/materials"
-            >
-               <button
-                  className="next-button"
-                  type="button"
-                  onClick={() => setItemTypeAdress1(selectType)}
-               >
+            <Link className={selectType ? null : 'disabled-link'} to="/calculate/materials" >
+               <button className="next-button" type="button" onClick={() => setItemTypeAdress1(selectType)} >
                   NEXT
                </button>
             </Link>

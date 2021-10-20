@@ -37,15 +37,11 @@ function Cover() {
                         choice === 'calculate'
                            ? 'cover-after-click'
                            : 'cover-before-click'
-                     }
-                     onClick={handleClick1}
-                     value={choice}
-                  >
+                     } onClick={handleClick1} value={choice}>
                      <img
                         className="cover-img-cover"
                         src="../img/items-images/t-shirtW.png"
-                        alt="T-shirt"
-                     />
+                        alt="T-shirt"/>
                   </div>
                   <p className="cover-direction-text2">Calculate one item</p>
                </div>
@@ -55,10 +51,7 @@ function Cover() {
                         choice === 'compare'
                            ? 'cover-after-click2'
                            : 'cover-before-click2'
-                     }
-                     onClick={handleClick2}
-                     value={choice}
-                  >
+                     } onClick={handleClick2} value={choice}>
                      <img
                         className="cover-img-cover"
                         src="../img/items-images/t-shirtW.png"
@@ -84,7 +77,7 @@ function Cover() {
                   }
                   position="top center"
                >
-                  <div>Please make a selection!</div>
+                  <div>Please make a selection.</div>
                </Popup>
             )}
          </div>

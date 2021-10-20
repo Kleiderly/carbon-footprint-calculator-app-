@@ -115,8 +115,8 @@ function Logistics(props) {
                   </button>
                </Link>
             ) : (
-               <Popup trigger={<button className="next-button"> NEXT</button>} position="top center" >
-                  <div>Please make your selections!</div>
+               <Popup trigger={<button className="next-button"> NEXT</button>}>
+                  <div>Please make a selection.</div>
                </Popup>
             )}
          </div>

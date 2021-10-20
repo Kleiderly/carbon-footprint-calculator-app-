@@ -64,10 +64,7 @@ const CategoryOption2 = (props) => {
                 choice
                   ? "category-after-click-category"
                   : "category-before-click-category"
-              }
-              onClick={handleClick1}
-              value={choice}
-            >
+              } onClick={handleClick1} value={choice} >
               <img src={selectType1} alt={selectType1} />
               <span>1st Item</span>
             </div>
@@ -76,10 +73,7 @@ const CategoryOption2 = (props) => {
                 !choice
                   ? "category-after-click-category"
                   : "category-before-click-category"
-              }
-              onClick={handleClick2}
-              value={choice}
-            >
+              } onClick={handleClick2} value={choice} >
               <img src={selectType2} alt={selectType2} />
               <span>2nd Item</span>
             </div>
@@ -101,29 +95,18 @@ const CategoryOption2 = (props) => {
         </div>
         <div className="category-container">
             <div className="category-back-next-buttons">
-               <button
-                  className="back-button"
-                  type="button"
-                  onClick={handleClickPreviousSection}
-               >
+               <button className="back-button" type="button" onClick={handleClickPreviousSection} >
                   BACK
                </button>
                {selectType1 && selectType2 ? (
                   <Link to="/compare/materials">
-                     <button
-                        className="next-button"
-                        type="button"
-                        onClick={handleClick3}
-                     >
+                     <button className="next-button" type="button" onClick={handleClick3} >
                         NEXT
                      </button>
                   </Link>
                ) : (
-                  <Popup
-                     trigger={<button className="next-button"> NEXT</button>}
-                     position="top center"
-                  >
-                     <div>Please make your selections!</div>
+                  <Popup trigger={<button className="next-button"> NEXT</button>}>
+                     <div>Please make a selection.</div>
                   </Popup>
                )}
         </div>
