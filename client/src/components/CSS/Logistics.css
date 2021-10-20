@@ -1,0 +1,84 @@
+.logistics-choice-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+ }
+ 
+ .logistics-items-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+ }
+ 
+ .logistics-direction-text {
+   font-size: 6vw;
+   color: #0e2823;
+   margin: 20px 0 10px 0;
+ }
+ 
+ .logistics-img-cover {
+    width: 100px;
+ }
+
+ .logistics-after-click-category, .logistics-before-click-category {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   background-color: #415551;
+   width: 150px;
+   height: 150px;
+   margin: 10px;
+   border-radius: 20px;
+   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+   color: #F7EBE8;
+}
+
+.logistics-before-click-category {
+   background: #000000;
+}
+
+ .logistics-big-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+ }
+
+.logistics-small-text {
+   font-size: small;
+}
+
+ .logistics-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
+
+.logistics-name-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+ }
+
+ .logistics-deselected-material, .logistics-selected-material {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F7EBE8;
+    font-weight: 600;
+    background-color: #818181;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 50px;
+    margin: 20px 20px 20px 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 2px rgb(0 0 0 / 25%);
+ }
+ 
+ .logistics-selected-material {
+    background-color: #404040;
+ }

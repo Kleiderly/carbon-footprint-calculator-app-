@@ -1,10 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
-import './css/Category.css';
-import './css/CategoryItemBox.css';
+import React, { useState } from 'react';
 import './css/Materials.css';
-import './css/ItemBox.css';
 
 const MaterialsItemBox2 = ({ type, adress, country, name }) => {
    const [selectType, setSelectType] = useState(false);
@@ -15,9 +10,9 @@ const MaterialsItemBox2 = ({ type, adress, country, name }) => {
    };
 
    return (
-      <div className="materialNameContainer">
+      <div className="material-name-container">
          <div
-            className={selectType ? 'selectedMaterial' : 'deselectedMaterial'}
+            className={selectType ? 'selected-material' : 'deselected-material'}
             onClick={handleClick}
          >
             <p>{name}</p>

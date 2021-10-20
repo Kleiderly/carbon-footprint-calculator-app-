@@ -118,6 +118,11 @@ function App() {
                         path="/calculate/percentages"
                         component={(browser) => <PercentagesOption1 />}
                      />
+                     <Route
+                        exact
+                        path="/calculate/details"
+                        component={(browser) => <Details />}
+                     />
 
                      {/* COMPARE FLOW */}
 
@@ -154,12 +159,7 @@ function App() {
                      />
                      <Route
                         exact
-                        path="/results"
-                        component={(browser) => <ResultsOption1 />}
-                     />
-                     <Route
-                        exact
-                        path="/details"
+                        path="/compare/details"
                         component={(browser) => <Details />}
                      />
 

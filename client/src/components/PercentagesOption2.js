@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import Context from '../contexts/ContextApi';
 import { Link, useHistory } from 'react-router-dom';
 import './css/Category.css';
@@ -30,9 +30,7 @@ const PercentagesOption2 = (props) => {
       <div className="choiceContainer">
          <div>
             <div>
-               <br />
                <p className="directionText">Percentages</p>
-               <br />
                <div className="resultsBigContainer">
                   <div className="resultsContainer">
                      <div className="beforeClickCategory">
@@ -49,10 +47,10 @@ const PercentagesOption2 = (props) => {
 
                <div className="percentagesContainer">
                   <div>
-                     <div>{materialCO2e1}</div>
-                     <div>{fasteningCO2e1}</div>
-                     <div>{countryCO2e1}</div>
-                     <div>{totalCo2e1}</div>
+                     <div>{materialCO2e1.toFixed(2)}</div>
+                     <div>{fasteningCO2e1.toFixed(2)}</div>
+                     <div>{countryCO2e1.toFixed(2)}</div>
+                     <div>{totalCo2e1.toFixed(2)}</div>
                   </div>
                   <div>
                      <div>Material</div>
@@ -61,10 +59,10 @@ const PercentagesOption2 = (props) => {
                      <div>Total</div>
                   </div>
                   <div>
-                     <div>{materialCO2e2}</div>
-                     <div>{fasteningCO2e2}</div>
-                     <div>{countryCO2e2}</div>
-                     <div>{totalCo2e2}</div>
+                     <div>{materialCO2e2.toFixed(2)}</div>
+                     <div>{fasteningCO2e2.toFixed(2)}</div>
+                     <div>{countryCO2e2.toFixed(2)}</div>
+                     <div>{totalCo2e2.toFixed(2)}</div>
                   </div>
                </div>
 

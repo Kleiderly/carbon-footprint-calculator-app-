@@ -1,83 +1,87 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap');
+
 * {
    font-family: 'Montserrat', sans-serif;
 }
-.textContainer {
-   margin: 50px;
+
+.cover-wrapper {
+   margin: 10px;
+   height: 100%;
 }
-.paragraph {
-   /* margin: 50px; */
+
+.cover-text-container {
+   margin: 20px 30px 25px 30px;
 }
-.directionText {
-   font-size: 30px;
+
+.cover-title {
+   margin: 5px;
+   font-size: 4vw;
 }
-.directionText2 {
-   font-size: 20px;
+
+.cover-paragraph {
+   text-align: left;
+   font-size: 3.5vw;
+   color: #0e2823;
 }
-.choiceContainer {
+
+.cover-direction-text {
+   font-size: 6vw;
+   color: #0e2823;
+   margin: 10px;
+}
+
+.cover-direction-text2 {
+   font-size: 3.5vw;
+   color: #0e2823;
+}
+
+.cover-choice-container {
    display: flex;
    flex-direction: column;
    align-items: center;
    justify-content: center;
+   margin: 0 10px 0 10px;
 }
-.imgCover {
+
+.cover-img-cover {
+   width: 100px;
+   margin: 10px;
+}
+
+.cover-before-click,
+.cover-after-click,
+.cover-before-click2,
+.cover-after-click2 {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+   background-color: #000000;
    width: 150px;
-}
-
-.beforeClick {
-   display: flex;
-   flex-direction: row;
-   align-items: center;
-   justify-content: center;
-   background: #0e2823;
-   /* background-image: url('./img/items-images/t-shirtW.png'); */
-   /* border: 1px solid gray; */
-   width: 200px;
-   height: 200px;
-   margin: 20px;
-   border-radius: 20px;
-   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-}
-.afterClick {
-   display: flex;
-   flex-direction: row;
-   align-items: center;
-   justify-content: center;
-   background: #404040;
-   /* border: 1px solid gray; */
-   width: 200px;
-   height: 200px;
-   margin: 20px;
-   border-radius: 20px;
-   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-}
-.beforeClick2 {
-   display: flex;
-   flex-direction: row;
-   align-items: center;
-   justify-content: space-around;
-   background: #0e2823;
-   border: 1px solid gray;
-   width: 400px;
-   height: 200px;
-   margin: 20px;
-   border-radius: 20px;
-   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-}
-.afterClick2 {
-   display: flex;
-   flex-direction: row;
-   align-items: center;
-   justify-content: space-around;
-   background: #404040;
-   border: 1px solid gray;
-   width: 400px;
-   height: 200px;
-   margin: 20px;
+   height: 150px;
+   margin: 10px;
    border-radius: 20px;
    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
 }
 
-.disabled-link {
+.cover-after-click,
+.cover-after-click2 {
+   background-color: #415551;
+}
+
+.cover-before-click2,
+.cover-after-click2 {
+   width: 270px;
+}
+
+.cover-after-click2 {
+   background-color: #415551;
+}
+
+.cover-disabled-link {
    pointer-events: none;
+}
+
+.tips {
+   width: 100%;
 }
