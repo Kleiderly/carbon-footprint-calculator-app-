@@ -65,12 +65,10 @@
    font-weight: bold;
    color:#0e2823;
    margin: 10px 10px 15px 10px;
-   filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.644));
 }
 
 .results-details:hover {
    color: rgba(14, 40, 35, 0.651)rgba(14, 40, 35, 0.808);
-   filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.644));
 }
 
 .results-message {
@@ -96,8 +94,35 @@
 }
 
 @media only screen and (min-device-width: 768px) {
-   .resultsBigContainer {
-      flex-direction: row;
-      width: 600px;
-   }
+.resultsBigContainer {
+   flex-direction: row;
+   width: 600px;
+}
+
+.results-direction-text {
+   font-size: 30px;
+   margin: 30px 20px 20px 20px;
+}
+
+.results-explanation {
+   font-size: 18px;
+   margin: 20px;
+}
+
+.results-back-link {
+   font-size: 12px;
+}
+
+.results-carbon-result {
+   font-size: 20px;
+}
+
+.results-details {
+   font-size: 15px;
+}
+
+.results-message {
+   font-size: 4.5vw;
+}
+
 }

@@ -29,6 +29,10 @@
     align-items: center;
  }
 
+ .percentages-big-container2 {
+   flex-direction: row;
+}
+
  .percentages-categories, .percentages-totals {
      text-align: center;
      width: 100px;
@@ -58,10 +62,6 @@
  .percentages-go-back:hover {
     color: #415551;
 }
-
- .percentages-big-container2 {
-    flex-direction: row;
- }
  
  .percentages-container, .percentages-container2 {
     display: flex;
@@ -105,3 +105,37 @@
     background-color: #F7EBE8;
     color: #000000;
  }
+
+
+ @media only screen and (min-device-width: 768px) {
+
+.percentages-direction-text {
+   font-size: 30px;
+   margin: 30px 20px 10px 20px;
+}
+
+.percentages-container, .percentages-container2 {
+   justify-content: space-between;
+   margin: 5px 0 0 0;
+   font-size: 16px;
+   padding: 5px;
+}
+
+.percentages-container2 {
+   width: 250px;
+   margin: 10px 0 10px 0;
+}
+
+.percentages-explanation {
+   font-size: 18px;
+   margin: 30px;
+}
+
+.percentages-carbon-result {
+   font-size: 20px;
+}
+
+.percentages-go-back {
+    font-size: 12px;
+}
+}

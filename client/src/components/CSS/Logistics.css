@@ -78,7 +78,7 @@
    background: #000000;
 }
 
- .logistics-big-container {
+ .logistics-big-container,  .logistics-big-container1 {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -88,7 +88,7 @@
    font-size: small;
 }
 
- .logistics-container {
+ .logistics-container, .logistics-container1 {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -129,4 +129,25 @@
 
  .logistics-disabled-link {
    pointer-events: none;
+}
+
+@media only screen and (min-device-width: 660px) {
+.logistics-direction-text {
+   font-size: 30px;
+   margin: 30px 20px 20px 20px;
+}
+
+.logistics-big-container1 {
+   justify-content: center;
+   flex-wrap: wrap;
+   width: 100%;
+   margin: 10px;
+}
+
+.logistics-container1 {
+   flex-direction: row;
+   justify-content: center;
+   flex-wrap: wrap;
+   width: 600px;
+}
 }

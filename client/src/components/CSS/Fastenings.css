@@ -1,4 +1,4 @@
-.fastening-choice-container {
+.fastenings-choice-container {
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -6,29 +6,30 @@
    margin: 10px;
 }
 
-.fastening-items-container {
+.fastenings-items-container {
    display: flex;
    flex-direction: row;
    align-items: center;
    justify-content: center;
 }
 
-.fastening-direction-text {
+.fastenings-direction-text {
    font-size: 6vw;
    color: #0e2823;
    margin: 20px 0 10px 0;
 }
 
-.fastening-option-text {
-   margin-bottom: 0;
+.fastenings-option-text {
+   margin: 5px 0 0 1px;
    color: #0e2823;
+   font-size: 4vw;
 }
 
-.fastening-small-text {
+.fastenings-small-text {
    font-size: small;
 }
 
-.fastening-img-cover {
+.fastenings-img-cover {
    width: 100px;
    margin-bottom: 3px;
 }
@@ -38,12 +39,12 @@
    padding: 5px;
 }
 
-.fastening-name {
+.fastenings-name {
    font-size: 4vw;
    font-weight: bold;
 }
 
-.fastening-before-click {
+.fastenings-before-click {
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -57,7 +58,7 @@
    color: #F7EBE8;
 }
 
-.fastening-after-click-category, .fastening-before-click-category {
+.fastenings-after-click-category, .fastenings-before-click-category {
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -72,18 +73,18 @@
    color: #F7EBE8;
 }
 
-.fastening-before-click-category {
+.fastenings-before-click-category {
    background: #000000;
 }
 
-.fastening-back-next-buttons {
+.fastenings-back-next-buttons {
    display: flex;
    justify-content: space-around;
    align-items: center;
    margin: 30px 0 20px 0;
 }
 
-.fastening-big-container {
+.fastenings-big-container {
    display: flex;
    flex-direction: row;
    align-items: center;
@@ -95,7 +96,7 @@
    margin: 5px;
 }
 
-.fastening-container {
+.fastenings-container {
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -109,4 +110,16 @@
    display: flex;
    flex-direction: row;
    align-items: center;
+}
+
+
+@media only screen and (min-device-width: 660px) {
+.fastenings-direction-text {
+   font-size: 30px;
+   margin: 30px 20px 20px 20px;
+}
+
+.fastenings-option-text {
+   font-size: 18px;
+}
 }

@@ -54,7 +54,7 @@ const MaterialsOption1 = (props) => {
             </div>
          </div>
 
-         <div className="material-container">
+         <div className="material-container1">
             {materials.map((item, i) => (
                <div
                   onClick={() => handleClickMappedItem(item, i)}
@@ -89,7 +89,7 @@ const MaterialsOption1 = (props) => {
                   trigger={<button className="next-button"> NEXT</button>}
                   position="top center"
                >
-                  <div>Please make your selection!</div>
+               <div className="pop-up-box">Please make a selection.</div>
                </Popup>
             )}
          </div>

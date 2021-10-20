@@ -81,6 +81,10 @@ button:hover, button:active {
   padding: 10px 25px 10px 25px;
 }
 
+.pop-up-box {
+  padding: 3px;
+  color: #0E2823;
+}
 
 .light-pink {
   background-color: #F7EBE8;

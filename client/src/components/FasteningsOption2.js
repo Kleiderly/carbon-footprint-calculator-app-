@@ -88,7 +88,7 @@ const FasteningsOption2 = () => {
                            <br />
                            <input
                               type="number"
-                              className="fastenings-input"
+                              className="fastenings-input light-pink"
                               min="0"
                               step="1"
                               value={listOfQuantities[i].quantity}

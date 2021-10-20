@@ -31,7 +31,7 @@ const ResultsOption1 = (props) => {
       {/* <Leaves /> */}
          <div>
             <div>
-               <p className="results-direction-text">Results!</p>
+               <p className="results-direction-text">Result!</p>
                <div className="results-items-container">
                   <div className="results-before-click-category">
                      <img src={itemTypeAdress1} alt={itemTypeAdress1} className="results-img-cover" />
@@ -42,14 +42,14 @@ const ResultsOption1 = (props) => {
                </div>
             </div>
          </div>
+         <Link to="/calculate/percentages" className="results-details">
+            SEE DETAILS
+         </Link>
          <p className="results-explanation">Text explaining what this means.</p>
 
          {/* <span className="results-back-link" onClick={handleClickPreviousSection}>
             Go Back
          </span> */}
-         <Link to="/calculate/percentages" className="results-details">
-            SEE DETAILS
-         </Link>
 
          <ButtonShareModal />
          

@@ -26,3 +26,13 @@
     box-shadow: 0px 2px 0px #ffc2b3;
     margin: 15px;
 }
+
+
+@media only screen and (min-device-width: 660px) {
+.buttonshare-share-button {
+    font-size: 15px;
+    border-radius: 30px;
+    margin: 15px 0 20px 0;
+    height: 60px;
+}
+}

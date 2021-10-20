@@ -49,17 +49,17 @@ const FasteningsOption1 = (props) => {
    console.log('result Fastening: ', fasteningCO2e1);
 
    return (
-      <div className="fastening-choice-container">
+      <div className="fastenings-choice-container">
          <ProgressBar stage={2} previous="Material" next="Fabrication" />
-         <p className="fastening-direction-text">Does it have fastenings?</p>
-         <div className="fastening-items-container">
-            <div className="fastening-before-click">
+         <p className="fastenings-direction-text">Does it have fastenings?</p>
+         <div className="fastenings-items-container">
+            <div className="fastenings-before-click">
                <img
                   src={itemTypeAdress1}
                   alt={itemTypeAdress1}
-                  className="fastening-img-cover"
+                  className="fastenings-img-cover"
                />
-               <span className="fastening-small-text">Fastenings</span>
+               <span className="fastenings-small-text">Fastenings</span>
             </div>
          </div>
          <div>
@@ -67,13 +67,14 @@ const FasteningsOption1 = (props) => {
                fastenings.map((fastening, i) => {
                   return (
                      <div key={i}>
-                        <h3 className="fastenings-option-text">
+                        <p className="fastenings-option-text">
                            {fastening.name}
-                        </h3>
+                        </p>
                         <input
                            type="number"
                            min="0"
                            step="1"
+                           className="light-pink"
                            value={listOfQuantities[i].quantity}
                            onChange={(e) => {
                               copyOfQuantities[i].quantity = e.target.value;
@@ -84,7 +85,7 @@ const FasteningsOption1 = (props) => {
                   );
                })}
          </div>
-         <div className="fastening-back-next-buttons">
+         <div className="fastenings-back-next-buttons">
             <button
                className="back-button"
                type="button"

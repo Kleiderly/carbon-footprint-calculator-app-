@@ -59,8 +59,8 @@ const LogisticsOption1 = (props) => {
                </div>
             </div>
          </div>
-         <div className="logistics-big-container">
-            <div className="logistics-container">
+         <div className="logistics-big-container1">
+            <div className="logistics-container1">
                {countriesFrom.map((item, i) => (
                   <div
                      onClick={() => handleClickMappedItem(item, i)}
@@ -99,7 +99,7 @@ const LogisticsOption1 = (props) => {
                   trigger={<button className="next-button"> NEXT</button>}
                   position="top center"
                >
-                  <div>Please make your selection!</div>
+               <div className="pop-up-box">Please make a selection.</div>
                </Popup>
             )}
          </div>
