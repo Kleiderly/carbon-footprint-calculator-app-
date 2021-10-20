@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react';
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import "./css/Admin.css";
 
 
 function AdminForms() {
+    const [privateData, setPrivateData] = useState("");
 /* API call results */
     const [material, setMaterial] = useState([]);
     const [logistic, setLogistic] = useState([]);
@@ -32,28 +34,62 @@ function AdminForms() {
     const fasteningAPI = axios.get(`/api/fastening`);
     const adminAPI = axios.get(`/api/auth/`);
 /* Sets forms to display admin level */
-    const [user , setUser] = useState(true);
+    // const [superAdmin , setSuperAdmin] = useState ();
+
+    let history = useHistory();
     
+
+
+ // To block users without login
+    useEffect(() => {
+        const fetchPrivateDate = async () => {
+          const config = {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+            },
+          };
+    
+          try {
+            const { data } = await axios.get("/api/private", config);
+            setPrivateData(data.data);
+
+          
+            
+          } catch (error) {
+            localStorage.removeItem("authToken");
+            setError("You are not authorized please login");
+          }
+        };
+    
+        fetchPrivateDate();
+      }, []);
    
+
+        let superAdmin = JSON.parse(localStorage.getItem("superAdmin"));
+        
+        
+        
+     
+
+
+
 /* API calls */
     useEffect(()=>{
         axios.all([materialAPI, logisticAPI, fasteningAPI, adminAPI])
         .then(axios.spread((...res) => {
-            console.log(res)
             console.log(res[0].data, res[1].data, res[2].data, res[3].data);
             setMaterial(res[0].data);
             setLogistic(res[1].data);
             (setAuth(res[3].data));
-            console.log(setRole(res[3].data.role))
+            
         }))
         .catch((err)=> console.log(err))
     }, [submit]);
 
-//   console.log(res[3].data)
 
-    // const verifySuperAdmin = () =>{
-    //     if(user === adminAPI )
-    // }
+       
+ 
 
 /* Submit message */
     const success = "Submit successful!";
@@ -227,9 +263,18 @@ function AdminForms() {
             }}
             />
         </div>;
-        
 
-    return (
+//Logout 
+        const handleLogout = () => {
+            localStorage.removeItem("authToken");
+            history.push("/adminpage/login");
+        }
+        
+     
+    return error ? (
+        <span className="error-message">{error}</span>
+      ) : (
+          
         <div className="forms-wrapper">
 
             <div className="form-section">
@@ -320,8 +365,8 @@ function AdminForms() {
 
 {/* DELETE/MODIFY FORM */}
             <div className="form-section">
-                <h2 className={user ? "form-admin" : "form-member"}>Modify / Delete item from database</h2>
-                <h2 className={user ? "form-member" : "form-admin"}>Modify item from database</h2>
+                <h2 className={superAdmin ? "form-admin" : "form-member"}>Modify / Delete item from database</h2>
+                <h2 className={superAdmin ? "form-member" : "form-admin"}>Modify item from database</h2>
                     
 {/* DELETE/MODIFY MATERIAL*/}
                 <h4 className="admin-title">Materials</h4>
@@ -463,7 +508,7 @@ function AdminForms() {
 {/* SUBMIT buttons */}
                 <div className="form-input center-align">
                     <button onClick={handleModify}>MODIFY</button>
-                    <button className={user ? "form-admin" : "form-member"} onClick={handleDelete}>DELETE</button>
+                    <button className={superAdmin ? "form-admin" : "form-member"} onClick={handleDelete}>DELETE</button>
                     <button onClick={clearForm}>CLEAR FORM</button>
                 </div>
                 <div className="form-submit">&nbsp;{section === "form2" && submit}&nbsp;</div>
@@ -473,12 +518,15 @@ function AdminForms() {
             <hr className="hr" />
 
     
-            <div className="form-section">
-                <h2>Add / Modify User</h2>
+            
 
 {/* POST to ADMIN */}
+            <div className={superAdmin ? "form-admin" : "form-member"} >
+            <div className="form-section">
+                <h2>Add / Modify User</h2>
                 <h4>Add new User</h4>
-                <div className="form-item">
+                <div >
+                    <div className="form-item">
                     <div className="form-input">
                         Username: <br />
                         <input 
@@ -505,6 +553,8 @@ function AdminForms() {
                         }}
                         />
                     </div>
+                    </div>
+                    <div className="form-item">
                     <div className="form-input">
                         Password: <br />
                         <input 
@@ -516,23 +566,25 @@ function AdminForms() {
                         onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
-                    
+        
                     <div className="form-input">
                         Confirm Password: <br />
                         <input 
                         className="light-pink"
-                        type="confirmpassword"
+                        type="password"
                         name="confirmpassword"
-                        id="passw"
+                        id="passw2"
                         value={confirmpassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
                         />
+                    </div>
                     </div>
                 </div>
                 <div className="form-item password-field">
                     <input type="checkbox" className="pw-checkbox" onClick={showPw} />Show Password
                 </div>
                 <div className="form-input center-align">
+                </div>
 {/* POST to ADMIN  buttons*/}
                     <button onClick={handledAddAdmins}>ADD</button>
                     <button onClick={clearForm}>CLEAR FORM</button>
@@ -541,8 +593,9 @@ function AdminForms() {
 
 
 {/* DELETE/MODIFY ADMIN */}
-                <h4 className={user ? "form-admin" : "form-member"}>Delete / Modify User</h4>
-                <h4 className={user ? "form-member" : "form-admin"}>Modify User</h4>
+                <div className={superAdmin ? "form-admin" : "form-member"}>
+                <h4 className={superAdmin ? "form-admin" : "form-member"}>Delete / Modify User</h4>
+                <h4 className={superAdmin ? "form-member" : "form-admin"}>Modify User</h4>
 
                 <div className="form-item">
                     <div className="form-input">
@@ -570,7 +623,8 @@ function AdminForms() {
                             })};
                         </select>
                     </div>
-                    <div className="form-input">
+                    </div>
+                    {/* <div className="form-input">
                         Password: <br />
                         <input
                         className="light-pink"
@@ -583,17 +637,21 @@ function AdminForms() {
                         </div>
                     </div>
                 <div className="form-item password-field">
-                    <input type="checkbox" className="pw-checkbox" onClick={showPw} />Show Password
-                </div>
+                    <input type="checkbox" className="pw-checkbox" onClick={showPw} />Show Password */}
+                {/* </div> */}
+                
                 <div className="form-input center-align">
-{/* DELETE/MODIFY ADMIN buttons*/}
-                    <button onClick={handleModify}>MODIFY</button>
-                    <button className={user ? "form-admin" : "form-member"} onClick={handleDeleteAdmin}>DELETE</button>
+            {/* DELETE/MODIFY ADMIN buttons*/}
+                    
+                    <button onClick={handleDeleteAdmin}>DELETE</button>
                     <button onClick={clearForm}>CLEAR FORM</button>
+                    </div>
                 </div>
-                <div className="form-submit">&nbsp;{section === "form4" && submit}&nbsp;</div>
             </div>
+                <button onClick={handleLogout}>Logout</button>
+                <div className="form-submit">&nbsp;{section === "form4" && submit}&nbsp;</div>
         </div>
+        
     )
 }
 

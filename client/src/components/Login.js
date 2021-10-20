@@ -1,18 +1,23 @@
-import {React, useState, useEffect }from "react";
+import {React, useState, useEffect, useContext }from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
-
+import Context from '../contexts/ContextApi';
 import axios from "axios";
 
 function Login() {
 
 
 
-    const [email, setEmail] = useState("");
+    // const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
 
     let history = useHistory();
+
+    const{ email, setEmail } = useContext(Context);
+
+    console.log(email)
+
   
     useEffect(() => {
       if (localStorage.getItem("authToken")) {
@@ -35,7 +40,7 @@ function Login() {
           { email, password },
           config
         );
-  
+        localStorage.setItem("superAdmin", data.superAdmin)
         localStorage.setItem("authToken", data.token);
   
         history.push("/adminpage/forms");
