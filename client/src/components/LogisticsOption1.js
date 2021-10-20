@@ -46,59 +46,39 @@ const LogisticsOption1 = (props) => {
    };
 
    return (
-      <div className="logistics-choice-container">
+      <div className="logistics-wrapper">
          <ProgressBar stage={3} previous="Fastenings" next="Results" />
-         <div>
-            <div>
-               <p className="logistics-direction-text">Where was it produced?</p>
-               <div className="logistics-items-container">
-                  <div className="logistics-before-click">
-                     <img src={itemTypeAdress1} alt={itemTypeAdress1} className="logistics-img-cover" />
-                     <span className="logistics-small-text">Origin</span>
-                  </div>
-               </div>
+
+         <p className="logistics-title">Where was it produced?</p>
+         <div className="logistics-items-container">
+            <div className="logistics-before-click">
+               <img src={itemTypeAdress1} alt={itemTypeAdress1} className="logistics-img-cover" />
+               <span className="logistics-small-text">Origin</span>
             </div>
          </div>
+
          <div className="logistics-big-container1">
             <div className="logistics-container1">
                {countriesFrom.map((item, i) => (
-                  <div
-                     onClick={() => handleClickMappedItem(item, i)}
-                     key={item._id}
-                  >
-                     <ItemBox
-                        name={item.productionLocation}
-                        index={i}
-                        selected={selected}
-                     />
+                  <div onClick={() => handleClickMappedItem(item, i)} key={item._id} >
+                     <ItemBox name={item.productionLocation} index={i} selected={selected} />
                   </div>
                ))}
             </div>
          </div>
          <div className="category-back-next-buttons">
-            <button
-               className="back-button"
-               type="button"
-               onClick={handleClickPreviousSection}
-            >
+            <button className="back-button" type="button" onClick={handleClickPreviousSection} >
                BACK
             </button>
 
             {selectCountry1 ? (
                <Link to="/calculate/results">
-                  <button
-                     className="next-button"
-                     type="button"
-                     onClick={handleClick}
-                  >
+                  <button className="next-button" type="button" onClick={handleClick} >
                      NEXT
                   </button>
                </Link>
             ) : (
-               <Popup
-                  trigger={<button className="next-button"> NEXT</button>}
-                  position="top center"
-               >
+               <Popup trigger={<button className="next-button"> NEXT</button>} position="top center" >
                <div className="pop-up-box">Please make a selection.</div>
                </Popup>
             )}

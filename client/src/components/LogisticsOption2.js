@@ -62,83 +62,60 @@ function Logistics(props) {
    console.log(selectCountry2);
 
    return (
-      <div className="logistics-choice-container">
+      <div className="logistics-wrapper">
          <ProgressBar stage={3} previous="Fastenings" next="Results" />
-         <div>
-            <div>
-               <p className="logistics-direction-text">
-                  Where were they produced?
-               </p>
-               <div className="logistics-items-container">
-                  <div className="logistics-before-click-category">
-                     <img
-                        src={itemTypeAdress1}
-                        alt={itemTypeAdress1}
-                        className="logistics-img-cover"
-                     />
-                     <span>1st Item</span>
-                  </div>
-                  <div className="logistics-before-click-category">
-                     <img src={itemTypeAdress2} alt={itemTypeAdress2} className="logistics-img-cover" />
-                     <span>2nd Item</span>
-                  </div>
+
+         <p className="logistics-title">
+            Where were they produced?
+         </p>
+         
+         <div className="logistics-items-container2">
+
+            <div className="logistics-item-group">
+               <div className="logistics-before-click">
+                  <img src={itemTypeAdress1} alt={itemTypeAdress1} className="logistics-img-cover" />
+                  <span>1st Item</span>
+               </div>
+               <div className="logistics-container">
+                  {countriesFrom.map((item, i) => (
+                     <div onClick={() => handleClickMappedItem1(item, i)} key={item._id} >
+                        <ItemBox name={item.productionLocation} index={i} selected={selected1} />
+                     </div>
+                  ))}
                </div>
             </div>
-         </div>
-         <div className="logistics-big-container">
-            <div className="logistics-container">
-               {countriesFrom.map((item, i) => (
-                  <div
-                     onClick={() => handleClickMappedItem1(item, i)}
-                     key={item._id}
-                  >
-                     <ItemBox
-                        name={item.productionLocation}
-                        index={i}
-                        selected={selected1}
-                     />
-                  </div>
-               ))}
+
+            <div>&nbsp;&nbsp;</div>
+
+            <div className="logistics-item-group">
+               <div className="logistics-before-click">
+                  <img src={itemTypeAdress2} alt={itemTypeAdress2} className="logistics-img-cover" />
+                  <span>2nd Item</span>
+               </div>
+               <div className="logistics-container">
+                  {countriesFrom.map((item, i) => (
+                     <div onClick={() => handleClickMappedItem2(item, i)} key={item._id} >
+                        <ItemBox name={item.productionLocation} index={i} selected={selected2} />
+                     </div>
+                  ))}
+               </div>
             </div>
-            <div className="logistics-container">
-               {countriesFrom.map((item, i) => (
-                  <div
-                     onClick={() => handleClickMappedItem2(item, i)}
-                     key={item._id}
-                  >
-                     <ItemBox
-                        name={item.productionLocation}
-                        index={i}
-                        selected={selected2}
-                     />
-                  </div>
-               ))}
-            </div>
+
          </div>
+
          <div className="category-back-next-buttons">
-            <button
-               className="back-button"
-               type="button"
-               onClick={handleClickPreviousSection}
-            >
+            <button className="back-button" type="button" onClick={handleClickPreviousSection} >
                BACK
             </button>
 
             {selectCountry1 && selectCountry2 ? (
                <Link to="/compare/results">
-                  <button
-                     className="next-button"
-                     type="button"
-                     onClick={handleClick}
-                  >
+                  <button className="next-button" type="button" onClick={handleClick} >
                      NEXT
                   </button>
                </Link>
             ) : (
-               <Popup
-                  trigger={<button className="next-button"> NEXT</button>}
-                  position="top center"
-               >
+               <Popup trigger={<button className="next-button"> NEXT</button>} position="top center" >
                   <div>Please make your selections!</div>
                </Popup>
             )}

@@ -6,13 +6,13 @@
     margin: 10px;
  }
  
- .percentages-direction-text {
+ .percentages-title {
     font-size: 6vw;
     color: #0e2823;
     margin: 10px 0 10px 0;
  }
  
- .percentages-img-cover,  .percentages-img-cover2 {
+ .percentages-img-cover, .percentages-img-cover2 {
     width: 100px;
     margin-bottom: 5px;
     filter: drop-shadow(0px 3px 1px rgba(0, 0, 0, 0.644));
@@ -22,16 +22,12 @@
     width: 80px;
  }
 
- .percentages-big-container, .percentages-big-container2 {
+ .percentages-main-container, .percentages-main-container2 {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
  }
-
- .percentages-big-container2 {
-   flex-direction: row;
-}
 
  .percentages-categories, .percentages-totals {
      text-align: center;
@@ -63,9 +59,9 @@
     color: #415551;
 }
  
- .percentages-container, .percentages-container2 {
+ .percentages-item-group, .percentages-container2, .percentages-container2-1 {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     text-align: center;
     margin-top: 5px;
@@ -73,13 +69,17 @@
     font-size: 3.5vw;
  }
 
- .percentages-container2 {
+ .percentages-container2, .percentages-container2-1 {
     text-align: left;
     width: 100%;
     background-color: #d2cdc62a;
     border-radius: 5px;
     padding: 3px;
  }
+
+ .percentages-container2-1 {
+   width: 80%;
+}
 
  .percentages-explanation {
     font-size: 3.8vw;
@@ -107,14 +107,14 @@
  }
 
 
- @media only screen and (min-device-width: 768px) {
+ @media only screen and (min-device-width: 660px) {
 
-.percentages-direction-text {
+.percentages-title {
    font-size: 30px;
    margin: 30px 20px 10px 20px;
 }
 
-.percentages-container, .percentages-container2 {
+.percentages-item-group, .percentages-container2, .percentages-container2-1 {
    justify-content: space-between;
    margin: 5px 0 0 0;
    font-size: 16px;
@@ -122,8 +122,16 @@
 }
 
 .percentages-container2 {
-   width: 250px;
+   width: 400px;
    margin: 10px 0 10px 0;
+}
+
+.percentages-main-container2 {
+   flex-direction: row;
+}
+
+.percentages-main-container {
+   width: 300px;
 }
 
 .percentages-explanation {

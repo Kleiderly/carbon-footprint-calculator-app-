@@ -67,77 +67,61 @@ const MaterialsOption2 = (props) => {
    console.log(selectMaterial2);
 
    return (
-      <div className="material-choice-container">
+      <div className="material-wrapper">
          <ProgressBar stage={1} previous="Choice" next="Fastenings" />
-         <div>
-            <div>
-               <p className="material-direction-text">
-                  What material are they made of?
-               </p>
-               <div className="material-items-container">
-                  <div className="material-before-click">
-                     <img
-                        src={itemTypeAdress1}
-                        alt={itemTypeAdress1}
-                        className="material-img-cover"
-                     />
-                     <span>1st Item</span>
-                  </div>
-                  <div className="material-before-click-category">
-                     <img src={itemTypeAdress2} alt={itemTypeAdress2} className="material-img-cover" />
-                     <span>2nd Item</span>
-                  </div>
+
+         <p className="title">
+            What material are they made from?
+         </p>
+
+         <div className="material-items-container2">
+
+            <div className="material-item-group">
+               <div className="material-before-click">
+                  <img src={itemTypeAdress1} alt={itemTypeAdress1} className="material-img-cover" />
+                  <span>1st Item</span>
+               </div>
+
+               <div className="material-container">
+                  {materials.map((item, i) => (
+                     <div onClick={() => handleClickMappedItem1(item, i)} key={item._id} >
+                        <ItemBox index={i} name={item.name} selected={selected1} />
+                     </div>
+                  ))}
                </div>
             </div>
+
+           <div>&nbsp;&nbsp;</div>
+
+            <div className="material-item-group">
+               <div className="material-before-click">
+                  <img src={itemTypeAdress2} alt={itemTypeAdress2} className="material-img-cover" />
+                  <span>2nd Item</span>
+               </div>
+
+               <div className="material-container">
+                  {materials.map((item, i) => (
+                     <div onClick={() => handleClickMappedItem2(item, i)} key={item._id}>
+                        <ItemBox index={i} name={item.name} selected={selected2} />
+                     </div>
+                  ))}
+               </div>
+            </div>
+
          </div>
          
-         <div className="material-big-container">
-            <div className="material-container">
-               {materials.map((item, i) => (
-                  <div
-                     onClick={() => handleClickMappedItem1(item, i)}
-                     key={item._id}
-                  >
-                     <ItemBox index={i} name={item.name} selected={selected1} />
-                  </div>
-               ))}
-            </div>
-            <div className="material-container">
-               {materials.map((item, i) => (
-                  <div
-                     onClick={() => handleClickMappedItem2(item, i)}
-                     key={item._id}
-                  >
-                     <ItemBox index={i} name={item.name} selected={selected2} />
-                  </div>
-               ))}
-            </div>
-         </div>
-
          <div className="material-back-next-buttons">
-            <button
-               className="back-button"
-               type="button"
-               onClick={handleClickPreviousSection}
-            >
+            <button className="back-button" type="button" onClick={handleClickPreviousSection}>
                BACK
             </button>
-
             {selectMaterial1 && selectMaterial2 ? (
                <Link to="/compare/fastenings">
-                  <button
-                     className="next-button"
-                     type="button"
-                     onClick={handleClick}
-                  >
+                  <button className="next-button" type="button" onClick={handleClick}>
                      NEXT
                   </button>
                </Link>
             ) : (
-               <Popup
-                  trigger={<button className="next-button"> NEXT</button>}
-                  position="top center"
-               >
+               <Popup trigger={<button className="next-button"> NEXT</button>} position="top center">
                   <div>Please make your selections!</div>
                </Popup>
             )}
@@ -146,6 +130,7 @@ const MaterialsOption2 = (props) => {
          <div className="tips">
             <Tips category="materials" />
          </div>
+
       </div>
    );
 };

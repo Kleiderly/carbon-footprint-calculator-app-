@@ -27,29 +27,24 @@ const ResultsOption1 = (props) => {
    };
 
    return (
-      <div className="results-choice-container">
-      {/* <Leaves /> */}
-         <div>
-            <div>
-               <p className="results-direction-text">Result!</p>
-               <div className="results-items-container">
-                  <div className="results-before-click-category">
-                     <img src={itemTypeAdress1} alt={itemTypeAdress1} className="results-img-cover" />
-                     <div className="results-carbon-result">
-                        Total: {totalCo2e1}
-                     </div>
-                  </div>
+      <div className="results-wrapper">
+         {/* <Leaves /> */}
+
+         <p className="results-title">Result!</p>
+
+         <div className="results-items-container">
+            <div className="results-before-click">
+               <img src={itemTypeAdress1} alt={itemTypeAdress1} className="results-img-cover" />
+               <div className="results-carbon-result">
+                  Total: {totalCo2e1}
                </div>
             </div>
          </div>
+  
          <Link to="/calculate/percentages" className="results-details">
             SEE DETAILS
          </Link>
          <p className="results-explanation">Text explaining what this means.</p>
-
-         {/* <span className="results-back-link" onClick={handleClickPreviousSection}>
-            Go Back
-         </span> */}
 
          <ButtonShareModal />
          

@@ -80,37 +80,35 @@ const ResultsOption2 = (props) => {
 
 
 return (
-   <div className="results-choice-container">
-      <div>
-         <div>
-            <p className="results-direction-text">Results!</p>
-            <div className="results-big-container">
-               <div className="results-container">
-                  <div className={totalCo2e1 < totalCo2e2 ? "results-before-click-category" : "results-after-click-category"}>
-                     <img src={itemTypeAdress1} alt={itemTypeAdress1} className="results-img-cover" />
-                  <div>
-                     First item
-                     <p className="results-carbon-result">Total: {totalCo2e1}</p>
-                  </div>
-                  </div>
-               </div>
-               <div className="results-container">
-                  <div className={totalCo2e1 > totalCo2e2 ? "results-before-click-category" : "results-after-click-category"}>
-                     <img src={itemTypeAdress2} alt={itemTypeAdress2} className="results-img-cover" />
-                  <div>
-                     Second item
-                     <p className="results-carbon-result">Total: {totalCo2e2}</p>
-                  </div>
-                  </div>
+   <div className="results-wrapper">
+
+      <p className="results-title">Results!</p>
+      <div className="results-main-container">
+
+         <div className="results-item-group">
+            <div className={totalCo2e1 < totalCo2e2 ? "results-before-click" : "results-after-click"}>
+               <img src={itemTypeAdress1} alt={itemTypeAdress1} className="results-img-cover" />
+               <div>
+                  First item
+                  <p className="results-carbon-result">Total: {totalCo2e1}</p>
                </div>
             </div>
          </div>
+
+         <div className="results-item-group">
+            <div className={totalCo2e1 > totalCo2e2 ? "results-before-click" : "results-after-click"}>
+               <img src={itemTypeAdress2} alt={itemTypeAdress2} className="results-img-cover" />
+               <div>
+                  Second item
+                  <p className="results-carbon-result">Total: {totalCo2e2}</p>
+               </div>
+            </div>
+         </div>
+         
       </div>
 
       {totalCo2e1 === totalCo2e2 ? messageEven : messageUneven }
-      {/* <button type="button" onClick={handleClickPreviousSection}>
-         Go Back
-      </button> */}
+
       <Link to="/compare/percentages" className="results-details">
          SEE DETAILS
       </Link>

@@ -49,19 +49,18 @@ const FasteningsOption1 = (props) => {
    console.log('result Fastening: ', fasteningCO2e1);
 
    return (
-      <div className="fastenings-choice-container">
+      <div className="fastenings-wrapper">
          <ProgressBar stage={2} previous="Material" next="Fabrication" />
+
          <p className="fastenings-direction-text">Does it have fastenings?</p>
+
          <div className="fastenings-items-container">
             <div className="fastenings-before-click">
-               <img
-                  src={itemTypeAdress1}
-                  alt={itemTypeAdress1}
-                  className="fastenings-img-cover"
-               />
+               <img src={itemTypeAdress1} alt={itemTypeAdress1} className="fastenings-img-cover"/>
                <span className="fastenings-small-text">Fastenings</span>
             </div>
          </div>
+
          <div>
             {listOfQuantities.length > 0 &&
                fastenings.map((fastening, i) => {
@@ -85,20 +84,13 @@ const FasteningsOption1 = (props) => {
                   );
                })}
          </div>
+
          <div className="fastenings-back-next-buttons">
-            <button
-               className="back-button"
-               type="button"
-               onClick={handleClickPreviousSection}
-            >
+            <button className="back-button" type="button" onClick={handleClickPreviousSection} >
                BACK
             </button>
             <Link to="/calculate/logistics">
-               <button
-                  className="next-button"
-                  type="button"
-                  onClick={addFastenings}
-               >
+               <button className="next-button" type="button" onClick={addFastenings} >
                   NEXT
                </button>
             </Link>

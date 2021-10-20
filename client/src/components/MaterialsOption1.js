@@ -40,9 +40,9 @@ const MaterialsOption1 = (props) => {
    };
 
    return (
-      <div className="material-choice-container">
+      <div className="material-wrapper">
          <ProgressBar stage={1} previous="Choice" next="Fastenings" />
-         <p className="material-direction-text">What material is it made of?</p>
+         <p className="title">What material is it made of?</p>
          <div className="material-items-container">
             <div className="material-before-click">
                <img
@@ -56,40 +56,27 @@ const MaterialsOption1 = (props) => {
 
          <div className="material-container1">
             {materials.map((item, i) => (
-               <div
-                  onClick={() => handleClickMappedItem(item, i)}
-                  key={item._id}
-               >
+               <div onClick={() => handleClickMappedItem(item, i)} key={item._id} >
                   <ItemBox index={i} name={item.name} selected={selected} />
                </div>
             ))}
          </div>
 
          <div className="category-back-next-buttons">
-            <button
-               className="back-button"
-               type="button"
-               onClick={handleClickPreviousSection}
-            >
+            <button className="back-button" type="button" onClick={handleClickPreviousSection} >
                BACK
             </button>
 
             {selectMaterial1 ? (
                <Link to="/calculate/fastenings">
                   <button
-                     className="next-button"
-                     type="button"
-                     onClick={() => setMaterialCO2e1(selectMaterial1)}
-                  >
+                     className="next-button" type="button" onClick={() => setMaterialCO2e1(selectMaterial1)} >
                      NEXT
                   </button>
                </Link>
             ) : (
-               <Popup
-                  trigger={<button className="next-button"> NEXT</button>}
-                  position="top center"
-               >
-               <div className="pop-up-box">Please make a selection.</div>
+               <Popup trigger={<button className="next-button"> NEXT</button>} position="top center" >
+                  <div className="pop-up-box">Please make a selection.</div>
                </Popup>
             )}
          </div>
