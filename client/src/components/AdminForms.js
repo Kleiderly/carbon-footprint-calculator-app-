@@ -71,9 +71,7 @@ function AdminForms() {
 /* Show/Hide password field */
     const showPw = ()=> {
         const pw = document.getElementById("passw");
-        const pw2 = document.getElementById("passw2");
         pw.type === "password" ? pw.type = "text" : pw.type = "password"
-        pw2.type === "password" ? pw2.type = "text" : pw2.type = "password"
     };
 
 
@@ -170,7 +168,7 @@ function AdminForms() {
         <div className="forms-wrapper">
 
             <div className="form-section">
-                <h2>Add item to database</h2>
+                <h2 className="form-main-title">Add item to database</h2>
 
 {/* POST to MATERIALS */}
                 <h4 className="admin-title">Materials</h4>
@@ -257,8 +255,8 @@ function AdminForms() {
 
 {/* DELETE/MODIFY FORM */}
             <div className="form-section">
-                <h2 className={user ? "form-admin" : "form-member"}>Modify / Delete item from database</h2>
-                <h2 className={user ? "form-member" : "form-admin"}>Modify item from database</h2>
+                <h2 className={user ? "form-admin form-main-title" : "form-member"}>Modify / Delete item from database</h2>
+                <h2 className={user ? "form-member" : "form-admin form-main-title"}>Modify item from database</h2>
                     
 {/* DELETE/MODIFY MATERIAL*/}
                 <h4 className="admin-title">Materials</h4>
@@ -411,7 +409,7 @@ function AdminForms() {
 
     
             <div className={user ? "form-admin form-section" : "form-member"}>
-                <h2>Add User</h2>
+                <h2 className="form-main-title">Add / Delete User</h2>
 
 {/* POST to ADMIN */}
                 <h4>Add new User</h4>
@@ -479,20 +477,7 @@ function AdminForms() {
                             })};
                         </select>
                     </div>
-                    <div className="form-input">
-                        Password: <br />
-                        <input
-                        className="light-pink"
-                        type="password"
-                        name="password"
-                        id="passw2"
-                        value={cat === "admin" ? password : ""}
-                        onChange={(e) => setPassword(e.target.value)}
-                        />
-                        </div>
-                    </div>
-                <div className="form-item password-field">
-                    <input type="checkbox" className="pw-checkbox" onClick={showPw} />Show Password
+                   
                 </div>
                 <div className="form-input center-align">
 {/* DELETE/MODIFY ADMIN buttons*/}
