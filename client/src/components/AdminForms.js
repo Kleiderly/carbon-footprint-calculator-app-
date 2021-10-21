@@ -285,6 +285,7 @@ function AdminForms() {
                             setModName(e.target.value);
                             setSection("form2");
                             setCat("material");
+                            setModName2("");
                             console.log("Material", modCo2e, modId, modName, filterArr);
                         }}>
                             <option></option>
@@ -383,6 +384,7 @@ function AdminForms() {
                             setModName(e.target.value);
                             setCat("fastening");
                             setSection("form2");
+                            setModName2("");
                             console.log("Fastenings", modCo2e, modId, modName, filterArr);
                         }}>
                             <option></option>
