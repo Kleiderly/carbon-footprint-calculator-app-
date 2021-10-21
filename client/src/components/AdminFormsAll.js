@@ -230,20 +230,6 @@ function AdminForms() {
         })
     }
 
-/* POST to X co2e first form value input HTML (repeated) */
-    const inputCo2e1 = 
-        <div className="form-input">
-            <p className="admin-input-label">Co2e per item: </p>
-            <input 
-            className="light-pink"
-            type="text"
-            name="co2e"
-            onChange={(e) => {
-                setModCo2e(e.target.value); 
-            }}
-            />
-        </div>;
-
 //Logout 
     const handleLogout = () => {
         localStorage.removeItem("authToken");
@@ -268,14 +254,28 @@ function AdminForms() {
                         className="light-pink" 
                         type="text"
                         name="material"
+                        value={cat === "material" && section === "form1" ? modName : ""}
                         onChange={(e) => {
-                          setModName(e.target.value);
-                          setSection("form1");
-                          setCat("material");
+                          setModName(e.target.value)
+                          setSection("form1")
+                          setCat("material")
+                          setModCo2e("")
+                          setModName2("")
+                        }}
+                        />
+                    </div>        
+                    <div className="form-input">
+                        <p className="admin-input-label">Co2e per item: </p>
+                        <input 
+                        className="light-pink"
+                        type="text"
+                        name="co2e"
+                        value={cat === "material" && section === "form1" ? modCo2e : ""}
+                        onChange={(e) => {
+                            setModCo2e(e.target.value)
                         }}
                         />
                     </div>
-                    {inputCo2e1}
                 </div>
 
 {/* POST to LOGISTICS */}
@@ -285,12 +285,15 @@ function AdminForms() {
                     <p className="admin-input-label">Production Location: </p>
                         <input 
                         className="light-pink" 
+                        value={cat === "logistic" && section === "form1" ? modName : ""}
                         type="text"
                         name="logistics"
                         onChange={(e) => {
                           setModName(e.target.value);
                           setCat("logistic")
-                          setSection("form1");
+                          setSection("form1")
+                          setModCo2e("")
+                          setModName2("")
                         }}
                         />
                     </div>
@@ -298,17 +301,30 @@ function AdminForms() {
                     <p className="admin-input-label">Consumer Location: </p>
                         <input 
                         className="light-pink" 
+                        value={cat === "logistic" && section === "form1" ? modName2 : ""}
                         type="text"
                         name="logistics"
                         onChange={(e) => {
                             setCat("logistic")
-                          setModName2(e.target.value);
+                            setSection("form1")
+                            setModName2(e.target.value)
                         }}
                         />
                     </div>
                 </div>
                 <div className="form-item">
-                    {inputCo2e1}
+                    <div className="form-input">
+                        <p className="admin-input-label">Co2e per item: </p>
+                        <input 
+                        className="light-pink"
+                        type="text"
+                        name="co2e"
+                        value={cat === "logistic" && section === "form1" ? modCo2e : ""}
+                        onChange={(e) => {
+                            setModCo2e(e.target.value)
+                        }}
+                        />
+                    </div>
                 </div>
 
 {/* POST to FASTENINGS */}
@@ -318,16 +334,30 @@ function AdminForms() {
                     <p className="admin-input-label">Name: </p>
                         <input 
                         className="light-pink" 
+                        value={cat === "fastening" && section === "form1" ? modName : ""}
                         type="text"
                         name="fastenings"
                         onChange={(e) => {
-                          setModName(e.target.value);
-                          setSection("form1");
+                          setModName(e.target.value)
+                          setSection("form1")
                           setCat("fastening")
+                          setModCo2e("")
+                          setModName2("")
                         }}
                         />
                     </div>
-                    {inputCo2e1}
+                    <div className="form-input">
+                        <p className="admin-input-label">Co2e per item: </p>
+                        <input 
+                        className="light-pink"
+                        type="text"
+                        name="co2e"
+                        value={cat === "fastening" && section === "form1" ? modCo2e : ""}
+                        onChange={(e) => {
+                            setModCo2e(e.target.value)
+                        }}
+                        />
+                    </div>
                 </div>
 
 {/* SUBMIT buttons */}
@@ -359,6 +389,7 @@ function AdminForms() {
                             setModName(e.target.value);
                             setSection("form2");
                             setCat("material");
+                            setModName2("");
                             console.log("Material", modCo2e, modId, modName, filterArr);
                         }}>
                             <option></option>
@@ -382,7 +413,7 @@ function AdminForms() {
                         className="light-pink"
                         type="text"
                         name="co2e"
-                        value={cat === "material" ? modCo2e : ""}
+                        value={cat === "material" && section === "form2" ? modCo2e : ""}
                         onChange={(e) => setModCo2e(e.target.value)}
                         />
                     </div>
@@ -425,7 +456,7 @@ function AdminForms() {
                         className="light-pink"
                         type="text"
                         name="logistic"
-                        value={modName2}
+                        value={cat === "logistic" && section === "form2" ? modName2 : ""}
                         onChange={(e) => setModName2(e.target.value)}
                         />
                     </div>
@@ -438,7 +469,7 @@ function AdminForms() {
                         className="light-pink"
                         type="text"
                         name="co2e"
-                        value={cat === "logistic" ? modCo2e : ""}
+                        value={cat === "logistic" && section === "form2"  ? modCo2e : ""}
                         onChange={(e) => setModCo2e(e.target.value)}
                         />
                     </div>
@@ -457,6 +488,7 @@ function AdminForms() {
                             setModName(e.target.value);
                             setCat("fastening");
                             setSection("form2");
+                            setModName2("");
                             console.log("Fastenings", modCo2e, modId, modName, filterArr);
                         }}>
                             <option></option>
@@ -480,7 +512,7 @@ function AdminForms() {
                         className="light-pink"
                         type="text"
                         name="co2e"
-                        value={cat === "fastening" ? modCo2e : ""}
+                        value={cat === "fastening" && section === "form2" ? modCo2e : ""}
                         onChange={(e) => setModCo2e(e.target.value)}
                         />
                     </div>
