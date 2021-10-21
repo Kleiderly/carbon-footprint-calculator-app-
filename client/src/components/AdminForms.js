@@ -279,6 +279,7 @@ function AdminForms() {
                     <p className="admin-input-label">Material: </p>
                         <select
                         className="light-pink" 
+                        value={modName}
                         onChange={(e) => {
                             setFilterArr(material.find((type)=> type.name === e.target.value));
                             setModName(e.target.value);
@@ -320,6 +321,7 @@ function AdminForms() {
                     <p className="admin-input-label">Production Location: </p>
                         <select 
                         className="light-pink"
+                        value={modName}
                         onChange={(e) => {
                             setFilterArr(logistic.find((type)=> type.productionLocation === e.target.value));
                             setModName(e.target.value);
@@ -347,6 +349,7 @@ function AdminForms() {
                     <p className="admin-input-label">Consumer Location: </p>
                         <input
                         className="light-pink"
+                        value={modName2}
                         type="text"
                         name="logistic"
                         value={modName2}
@@ -375,6 +378,7 @@ function AdminForms() {
                     <p className="admin-input-label">Name:</p>
                         <select 
                         className="light-pink"
+                        value={modName}
                         onChange={(e) => {
                             setFilterArr(fastening.find((type)=> type.name === e.target.value));
                             setModName(e.target.value);
