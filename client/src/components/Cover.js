@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import ButtonNext from './ButtonNext';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 import './css/Cover.css';
 
 function Cover() {
@@ -16,68 +19,74 @@ function Cover() {
    };
 
    return (
-      <div className="">
+      <div className="cover-wrapper">
          <div>
-            <div className="textContainer">
-               <h1>INTRODUCTION </h1>
-               <p className="paragraph">
+            <div className="cover-text-container">
+               <h1 className="cover-title">INTRODUCTION</h1>
+               <p className="cover-paragraph">
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting, remaining
-                  essentially unchanged. It was popularised in the 1960s with
-                  the release of Letraset sheets containing Lorem Ipsum
-                  passages, and more recently with desktop publishing software
-                  like Aldus PageMaker including versions of Lorem Ipsum.
+                  standard dummy text ever since the 1500s.
                </p>
-               <br />
-               <p className="directionText">What will you calculate?</p>
-               <br />
             </div>
-            <div className="choiceContainer">
+            <p className="cover-direction-text">What will you calculate?</p>
+            <div className="cover-choice-container">
                <div>
                   <div
                      className={
-                        choice === 'calculate' ? 'afterClick' : 'beforeClick'
+                        choice === 'calculate'
+                           ? 'cover-after-click'
+                           : 'cover-before-click'
                      }
                      onClick={handleClick1}
                      value={choice}
                   >
                      <img
-                        className="imgCover"
+                        className="cover-img-cover"
                         src="../img/items-images/t-shirtW.png"
                         alt="T-shirt"
                      />
                   </div>
-                  <p className="directionText2">Calculate 1 item</p>
+                  <p className="cover-direction-text2">Calculate one item</p>
                </div>
                <div>
                   <div
                      className={
-                        choice === 'compare' ? 'afterClick2' : 'beforeClick2'
+                        choice === 'compare'
+                           ? 'cover-after-click2'
+                           : 'cover-before-click2'
                      }
                      onClick={handleClick2}
                      value={choice}
                   >
                      <img
-                        className="imgCover"
+                        className="cover-img-cover"
                         src="../img/items-images/t-shirtW.png"
                         alt="T-shirt"
                      />
                      <img
-                        className="imgCover"
+                        className="cover-img-cover"
                         src="../img/items-images/t-shirtW.png"
                         alt="T-shirt"
                      />
                   </div>
-                  <p className="directionText2">Compare 2 Items</p>
+                  <p className="cover-direction-text2">Compare two items</p>
                </div>
             </div>
-            <Link to={`/${choice}/category`}>
-               <button type="button">Begin!</button>
-            </Link>
+            {choice ? (
+               <Link to={`/${choice}/category`}>
+                  <button className="buttonnext-button">BEGIN!</button>
+               </Link>
+            ) : (
+               <Popup
+                  trigger={
+                     <button className="buttonnext-button">BEGIN!</button>
+                  }
+                  position="top center"
+               >
+                  <div>Please make a selection!</div>
+               </Popup>
+            )}
          </div>
       </div>
    );

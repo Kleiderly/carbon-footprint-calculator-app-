@@ -1,0 +1,35 @@
+.progressbar-wrapper {
+    display: flex;
+    margin: 5px;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    width: 300px;
+}
+
+.progressbar {
+    display: flex;
+    background-color: #415551;
+    border-radius: 20px;
+    width: 100px;
+    height: 10px;
+}
+
+.progressbar-start {
+    width: 20px;
+    background-color: #000000;
+    border-radius: 20px 0 0 20px;
+}
+
+.progressbar-category {
+    width: 100px;
+}
+
+.progressbar-empty {
+    width: 20px;
+}
+
+.progressbar-full {
+    width: 20px;
+    background-color: #000000;
+}

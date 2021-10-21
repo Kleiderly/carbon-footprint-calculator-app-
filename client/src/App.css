@@ -1,5 +1,59 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
+input, select {
+  padding: 8px;
+  margin: 2px;
+  border-radius: 10px;
+  border: solid 1px rgba(0, 0, 0, 0.301);
+  width: 200px;
+  font-family: 'Montserrat', sans-serif;
+}
 
+input:focus,
+textarea:focus,
+select:focus {
+ outline: none;
+}
+
+select {
+  width: 220px;
+}
+
+button, .buttonnext-button, .back-button, .next-button {
+  margin: 10px;
+  padding: 10px 20px 10px 20px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+  background-color: #415551;
+  border: 0;
+  color: #F7EBE8;
+  font-size: 4vw;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+}
+
+button:hover, button:active {
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  background-color: #0E2823;
+}
+
+.back-button {
+  border-radius: 50px 0px 0px 50px;
+  margin: 5px;
+}
+
+.next-button {
+  border-radius: 0px 50px 50px 0px;
+  margin: 5px;
+}
+
+.buttonnext-button {
+  margin: 10px;
+  padding: 10px 25px 10px 25px;
+}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './css/Materials.css';
+import './css/Logistics.css';
 
-const MaterialsItemBox2 = ({ type, adress, country, name }) => {
+const LogisticsItemBox2 = ({ type, adress, country, name }) => {
    const [selectType, setSelectType] = useState(false);
 
    const handleClick = () => {
@@ -10,9 +10,9 @@ const MaterialsItemBox2 = ({ type, adress, country, name }) => {
    };
 
    return (
-      <div className="material-name-container">
+      <div className="logistics-name-container">
          <div
-            className={selectType ? 'selected-material' : 'deselected-material'}
+            className={selectType ? 'logistics-deselected-material' : 'logistics-selected-material'}
             onClick={handleClick}
          >
             <p>{name}</p>
@@ -21,4 +21,4 @@ const MaterialsItemBox2 = ({ type, adress, country, name }) => {
    );
 };
 
-export default MaterialsItemBox2;
+export default LogisticsItemBox2;

@@ -4,7 +4,7 @@ function ButtonSelection(props) {
     
     return (
         <div className="" id={props.key}>
-            <button value={props.co2} id={props.id} onClick={props.handleClick}>{props.name}</button>
+            <button className="buttonselection-button" id={props.id} onClick={props.handleClick}>{props.name}</button>
         </div>
     )
 }

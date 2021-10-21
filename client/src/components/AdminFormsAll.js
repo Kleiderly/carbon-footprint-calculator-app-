@@ -22,11 +22,17 @@ function AdminForms() {
     const [modName2, setModName2] = useState("");
     const [modCo2e, setModCo2e] = useState(0);
     const [modId, setModId] = useState();
+/* Chosen username/password */
+    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
+    const [confirmpassword, setConfirmPassword] = useState("")
+    const [password, setPassword] = useState("");
     const [error, setError] = useState("")
 /* API call links */
     const materialAPI = axios.get(`/api/material`);
     const logisticAPI = axios.get(`/api/logistic`);
     const fasteningAPI = axios.get(`/api/fastening`);
+    const adminAPI = axios.get(`/api/auth/`);
 /* Sets forms to display admin level */
     // const [superAdmin , setSuperAdmin] = useState ();
 
@@ -70,12 +76,12 @@ function AdminForms() {
 
 /* API calls */
     useEffect(()=>{
-        axios.all([materialAPI, logisticAPI, fasteningAPI])
+        axios.all([materialAPI, logisticAPI, fasteningAPI, adminAPI])
         .then(axios.spread((...res) => {
             console.log(res[0].data, res[1].data, res[2].data, res[3].data);
             setMaterial(res[0].data);
             setLogistic(res[1].data);
-            
+            (setAuth(res[3].data));
             
         }))
         .catch((err)=> console.log(err))
@@ -95,6 +101,7 @@ function AdminForms() {
             setModCo2e(filterArr.co2e);
             setModId(filterArr._id);
             setModName2(filterArr.consumerLocation);
+            setPassword(filterArr.password);
             } else {
                 clearForm()
             }
@@ -105,10 +112,16 @@ function AdminForms() {
         const inputs = document.querySelectorAll("input,select");
         inputs.forEach((item) => (item.value = ""));
         setModCo2e(); setModId(); setModName2(); setCat(); setSection();
-        setModName(); setSubmit(); setFilterArr();
+        setModName(); setSubmit(); setFilterArr(); setUsername(); setPassword(); setConfirmPassword(); setEmail();
     };
 
-
+/* Show/Hide password field */
+    const showPw = ()=> {
+        const pw = document.getElementById("passw");
+        const pw2 = document.getElementById("passw2");
+        pw.type === "password" ? pw.type = "text" : pw.type = "password"
+        pw2.type === "password" ? pw2.type = "text" : pw2.type = "password"
+    };
 
 
 /* ROUTES */
@@ -117,6 +130,8 @@ function AdminForms() {
     function postInstruction() {
         if(cat === "logistic"){
             return {productionLocation: modName, consumerLocation: modName2, co2e: modCo2e}
+        }else if(cat === "register"){
+            return {username: username, email: email, password: password}
         }else{
             return {name: modName, co2e: modCo2e}
         }             
@@ -126,6 +141,8 @@ function AdminForms() {
     function modInstruction() {
         if(cat === "logistic"){
             return {productionLocation: modName, consumerLocation: modName2, co2e: modCo2e}
+        }else if(cat === "/auth/admin"){
+            return {username: username, password: password}
         }else{
             return {name: modName, co2e: modCo2e}
         }
@@ -148,7 +165,37 @@ function AdminForms() {
         })
     };
 
-       
+    /* POST ADMINS */
+
+    const handledAddAdmins = async (e) =>{
+        e.preventDefault();
+        const config = {
+            header: {
+                "Content-type": "application/json",
+            }
+        };
+        if(password !== confirmpassword){
+            setPassword("");
+            setConfirmPassword("");
+            setTimeout(()=>{
+                setError("");
+            }, 5000)
+            return setError("Passwords do not match")
+        }
+        try {
+            const {data} = await axios.post('/api/auth/register', {username, email, password}, config);
+            localStorage.setItem("authToken", data.token);
+
+            setSubmit(success);
+            setTimeout(()=> clearForm(), 1000);
+            
+        } catch (error) {
+            setError(error.response.data.error);
+            setTimeout(()=>{
+                setError("");
+            }, 5000)
+        }
+    }
     
 /* PUT */
     const handleModify = (e)=>{
@@ -158,7 +205,7 @@ function AdminForms() {
         .put(`/api/${cat}/${modId}`, modInstruction())
         .then((res) => {
             console.log(res);
-            console.log("Modified:", modName, modName2, modCo2e, modId);
+            console.log("Modified:", modName, modName2, modCo2e, modId, username, password);
             setSubmit(success);
             setTimeout(()=> clearForm(), 1000);
         })
@@ -176,7 +223,7 @@ function AdminForms() {
             `/api/${cat}/${modId}`
         )
         .then((res) => {
-            console.log("Deleted:", modName, modName2, modCo2e, modId);
+            console.log("Deleted:", modName, modName2, modCo2e, modId, username, password);
             setSubmit(success);
             setTimeout(()=> clearForm(), 1000);
         })
@@ -187,7 +234,20 @@ function AdminForms() {
     };
 
 
+    // Delete Addmins 
 
+    const handleDeleteAdmin = (e) => {
+        e.preventDefault();
+        axios.delete(`/api/auth/${modId}`)
+        .then((res)=>{
+            setSubmit(success);
+            setTimeout(()=> clearForm(), 1000);
+        })
+        .catch((err)=>{
+            console.log(err);
+            setSubmit(failed)
+        })
+    }
 
 
 /* POST to X co2e first form value input HTML (repeated) */
@@ -454,6 +514,140 @@ function AdminForms() {
                 <div className="form-submit">&nbsp;{section === "form2" && submit}&nbsp;</div>
             </div>
 
+
+            <hr className="hr" />
+
+    
+            
+
+{/* POST to ADMIN */}
+            <div  >
+            <div className="form-section">
+                <h2>Add / Modify User</h2>
+                <h4>Add new User</h4>
+                <div >
+                    <div className="form-item">
+                    <div className="form-input">
+                        Username: <br />
+                        <input 
+                        className="light-pink" 
+                        type="text"
+                        name="username"
+                        value={username}
+                        onChange={(e) => {
+                          setUsername(e.target.value);
+                          setSection("form3");
+                        }}
+                        />
+                    </div>
+                    <div className="form-input">
+                        Email: <br />
+                        <input 
+                        className="light-pink" 
+                        type="text"
+                        name="email"
+                        value={email}
+                        onChange={(e) => {
+                          setEmail(e.target.value);
+
+                        }}
+                        />
+                    </div>
+                    </div>
+                    <div className="form-item">
+                    <div className="form-input">
+                        Password: <br />
+                        <input 
+                        className="light-pink"
+                        type="password"
+                        name="password"
+                        id="passw"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </div>
+        
+                    <div className="form-input">
+                        Confirm Password: <br />
+                        <input 
+                        className="light-pink"
+                        type="password"
+                        name="confirmpassword"
+                        id="passw2"
+                        value={confirmpassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        />
+                    </div>
+                    </div>
+                </div>
+                <div className="form-item password-field">
+                    <input type="checkbox" className="pw-checkbox" onClick={showPw} />Show Password
+                </div>
+                <div className="form-input center-align">
+                </div>
+{/* POST to ADMIN  buttons*/}
+                    <button onClick={handledAddAdmins}>ADD</button>
+                    <button onClick={clearForm}>CLEAR FORM</button>
+                </div>
+                <div className="form-submit">&nbsp; {error &&  <span>{error}</span>}{section === "form3" && submit}&nbsp;</div>
+
+
+{/* DELETE/MODIFY ADMIN */}
+                <div >
+                <h4 >Delete / Modify User</h4>
+                <h4 >Modify User</h4>
+
+                <div className="form-item">
+                    <div className="form-input">
+                        Username: <br />
+                        <select
+                        className="light-pink" 
+                        onChange={(e) => {
+                            setFilterArr(auth.find((type)=> type.username === e.target.value));
+                            setUsername(e.target.value);
+                            setCat("admin");
+                            setSection("form4");
+                            console.log("Admin", username, password, filterArr);
+                        }}>
+                            <option></option>
+                            {auth.map((type, i) => {
+                                return (
+                                    <option 
+                                    id={type._id} 
+                                    key={i} 
+                                    value={type.username}
+                                    >
+                                        {type.username}
+                                    </option>
+                                );
+                            })};
+                        </select>
+                    </div>
+                    </div>
+                    {/* <div className="form-input">
+                        Password: <br />
+                        <input
+                        className="light-pink"
+                        type="password"
+                        name="password"
+                        id="passw2"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        />
+                        </div>
+                    </div>
+                <div className="form-item password-field">
+                    <input type="checkbox" className="pw-checkbox" onClick={showPw} />Show Password */}
+                {/* </div> */}
+                
+                <div className="form-input center-align">
+            {/* DELETE/MODIFY ADMIN buttons*/}
+                    
+                    <button onClick={handleDeleteAdmin}>DELETE</button>
+                    <button onClick={clearForm}>CLEAR FORM</button>
+                    </div>
+                </div>
+            </div>
                 <button onClick={handleLogout}>Logout</button>
                 <div className="form-submit">&nbsp;{section === "form4" && submit}&nbsp;</div>
         </div>

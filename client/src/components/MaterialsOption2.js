@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { useLocation } from 'react-router';
+// import { useLocation } from 'react-router';
 import axios from 'axios';
 import Context from '../contexts/ContextApi';
-// import Tips from './Tips';
-import MaterialsItemBox2 from './MaterialsItemBox2';
-import { itemList } from './data';
-import './css/Category.css';
+import Tips from './Tips';
+import ProgressBar from './ProgressBar';
+import ItemBox from './ItemBox';
 import './css/Materials.css';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
 const MaterialsOption2 = (props) => {
    const {
@@ -16,12 +17,16 @@ const MaterialsOption2 = (props) => {
       setMaterialCO2e1,
       setMaterialCO2e2,
    } = useContext(Context);
-   // console.log(result);
 
+   //For data from database
    const [materials, setMaterials] = useState([]);
 
+   //For selection by user through button click
    const [selectMaterial1, setSelectMaterial1] = useState(null);
    const [selectMaterial2, setSelectMaterial2] = useState(null);
+
+   const [selected1, setSelected1] = useState('');
+   const [selected2, setSelected2] = useState('');
 
    useEffect(() => {
       axios
@@ -46,67 +51,104 @@ const MaterialsOption2 = (props) => {
       setMaterialCO2e2(selectMaterial2);
    };
 
+   const handleClickMappedItem1 = (item, i) => {
+      setSelectMaterial1(item.co2e);
+      setSelected1(i);
+   };
+
+   const handleClickMappedItem2 = (item, i) => {
+      setSelectMaterial2(item.co2e);
+      setSelected2(i);
+   };
+
    console.log(itemTypeAdress1);
    console.log(itemTypeAdress2);
    console.log(selectMaterial1);
    console.log(selectMaterial2);
 
    return (
-      <div className="choiceContainer">
-         <p>Clothes</p>
+      <div className="material-choice-container">
+         <ProgressBar stage={1} previous="Choice" next="Fastenings" />
          <div>
             <div>
-               <br />
-               <p className="directionText">Choose Your Materials</p>
-               <br />
-               <div className="itemsContainer">
-                  <div className="beforeClickCategory">
-                     <img src={itemTypeAdress1} alt={itemTypeAdress1} />
+               <p className="material-direction-text">
+                  What material are they made of?
+               </p>
+               <div className="material-items-container">
+                  <div className="material-before-click">
+                     <img
+                        src={itemTypeAdress1}
+                        alt={itemTypeAdress1}
+                        className="material-img-cover"
+                     />
+                     <span>1st Item</span>
                   </div>
-                  <div className="beforeClickCategory">
-                     <img src={itemTypeAdress2} alt={itemTypeAdress2} />
+                  <div className="material-before-click">
+                     <img
+                        src={itemTypeAdress2}
+                        alt={itemTypeAdress2}
+                        className="material-img-cover"
+                     />
+                     <span>2nd Item</span>
                   </div>
                </div>
             </div>
          </div>
-         <div className="materialBigContainer">
-            <div className="materialContainer">
-               {materials.map((item) => (
+         <div className="material-big-container">
+            <div className="material-container">
+               {materials.map((item, i) => (
                   <div
-                     onClick={() =>
-                        selectMaterial1
-                           ? setSelectMaterial2(item.co2e)
-                           : setSelectMaterial1(item.co2e)
-                     }
-                     key={item.id}
+                     onClick={() => handleClickMappedItem1(item, i)}
+                     key={item._id}
                   >
-                     <MaterialsItemBox2 name={item.name} />
+                     <ItemBox index={i} name={item.name} selected={selected1} />
                   </div>
                ))}
             </div>
-            <div className="materialContainer">
-               {materials.map((item) => (
+            <div className="material-container">
+               {materials.map((item, i) => (
                   <div
-                     onClick={() =>
-                        selectMaterial1
-                           ? setSelectMaterial2(item.co2e)
-                           : setSelectMaterial1(item.co2e)
-                     }
-                     key={item.id}
+                     onClick={() => handleClickMappedItem2(item, i)}
+                     key={item._id}
                   >
-                     <MaterialsItemBox2 name={item.name} />
+                     <ItemBox index={i} name={item.name} selected={selected2} />
                   </div>
                ))}
             </div>
          </div>
-         <button type="button" onClick={handleClickPreviousSection}>
-            Go Back
-         </button>
-         <Link to="/compare/fastenings">
-            <button type="button" onClick={handleClick}>
-               Next
+
+         <div className="material-back-next-buttons">
+            <button
+               className="back-button"
+               type="button"
+               onClick={handleClickPreviousSection}
+            >
+               BACK
             </button>
-         </Link>
+
+            {selectMaterial1 && selectMaterial2 ? (
+               <Link to="/compare/fastenings">
+                  <button
+                     className="next-button"
+                     type="button"
+                     onClick={handleClick}
+                  >
+                     NEXT
+                  </button>
+               </Link>
+            ) : (
+               <Popup
+                  trigger={<button className="next-button"> NEXT</button>}
+                  position="top center"
+               >
+                  <div>Please make your selections!</div>
+               </Popup>
+            )}
+         </div>
+
+         <div className="tips">
+            <Tips category="materials" />
+         </div>
       </div>
    );
 };
