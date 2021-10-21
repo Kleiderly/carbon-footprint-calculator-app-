@@ -1,7 +1,9 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import Context from '../contexts/ContextApi';
 import { Link, useHistory } from 'react-router-dom';
 import ButtonShareModal from './ButtonShareModal';
+import useWindowSize from "react-use/lib/useWindowSize";
+import Confetti from "react-confetti";
 import './css/Results.css';
 import './css/vivify.min.css';
 
@@ -15,6 +17,41 @@ const ResultsOption1 = (props) => {
       setTotalCo2e1,
    } = useContext(Context);
 
+  //  ANIMATION STATES
+  const [opacity, setOpacity] = useState(0.5);
+  const { width, height } = useWindowSize();
+
+  // ANIMATION useEffect
+  useEffect(() => {
+    setTimeout(() => {
+      setOpacity((opacity) => opacity - 0.1);
+    }, 5000);
+    setTimeout(() => {
+      setOpacity((opacity) => opacity - 0.1);
+    }, 7000);
+    setTimeout(() => {
+      setOpacity((opacity) => opacity - 0.1);
+    }, 9000);
+    setTimeout(() => {
+      setOpacity((opacity) => opacity - 0.1);
+    }, 11000);
+    setTimeout(() => {
+      setOpacity((opacity) => opacity - 0.02);
+    }, 13000);
+    setTimeout(() => {
+      setOpacity((opacity) => opacity - 0.02);
+    }, 13500);
+    setTimeout(() => {
+      setOpacity((opacity) => opacity - 0.02);
+    }, 14000);
+    setTimeout(() => {
+      setOpacity((opacity) => opacity - 0.02);
+    }, 14500);
+    setTimeout(() => {
+      setOpacity((opacity) => opacity - 0.02);
+    }, 15000);
+  }, []);
+  
    //Calculation
    useEffect(() => {
       setTotalCo2e1(Number((materialCO2e1 + fasteningCO2e1 + countryCO2e1).toFixed(4)));
@@ -28,6 +65,13 @@ const ResultsOption1 = (props) => {
 
    return (
       <div className="results-wrapper vivify popIn delay-500">
+        <Confetti
+        width={width}
+        height={height}
+        colors={["#F7EBE8", "#0E2823"]}
+        opacity={opacity}
+        gravity={0.05}
+        />
 
          <p className="results-title">Result!</p>
 
@@ -50,8 +94,9 @@ const ResultsOption1 = (props) => {
          <Link to="/">
             <button type="button">CALCULATE ANOTHER ITEM</button>
          </Link>
-      </div>
-   );
+
+    </div>
+  );
 };
 
 export default ResultsOption1;
