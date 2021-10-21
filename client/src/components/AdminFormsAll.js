@@ -305,8 +305,6 @@ function AdminForms() {
                         type="text"
                         name="logistics"
                         onChange={(e) => {
-                            setCat("logistic")
-                            setSection("form1")
                             setModName2(e.target.value)
                         }}
                         />
