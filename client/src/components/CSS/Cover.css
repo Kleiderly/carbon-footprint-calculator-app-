@@ -81,6 +81,7 @@
 .cover-before-click2:hover,
 .cover-after-click2:hover {
    background-color:#415551;
+   transition: all 0.25s;
 }
 
 .cover-disabled-link {

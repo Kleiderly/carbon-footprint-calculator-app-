@@ -74,7 +74,7 @@ const MaterialsOption2 = (props) => {
             What material are they made from?
          </p>
 
-         <div className="material-items-container2">
+         <div className="material-items-container2 fadeIn vivify">
 
             <div className="material-item-group">
                <div className="material-before-click">

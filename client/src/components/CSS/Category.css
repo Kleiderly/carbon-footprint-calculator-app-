@@ -73,8 +73,10 @@
    background-color: #000000;
 }
 
-.category-before-click-category:hover {
+.category-before-click-category:hover, .category-before-click-category:active, .category-deselected:hover {
    background-color: #415551;
+   transition: all 0.25s;
+   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.25);
 }
 
 .category-before-click-category img, .category-after-click-category img {
@@ -97,6 +99,7 @@
 
 .category-selected {
    background-color: #415551;
+   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.25);
 }
 
 .category-deselected:hover {

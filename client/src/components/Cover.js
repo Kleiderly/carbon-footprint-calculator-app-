@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import ButtonNext from './ButtonNext';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import './css/Cover.css';
@@ -21,7 +20,7 @@ function Cover() {
    return (
       <div className="cover-wrapper">
          <div>
-            <div className="cover-text-container">
+            <div className="cover-text-container fadeIn vivify delay-900">
                <h1 className="cover-title">INTRODUCTION</h1>
                <p className="cover-paragraph">
                   Lorem Ipsum is simply dummy text of the printing and
@@ -29,9 +28,9 @@ function Cover() {
                   standard dummy text ever since the 1500s.
                </p>
             </div>
-            <p className="cover-direction-text">What will you calculate?</p>
+            <p className="cover-direction-text fadeIn vivify delay-1000">What will you calculate?</p>
             <div className="cover-choice-container">
-               <div className="cover-item-container">
+               <div className="cover-item-container fadeIn vivify delay-1000">
                   <div
                      className={
                         choice === 'calculate'
@@ -45,13 +44,14 @@ function Cover() {
                   </div>
                   <p className="cover-direction-text2">Calculate one item</p>
                </div>
-               <div className="cover-item-container">
+               <div className="cover-item-container fadeIn vivify delay-1500">
                   <div
                      className={
                         choice === 'compare'
                            ? 'cover-after-click2'
                            : 'cover-before-click2'
                      } onClick={handleClick2} value={choice}>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
                      <img
                         className="cover-img-cover"
                         src="../img/items-images/t-shirtW.png"
@@ -62,6 +62,7 @@ function Cover() {
                         src="../img/items-images/skirtW.png"
                         alt="T-shirt"
                      />
+                     &nbsp;&nbsp;&nbsp;&nbsp;
                   </div>
                   <p className="cover-direction-text2">Compare two items</p>
                </div>
@@ -73,7 +74,7 @@ function Cover() {
             ) : (
                <Popup
                   trigger={
-                     <button className="buttonnext-button">BEGIN!</button>
+                     <button className="buttonnext-button popIn vivify delay-2000">BEGIN!</button>
                   }
                   position="top center"
                >

@@ -43,7 +43,7 @@ const MaterialsOption1 = (props) => {
       <div className="material-wrapper">
          <ProgressBar stage={1} previous="Choice" next="Fastenings" />
          <p className="material-title">What material is it made of?</p>
-         <div className="material-items-container">
+         <div className="material-items-container fadeIn vivify">
             <div className="material-before-click">
                <img
                   src={itemTypeAdress1}
@@ -81,7 +81,7 @@ const MaterialsOption1 = (props) => {
             )}
          </div>
 
-         <div className="tips">
+         <div>
             <Tips category="materials" />
          </div>
       </div>

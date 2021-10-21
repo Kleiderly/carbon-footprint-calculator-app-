@@ -7,6 +7,7 @@ import { itemList } from './data';
 import Context from '../contexts/ContextApi';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import './css/vivify.min.css';
 
 const CategoryOption2 = (props) => {
   const { setItemTypeAdress1, setItemTypeAdress2 } = useContext(Context);
@@ -54,11 +55,13 @@ const CategoryOption2 = (props) => {
   console.log(classChanger, classChanger2);
   return (
     <div className="category-choice-container">
-      <ProgressBar stage={0} previous="Start" next="Material" />
+      <div className="swoopInTop vivify delay-100">
+        <ProgressBar stage={0} previous="Start" next="Material" />
+      </div>
       <div>
         <div>
           <p className="category-direction-text">Choose your items</p>
-          <div className="category-items-container">
+          <div className="category-items-container fadeIn vivify">
             <div
               className={
                 choice

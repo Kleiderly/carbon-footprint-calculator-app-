@@ -2,7 +2,6 @@ import React, { useEffect, useContext } from 'react';
 import Context from '../contexts/ContextApi';
 import { Link, useHistory } from 'react-router-dom';
 import ButtonShareModal from './ButtonShareModal';
-import Leaves from './Leaves';
 import './css/Results.css';
 
 const ResultsOption1 = (props) => {
@@ -28,7 +27,6 @@ const ResultsOption1 = (props) => {
 
    return (
       <div className="results-wrapper">
-         {/* <Leaves /> */}
 
          <p className="results-title">Result!</p>
 
