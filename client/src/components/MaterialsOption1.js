@@ -9,7 +9,6 @@ import './css/Materials.css';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import './css/vivify.min.css';
-import ScrollAnimation from 'react-animate-on-scroll';
 
 const MaterialsOption1 = (props) => {
    const { itemTypeAdress1, setMaterialCO2e1 } = useContext(Context);
@@ -55,8 +54,6 @@ const MaterialsOption1 = (props) => {
                <span className="material-small-text">Material</span>
             </div>
          </div>
-
-   <ScrollAnimation animateIn="fadeIn">
          <div className="material-container1">
             {materials.map((item, i) => (
                <div onClick={() => handleClickMappedItem(item, i)} key={item._id} >
@@ -87,7 +84,6 @@ const MaterialsOption1 = (props) => {
          <div>
             <Tips category="materials" />
          </div>
-   </ScrollAnimation>
       </div>
    );
 };
