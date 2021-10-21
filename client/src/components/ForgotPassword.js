@@ -36,16 +36,16 @@ const ForgotPassword = () => {
 
   return (
     <div className="admin-wrapper">
-      <form
-        onSubmit={forgotPasswordHandler}
-      >
+
+      <form onSubmit={forgotPasswordHandler}>
         <h3>Password Recovery</h3>
         {error && <span >{error}</span>}
         {success && <span >{success}</span>}
-        <div>
+
+        <div className="admin-recover-wrap">
           <p className="admin-forgotpassword">
-            Please enter the email address you registered your account with, and we
-            will send you a reset password confirmation to this email.
+            Please enter the email address you registered your account with,
+            and we will send you instructions to reset your password.
           </p>
           <label htmlFor="email">Email: </label>
           <input
@@ -58,9 +58,11 @@ const ForgotPassword = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <button type="submit">
+      <div className="admin-pw-recovery-button-wrap">
+        <button className="admin-form-button" type="submit">
           SEND EMAIL
         </button>
+      </div>
       </form>
     </div>
   );

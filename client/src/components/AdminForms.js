@@ -257,8 +257,8 @@ function AdminForms() {
 
 {/* SUBMIT buttons */}
                 <div className="form-input center-align">
-                    <button onClick={handleAdd}>ADD</button>
-                    <button onClick={clearForm}>CLEAR FORM</button>
+                    <button className="admin-form-button" onClick={handleAdd}>ADD</button>
+                    <button className="admin-form-button" onClick={clearForm}>CLEAR FORM</button>
                 </div>
                 <div className="form-submit">&nbsp;{section === "form1" && submit}&nbsp;</div>
             </div>
@@ -269,7 +269,7 @@ function AdminForms() {
 
 {/* MODIFY FORM */}
             <div className="form-section">
-                <h2 className="form-main-title">Modify item from database</h2>
+                <h2 className="form-main-title">Modify / Delete item from database</h2>
                     
 {/* MODIFY MATERIAL*/}
                 <h4 className="admin-title">Materials</h4>
@@ -410,14 +410,17 @@ function AdminForms() {
 
 {/* SUBMIT buttons */}
                 <div className="form-input center-align">
-                    <button onClick={handleModify}>MODIFY</button>
-                    <button onClick={clearForm}>CLEAR FORM</button>
+                    <button className="admin-form-button" onClick={handleModify}>MODIFY</button>
+                    <button className="admin-form-button" onClick={clearForm}>CLEAR FORM</button>
                 </div>
                 <div className="form-submit">&nbsp;{section === "form2" && submit}&nbsp;</div>
             </div>
 
-                <button onClick={handleLogout}>Logout</button>
-                <div className="form-submit">&nbsp;{section === "form4" && submit}&nbsp;</div>
+            <hr className="hr" />
+
+            <div className="center-align">
+                <button onClick={handleLogout} className="back-button logout-button">LOG OUT</button>
+            </div>
         </div>
     )
 }

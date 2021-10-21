@@ -1,23 +1,13 @@
 import {React, useState, useEffect, useContext }from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
-<<<<<<< HEAD
 import './css/Admin.css';
-
-=======
 import Context from '../contexts/ContextApi';
->>>>>>> a278fe673c7c138d784db5504b2c9cec64b6ea83
 import axios from "axios";
 
 function Login() {
 
-<<<<<<< HEAD
-    const [email, setEmail] = useState("");
-=======
-
-
-    // const [email, setEmail] = useState("");
->>>>>>> a278fe673c7c138d784db5504b2c9cec64b6ea83
+    const{ email, setEmail } = useContext(Context);
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     /* Show/Hide password field */
@@ -28,10 +18,7 @@ function Login() {
 
     let history = useHistory();
 
-    const{ email, setEmail } = useContext(Context);
-
     console.log(email)
-
   
     useEffect(() => {
       if (localStorage.getItem("authToken")) {
