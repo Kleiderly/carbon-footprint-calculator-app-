@@ -111,7 +111,9 @@ button:hover, button:active, .buttonnext-button:hover, .buttonnext-button:active
 .center-align {
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: fit-content;
+  align-items: center;
+  margin: auto;
 }
 
 .height {
@@ -131,5 +133,9 @@ button, .buttonnext-button {
 
 .logout-button {
   font-size: 18px;
+}
+
+.center-align {
+  width: 100%;
 }
 }

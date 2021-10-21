@@ -12,7 +12,7 @@ function AdminForms() {
     const [logistic, setLogistic] = useState([]);
     const [fastening, setFastening] = useState([]);
     const [auth, setAuth] = useState([]);
-    const [role, setRole] = useState([]);
+    // const [role, setRole] = useState([]);
 /* Chosen object values / Message after submit / Chosen category / Active form */
     const [filterArr, setFilterArr] = useState([]);
     const [submit, setSubmit] = useState("");
