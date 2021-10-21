@@ -42,8 +42,13 @@ function Login() {
         );
         localStorage.setItem("superAdmin", data.superAdmin)
         localStorage.setItem("authToken", data.token);
-  
-        history.push("/adminpage/forms");
+
+        let superAdmin = JSON.parse(localStorage.getItem("superAdmin"));
+          if(superAdmin){
+            history.push("/adminpage/formsAll")
+          } else{
+            history.push("/adminpage/forms")
+          }
       } catch (error) {
         setError(error.response.data.error);
         setTimeout(() => {

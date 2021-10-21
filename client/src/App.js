@@ -20,6 +20,7 @@ import PercentagesOption1 from './components/PercentagesOption1';
 import PercentagesOption2 from './components/PercentagesOption2';
 import Details from './components/Details';
 import AdminForms from './components/AdminForms';
+import AdminFormsAll from './components/AdminFormsAll';
 import Login from './components/Login';
 import PrivateRoute from './components/PrivateRoute';
 import ForgotPassword from './components/ForgotPassword';
@@ -169,6 +170,11 @@ function App() {
                         exact
                         path="/adminpage/forms"
                         component={AdminForms}
+                     />
+                     <PrivateRoute
+                        exact
+                        path="/adminpage/formsAll"
+                        component={AdminFormsAll}
                      />
                      <Route exact path="/adminpage/login" component={Login} />
                      <Route
