@@ -40,7 +40,7 @@ exports.login = async (req, res, next) => {
         if(!isMatch){
             return next(new ErrorResponse('Invalid credentials', 401))
         }
-
+        // sendRole(admin, 200, res)
         sendToken(admin, 200, res);
 
     } catch (error) {
@@ -159,7 +159,16 @@ exports.users =  (req, res) =>{
 
 
 
+<<<<<<< HEAD
 const sendToken = (user, statusCode, res) =>{
     const token =  user.getSignedToken();
     res.status(statusCode).json({success: true, token})
 }
+=======
+
+const sendToken = (user, statusCode, res) =>{
+    const token =  user.getSignedToken();
+
+    res.status(statusCode).json({success: true, token, superAdmin: user.superAdmin})
+}
+>>>>>>> a278fe673c7c138d784db5504b2c9cec64b6ea83

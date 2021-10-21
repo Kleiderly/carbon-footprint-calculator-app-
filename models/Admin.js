@@ -17,7 +17,8 @@ const adminSchema = new Schema({
     },
     password: { type: String, required: [true, 'Please add a password'], minlength:6, select:false },
     resetPasswordToken : String,
-    resetPasswordExpire : Date
+    resetPasswordExpire : Date,
+    superAdmin:{ type: Boolean, default:false}
 });
 
 //verify is the password is modified
@@ -36,8 +37,10 @@ adminSchema.methods.matchPasswords = async function(password) {
 }
 
 adminSchema.methods.getSignedToken = function () {
-    return jwt.sign({id: this._id}, process.env.JWT_SECRET, {expiresIn: process.env.JWT_EXPIRE} )
+    return jwt.sign({id: this._id, superAdmin: this.superAdmin}, process.env.JWT_SECRET, {expiresIn: process.env.JWT_EXPIRE} )
 }
+
+
 
 adminSchema.methods.getResetPasswordToken = function () {
     const resetToken = crypto.randomBytes(20).toString("hex");

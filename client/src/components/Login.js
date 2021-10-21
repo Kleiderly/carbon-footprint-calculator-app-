@@ -1,13 +1,23 @@
-import {React, useState, useEffect }from "react";
+import {React, useState, useEffect, useContext }from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
+<<<<<<< HEAD
 import './css/Admin.css';
 
+=======
+import Context from '../contexts/ContextApi';
+>>>>>>> a278fe673c7c138d784db5504b2c9cec64b6ea83
 import axios from "axios";
 
 function Login() {
 
+<<<<<<< HEAD
     const [email, setEmail] = useState("");
+=======
+
+
+    // const [email, setEmail] = useState("");
+>>>>>>> a278fe673c7c138d784db5504b2c9cec64b6ea83
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     /* Show/Hide password field */
@@ -17,6 +27,11 @@ function Login() {
     };
 
     let history = useHistory();
+
+    const{ email, setEmail } = useContext(Context);
+
+    console.log(email)
+
   
     useEffect(() => {
       if (localStorage.getItem("authToken")) {
@@ -39,10 +54,15 @@ function Login() {
           { email, password },
           config
         );
-  
+        localStorage.setItem("superAdmin", data.superAdmin)
         localStorage.setItem("authToken", data.token);
-  
-        history.push("/adminpage/forms");
+
+        let superAdmin = JSON.parse(localStorage.getItem("superAdmin"));
+          if(superAdmin){
+            history.push("/adminpage/formsAll")
+          } else{
+            history.push("/adminpage/forms")
+          }
       } catch (error) {
         setError(error.response.data.error);
         setTimeout(() => {

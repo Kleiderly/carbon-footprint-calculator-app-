@@ -19,6 +19,7 @@ import ResultsOption2 from './components/ResultsOption2';
 import PercentagesOption1 from './components/PercentagesOption1';
 import PercentagesOption2 from './components/PercentagesOption2';
 import AdminForms from './components/AdminForms';
+import AdminFormsAll from './components/AdminFormsAll';
 import Login from './components/Login';
 import PrivateRoute from './components/PrivateRoute';
 import ForgotPassword from './components/ForgotPassword';
@@ -44,6 +45,7 @@ function App() {
 
    const [totalCo2e2, setTotalCo2e2] = useState();
    const [percentage, setPercentage] = useState();
+   const [email, setEmail] = useState()
 
    return (
       <div className="App">
@@ -76,6 +78,8 @@ function App() {
                      setTotalCo2e2,
                      percentage,
                      setPercentage,
+                     email,
+                     setEmail
                   }}
                >
                   <div className="fadeInTop vivify">
@@ -153,6 +157,7 @@ function App() {
 
                         {/* ADMIN ROUTES */}
 
+<<<<<<< HEAD
                         <PrivateRoute
                            exact
                            path="/adminpage/forms"
@@ -170,6 +175,31 @@ function App() {
                            component={ResetPassword}
                         />
                      </div>
+=======
+                     {/* ADMIN ROUTES */}
+
+                     <PrivateRoute
+                        exact
+                        path="/adminpage/forms"
+                        component={AdminForms}
+                     />
+                     <PrivateRoute
+                        exact
+                        path="/adminpage/formsAll"
+                        component={AdminFormsAll}
+                     />
+                     <Route exact path="/adminpage/login" component={Login} />
+                     <Route
+                        exact
+                        path="/adminpage/forgotpassword"
+                        component={ForgotPassword}
+                     />
+                     <Route
+                        exact
+                        path="/adminpage/passwordreset/:resetToken"
+                        component={ResetPassword}
+                     />
+>>>>>>> a278fe673c7c138d784db5504b2c9cec64b6ea83
                   </Switch>
                   <div className="">
                      <Footer />
