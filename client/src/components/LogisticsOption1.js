@@ -6,7 +6,8 @@ import ProgressBar from './ProgressBar';
 import axios from 'axios';
 import Tips from './Tips';
 import './css/Logistics.css';
-import { tipsList } from './data.js';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
 const LogisticsOption1 = (props) => {
    const { itemTypeAdress1, setCountryCO2e1 } = useContext(Context);
@@ -53,7 +54,7 @@ const LogisticsOption1 = (props) => {
                   Where was it produced?
                </p>
                <div className="logistics-items-container ">
-                  <div className="logistics-before-click-category">
+                  <div className="logistics-before-click">
                      <img
                         src={itemTypeAdress1}
                         alt={itemTypeAdress1}
@@ -88,18 +89,25 @@ const LogisticsOption1 = (props) => {
             >
                BACK
             </button>
-            <Link
-               className={selectCountry1 ? null : 'disabled-link'}
-               to="/calculate/results"
-            >
-               <button
-                  className="next-button"
-                  type="button"
-                  onClick={handleClick}
+
+            {selectCountry1 ? (
+               <Link to="/calculate/results">
+                  <button
+                     className="next-button"
+                     type="button"
+                     onClick={handleClick}
+                  >
+                     NEXT
+                  </button>
+               </Link>
+            ) : (
+               <Popup
+                  trigger={<button className="next-button"> NEXT</button>}
+                  position="top center"
                >
-                  NEXT
-               </button>
-            </Link>
+                  <div>Please make your selection!</div>
+               </Popup>
+            )}
          </div>
 
          <div className="tips">

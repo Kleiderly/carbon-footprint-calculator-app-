@@ -6,7 +6,8 @@ import ProgressBar from './ProgressBar';
 import axios from 'axios';
 import Tips from './Tips';
 import './css/Logistics.css';
-import { tipsList } from './data.js';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
 function Logistics(props) {
    const {
@@ -77,7 +78,7 @@ function Logistics(props) {
                      />
                      <span>1st Item</span>
                   </div>
-                  <div className="logistics-after-click-category">
+                  <div className="logistics-before-click-category">
                      <img
                         src={itemTypeAdress2}
                         alt={itemTypeAdress2}
@@ -126,24 +127,29 @@ function Logistics(props) {
             >
                BACK
             </button>
-            <Link
-               to="/compare/results"
-               className={
-                  selectCountry1 && selectCountry2 ? null : 'disabled-link'
-               }
-            >
-               <button
-                  className="next-button"
-                  type="button"
-                  onClick={handleClick}
+
+            {selectCountry1 && selectCountry2 ? (
+               <Link to="/compare/results">
+                  <button
+                     className="next-button"
+                     type="button"
+                     onClick={handleClick}
+                  >
+                     NEXT
+                  </button>
+               </Link>
+            ) : (
+               <Popup
+                  trigger={<button className="next-button"> NEXT</button>}
+                  position="top center"
                >
-                  NEXT
-               </button>
-            </Link>
+                  <div>Please make your selections!</div>
+               </Popup>
+            )}
          </div>
 
          <div className="tips">
-            <Tips category="logistics" tipObj={tipsList[5]} />
+            <Tips category="logistics" />
          </div>
       </div>
    );

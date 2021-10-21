@@ -3,7 +3,6 @@ import Context from '../contexts/ContextApi';
 import axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
 import ProgressBar from './ProgressBar';
-import { useLocation } from 'react-router';
 import './css/Fastenings.css';
 import Tips from './Tips';
 import { tipsList } from './data.js';
@@ -48,7 +47,6 @@ const FasteningsOption2 = () => {
    const addFastenings = () => {
       let result = 0;
       let result2 = 0;
-      let resultObj = {};
       for (let i = 0; i < fastenings.length; i++) {
          result += listOfQuantities[i].quantity * fastenings[i].co2e;
          result2 += listOfQuantities2[i].quantity * fastenings[i].co2e;
@@ -80,7 +78,7 @@ const FasteningsOption2 = () => {
                      />
                      <span>1st Item</span>
                   </div>
-                  <div className="fastening-after-click-category">
+                  <div className="fastening-before-click-category">
                      <img
                         src={itemTypeAdress2}
                         alt={itemTypeAdress2}

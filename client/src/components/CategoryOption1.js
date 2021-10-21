@@ -14,6 +14,7 @@ const CategoryOption1 = (props) => {
       '../img/items-images/t-shirtW.png'
    );
    console.log(selected);
+   console.log(selectType);
 
    let history = useHistory();
    const handleClickPreviousSection = () => {

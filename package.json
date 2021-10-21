@@ -5,11 +5,16 @@
   "main": "server.js",
   "scripts": {
     "client-install": "npm install --prefix client",
+
     "start": "node server.js",
+    
     "server": "nodemon server.js",
+    
     "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "both": "rm -rf build && cd client && npm run build && mv build ../ && cd .. && nodemon server.js"
+    
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+    
+    
   },
   "keywords": [],
   "author": "",
@@ -32,6 +37,7 @@
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
     "react-responsive-modal": "^6.1.0",
-    "react-share": "^4.4.0"
+    "react-share": "^4.4.0",
+    "reactjs-popup": "^2.0.5"
   }
 }

@@ -40,7 +40,7 @@ exports.login = async (req, res, next) => {
         if(!isMatch){
             return next(new ErrorResponse('Invalid credentials', 401))
         }
-
+        // sendRole(admin, 200, res)
         sendToken(admin, 200, res);
 
     } catch (error) {
@@ -128,7 +128,40 @@ exports.resetpassword = async (req, res, next) => {
 }
 
 
+
+exports.deleteUsers = async (req, res, next ) =>{
+    
+    try {
+         await Admin.findByIdAndRemove({_id: req.params.id});
+
+        res.status(201).json({
+            success: true,
+            data:'User deleted with success'
+        })
+        
+    } catch (error) {
+        next(error)
+    }
+} 
+
+
+exports.users =  (req, res) =>{
+    const {username} = req.body;
+    Admin.find({})
+    .then((result)=>{
+        res.status(200).send(result)
+
+    })
+    .catch((error)=>{
+        res.status(500).send('Something went wrong')
+    })
+}
+
+
+
+
 const sendToken = (user, statusCode, res) =>{
     const token =  user.getSignedToken();
-    res.status(statusCode).json({success: true, token})
+
+    res.status(statusCode).json({success: true, token, superAdmin: user.superAdmin})
 }

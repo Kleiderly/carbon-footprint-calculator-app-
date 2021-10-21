@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import Context from '../contexts/ContextApi';
 import { Link, useHistory } from 'react-router-dom';
 import './css/Category.css';
@@ -45,10 +45,10 @@ const PercentagesOption1 = (props) => {
                         <div>Total</div>
                      </div>
                      <div>
-                        <div>{materialCO2e1}</div>
-                        <div>{fasteningCO2e1}</div>
-                        <div>{countryCO2e1}</div>
-                        <div>{totalCo2e1}</div>
+                        <div>{materialCO2e1.toFixed(2)}</div>
+                        <div>{fasteningCO2e1.toFixed(2)}</div>
+                        <div>{countryCO2e1.toFixed(2)}</div>
+                        <div>{totalCo2e1.toFixed(2)}</div>
                      </div>
                   </div>
 

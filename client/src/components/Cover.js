@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ButtonNext from './ButtonNext';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 import './css/Cover.css';
 
 function Cover() {
@@ -71,12 +73,20 @@ function Cover() {
                   <p className="cover-direction-text2">Compare two items</p>
                </div>
             </div>
-            <Link
-               to={`/${choice}/category`}
-               className={choice ? null : 'disabled-link'}
-            >
-               <ButtonNext name="BEGIN!" />
-            </Link>
+            {choice ? (
+               <Link to={`/${choice}/category`}>
+                  <button className="buttonnext-button">BEGIN!</button>
+               </Link>
+            ) : (
+               <Popup
+                  trigger={
+                     <button className="buttonnext-button">BEGIN!</button>
+                  }
+                  position="top center"
+               >
+                  <div>Please make a selection!</div>
+               </Popup>
+            )}
          </div>
       </div>
    );
