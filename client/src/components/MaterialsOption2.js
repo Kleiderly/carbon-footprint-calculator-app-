@@ -9,6 +9,7 @@ import ItemBox from './ItemBox';
 import './css/Materials.css';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import { tipsList } from './data';
 
 const MaterialsOption2 = (props) => {
    const {

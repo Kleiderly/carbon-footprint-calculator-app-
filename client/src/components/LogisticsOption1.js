@@ -8,6 +8,7 @@ import Tips from './Tips';
 import './css/Logistics.css';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import { tipsList } from './data';
 
 const LogisticsOption1 = (props) => {
    const { itemTypeAdress1, setCountryCO2e1 } = useContext(Context);

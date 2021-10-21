@@ -8,6 +8,7 @@ import Tips from './Tips';
 import './css/Logistics.css';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import { tipsList } from './data';
 
 function Logistics(props) {
    const {
@@ -149,7 +150,7 @@ function Logistics(props) {
          </div>
 
          <div className="tips">
-            <Tips category="logistics" />
+            <Tips category="logistics" tipObj={tipsList[4]} />
          </div>
       </div>
    );

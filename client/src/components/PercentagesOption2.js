@@ -23,7 +23,7 @@ const PercentagesOption2 = (props) => {
    //To Go Back
    let history = useHistory();
    const handleClickPreviousSection = () => {
-      history.push('/calculate/logistics');
+      history.push('/compare/results');
    };
 
    return (
@@ -59,10 +59,10 @@ const PercentagesOption2 = (props) => {
                      <div>Total</div>
                   </div>
                   <div>
-                     <div>{materialCO2e2.toFixed(2)}</div>
-                     <div>{fasteningCO2e2.toFixed(2)}</div>
-                     <div>{countryCO2e2.toFixed(2)}</div>
-                     <div>{totalCo2e2.toFixed(2)}</div>
+                     <div>{materialCO2e2}</div>
+                     <div>{fasteningCO2e2}</div>
+                     <div>{countryCO2e2}</div>
+                     <div>{totalCo2e2}</div>
                   </div>
                </div>
 

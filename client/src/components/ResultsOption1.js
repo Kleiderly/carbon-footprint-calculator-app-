@@ -16,7 +16,9 @@ const ResultsOption1 = (props) => {
 
    //Calculation
    useEffect(() => {
-      setTotalCo2e1(Number((materialCO2e1 + fasteningCO2e1 + countryCO2e1).toFixed(4)));
+      setTotalCo2e1(
+         Number((materialCO2e1 + fasteningCO2e1 + countryCO2e1).toFixed(4))
+      );
    }, [materialCO2e1, fasteningCO2e1, countryCO2e1]);
    console.log(totalCo2e1);
    //To Go Back
@@ -32,7 +34,11 @@ const ResultsOption1 = (props) => {
                <p className="results-direction-text">Results!</p>
                <div className="results-items-container">
                   <div className="results-before-click-category">
-                     <img src={itemTypeAdress1} alt={itemTypeAdress1} className="results-img-cover" />
+                     <img
+                        src={itemTypeAdress1}
+                        alt={itemTypeAdress1}
+                        className="results-img-cover"
+                     />
                   </div>
                </div>
             </div>
@@ -40,7 +46,10 @@ const ResultsOption1 = (props) => {
 
          <div>Carbon Footprint: {totalCo2e1}</div>
 
-         <span className="results-back-link" onClick={handleClickPreviousSection}>
+         <span
+            className="results-back-link"
+            onClick={handleClickPreviousSection}
+         >
             Go Back
          </span>
          <Link to="/calculate/percentages">
