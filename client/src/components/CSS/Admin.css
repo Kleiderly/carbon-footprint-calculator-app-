@@ -26,6 +26,7 @@
 
 .admin-text {
     margin: 15px 0 5px 0;
+    text-align: left;
 }
 
 .admin-password-text {
@@ -105,16 +106,17 @@
 }
 
 .password-field {
-    margin: 3px 15px 0 10px;
+    padding: 10px 85px 10px 0;
     font-size: small;
 }
 
 .pw-checkbox {
     width: auto;
+    margin-right: 5px;
 }
 
 .password-field2 {
-    margin: 3px 0 0 40px;
+    margin: 5px 0 0 40px;
     font-size: small;
 }
 
@@ -141,6 +143,9 @@
     background-color: #415551;
 }
 
+.admin-input-label {
+    margin: 5px 0 10px 0;
+}
 
 @media only screen and (min-device-width: 660px) {
 
@@ -176,8 +181,9 @@
 }
 
 .password-field2 {
-    margin: 3px 0 0 10px;
+    margin: 5px 0 0 10px;
 }
+
 .admin-form-button {
     font-size: 12px;
     padding: 9px;

@@ -244,7 +244,7 @@ function AdminForms() {
 /* POST to X co2e first form value input HTML (repeated) */
     const inputCo2e1 = 
         <div className="form-input">
-            Co2e per item: <br />
+            <p className="admin-input-label">Co2e per item: </p>
             <input 
             className="light-pink"
             type="text"
@@ -275,7 +275,7 @@ function AdminForms() {
                 <h4 className="admin-title">Materials</h4>
                 <div className="form-item">
                     <div className="form-input">
-                        Material: <br />
+                    <p className="admin-input-label">Material: </p>
                         <input 
                         className="light-pink" 
                         type="text"
@@ -294,7 +294,7 @@ function AdminForms() {
                 <h4 className="admin-title">Logistics</h4>
                 <div className="form-item">
                     <div className="form-input">
-                        Production Location: <br />
+                    <p className="admin-input-label">Production Location: </p>
                         <input 
                         className="light-pink" 
                         type="text"
@@ -307,7 +307,7 @@ function AdminForms() {
                         />
                     </div>
                     <div className="form-input">
-                        Consumer Location: <br />
+                    <p className="admin-input-label">Consumer Location: </p>
                         <input 
                         className="light-pink" 
                         type="text"
@@ -327,7 +327,7 @@ function AdminForms() {
             <h4 className="admin-title">Fastenings</h4>
                 <div className="form-item">
                     <div className="form-input">
-                        Name: <br />
+                    <p className="admin-input-label">Name: </p>
                         <input 
                         className="light-pink" 
                         type="text"
@@ -362,7 +362,7 @@ function AdminForms() {
                 <h4 className="admin-title">Materials</h4>
                 <div className="form-item">
                     <div className="form-input">
-                        Material: <br />
+                    <p className="admin-input-label">Material: </p>
                         <select
                         className="light-pink" 
                         onChange={(e) => {
@@ -388,7 +388,7 @@ function AdminForms() {
                         </select>
                     </div>
                     <div className="form-input">
-                        Co2e per item: <br />
+                    <p className="admin-input-label">Co2e per item: </p>
                         <input
                         className="light-pink"
                         type="text"
@@ -403,7 +403,7 @@ function AdminForms() {
                 <h4 className="admin-title">Logistics</h4>
                 <div className="form-item">
                     <div className="form-input">
-                        Production Location: <br />
+                    <p className="admin-input-label">Production Location: </p>
                         <select 
                         className="light-pink"
                         onChange={(e) => {
@@ -430,7 +430,7 @@ function AdminForms() {
                     </div>
 
                     <div className="form-input">
-                        Consumer Location: <br />
+                    <p className="admin-input-label">Consumer Location: </p>
                         <input
                         className="light-pink"
                         type="text"
@@ -443,7 +443,7 @@ function AdminForms() {
 
                 <div className="form-item">
                     <div className="form-input">
-                        Co2e per item: <br />
+                    <p className="admin-input-label">Co2e per item: </p>
                         <input
                         className="light-pink"
                         type="text"
@@ -458,7 +458,7 @@ function AdminForms() {
                 <h4 className="admin-title">Fastenings</h4>
                 <div className="form-item">
                     <div className="form-input">
-                        Name: <br />
+                    <p className="admin-input-label">Name: </p>
                         <select 
                         className="light-pink"
                         onChange={(e) => {
@@ -484,7 +484,7 @@ function AdminForms() {
                         </select>
                     </div>
                     <div className="form-input">
-                        Co2e per item: <br />
+                    <p className="admin-input-label">Co2e per item: </p>
                         <input
                         className="light-pink"
                         type="text"
@@ -516,7 +516,7 @@ function AdminForms() {
                 <h4 className="admin-title">Add new User</h4>
                     <div className="form-item">
                         <div className="form-input">
-                            Username: <br />
+                        <p className="admin-input-label">Username: </p>
                             <input 
                             className="light-pink" 
                             type="text"
@@ -529,7 +529,7 @@ function AdminForms() {
                             />
                         </div>
                         <div className="form-input">
-                            Email: <br />
+                        <p className="admin-input-label">Email: </p>
                             <input 
                             className="light-pink" 
                             type="text"
@@ -544,7 +544,7 @@ function AdminForms() {
                     </div>
                     <div className="form-item">
                         <div className="form-input">
-                            Password: <br />
+                        <p className="admin-input-label">Password: </p>
                             <input 
                             className="light-pink"
                             type="password"
@@ -556,7 +556,7 @@ function AdminForms() {
                         </div>
         
                         <div className="form-input">
-                            Confirm Password: <br />
+                            <p className="admin-input-label">Confirm Password:</p>
                             <input 
                             className="light-pink"
                             type="password"
@@ -583,7 +583,7 @@ function AdminForms() {
                     <h4 className="admin-title">Delete User</h4>
                     <div className="form-item">
                         <div className="form-input">
-                            Username: <br />
+                        <p className="admin-input-label">Username: </p>
                             <select
                             className="light-pink" 
                             onChange={(e) => {

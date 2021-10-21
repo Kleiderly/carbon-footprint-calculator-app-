@@ -85,11 +85,11 @@ function Login() {
                     value={password}
                     ></input>
 
-                    <div className="form-item password-field height">
+                    <div className="form-item password-field">
                       <input type="checkbox" className="pw-checkbox" onClick={showPw} />&nbsp;Show Password
                     </div>
 
-                    <button className="admin-form-button" type="submit">LOGIN</button>
+                    <button type="submit">LOGIN</button>
 
                     <Link to="/adminpage/forgotpassword" className="admin-password-text">
                         Forgot Password?
