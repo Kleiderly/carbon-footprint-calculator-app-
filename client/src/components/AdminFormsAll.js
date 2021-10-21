@@ -104,7 +104,9 @@ function AdminForms() {
 /* Show/Hide password field */
     const showPw = ()=> {
         const pw = document.getElementById("passw");
+        const pw2 = document.getElementById("passw2");
         pw.type === "password" ? pw.type = "text" : pw.type = "password"
+        pw2.type === "password" ? pw2.type = "text" : pw2.type = "password"
     };
 
 
@@ -540,11 +542,13 @@ function AdminForms() {
                         <p className="admin-input-label">Username: </p>
                             <input 
                             className="light-pink" 
+                            value={cat === "newuser" && section === "form3" ? username : ""}
                             type="text"
                             name="username"
                             onChange={(e) => {
-                            setUsername(e.target.value);
-                            setSection("form3");
+                                setUsername(e.target.value)
+                                setSection("form3")
+                                setCat("newuser")
                             }}
                             />
                         </div>
@@ -552,10 +556,11 @@ function AdminForms() {
                         <p className="admin-input-label">Email: </p>
                             <input 
                             className="light-pink" 
+                            value={cat === "newuser" && section === "form3" ? email : ""}
                             type="text"
                             name="email"
                             onChange={(e) => {
-                            setEmail(e.target.value);
+                            setEmail(e.target.value)
 
                             }}
                             />
@@ -566,6 +571,7 @@ function AdminForms() {
                         <p className="admin-input-label">Password: </p>
                             <input 
                             className="light-pink"
+                            value={cat === "newuser" && section === "form3" ? password : ""}
                             type="password"
                             name="password"
                             id="passw"
@@ -577,6 +583,7 @@ function AdminForms() {
                             <p className="admin-input-label">Confirm Password:</p>
                             <input 
                             className="light-pink"
+                            value={cat === "newuser" && section === "form3" ? confirmpassword : ""}
                             type="password"
                             name="confirmpassword"
                             id="passw2"
@@ -603,12 +610,16 @@ function AdminForms() {
                         <p className="admin-input-label">Username: </p>
                             <select
                             className="light-pink" 
+                            value={username}
                             onChange={(e) => {
-                                setFilterArr(auth.find((type)=> type.username === e.target.value));
-                                setUsername(e.target.value);
-                                setCat("admin");
-                                setSection("form4");
-                                console.log("Admin", username, password, filterArr);
+                                setFilterArr(auth.find((type)=> type.username === e.target.value))
+                                setUsername(e.target.value)
+                                setCat("admin")
+                                setSection("form4")
+                                setPassword("")
+                                setEmail("")
+                                setConfirmPassword("")
+                                console.log("Admin", username, password, filterArr)
                             }}>
                                 <option></option>
                                 {auth.map((type, i) => {
