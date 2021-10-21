@@ -519,7 +519,135 @@ function AdminForms() {
 
     
             
-            
+
+{/* POST to ADMIN */}
+            <div  >
+            <div className="form-section">
+                <h2>Add / Modify User</h2>
+                <h4>Add new User</h4>
+                <div >
+                    <div className="form-item">
+                    <div className="form-input">
+                        Username: <br />
+                        <input 
+                        className="light-pink" 
+                        type="text"
+                        name="username"
+                        value={username}
+                        onChange={(e) => {
+                          setUsername(e.target.value);
+                          setSection("form3");
+                        }}
+                        />
+                    </div>
+                    <div className="form-input">
+                        Email: <br />
+                        <input 
+                        className="light-pink" 
+                        type="text"
+                        name="email"
+                        value={email}
+                        onChange={(e) => {
+                          setEmail(e.target.value);
+
+                        }}
+                        />
+                    </div>
+                    </div>
+                    <div className="form-item">
+                    <div className="form-input">
+                        Password: <br />
+                        <input 
+                        className="light-pink"
+                        type="password"
+                        name="password"
+                        id="passw"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </div>
+        
+                    <div className="form-input">
+                        Confirm Password: <br />
+                        <input 
+                        className="light-pink"
+                        type="password"
+                        name="confirmpassword"
+                        id="passw2"
+                        value={confirmpassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        />
+                    </div>
+                    </div>
+                </div>
+                <div className="form-item password-field">
+                    <input type="checkbox" className="pw-checkbox" onClick={showPw} />Show Password
+                </div>
+                <div className="form-input center-align">
+                </div>
+{/* POST to ADMIN  buttons*/}
+                    <button onClick={handledAddAdmins}>ADD</button>
+                    <button onClick={clearForm}>CLEAR FORM</button>
+                </div>
+                <div className="form-submit">&nbsp; {error &&  <span>{error}</span>}{section === "form3" && submit}&nbsp;</div>
+
+
+{/* DELETE/MODIFY ADMIN */}
+                <div >
+                <h4 >Delete / Modify User</h4>
+                <h4 >Modify User</h4>
+
+                <div className="form-item">
+                    <div className="form-input">
+                        Username: <br />
+                        <select
+                        className="light-pink" 
+                        onChange={(e) => {
+                            setFilterArr(auth.find((type)=> type.username === e.target.value));
+                            setUsername(e.target.value);
+                            setCat("admin");
+                            setSection("form4");
+                            console.log("Admin", username, password, filterArr);
+                        }}>
+                            <option></option>
+                            {auth.map((type, i) => {
+                                return (
+                                    <option 
+                                    id={type._id} 
+                                    key={i} 
+                                    value={type.username}
+                                    >
+                                        {type.username}
+                                    </option>
+                                );
+                            })};
+                        </select>
+                    </div>
+                    </div>
+                    {/* <div className="form-input">
+                        Password: <br />
+                        <input
+                        className="light-pink"
+                        type="password"
+                        name="password"
+                        id="passw2"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        />
+                        </div>
+                    </div>
+                <div className="form-item password-field">
+                    <input type="checkbox" className="pw-checkbox" onClick={showPw} />Show Password */}
+                {/* </div> */}
+                
+                <div className="form-input center-align">
+            {/* DELETE/MODIFY ADMIN buttons*/}
+                    
+                    <button onClick={handleDeleteAdmin}>DELETE</button>
+                    <button onClick={clearForm}>CLEAR FORM</button>
+                    </div>
+                </div>
+            </div>
                 <button onClick={handleLogout}>Logout</button>
                 <div className="form-submit">&nbsp;{section === "form4" && submit}&nbsp;</div>
         </div>
