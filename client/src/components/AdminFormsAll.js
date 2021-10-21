@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import "./css/Admin.css";
+import './css/vivify.min.css';
 
 
 function AdminForms() {
@@ -33,8 +34,6 @@ function AdminForms() {
     const logisticAPI = axios.get(`/api/logistic`);
     const fasteningAPI = axios.get(`/api/fastening`);
     const adminAPI = axios.get(`/api/auth/`);
-/* Sets forms to display admin level */
-    // const [superAdmin , setSuperAdmin] = useState ();
 
     let history = useHistory();
     
@@ -48,13 +47,9 @@ function AdminForms() {
               Authorization: `Bearer ${localStorage.getItem("authToken")}`,
             },
           };
-    
           try {
             const { data } = await axios.get("/api/private", config);
             setPrivateData(data.data);
-
-          
-            
           } catch (error) {
             localStorage.removeItem("authToken");
             setError("You are not authorized please login");
@@ -65,7 +60,7 @@ function AdminForms() {
       }, []);
    
 
-        // let superAdmin = JSON.parse(localStorage.getItem("superAdmin"));
+    // let superAdmin = JSON.parse(localStorage.getItem("superAdmin"));
  
 /* API calls */
     useEffect(()=>{
@@ -76,7 +71,6 @@ function AdminForms() {
             setLogistic(res[1].data);
             setFastening(res[2].data);
             (setAuth(res[3].data));
-            
         }))
         .catch((err)=> console.log(err))
     }, [submit]);
@@ -103,15 +97,14 @@ function AdminForms() {
         const inputs = document.querySelectorAll("input,select");
         inputs.forEach((item) => (item.value = ""));
         setModCo2e(); setModId(); setModName2(); setCat(); setSection();
-        setModName(); setSubmit(); setFilterArr(); setUsername(); setPassword(); setConfirmPassword(); setEmail();
+        setModName(); setSubmit(); setFilterArr(); setUsername(); setPassword();
+        setConfirmPassword(); setEmail();
     };
 
 /* Show/Hide password field */
     const showPw = ()=> {
         const pw = document.getElementById("passw");
-        const pw2 = document.getElementById("passw2");
         pw.type === "password" ? pw.type = "text" : pw.type = "password"
-        pw2.type === "password" ? pw2.type = "text" : pw2.type = "password"
     };
 
 
@@ -148,7 +141,6 @@ function AdminForms() {
             console.log("Added:", modName, modName2, modCo2e, modId)
             setSubmit(success);
             setTimeout(()=> clearForm(), 1000);
-           
         })
         .catch((err)=>{
             console.log(err);
@@ -156,8 +148,7 @@ function AdminForms() {
         })
     };
 
-    /* POST ADMINS */
-
+/* POST ADMINS */
     const handledAddAdmins = async (e) =>{
         e.preventDefault();
         const config = {
@@ -225,8 +216,7 @@ function AdminForms() {
     };
 
 
-    // Delete Admins 
-
+// Delete Admins 
     const handleDeleteAdmin = (e) => {
         e.preventDefault();
         axios.delete(`/api/auth/${modId}`)
@@ -239,7 +229,6 @@ function AdminForms() {
             setSubmit(failed)
         })
     }
-
 
 /* POST to X co2e first form value input HTML (repeated) */
     const inputCo2e1 = 
@@ -256,17 +245,16 @@ function AdminForms() {
         </div>;
 
 //Logout 
-        const handleLogout = () => {
-            localStorage.removeItem("authToken");
-            history.push("/adminpage/login");
-        }
+    const handleLogout = () => {
+        localStorage.removeItem("authToken");
+        history.push("/adminpage/login");
+    }
         
-     
     return error ? (
         <span className="error-message">{error}</span>
       ) : (
           
-        <div className="forms-wrapper">
+        <div className="forms-wrapper vivify fadeIn">
 
             <div className="form-section">
                 <h2 className="form-main-title">Add item to database</h2>

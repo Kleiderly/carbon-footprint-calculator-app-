@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import './css/Admin.css';
 import Context from '../contexts/ContextApi';
 import axios from "axios";
+import './css/vivify.min.css';
 
 function Login() {
 
@@ -59,7 +60,7 @@ function Login() {
     };
   
     return (
-        <div className="admin-wrapper">
+        <div className="admin-wrapper vivify fadeIn">
             <div>
                 <h2>Admin Login</h2>
                 {error && <span className="error-message">{error}</span>}

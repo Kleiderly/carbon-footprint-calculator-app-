@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import "./css/Admin.css";
+import './css/vivify.min.css';
 
 
 function AdminForms() {
@@ -179,7 +180,7 @@ function AdminForms() {
         <span className="error-message">{error}</span>
       ) : (
           
-        <div className="forms-wrapper">
+        <div className="forms-wrapper vivify fadeIn">
 
             <div className="form-section">
                 <h2 className="form-main-title">Add item to database</h2>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import './css/Admin.css';
-
+import './css/vivify.min.css';
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -35,7 +35,7 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className="admin-wrapper">
+    <div className="admin-wrapper vivify fadeIn">
 
       <form onSubmit={forgotPasswordHandler}>
         <h3>Password Recovery</h3>

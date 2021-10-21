@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import './css/Admin.css';
+import './css/vivify.min.css';
 
 const ResetPassword = ({ match }) => {
   const [password, setPassword] = useState("");
@@ -49,7 +50,7 @@ const ResetPassword = ({ match }) => {
   };
 
   return (
-    <div className="admin-wrapper">
+    <div className="admin-wrapper vivify fadeIn">
       <form
         onSubmit={resetPasswordHandler}
       >
