@@ -1,4 +1,4 @@
-.fastening-choice-container {
+.fastenings-wrapper {
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -6,29 +6,43 @@
    margin: 10px;
 }
 
-.fastening-items-container {
+.fastenings-direction-text {
+   font-size: 6vw;
+   color: #0e2823;
+   margin: 20px 0 10px 0;
+}
+
+.fastenings-items-container, .fastenings-items-container2 {
    display: flex;
    flex-direction: row;
    align-items: center;
    justify-content: center;
 }
 
-.fastening-direction-text {
-   font-size: 6vw;
-   color: #0e2823;
-   margin: 20px 0 10px 0;
+.fastenings-items-container2 {
+   width: 95%;
 }
 
-.fastening-option-text {
-   margin-bottom: 0;
-   color: #0e2823;
+.fastenings-item-group {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   background-color: #F7EBE8;
+   border-radius: 10px;
 }
 
-.fastening-small-text {
+.fastenings-option-text {
+   margin: 5px 0 0 1px;
+   color: #0e2823;
+   font-size: 4vw;
+}
+
+.fastenings-small-text {
    font-size: small;
 }
 
-.fastening-img-cover {
+.fastenings-img-cover {
    width: 100px;
    margin-bottom: 3px;
 }
@@ -38,12 +52,12 @@
    padding: 5px;
 }
 
-.fastening-name {
+.fastenings-name {
    font-size: 4vw;
    font-weight: bold;
 }
 
-.fastening-before-click {
+.fastenings-before-click, .fastenings-after-click {
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -53,60 +67,80 @@
    height: 150px;
    margin: 10px;
    border-radius: 10px;
-   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-   color: #F7EBE8;
-}
-
-.fastening-after-click-category, .fastening-before-click-category {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
-   background-color: #415551;
-   width: 150px;
-   height: 150px;
-   margin: 10px;
    padding: 5px;
-   border-radius: 10px;
    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
    color: #F7EBE8;
 }
 
-.fastening-before-click-category {
-   background: #000000;
+.fastenings-after-click {
+   background-color: #415551;
 }
 
-.fastening-back-next-buttons {
+.fastenings-back-next-buttons {
    display: flex;
    justify-content: space-around;
    align-items: center;
    margin: 30px 0 20px 0;
 }
 
-.fastening-big-container {
-   display: flex;
-   flex-direction: row;
-   align-items: center;
-   justify-content: space-around;
-   width: 100%;
-}
-
 .fastenings-item {
    margin: 5px;
 }
 
-.fastening-container {
+.fastenings-container {
    display: flex;
    flex-direction: column;
    align-items: center;
 }
 
-.fastenings-disabled-link {
-   pointer-events: none;
+
+@media only screen and (min-device-width: 660px) {
+.fastenings-direction-text {
+   font-size: 30px;
+   margin: 30px 20px 20px 20px;
 }
 
-.fasteningNameContainer {
-   display: flex;
+.fastenings-container1 {
+   flex-direction: row;
+   justify-content: center;
+   flex-wrap: wrap;
+   width: 500px;
+}
+
+.fastenings-item-group {
+   width: 350px;
+}
+
+.fastenings-container {
    flex-direction: row;
    align-items: center;
+   justify-content: center;
+   flex-wrap: wrap;
+   width: 473px;
+}
+
+.fastenings-item {
+   padding: 5px;
+   margin: 3px;
+   border-radius: 5px;
+   width: 102px;
+   background-color: #0000000a;
+}
+
+.fastenings-items-container2 {
+   width: 700px;
+   justify-content: space-between;
+}
+
+.fastenings-back-next-buttons {
+   margin: 30px 0 20px 0;
+}
+
+.fastenings-name {
+   font-size: 14px;
+}
+
+.fastenings-option-text {
+   font-size: 18px;
+}
 }

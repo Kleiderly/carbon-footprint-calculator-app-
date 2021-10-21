@@ -77,10 +77,11 @@
 }
 
 .cover-before-click:hover,
- .cover-after-click:hover,
-  .cover-before-click2:hover,
-   .cover-after-click2:hover {
+.cover-after-click:hover,
+.cover-before-click2:hover,
+.cover-after-click2:hover {
    background-color:#415551;
+   transition: all 0.25s;
 }
 
 .cover-disabled-link {
@@ -103,7 +104,8 @@
 
 .cover-paragraph {
    font-size: 16px;
-   margin: 0 0 40px 0;
+   width: 80%;
+   margin: 0 auto 40px auto;
 }
 
 .cover-direction-text {

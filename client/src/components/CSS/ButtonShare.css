@@ -15,14 +15,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 100px;
+    border-radius: 30px;
     background-color: black;
     color:#F7EBE8;
-    height: 90px;
+    height: 60px;
     width: 90px;
     font-weight: bold;
     font-size: 3.5vw;
     letter-spacing: 1px;
     box-shadow: 0px 2px 0px #ffc2b3;
     margin: 15px;
+}
+
+
+@media only screen and (min-device-width: 660px) {
+.buttonshare-share-button {
+    font-size: 15px;
+    margin: 15px 0 20px 0;
+}
 }

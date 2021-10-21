@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useEffect, useContext } from "react";
 import Context from "../contexts/ContextApi";
 import { Link, useHistory } from "react-router-dom";
 import ButtonShareModal from "./ButtonShareModal";
@@ -15,9 +15,11 @@ const ResultsOption1 = (props) => {
     totalCo2e1,
     setTotalCo2e1,
   } = useContext(Context);
+
   //  ANIMATION STATES
   const [opacity, setOpacity] = useState(0.5);
   const { width, height } = useWindowSize();
+
   //Calculation
   useEffect(() => {
     setTotalCo2e1(
@@ -25,6 +27,12 @@ const ResultsOption1 = (props) => {
     );
   }, [materialCO2e1, fasteningCO2e1, countryCO2e1]);
   console.log(totalCo2e1);
+  //To Go Back
+  let history = useHistory();
+  const handleClickPreviousSection = () => {
+    history.push("/calculate/logistics");
+  };
+
   // ANIMATION useEffect
   useEffect(() => {
     setTimeout(() => {
@@ -55,13 +63,9 @@ const ResultsOption1 = (props) => {
       setOpacity((opacity) => opacity - 0.02);
     }, 15000);
   }, []);
-  //To Go Back
-  let history = useHistory();
-  const handleClickPreviousSection = () => {
-    history.push("/calculate/logistics");
-  };
+
   return (
-    <div className="results-choice-container">
+    <div className="results-wrapper">
       <Confetti
         width={width}
         height={height}
@@ -69,29 +73,23 @@ const ResultsOption1 = (props) => {
         opacity={opacity}
         gravity={0.05}
       />
-      <div>
-        <div>
-          <p className="results-direction-text">Results!</p>
-          <div className="results-items-container">
-            <div className="results-before-click-category">
-              <img
-                src={itemTypeAdress1}
-                alt={itemTypeAdress1}
-                className="results-img-cover"
-              />
-              <div className="results-carbon-result">Total: {totalCo2e1}</div>
-            </div>
-          </div>
+      <p className="results-title">Result!</p>
+
+      <div className="results-items-container">
+        <div className="results-before-click">
+          <img
+            src={itemTypeAdress1}
+            alt={itemTypeAdress1}
+            className="results-img-cover1"
+          />
+          <div className="results-carbon-result">Total: {totalCo2e1}</div>
         </div>
       </div>
-      <p className="results-explanation">Text explaining what this means.</p>
 
-      {/* <span className="results-back-link" onClick={handleClickPreviousSection}>
-            Go Back
-         </span> */}
       <Link to="/calculate/percentages" className="results-details">
         SEE DETAILS
       </Link>
+      <p className="results-explanation">Text explaining what this means.</p>
 
       <ButtonShareModal />
 
