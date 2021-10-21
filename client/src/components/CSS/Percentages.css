@@ -1,0 +1,150 @@
+.percentages-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+ }
+ 
+ .percentages-title {
+    font-size: 6vw;
+    color: #0e2823;
+    margin: 10px 0 10px 0;
+ }
+ 
+ .percentages-img-cover, .percentages-img-cover1 {
+    width: 100px;
+    margin-bottom: 5px;
+    filter: drop-shadow(0px 3px 1px rgba(0, 0, 0, 0.644));
+ }
+
+ .percentages-img-cover1 {
+   width: 120px;
+}
+
+ .percentages-main-container, .percentages-main-container2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ }
+
+ .percentages-categories, .percentages-totals {
+     text-align: center;
+     width: 100px;
+ }
+
+ .percentages-totals {
+     width: 100%;
+ }
+
+ .percentages-detail {
+     padding: 4px;
+ }
+
+ .percentages-carbon-result {
+    font-size: 5vw;
+    font-weight: bold;
+    margin: 5px;
+ }
+
+ .percentages-go-back {
+     font-size: 3vw;
+     font-weight: bold;
+     cursor: pointer;
+     margin-bottom: -10px;
+ }
+
+ .percentages-go-back:hover {
+    color: #415551;
+}
+ 
+ .percentages-item-group, .percentages-container2, .percentages-container2-1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin-top: 5px;
+    color: #0E2823;
+    font-size: 3.5vw;
+ }
+
+ .percentages-container2, .percentages-container2-1 {
+    text-align: left;
+    width: 90%;
+    background-color: #d2cdc62a;
+    border-radius: 5px;
+    padding: 3px;
+    margin: 10px;
+ }
+
+ .percentages-container2-1 {
+   width: 80%;
+}
+
+ .percentages-explanation {
+    font-size: 3.8vw;
+    margin: 20px 0 30px 0;
+ }
+
+.percentages-before-click, .percentages-after-click {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000;
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.692);
+    color: #F7EBE8;
+ }
+
+ .percentages-after-click {
+    background-color: #F7EBE8;
+    color: #000000;
+ }
+
+
+ @media only screen and (min-device-width: 660px) {
+
+.percentages-title {
+   font-size: 30px;
+   margin: 30px 20px 10px 20px;
+}
+
+.percentages-item-group, .percentages-container2, .percentages-container2-1 {
+   justify-content: space-between;
+   margin: 5px 0 0 0;
+   font-size: 16px;
+   padding: 5px;
+}
+
+.percentages-container2 {
+   width: 400px;
+   margin: 10px 0 10px 0;
+}
+
+.percentages-main-container2 {
+   flex-direction: row;
+}
+
+.percentages-main-container {
+   width: 300px;
+}
+
+.percentages-explanation {
+   font-size: 18px;
+   margin: 30px;
+}
+
+.percentages-carbon-result {
+   font-size: 20px;
+}
+
+.percentages-go-back {
+    font-size: 12px;
+}
+}

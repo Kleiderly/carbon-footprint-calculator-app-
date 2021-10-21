@@ -1,9 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap');
+
+* {
+   font-family: 'Montserrat', sans-serif;
+}
+
 .App {
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+}
+
+a {
+  text-decoration: none;
 }
 
 input, select {
@@ -25,12 +35,12 @@ select {
   width: 220px;
 }
 
-button, .buttonnext-button, .back-button, .next-button {
+button, .buttonnext-button {
   margin: 10px;
   padding: 10px 20px 10px 20px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-  border-radius: 50px;
-  background-color: #415551;
+  border-radius: 30px;
+  background-color: #0E2823;
   border: 0;
   color: #F7EBE8;
   font-size: 4vw;
@@ -38,22 +48,88 @@ button, .buttonnext-button, .back-button, .next-button {
   cursor: pointer;
 }
 
-button:hover, button:active {
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+button:hover, button:active, .buttonnext-button:hover, .buttonnext-button:active {
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.25);
+  background-color: #415551;
+  transition: all 0.20s;
+}
+
+.back-button, .next-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 15px;
+  margin: 0 5px 5px 5px;
+  width: 90px;
+  height: 30px;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  background-color: #ffffff;
+  border: solid 2px #0E2823;
+  color: #0E2823;
+  font-size: 3vw;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0);
+}
+
+.back-button:hover, .next-button:hover, .back-button:active, .next-button:active {
   background-color: #0E2823;
+  color: #ffffff;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+  transition: all 0.20s;
 }
 
-.back-button {
-  border-radius: 50px 0px 0px 50px;
-  margin: 5px;
-}
-
-.next-button {
-  border-radius: 0px 50px 50px 0px;
-  margin: 5px;
+.logout-button {
+  width: 200px;
+  height: 50px;
+  font-size: 5vw;
+  border-radius: 10px;
+  margin: 20px auto 40px auto;
 }
 
 .buttonnext-button {
   margin: 10px;
   padding: 10px 25px 10px 25px;
+}
+
+.pop-up-box {
+  padding: 3px;
+  color: #0E2823;
+}
+
+.light-pink {
+  background-color: #F7EBE8;
+}
+
+.light-green {
+  background-color: #415551;
+}
+
+.dark-green {
+  background-color: #0E2823;
+}
+
+.center-align {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.height {
+  padding-bottom: 10px;
+}
+
+
+@media only screen and (min-device-width: 660px) {
+
+button, .buttonnext-button {
+  font-size: 14px;
+}
+
+.back-button, .next-button {
+  font-size: 14px;
+}
+
+.logout-button {
+  font-size: 18px;
+}
 }

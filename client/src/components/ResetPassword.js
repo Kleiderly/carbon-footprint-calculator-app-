@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
-
-
+import './css/Admin.css';
 
 const ResetPassword = ({ match }) => {
   const [password, setPassword] = useState("");
@@ -51,23 +49,24 @@ const ResetPassword = ({ match }) => {
   };
 
   return (
-    <div >
+    <div className="admin-wrapper">
       <form
         onSubmit={resetPasswordHandler}
       >
-        <h3 >Forgot Password</h3>
+        <h3>Reset Password</h3>
         {error && <span >{error} </span>}
         {success && (
-          <span >
+          <span>
             {success} <Link to="/adminpage/login">Login</Link>
           </span>
         )}
-        <div >
-          <label htmlFor="password">New Password:</label>
+        <div>
+          <label htmlFor="password">New Password: </label>
           <input
             type="password"
             required
             id="password"
+            className="light-pink"
             placeholder="Enter new password"
             autoComplete="true"
             value={password}
@@ -75,11 +74,12 @@ const ResetPassword = ({ match }) => {
           />
         </div>
         <div >
-          <label htmlFor="confirmpassword">Confirm New Password:</label>
+          <label htmlFor="confirmpassword">Confirm New Password: </label>
           <input
             type="password"
             required
             id="confirmpassword"
+            className="light-pink"
             placeholder="Confirm new password"
             autoComplete="true"
             value={confirmPassword}
@@ -87,7 +87,7 @@ const ResetPassword = ({ match }) => {
           />
         </div>
         <button type="submit" >
-          Reset Password
+          RESET PASSWORD
         </button>
       </form>
     </div>
