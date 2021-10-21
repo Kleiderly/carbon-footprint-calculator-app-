@@ -5,7 +5,7 @@ import './css/vivify.min.css';
 const LogistictsItemBox1 = ({ selected, index, name }) => {
 
    return (
-      <div className="fadeIn">
+      <div className="popIn vivify">
          <button
             className={selected === index ? 'itembox-selected-item-box' : 'itembox-deselected-item-box'}
          >

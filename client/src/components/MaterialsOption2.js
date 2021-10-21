@@ -9,6 +9,7 @@ import ItemBox from './ItemBox';
 import './css/Materials.css';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import './css/vivify.min.css';
 
 const MaterialsOption2 = (props) => {
    const {
@@ -67,7 +68,7 @@ const MaterialsOption2 = (props) => {
    console.log(selectMaterial2);
 
    return (
-      <div className="material-wrapper">
+      <div className="material-wrapper vivify fadeIn">
          <ProgressBar stage={1} previous="Choice" next="Fastenings" />
 
          <p className="material-title">

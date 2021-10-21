@@ -5,6 +5,7 @@ import { Link, useHistory } from 'react-router-dom';
 import ProgressBar from './ProgressBar';
 import './css/Fastenings.css';
 import Tips from './Tips';
+import './css/vivify.min.css';
 
 const FasteningsOption2 = () => {
    const {
@@ -61,7 +62,7 @@ const FasteningsOption2 = () => {
    };
 
    return (
-      <div className="fastenings-wrapper">
+      <div className="fastenings-wrapper vivify fadeIn">
          <ProgressBar stage={2} previous="Material" next="Fabrication" />
 
          <p className="fastenings-direction-text">

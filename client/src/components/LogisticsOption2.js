@@ -8,6 +8,7 @@ import Tips from './Tips';
 import './css/Logistics.css';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import './css/vivify.min.css';
 
 function Logistics(props) {
    const {
@@ -62,7 +63,7 @@ function Logistics(props) {
    console.log(selectCountry2);
 
    return (
-      <div className="logistics-wrapper">
+      <div className="logistics-wrapper vivify fadeIn">
          <ProgressBar stage={3} previous="Fastenings" next="Results" />
 
          <p className="logistics-title">

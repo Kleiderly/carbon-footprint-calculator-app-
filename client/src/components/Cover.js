@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import './css/Cover.css';
+import './css/vivify.min.css';
 
 function Cover() {
    const [choice, setChoice] = useState(null);

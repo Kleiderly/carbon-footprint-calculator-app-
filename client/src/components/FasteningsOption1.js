@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import ProgressBar from './ProgressBar';
 import './css/Fastenings.css';
 import Tips from './Tips';
+import './css/vivify.min.css';
 
 const FasteningsOption1 = (props) => {
    const { itemTypeAdress1, setFasteningCO2e1, fasteningCO2e1 } =
@@ -49,7 +50,7 @@ const FasteningsOption1 = (props) => {
    console.log('result Fastening: ', fasteningCO2e1);
 
    return (
-      <div className="fastenings-wrapper">
+      <div className="fastenings-wrapper vivify fadeIn">
          <ProgressBar stage={2} previous="Material" next="Fabrication" />
 
          <p className="fastenings-direction-text">Does it have fastenings?</p>

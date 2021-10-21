@@ -8,6 +8,7 @@ import Tips from './Tips';
 import './css/Logistics.css';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import './css/vivify.min.css';
 
 const LogisticsOption1 = (props) => {
    const { itemTypeAdress1, setCountryCO2e1 } = useContext(Context);
@@ -46,7 +47,7 @@ const LogisticsOption1 = (props) => {
    };
 
    return (
-      <div className="logistics-wrapper">
+      <div className="logistics-wrapper vivify fadeIn">
          <ProgressBar stage={3} previous="Fastenings" next="Results" />
 
          <p className="logistics-title">Where was it produced?</p>

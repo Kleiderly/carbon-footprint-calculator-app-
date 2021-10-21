@@ -8,6 +8,7 @@ import Tips from './Tips';
 import './css/Materials.css';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import './css/vivify.min.css';
 
 const MaterialsOption1 = (props) => {
    const { itemTypeAdress1, setMaterialCO2e1 } = useContext(Context);
@@ -40,7 +41,7 @@ const MaterialsOption1 = (props) => {
    };
 
    return (
-      <div className="material-wrapper">
+      <div className="material-wrapper vivify fadeIn">
          <ProgressBar stage={1} previous="Choice" next="Fastenings" />
          <p className="material-title">What material is it made of?</p>
          <div className="material-items-container fadeIn vivify">

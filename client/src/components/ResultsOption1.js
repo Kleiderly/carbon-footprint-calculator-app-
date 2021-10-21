@@ -3,6 +3,7 @@ import Context from '../contexts/ContextApi';
 import { Link, useHistory } from 'react-router-dom';
 import ButtonShareModal from './ButtonShareModal';
 import './css/Results.css';
+import './css/vivify.min.css';
 
 const ResultsOption1 = (props) => {
    const {
@@ -26,14 +27,14 @@ const ResultsOption1 = (props) => {
    };
 
    return (
-      <div className="results-wrapper">
+      <div className="results-wrapper vivify popIn delay-500">
 
          <p className="results-title">Result!</p>
 
          <div className="results-items-container">
             <div className="results-before-click">
                <img src={itemTypeAdress1} alt={itemTypeAdress1} className="results-img-cover1" />
-               <div className="results-carbon-result">
+               <div className="results-carbon-result vivify popIn delay-1000">
                   Total: {totalCo2e1}
                </div>
             </div>

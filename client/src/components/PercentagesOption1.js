@@ -2,7 +2,8 @@ import React, { useContext } from 'react';
 import Context from '../contexts/ContextApi';
 import { Link, useHistory } from 'react-router-dom';
 import './css/Percentages.css';
-import { divModeExecute } from 'tsparticles';
+// import { divModeExecute } from 'tsparticles';
+import './css/vivify.min.css';
 
 const PercentagesOption1 = (props) => {
    const {
@@ -24,7 +25,7 @@ const PercentagesOption1 = (props) => {
    };
 
    return (
-      <div className="percentages-wrapper">
+      <div className="percentages-wrapper vivify fadeIn">
 
          <p className="percentages-title">Co2E Details</p>
          <div className="percentages-main-container">
@@ -34,7 +35,7 @@ const PercentagesOption1 = (props) => {
                </div>
             </div>
 
-            <div className="percentages-container2-1">
+            <div className="percentages-container2-1 vivify fadeIn delay-500">
                <div>
                   <div><b>Material:</b></div>
                   <div><b>Fastenings:</b></div>
