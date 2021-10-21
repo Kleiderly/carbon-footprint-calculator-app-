@@ -87,18 +87,11 @@ function AdminForms() {
 
 /* Clears forms and states */
     const clearForm = ()=>{
-        const inputs = document.querySelectorAll("input,select");
+        const inputs = document.querySelectorAll("input, select");
         inputs.forEach((item) => (item.value = ""));
         setModCo2e(); setModId(); setModName2(); setCat(); setSection();
         setModName(); setSubmit(); setFilterArr();
     };
-
-/* Show/Hide password field */
-    const showPw = ()=> {
-        const pw = document.getElementById("passw");
-        pw.type === "password" ? pw.type = "text" : pw.type = "password"
-    };
-
 
 /* ROUTES */
 
@@ -154,20 +147,6 @@ function AdminForms() {
             setSubmit(failed);
         });
     };
-
-/* POST to X co2e first form value input HTML (repeated) */
-    const inputCo2e1 = 
-        <div className="form-input">
-            <p className="admin-input-label">Co2e per item: </p>
-            <input 
-            className="light-pink"
-            type="text"
-            name="co2e"
-            onChange={(e) => {
-                setModCo2e(e.target.value); 
-            }}
-            />
-        </div>;
 
 //Logout 
     const handleLogout = () => {
@@ -321,7 +300,7 @@ function AdminForms() {
                     <p className="admin-input-label">Material: </p>
                         <select
                         className="light-pink" 
-                        value={modName}
+                        value={section === "form2" && modName}
                         onChange={(e) => {
                             setFilterArr(material.find((type)=> type.name === e.target.value));
                             setModName(e.target.value);
@@ -364,7 +343,7 @@ function AdminForms() {
                     <p className="admin-input-label">Production Location: </p>
                         <select 
                         className="light-pink"
-                        value={modName}
+                        value={section === "form2" && modName}
                         onChange={(e) => {
                             setFilterArr(logistic.find((type)=> type.productionLocation === e.target.value));
                             setModName(e.target.value);
@@ -420,7 +399,7 @@ function AdminForms() {
                     <p className="admin-input-label">Name: </p>
                         <select 
                         className="light-pink"
-                        value={modName}
+                        value={section === "form2" && modName}
                         onChange={(e) => {
                             setFilterArr(fastening.find((type)=> type.name === e.target.value));
                             setModName(e.target.value);
