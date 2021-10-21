@@ -6,6 +6,7 @@ import ProgressBar from './ProgressBar';
 import { useLocation } from 'react-router';
 import './css/Fastenings.css';
 import Tips from './Tips';
+import { tipsList } from './data.js';
 
 const FasteningsOption2 = () => {
    const {
@@ -67,14 +68,24 @@ const FasteningsOption2 = () => {
          <ProgressBar stage={2} previous="Material" next="Fabrication" />
          <div>
             <div>
-               <p className="fastening-direction-text">Do they have fastenings?</p>
+               <p className="fastening-direction-text">
+                  Do they have fastenings?
+               </p>
                <div className="fastening-items-container">
                   <div className="fastening-before-click-category">
-                     <img src={itemTypeAdress1} alt={itemTypeAdress1} className="fastening-img-cover" />
+                     <img
+                        src={itemTypeAdress1}
+                        alt={itemTypeAdress1}
+                        className="fastening-img-cover"
+                     />
                      <span>1st Item</span>
                   </div>
                   <div className="fastening-after-click-category">
-                     <img src={itemTypeAdress2} alt={itemTypeAdress2} className="fastening-img-cover" />
+                     <img
+                        src={itemTypeAdress2}
+                        alt={itemTypeAdress2}
+                        className="fastening-img-cover"
+                     />
                      <span>2nd Item</span>
                   </div>
                </div>
@@ -86,7 +97,9 @@ const FasteningsOption2 = () => {
                   fastenings.map((fastening, i) => {
                      return (
                         <div key={i} className="fastenings-item">
-                           <span className="fastening-name">{fastening.name}</span>
+                           <span className="fastening-name">
+                              {fastening.name}
+                           </span>
                            <br />
                            <input
                               type="number"
@@ -108,7 +121,9 @@ const FasteningsOption2 = () => {
                   fastenings.map((fastening, i) => {
                      return (
                         <div key={i} className="fastenings-item">
-                           <span className="fastening-name">{fastening.name}</span>
+                           <span className="fastening-name">
+                              {fastening.name}
+                           </span>
                            <br />
                            <input
                               type="number"
@@ -127,20 +142,27 @@ const FasteningsOption2 = () => {
             </div>
          </div>
          <div className="fastening-back-next-buttons">
-            <button className="back-button" type="button" onClick={handleClickPreviousSection}>
+            <button
+               className="back-button"
+               type="button"
+               onClick={handleClickPreviousSection}
+            >
                BACK
             </button>
-               <Link to="/compare/logistics">
-                  <button className="next-button" type="button" onClick={addFastenings}>
-                     NEXT
-                  </button>
-               </Link>
+            <Link to="/compare/logistics">
+               <button
+                  className="next-button"
+                  type="button"
+                  onClick={addFastenings}
+               >
+                  NEXT
+               </button>
+            </Link>
          </div>
 
          <div className="tips">
-            <Tips category="fastenings" />
+            <Tips category="fastenings" tipObj={tipsList[3]} />
          </div>
-
       </div>
    );
 };

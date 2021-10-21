@@ -31,3 +31,37 @@ export const itemList = [
    },
 ];
 
+export const tipsList = [
+   {
+      category: 'material',
+      image: '../img/items-images/t-shirtW.png',
+      text: 'Every year, global emissions from textile production are equivalent to 1.2 billion tonnes of CO2, a figure that outweighs the carbon footprint of international flights and shipping combined',
+   },
+
+   {
+      category: 'fastening',
+      image: '../img/items-images/t-shirtW.png',
+      text: 'European Countries Are Among the World’s Highest Carbon Emitters',
+   },
+   {
+      category: 'logistics',
+      image: '../img/items-images/t-shirtW.png',
+      text: 'Clothes, footwear and household textiles are responsible for water pollution, greenhouse gas emissions and landfill',
+   },
+   {
+      category: 'material',
+      image: '../img/items-images/t-shirtW.png',
+      text: 'Every year, global emissions from textile production are equivalent to 1.2 billion tonnes of CO2, a figure that outweighs the carbon footprint of international flights and shipping combined',
+   },
+
+   {
+      category: 'fastening',
+      image: '../img/items-images/t-shirtW.png',
+      text: 'European Countries Are Among the World’s Highest Carbon Emitters',
+   },
+   {
+      category: 'logistics',
+      image: '../img/items-images/t-shirtW.png',
+      text: 'Clothes, footwear and household textiles are responsible for water pollution, greenhouse gas emissions and landfill',
+   },
+];

@@ -6,6 +6,7 @@ import ProgressBar from './ProgressBar';
 import axios from 'axios';
 import Tips from './Tips';
 import './css/Logistics.css';
+import { tipsList } from './data.js';
 
 const LogisticsOption1 = (props) => {
    const { itemTypeAdress1, setCountryCO2e1 } = useContext(Context);
@@ -45,13 +46,19 @@ const LogisticsOption1 = (props) => {
 
    return (
       <div className="logistics-choice-container">
-         <ProgressBar stage={3}  previous="Fastenings" next="Results" />
+         <ProgressBar stage={3} previous="Fastenings" next="Results" />
          <div>
             <div>
-               <p className="logistics-direction-text">Where was it produced?</p>
+               <p className="logistics-direction-text">
+                  Where was it produced?
+               </p>
                <div className="logistics-items-container ">
                   <div className="logistics-before-click-category">
-                     <img src={itemTypeAdress1} alt={itemTypeAdress1} className="logistics-img-cover" />
+                     <img
+                        src={itemTypeAdress1}
+                        alt={itemTypeAdress1}
+                        className="logistics-img-cover"
+                     />
                      <span className="logistics-small-text">Origin</span>
                   </div>
                </div>
@@ -74,21 +81,30 @@ const LogisticsOption1 = (props) => {
             </div>
          </div>
          <div className="category-back-next-buttons">
-            <button className="back-button" type="button" onClick={handleClickPreviousSection}>
+            <button
+               className="back-button"
+               type="button"
+               onClick={handleClickPreviousSection}
+            >
                BACK
             </button>
-            <Link className={selectCountry1? null : 'disabled-link'}
-            to="/calculate/results">
-               <button className="next-button" type="button" onClick={handleClick}>
+            <Link
+               className={selectCountry1 ? null : 'disabled-link'}
+               to="/calculate/results"
+            >
+               <button
+                  className="next-button"
+                  type="button"
+                  onClick={handleClick}
+               >
                   NEXT
                </button>
             </Link>
          </div>
 
          <div className="tips">
-            <Tips category="logistics" />
+            <Tips category="logistics" tipObj={tipsList[4]} />
          </div>
-
       </div>
    );
 };

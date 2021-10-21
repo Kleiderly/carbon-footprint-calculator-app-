@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import ProgressBar from './ProgressBar';
 import './css/Fastenings.css';
 import Tips from './Tips';
+import { tipsList } from './data.js';
 
 const FasteningsOption1 = (props) => {
    const { itemTypeAdress1, setFasteningCO2e1, fasteningCO2e1 } =
@@ -67,7 +68,9 @@ const FasteningsOption1 = (props) => {
                fastenings.map((fastening, i) => {
                   return (
                      <div key={i}>
-                        <h3 className="fastenings-option-text">{fastening.name}</h3>
+                        <h3 className="fastenings-option-text">
+                           {fastening.name}
+                        </h3>
                         <input
                            type="number"
                            min="0"
@@ -83,21 +86,27 @@ const FasteningsOption1 = (props) => {
                })}
          </div>
          <div className="fastening-back-next-buttons">
-            <button className="back-button" type="button" onClick={handleClickPreviousSection}>
+            <button
+               className="back-button"
+               type="button"
+               onClick={handleClickPreviousSection}
+            >
                BACK
             </button>
-               <Link 
-               to="/calculate/logistics">
-                  <button className="next-button" type="button" onClick={addFastenings}>
-                     NEXT
-                  </button>
-               </Link>
+            <Link to="/calculate/logistics">
+               <button
+                  className="next-button"
+                  type="button"
+                  onClick={addFastenings}
+               >
+                  NEXT
+               </button>
+            </Link>
          </div>
 
          <div className="tips">
-            <Tips category="fastenings" />
+            <Tips category="fastenings" tipObj={tipsList[2]} />
          </div>
-
       </div>
    );
 };

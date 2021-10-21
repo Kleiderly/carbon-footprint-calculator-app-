@@ -6,6 +6,7 @@ import ItemBox from './ItemBox';
 import ProgressBar from './ProgressBar';
 import Tips from './Tips';
 import './css/Materials.css';
+import { tipsList } from './data.js';
 
 const MaterialsOption1 = (props) => {
    const { itemTypeAdress1, setMaterialCO2e1 } = useContext(Context);
@@ -37,6 +38,8 @@ const MaterialsOption1 = (props) => {
       history.push('/calculate/category');
    };
 
+   console.log(tipsList[0]);
+
    return (
       <div className="material-choice-container">
          <ProgressBar stage={1} previous="Choice" next="Fastenings" />
@@ -64,24 +67,30 @@ const MaterialsOption1 = (props) => {
          </div>
 
          <div className="category-back-next-buttons">
-            <button className="back-button" type="button" onClick={handleClickPreviousSection}>
+            <button
+               className="back-button"
+               type="button"
+               onClick={handleClickPreviousSection}
+            >
                BACK
             </button>
-               <Link className={selectMaterial1? null : 'disabled-link'}
-               to="/calculate/fastenings">
-                  <button className="next-button"
-                     type="button"
-                     onClick={() => setMaterialCO2e1(selectMaterial1)}
-                  >
-                     NEXT
-                  </button>
-               </Link>
+            <Link
+               className={selectMaterial1 ? null : 'disabled-link'}
+               to="/calculate/fastenings"
+            >
+               <button
+                  className="next-button"
+                  type="button"
+                  onClick={() => setMaterialCO2e1(selectMaterial1)}
+               >
+                  NEXT
+               </button>
+            </Link>
          </div>
 
          <div className="tips">
-            <Tips category="materials" />
+            <Tips tipObj={tipsList[0]} />
          </div>
-
       </div>
    );
 };

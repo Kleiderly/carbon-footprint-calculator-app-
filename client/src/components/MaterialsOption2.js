@@ -6,7 +6,7 @@ import Context from '../contexts/ContextApi';
 import Tips from './Tips';
 import ProgressBar from './ProgressBar';
 import ItemBox from './ItemBox';
-
+import { tipsList } from './data.js';
 import './css/Materials.css';
 
 const MaterialsOption2 = (props) => {
@@ -67,17 +67,27 @@ const MaterialsOption2 = (props) => {
 
    return (
       <div className="material-choice-container">
-      <ProgressBar stage={1} previous="Choice" next="Fastenings" />
+         <ProgressBar stage={1} previous="Choice" next="Fastenings" />
          <div>
             <div>
-               <p className="material-direction-text">What material are they made of?</p>
+               <p className="material-direction-text">
+                  What material are they made of?
+               </p>
                <div className="material-items-container">
                   <div className="material-before-click-category">
-                     <img src={itemTypeAdress1} alt={itemTypeAdress1} className="material-img-cover" />
+                     <img
+                        src={itemTypeAdress1}
+                        alt={itemTypeAdress1}
+                        className="material-img-cover"
+                     />
                      <span>1st Item</span>
                   </div>
                   <div className="material-after-click-category">
-                     <img src={itemTypeAdress2} alt={itemTypeAdress2} className="material-img-cover" />
+                     <img
+                        src={itemTypeAdress2}
+                        alt={itemTypeAdress2}
+                        className="material-img-cover"
+                     />
                      <span>2nd Item</span>
                   </div>
                </div>
@@ -107,21 +117,32 @@ const MaterialsOption2 = (props) => {
          </div>
 
          <div className="material-back-next-buttons">
-            <button className="back-button" type="button" onClick={handleClickPreviousSection}>
+            <button
+               className="back-button"
+               type="button"
+               onClick={handleClickPreviousSection}
+            >
                BACK
             </button>
-            <Link 
-            to="/compare/fastenings" className={selectMaterial1 && selectMaterial2 ? null : 'disabled-link'}>
-               <button className="next-button" type="button" onClick={handleClick}>
+            <Link
+               to="/compare/fastenings"
+               className={
+                  selectMaterial1 && selectMaterial2 ? null : 'disabled-link'
+               }
+            >
+               <button
+                  className="next-button"
+                  type="button"
+                  onClick={handleClick}
+               >
                   NEXT
                </button>
             </Link>
          </div>
 
          <div className="tips">
-            <Tips category="materials" />
+            <Tips category="materials" tipObj={tipsList[1]} />
          </div>
-
       </div>
    );
 };
