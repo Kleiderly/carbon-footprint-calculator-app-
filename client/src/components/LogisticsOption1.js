@@ -9,6 +9,7 @@ import './css/Logistics.css';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import './css/vivify.min.css';
+import ScrollAnimation from 'react-animate-on-scroll';
 
 const LogisticsOption1 = (props) => {
    const { itemTypeAdress1, setCountryCO2e1 } = useContext(Context);
@@ -57,7 +58,7 @@ const LogisticsOption1 = (props) => {
                <span className="logistics-small-text">Origin</span>
             </div>
          </div>
-
+   <ScrollAnimation animateIn="fadeIn">
          <div className="logistics-big-container1">
             <div className="logistics-container1">
                {countriesFrom.map((item, i) => (
@@ -88,6 +89,7 @@ const LogisticsOption1 = (props) => {
          <div className="tips">
             <Tips category="logistics" />
          </div>
+   </ScrollAnimation>
       </div>
    );
 };
