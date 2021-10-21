@@ -59,7 +59,7 @@ const LogisticsOption1 = (props) => {
             </div>
          </div>
    <ScrollAnimation animateIn="fadeIn">
-         <div className="logistics-big-container1">
+         <div className="logistics-main-container1">
             <div className="logistics-container1">
                {countriesFrom.map((item, i) => (
                   <div onClick={() => handleClickMappedItem(item, i)} key={item._id} >

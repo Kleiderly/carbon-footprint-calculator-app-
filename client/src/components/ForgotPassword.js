@@ -49,7 +49,7 @@ const ForgotPassword = () => {
           </p>
           <label htmlFor="email">Email: </label>
           <input
-            cmassName="light-pink"
+            className="light-pink"
             type="email"
             required
             id="email"

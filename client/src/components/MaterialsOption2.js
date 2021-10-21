@@ -10,7 +10,6 @@ import './css/Materials.css';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import './css/vivify.min.css';
-import ScrollAnimation from 'react-animate-on-scroll';
 
 const MaterialsOption2 = (props) => {
    const {
@@ -76,7 +75,6 @@ const MaterialsOption2 = (props) => {
             What material are they made from?
          </p>
 
-      <ScrollAnimation animateIn="fadeIn">
          <div className="material-items-container2 fadeIn vivify">
 
             <div className="material-item-group">
@@ -94,7 +92,7 @@ const MaterialsOption2 = (props) => {
                </div>
             </div>
 
-           <div>&nbsp;&nbsp;</div>
+            <div>&nbsp;&nbsp;</div>
 
             <div className="material-item-group">
                <div className="material-before-click">
@@ -133,7 +131,6 @@ const MaterialsOption2 = (props) => {
          <div className="tips">
             <Tips category="materials" />
          </div>
-   </ScrollAnimation>
       </div>
    );
 };

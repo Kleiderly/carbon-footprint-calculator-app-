@@ -9,7 +9,6 @@ import './css/Logistics.css';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import './css/vivify.min.css';
-import ScrollAnimation from 'react-animate-on-scroll';
 
 function Logistics(props) {
    const {
@@ -70,7 +69,7 @@ function Logistics(props) {
          <p className="logistics-title">
             Where were they produced?
          </p>
-   <ScrollAnimation animateIn="fadeIn">
+
          <div className="logistics-items-container2">
             <div className="logistics-item-group">
                <div className="logistics-before-click">
@@ -125,7 +124,6 @@ function Logistics(props) {
          <div className="tips">
             <Tips category="logistics" />
          </div>
-   </ScrollAnimation>
       </div>
    );
 }
