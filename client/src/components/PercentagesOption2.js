@@ -22,7 +22,7 @@ const PercentagesOption2 = (props) => {
    //To Go Back
    let history = useHistory();
    const handleClickPreviousSection = () => {
-      history.push('/calculate/logistics');
+      history.push('/compare/results');
    };
 
    return (

@@ -20,7 +20,7 @@ const PercentagesOption1 = (props) => {
    //To Go Back
    let history = useHistory();
    const handleClickPreviousSection = () => {
-      history.push('/calculate/logistics');
+      history.push('/calculate/results');
    };
 
    return (
