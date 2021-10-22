@@ -6,12 +6,14 @@ import { Link } from 'react-router-dom';
 import ProgressBar from './ProgressBar';
 import './css/Fastenings.css';
 import Tips from './Tips';
+import { tipsList } from './data.js';
 import './css/vivify.min.css';
 
 const FasteningsOption1 = (props) => {
    const { itemTypeAdress1, setFasteningCO2e1, fasteningCO2e1 } =
       useContext(Context);
 
+   const [tip, setTip] = useState('');
    const [fastenings, setFastenings] = useState([]);
 
    useEffect(() => {
@@ -47,6 +49,12 @@ const FasteningsOption1 = (props) => {
       setFasteningCO2e1(result);
    };
 
+   useEffect(() => {
+      const tips = tipsList.filter((tip) => tip.category === 'fastening');
+      const tip = tips[Math.floor(Math.random() * tips.length)];
+      setTip(tip);
+   }, []);
+
    console.log('result Fastening: ', fasteningCO2e1);
 
    return (
@@ -57,7 +65,11 @@ const FasteningsOption1 = (props) => {
 
          <div className="fastenings-items-container">
             <div className="fastenings-before-click">
-               <img src={itemTypeAdress1} alt={itemTypeAdress1} className="fastenings-img-cover"/>
+               <img
+                  src={itemTypeAdress1}
+                  alt={itemTypeAdress1}
+                  className="fastenings-img-cover"
+               />
                <span className="fastenings-small-text">Fastenings</span>
             </div>
          </div>
@@ -87,18 +99,26 @@ const FasteningsOption1 = (props) => {
          </div>
 
          <div className="fastenings-back-next-buttons">
-            <button className="back-button" type="button" onClick={handleClickPreviousSection} >
+            <button
+               className="back-button"
+               type="button"
+               onClick={handleClickPreviousSection}
+            >
                BACK
             </button>
             <Link to="/calculate/logistics">
-               <button className="next-button" type="button" onClick={addFastenings} >
+               <button
+                  className="next-button"
+                  type="button"
+                  onClick={addFastenings}
+               >
                   NEXT
                </button>
             </Link>
          </div>
 
          <div className="tips">
-            <Tips category="fastenings" />
+            <Tips category="fastenings" tipObj={tip} />
          </div>
       </div>
    );
