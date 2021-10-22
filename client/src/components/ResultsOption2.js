@@ -131,17 +131,6 @@ const ResultsOption2 = (props) => {
                      </p>
                   </div>
                </div>
-
-               <button type="button" onClick={handleClickPreviousSection}>
-                  Go Back
-               </button>
-               <Link to="/compare/percentages">
-                  <button type="button">Check Summary</button>
-               </Link>
-               <Link to="/">
-                  <button type="button">Compare New Items</button>
-               </Link>
-               <ButtonShareModal />
             </div>
 
             <div className="results-item-group">
