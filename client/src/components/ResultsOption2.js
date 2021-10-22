@@ -1,6 +1,7 @@
 import React, { useEffect, useContext, useState } from 'react';
 import Context from '../contexts/ContextApi';
 import { Link, useHistory } from 'react-router-dom';
+import { itemListBlack } from './data';
 import './css/Results.css';
 import ButtonShareModal from './ButtonShareModal';
 import './css/vivify.min.css';
@@ -24,6 +25,22 @@ const ResultsOption2 = (props) => {
     percentage,
     setPercentage,
   } = useContext(Context);
+
+  // Switch image to black
+  const imgName1 = itemTypeAdress1.substring(20,23)
+  const itemTypeAdress1Black = itemListBlack.filter((item)=> {
+    return item.adress.substring(20,23) === imgName1
+    })
+    .map((name)=> {
+      return name.adress
+  })
+  const imgName2 = itemTypeAdress2.substring(20,23)
+  const itemTypeAdress2Black = itemListBlack.filter((item)=> {
+    return item.adress.substring(20,23) === imgName2
+    })
+    .map((name)=> {
+      return name.adress
+  })
 
   //  ANIMATION STATES
   const [opacity, setOpacity] = useState(0.5);
@@ -117,8 +134,8 @@ return (
 
          <div className="results-item-group">
             <div className={totalCo2e1 < totalCo2e2 ? "results-before-click" : "results-after-click"}>
-               <img src={itemTypeAdress1} alt={itemTypeAdress1} className="results-img-cover" />
-               <div>
+               <img src={totalCo2e1 < totalCo2e2 ? itemTypeAdress1Black : itemTypeAdress1} alt={itemTypeAdress1} className="results-img-cover" />
+               <div className="results-img-text">
                   First item
                   <p className="results-carbon-result vivify popIn delay-1000">Total: {totalCo2e1}</p>
                </div>
@@ -127,8 +144,8 @@ return (
 
          <div className="results-item-group">
             <div className={totalCo2e1 > totalCo2e2 ? "results-before-click" : "results-after-click"}>
-               <img src={itemTypeAdress2} alt={itemTypeAdress2} className="results-img-cover" />
-               <div>
+               <img src={totalCo2e1 > totalCo2e2 ? itemTypeAdress2Black : itemTypeAdress2} alt={itemTypeAdress2} className="results-img-cover" />
+               <div className="results-img-text">
                   Second item
                   <p className="results-carbon-result vivify popIn delay-1000">Total: {totalCo2e2}</p>
                </div>

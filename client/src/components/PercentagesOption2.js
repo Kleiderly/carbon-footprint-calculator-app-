@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import Context from '../contexts/ContextApi';
 import { Link, useHistory } from 'react-router-dom';
+import { itemListBlack } from './data';
 import './css/Percentages.css';
 import './css/vivify.min.css';
 
@@ -18,7 +19,21 @@ const PercentagesOption2 = (props) => {
       totalCo2e2,
    } = useContext(Context);
 
-   //    useEffect(() => {}, []);
+  // Switch image to black
+  const imgName1 = itemTypeAdress1.substring(20,23)
+  const itemTypeAdress1Black = itemListBlack.filter((item)=> {
+    return item.adress.substring(20,23) === imgName1
+    })
+    .map((name)=> {
+      return name.adress
+  })
+  const imgName2 = itemTypeAdress2.substring(20,23)
+  const itemTypeAdress2Black = itemListBlack.filter((item)=> {
+    return item.adress.substring(20,23) === imgName2
+    })
+    .map((name)=> {
+      return name.adress
+  })
 
    //To Go Back
    let history = useHistory();
@@ -33,8 +48,8 @@ const PercentagesOption2 = (props) => {
          <div className="percentages-main-container2">
                <div className="percentages-item-group">
                   <div className={totalCo2e1 > totalCo2e2 ? "percentages-before-click" : "percentages-after-click"}>
-                     <img src={itemTypeAdress1} alt={itemTypeAdress1} className="percentages-img-cover" />
-                     <div>
+                     <img src={totalCo2e1 < totalCo2e2 ? itemTypeAdress1Black : itemTypeAdress1} alt={itemTypeAdress1} className="percentages-img-cover" />
+                     <div className="percentages-img-text">
                         First item
                         <p className="percentages-carbon-result">Total: {totalCo2e1.toFixed(2)}</p>
                      </div>
@@ -43,8 +58,8 @@ const PercentagesOption2 = (props) => {
 
                <div className="percentages-item-group">
                   <div className={totalCo2e1 < totalCo2e2 ? "percentages-before-click" : "percentages-after-click"}>
-                     <img src={itemTypeAdress2} alt={itemTypeAdress2} className="percentages-img-cover" />
-                     <div>
+                     <img src={totalCo2e1 > totalCo2e2 ? itemTypeAdress2Black : itemTypeAdress2} alt={itemTypeAdress2} className="percentages-img-cover" />
+                     <div className="percentages-img-text">
                         Second item
                         <p className="percentages-carbon-result">Total: {totalCo2e2.toFixed(2)}</p>
                      </div>

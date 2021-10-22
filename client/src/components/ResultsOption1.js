@@ -1,6 +1,7 @@
 import React, { useEffect, useContext, useState } from 'react';
 import Context from '../contexts/ContextApi';
 import { Link, useHistory } from 'react-router-dom';
+import { itemListBlack } from './data';
 import ButtonShareModal from './ButtonShareModal';
 import useWindowSize from "react-use/lib/useWindowSize";
 import Confetti from "react-confetti";
@@ -16,6 +17,15 @@ const ResultsOption1 = (props) => {
       totalCo2e1,
       setTotalCo2e1,
    } = useContext(Context);
+
+  // Switch image to black
+  const imgName1 = itemTypeAdress1.substring(20,23)
+  const itemTypeAdress1Black = itemListBlack.filter((item)=> {
+    return item.adress.substring(20,23) === imgName1
+    })
+    .map((name)=> {
+      return name.adress
+  })
 
   //  ANIMATION STATES
   const [opacity, setOpacity] = useState(0.5);
@@ -77,7 +87,7 @@ const ResultsOption1 = (props) => {
 
          <div className="results-items-container">
             <div className="results-before-click">
-               <img src={itemTypeAdress1} alt={itemTypeAdress1} className="results-img-cover1" />
+               <img src={itemTypeAdress1Black} alt={itemTypeAdress1} className="results-img-cover1" />
                <div className="results-carbon-result vivify popIn delay-1000">
                   Total: {totalCo2e1}
                </div>

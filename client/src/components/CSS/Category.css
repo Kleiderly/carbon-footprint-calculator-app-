@@ -49,6 +49,10 @@
    align-items: center;
 }
 
+.category-img-text {
+   margin: 5px 0 0 0;
+}
+
 .category-type-of-item {
    width: 90px;
    height: 90px;

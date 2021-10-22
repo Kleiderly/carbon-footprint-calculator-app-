@@ -386,10 +386,11 @@ function AdminForms() {
                         value={section === "form2" && modName}
                         onChange={(e) => {
                             setFilterArr(material.find((type)=> type.name === e.target.value));
-                            setModName(e.target.value);
-                            setSection("form2");
-                            setCat("material");
-                            setModName2("");
+                            setModName(e.target.value)
+                            setSection("form2")
+                            setCat("material")
+                            setModName2("")
+                            setModCo2e("")
                             console.log("Material", modCo2e, modId, modName, filterArr);
                         }}>
                             <option></option>
@@ -429,9 +430,10 @@ function AdminForms() {
                         value={section === "form2" && modName}
                         onChange={(e) => {
                             setFilterArr(logistic.find((type)=> type.productionLocation === e.target.value));
-                            setModName(e.target.value);
-                            setCat("logistic");
-                            setSection("form2");
+                            setModName(e.target.value)
+                            setCat("logistic")
+                            setSection("form2")
+                            setModCo2e("")
                             console.log("Logistics", modCo2e, modId, modName, modName2, filterArr);
                         }}>
                             <option></option>
@@ -485,10 +487,11 @@ function AdminForms() {
                         value={section === "form2" && modName}
                         onChange={(e) => {
                             setFilterArr(fastening.find((type)=> type.name === e.target.value));
-                            setModName(e.target.value);
-                            setCat("fastening");
-                            setSection("form2");
-                            setModName2("");
+                            setModName(e.target.value)
+                            setCat("fastening")
+                            setSection("form2")
+                            setModName2("")
+                            setModCo2e("")
                             console.log("Fastenings", modCo2e, modId, modName, filterArr);
                         }}>
                             <option></option>

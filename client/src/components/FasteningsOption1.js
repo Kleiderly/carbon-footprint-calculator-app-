@@ -58,7 +58,7 @@ const FasteningsOption1 = (props) => {
          <div className="fastenings-items-container">
             <div className="fastenings-before-click">
                <img src={itemTypeAdress1} alt={itemTypeAdress1} className="fastenings-img-cover"/>
-               <span className="fastenings-small-text">Fastenings</span>
+               <span className="fastenings-img-text">Fastenings</span>
             </div>
          </div>
 

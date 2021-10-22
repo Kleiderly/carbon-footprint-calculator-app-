@@ -51,8 +51,8 @@
    background-color: #415551;
 }
 
-.material-small-text {
-   font-size: small;
+.material-img-text {
+   margin: 5px 0 0 0;
 }
 
 .material-img-cover {

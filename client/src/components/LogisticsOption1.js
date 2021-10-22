@@ -54,7 +54,7 @@ const LogisticsOption1 = (props) => {
          <div className="logistics-items-container">
             <div className="logistics-before-click">
                <img src={itemTypeAdress1} alt={itemTypeAdress1} className="logistics-img-cover" />
-               <span className="logistics-small-text">Origin</span>
+               <span className="logistic-img-text">Origin</span>
             </div>
          </div>
          <div className="logistics-main-container1">
