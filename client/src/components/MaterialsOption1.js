@@ -13,6 +13,7 @@ import { tipsList } from './data';
 const MaterialsOption1 = (props) => {
    const { itemTypeAdress1, setMaterialCO2e1 } = useContext(Context);
 
+   const [tip, setTip] = useState('');
    const [selected, setSelected] = useState('');
    const [materials, setMaterials] = useState([]);
    const [selectMaterial1, setSelectMaterial1] = useState(null);
@@ -33,6 +34,13 @@ const MaterialsOption1 = (props) => {
          .catch((error) => {
             console.log(error);
          });
+   }, []);
+
+   // GETTING RANDOM TIP(literal object) FROM tipsList FROM data.js FILTERED BY CATEGORY
+   useEffect(() => {
+      const tips = tipsList.filter((tip) => tip.category === 'material');
+      const tip = tips[Math.floor(Math.random() * tips.length)];
+      setTip(tip);
    }, []);
 
    let history = useHistory();
@@ -98,7 +106,7 @@ const MaterialsOption1 = (props) => {
          </div>
 
          <div className="tips">
-            <Tips tipObj={tipsList[0]} />
+            <Tips tipObj={tip} />
          </div>
       </div>
    );

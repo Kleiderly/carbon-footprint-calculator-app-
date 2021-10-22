@@ -29,6 +29,8 @@ const MaterialsOption2 = (props) => {
    const [selected1, setSelected1] = useState('');
    const [selected2, setSelected2] = useState('');
 
+   const [tip, setTip] = useState('');
+
    useEffect(() => {
       axios
          .get(`http://localhost:5000/api/material`)
@@ -39,6 +41,13 @@ const MaterialsOption2 = (props) => {
          .catch((error) => {
             console.log(error);
          });
+   }, []);
+
+   // GETTING RANDOM TIP(literal object) FROM tipsList FROM data.js FILTERED BY CATEGORY
+   useEffect(() => {
+      const tips = tipsList.filter((tip) => tip.category === 'material');
+      const tip = tips[Math.floor(Math.random() * tips.length)];
+      setTip(tip);
    }, []);
 
    //To Go Back
@@ -148,7 +157,7 @@ const MaterialsOption2 = (props) => {
          </div>
 
          <div className="tips">
-            <Tips category="materials" tipObj={tipsList[1]} />
+            <Tips category="materials" tipObj={tip} />
          </div>
       </div>
    );

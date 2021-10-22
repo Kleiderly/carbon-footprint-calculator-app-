@@ -21,6 +21,8 @@ const LogisticsOption1 = (props) => {
 
    const [selected, setSelected] = useState(null);
 
+   const [tip, setTip] = useState('');
+
    useEffect(() => {
       axios
          .get(`http://localhost:5000/api/logistic`)
@@ -28,6 +30,12 @@ const LogisticsOption1 = (props) => {
          .catch((error) => {
             console.log(error);
          });
+   }, []);
+
+   useEffect(() => {
+      const tips = tipsList.filter((tip) => tip.category === 'logistics');
+      const tip = tips[Math.floor(Math.random() * tips.length)];
+      setTip(tip);
    }, []);
 
    //To Go Back
@@ -45,7 +53,7 @@ const LogisticsOption1 = (props) => {
       setSelectCountry1(item.co2e);
       setSelected(i);
    };
-
+   console.log(itemTypeAdress1);
    return (
       <div className="logistics-choice-container">
          <ProgressBar stage={3} previous="Fastenings" next="Results" />
@@ -112,7 +120,7 @@ const LogisticsOption1 = (props) => {
          </div>
 
          <div className="tips">
-            <Tips category="logistics" tipObj={tipsList[4]} />
+            <Tips category="logistics" tipObj={tip} />
          </div>
       </div>
    );

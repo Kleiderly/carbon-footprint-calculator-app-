@@ -12,6 +12,7 @@ const FasteningsOption1 = (props) => {
    const { itemTypeAdress1, setFasteningCO2e1, fasteningCO2e1 } =
       useContext(Context);
 
+   const [tip, setTip] = useState('');
    const [fastenings, setFastenings] = useState([]);
 
    useEffect(() => {
@@ -46,6 +47,12 @@ const FasteningsOption1 = (props) => {
       }
       setFasteningCO2e1(result);
    };
+
+   useEffect(() => {
+      const tips = tipsList.filter((tip) => tip.category === 'fastening');
+      const tip = tips[Math.floor(Math.random() * tips.length)];
+      setTip(tip);
+   }, []);
 
    console.log('result Fastening: ', fasteningCO2e1);
 
@@ -105,7 +112,7 @@ const FasteningsOption1 = (props) => {
          </div>
 
          <div className="tips">
-            <Tips category="fastenings" tipObj={tipsList[2]} />
+            <Tips category="fastenings" tipObj={tip} />
          </div>
       </div>
    );

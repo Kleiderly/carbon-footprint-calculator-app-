@@ -18,6 +18,7 @@ function Logistics(props) {
       setCountryCO2e2,
    } = useContext(Context);
 
+   const [tip, setTip] = useState('');
    //For data from database
    const [countriesFrom, setCountriesFrom] = useState([]);
 
@@ -35,6 +36,12 @@ function Logistics(props) {
          .catch((error) => {
             console.log(error);
          });
+   }, []);
+
+   useEffect(() => {
+      const tips = tipsList.filter((tip) => tip.category === 'logistics');
+      const tip = tips[Math.floor(Math.random() * tips.length)];
+      setTip(tip);
    }, []);
 
    //To Go Back
@@ -150,7 +157,7 @@ function Logistics(props) {
          </div>
 
          <div className="tips">
-            <Tips category="logistics" tipObj={tipsList[4]} />
+            <Tips category="logistics" tipObj={tip} />
          </div>
       </div>
    );

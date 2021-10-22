@@ -16,6 +16,7 @@ const FasteningsOption2 = () => {
       setFasteningCO2e2,
    } = useContext(Context);
 
+   const [tip, setTip] = useState('');
    const [fastenings, setFastenings] = useState([]);
 
    useEffect(() => {
@@ -54,6 +55,12 @@ const FasteningsOption2 = () => {
       setFasteningCO2e1(result);
       setFasteningCO2e2(result2);
    };
+
+   useEffect(() => {
+      const tips = tipsList.filter((tip) => tip.category === 'fastening');
+      const tip = tips[Math.floor(Math.random() * tips.length)];
+      setTip(tip);
+   }, []);
 
    //To Go Back
    let history = useHistory();
@@ -159,7 +166,7 @@ const FasteningsOption2 = () => {
          </div>
 
          <div className="tips">
-            <Tips category="fastenings" tipObj={tipsList[3]} />
+            <Tips category="fastenings" tipObj={tip} />
          </div>
       </div>
    );
