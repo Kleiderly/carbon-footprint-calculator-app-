@@ -6,6 +6,7 @@ import ProgressBar from './ProgressBar';
 import './css/Fastenings.css';
 import Tips from './Tips';
 import { tipsList } from './data.js';
+import './css/vivify.min.css';
 
 const FasteningsOption2 = () => {
    const {
@@ -69,84 +70,90 @@ const FasteningsOption2 = () => {
    };
 
    return (
-      <div className="fastening-choice-container">
+      <div className="fastenings-wrapper vivify fadeIn">
          <ProgressBar stage={2} previous="Material" next="Fabrication" />
-         <div>
-            <div>
-               <p className="fastening-direction-text">
-                  Do they have fastenings?
-               </p>
-               <div className="fastening-items-container">
-                  <div className="fastening-before-click-category">
-                     <img
-                        src={itemTypeAdress1}
-                        alt={itemTypeAdress1}
-                        className="fastening-img-cover"
-                     />
-                     <span>1st Item</span>
-                  </div>
-                  <div className="fastening-before-click-category">
-                     <img
-                        src={itemTypeAdress2}
-                        alt={itemTypeAdress2}
-                        className="fastening-img-cover"
-                     />
-                     <span>2nd Item</span>
-                  </div>
+
+         <p className="fastenings-direction-text">Do they have fastenings?</p>
+
+         <div className="fastenings-items-container">
+            <div className="fastenings-item-group">
+               <div className="fastenings-before-click">
+                  <img
+                     src={itemTypeAdress1}
+                     alt={itemTypeAdress1}
+                     className="fastenings-img-cover"
+                  />
+                  <span>1st Item</span>
+               </div>
+               <div className="fastenings-container">
+                  {listOfQuantities.length > 0 &&
+                     fastenings.map((fastening, i) => {
+                        return (
+                           <div key={i} className="fastenings-item">
+                              <span className="fastenings-name">
+                                 {fastening.name}
+                              </span>
+                              <br />
+                              <input
+                                 type="number"
+                                 className="fastenings-input"
+                                 min="0"
+                                 step="1"
+                                 value={listOfQuantities[i].quantity}
+                                 onChange={(e) => {
+                                    copyOfQuantities[i].quantity =
+                                       e.target.value;
+                                    setlistOfQuantities([...copyOfQuantities]);
+                                 }}
+                              />
+                           </div>
+                        );
+                     })}
+               </div>
+            </div>
+
+            <div>&nbsp;&nbsp;</div>
+
+            <div className="fastenings-item-group">
+               <div className="fastenings-before-click">
+                  <img
+                     src={itemTypeAdress2}
+                     alt={itemTypeAdress2}
+                     className="fastenings-img-cover"
+                  />
+                  <span>2nd Item</span>
+               </div>
+               <div className="fastenings-container">
+                  {listOfQuantities2.length > 0 &&
+                     fastenings.map((fastening, i) => {
+                        return (
+                           <div key={i} className="fastenings-item">
+                              <span className="fastenings-name">
+                                 {fastening.name}
+                              </span>
+                              <br />
+                              <input
+                                 type="number"
+                                 className="fastenings-input"
+                                 min="0"
+                                 step="1"
+                                 value={listOfQuantities2[i].quantity}
+                                 onChange={(e) => {
+                                    copyOfQuantities2[i].quantity =
+                                       e.target.value;
+                                    setlistOfQuantities2([
+                                       ...copyOfQuantities2,
+                                    ]);
+                                 }}
+                              />
+                           </div>
+                        );
+                     })}
                </div>
             </div>
          </div>
-         <div className="fastening-big-container">
-            <div className="fastening-container ">
-               {listOfQuantities.length > 0 &&
-                  fastenings.map((fastening, i) => {
-                     return (
-                        <div key={i} className="fastenings-item">
-                           <span className="fastening-name">
-                              {fastening.name}
-                           </span>
-                           <br />
-                           <input
-                              type="number"
-                              className="fastenings-input"
-                              min="0"
-                              step="1"
-                              value={listOfQuantities[i].quantity}
-                              onChange={(e) => {
-                                 copyOfQuantities[i].quantity = e.target.value;
-                                 setlistOfQuantities([...copyOfQuantities]);
-                              }}
-                           />
-                        </div>
-                     );
-                  })}
-            </div>
-            <div className="fastening-container">
-               {listOfQuantities2.length > 0 &&
-                  fastenings.map((fastening, i) => {
-                     return (
-                        <div key={i} className="fastenings-item">
-                           <span className="fastening-name">
-                              {fastening.name}
-                           </span>
-                           <br />
-                           <input
-                              type="number"
-                              className="fastenings-input"
-                              min="0"
-                              step="1"
-                              value={listOfQuantities2[i].quantity}
-                              onChange={(e) => {
-                                 copyOfQuantities2[i].quantity = e.target.value;
-                                 setlistOfQuantities2([...copyOfQuantities2]);
-                              }}
-                           />
-                        </div>
-                     );
-                  })}
-            </div>
-         </div>
-         <div className="fastening-back-next-buttons">
+
+         <div className="fastenings-back-next-buttons">
             <button
                className="back-button"
                type="button"

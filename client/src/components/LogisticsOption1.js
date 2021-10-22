@@ -9,6 +9,7 @@ import './css/Logistics.css';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import { tipsList } from './data';
+import './css/vivify.min.css';
 
 const LogisticsOption1 = (props) => {
    const { itemTypeAdress1, setCountryCO2e1 } = useContext(Context);
@@ -55,27 +56,22 @@ const LogisticsOption1 = (props) => {
    };
    console.log(itemTypeAdress1);
    return (
-      <div className="logistics-choice-container">
+      <div className="logistics-wrapper vivify fadeIn">
          <ProgressBar stage={3} previous="Fastenings" next="Results" />
-         <div>
-            <div>
-               <p className="logistics-direction-text">
-                  Where was it produced?
-               </p>
-               <div className="logistics-items-container ">
-                  <div className="logistics-before-click">
-                     <img
-                        src={itemTypeAdress1}
-                        alt={itemTypeAdress1}
-                        className="logistics-img-cover"
-                     />
-                     <span className="logistics-small-text">Origin</span>
-                  </div>
-               </div>
+
+         <p className="logistics-title">Where was it produced?</p>
+         <div className="logistics-items-container">
+            <div className="logistics-before-click">
+               <img
+                  src={itemTypeAdress1}
+                  alt={itemTypeAdress1}
+                  className="logistics-img-cover"
+               />
+               <span className="logistics-small-text">Origin</span>
             </div>
          </div>
-         <div className="logistics-big-container">
-            <div className="logistics-container">
+         <div className="logistics-main-container1">
+            <div className="logistics-container1">
                {countriesFrom.map((item, i) => (
                   <div
                      onClick={() => handleClickMappedItem(item, i)}
@@ -114,7 +110,7 @@ const LogisticsOption1 = (props) => {
                   trigger={<button className="next-button"> NEXT</button>}
                   position="top center"
                >
-                  <div>Please make your selection!</div>
+                  <div className="pop-up-box">Please make a selection.</div>
                </Popup>
             )}
          </div>

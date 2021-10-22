@@ -6,7 +6,11 @@ import { Link } from 'react-router-dom';
 import ProgressBar from './ProgressBar';
 import './css/Fastenings.css';
 import Tips from './Tips';
+<<<<<<< HEAD
 import { tipsList } from './data.js';
+=======
+import './css/vivify.min.css';
+>>>>>>> a11e4b11673d8ee8d8b738a80b3b9b7f8de248e5
 
 const FasteningsOption1 = (props) => {
    const { itemTypeAdress1, setFasteningCO2e1, fasteningCO2e1 } =
@@ -57,31 +61,31 @@ const FasteningsOption1 = (props) => {
    console.log('result Fastening: ', fasteningCO2e1);
 
    return (
-      <div className="fastening-choice-container">
+      <div className="fastenings-wrapper vivify fadeIn">
          <ProgressBar stage={2} previous="Material" next="Fabrication" />
-         <p className="fastening-direction-text">Does it have fastenings?</p>
-         <div className="fastening-items-container">
-            <div className="fastening-before-click">
-               <img
-                  src={itemTypeAdress1}
-                  alt="firstBoxImage"
-                  className="fastening-img-cover"
-               />
-               <span className="fastening-small-text">Fastenings</span>
+
+         <p className="fastenings-direction-text">Does it have fastenings?</p>
+
+         <div className="fastenings-items-container">
+            <div className="fastenings-before-click">
+               <img src={itemTypeAdress1} alt={itemTypeAdress1} className="fastenings-img-cover"/>
+               <span className="fastenings-small-text">Fastenings</span>
             </div>
          </div>
+
          <div>
             {listOfQuantities.length > 0 &&
                fastenings.map((fastening, i) => {
                   return (
                      <div key={i}>
-                        <h3 className="fastenings-option-text">
+                        <p className="fastenings-option-text">
                            {fastening.name}
-                        </h3>
+                        </p>
                         <input
                            type="number"
                            min="0"
                            step="1"
+                           className="light-pink"
                            value={listOfQuantities[i].quantity}
                            onChange={(e) => {
                               copyOfQuantities[i].quantity = e.target.value;
@@ -92,20 +96,13 @@ const FasteningsOption1 = (props) => {
                   );
                })}
          </div>
-         <div className="fastening-back-next-buttons">
-            <button
-               className="back-button"
-               type="button"
-               onClick={handleClickPreviousSection}
-            >
+
+         <div className="fastenings-back-next-buttons">
+            <button className="back-button" type="button" onClick={handleClickPreviousSection} >
                BACK
             </button>
             <Link to="/calculate/logistics">
-               <button
-                  className="next-button"
-                  type="button"
-                  onClick={addFastenings}
-               >
+               <button className="next-button" type="button" onClick={addFastenings} >
                   NEXT
                </button>
             </Link>

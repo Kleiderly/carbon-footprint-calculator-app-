@@ -1,8 +1,11 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import Context from '../contexts/ContextApi';
 import { Link, useHistory } from 'react-router-dom';
 import './css/Results.css';
 import ButtonShareModal from './ButtonShareModal';
+import './css/vivify.min.css';
+import useWindowSize from 'react-use/lib/useWindowSize';
+import Confetti from 'react-confetti';
 
 const ResultsOption2 = (props) => {
    const {
@@ -22,10 +25,9 @@ const ResultsOption2 = (props) => {
       setPercentage,
    } = useContext(Context);
 
-   //Calculation
-   // const [totalCo2e1, setTotalCo2e1] = useState();
-   // const [totalCo2e2, setTotalCo2e2] = useState();
-   // const [percentage, setPercentage] = useState();
+   //  ANIMATION STATES
+   const [opacity, setOpacity] = useState(0.5);
+   const { width, height } = useWindowSize();
 
    useEffect(() => {
       setTotalCo2e1(
@@ -51,74 +53,128 @@ const ResultsOption2 = (props) => {
       totalCo2e1,
    ]);
 
-   // console.log(totalCo2e1);
-   // console.log(totalCo2e2);
-   // console.log(percentage);
-
+   // ANIMATION useEffect
+   useEffect(() => {
+      setTimeout(() => {
+         setOpacity((opacity) => opacity - 0.1);
+      }, 5000);
+      setTimeout(() => {
+         setOpacity((opacity) => opacity - 0.1);
+      }, 7000);
+      setTimeout(() => {
+         setOpacity((opacity) => opacity - 0.1);
+      }, 9000);
+      setTimeout(() => {
+         setOpacity((opacity) => opacity - 0.1);
+      }, 11000);
+      setTimeout(() => {
+         setOpacity((opacity) => opacity - 0.02);
+      }, 13000);
+      setTimeout(() => {
+         setOpacity((opacity) => opacity - 0.02);
+      }, 13500);
+      setTimeout(() => {
+         setOpacity((opacity) => opacity - 0.02);
+      }, 14000);
+      setTimeout(() => {
+         setOpacity((opacity) => opacity - 0.02);
+      }, 14500);
+      setTimeout(() => {
+         setOpacity((opacity) => opacity - 0.02);
+      }, 15000);
+   }, []);
    //To Go Back
    let history = useHistory();
    const handleClickPreviousSection = () => {
-      history.push('/compare/logistics');
+      history.push('/calculate/logistics');
    };
 
+   const messageUneven = (
+      <span className="results-message">
+         The <b>{totalCo2e1 < totalCo2e2 ? 'first item' : 'second item'} </b>
+         is <b>{percentage}%</b> more eco-responsible than the
+         <b> {totalCo2e1 > totalCo2e2 ? 'first Item' : 'second Item'}</b>.
+      </span>
+   );
+
+   const messageEven = <span className="results-message">It's a tie!</span>;
+
    return (
-      <div className="results-choice-container">
-         <div>
-            <div>
-               <div>
-                  <p className="results-direction-text">Results!</p>
-                  <div className="results-big-container">
-                     <div className="results-container">
-                        <div className="results-before-click-category">
-                           <img
-                              src={itemTypeAdress1}
-                              alt={itemTypeAdress1}
-                              className="results-img-cover"
-                           />
-                        </div>
-                        <p>Carbon Footprint: {totalCo2e1}</p>
-                     </div>
-                     <div className="results-container">
-                        <div className="results-after-click-category">
-                           <img
-                              src={itemTypeAdress2}
-                              alt={itemTypeAdress2}
-                              className="results-img-cover"
-                           />
-                        </div>
-                        <p>Carbon Footprint: {totalCo2e2}</p>
-                     </div>
+      <div className="results-wrapper vivify popIn delay-500">
+         <Confetti
+            width={width}
+            height={height}
+            colors={['#F7EBE8', '#0E2823']}
+            opacity={opacity}
+            gravity={0.05}
+         />
+
+         <p className="results-title">Results!</p>
+         <div className="results-main-container">
+            <div className="results-item-group">
+               <div
+                  className={
+                     totalCo2e1 < totalCo2e2
+                        ? 'results-before-click'
+                        : 'results-after-click'
+                  }
+               >
+                  <img
+                     src={itemTypeAdress1}
+                     alt={itemTypeAdress1}
+                     className="results-img-cover"
+                  />
+                  <div>
+                     First item
+                     <p className="results-carbon-result vivify popIn delay-1000">
+                        Total: {totalCo2e1}
+                     </p>
                   </div>
-                  <h3>
-                     The{' '}
-                     {totalCo2e1 < totalCo2e2 ? 'First Item' : 'Second Item'} is
-                     better than the{' '}
-                     {totalCo2e1 > totalCo2e2 ? 'First Item' : 'Second Item'} by{' '}
-                     {percentage} percent
-                  </h3>
                </div>
+
+               <button type="button" onClick={handleClickPreviousSection}>
+                  Go Back
+               </button>
+               <Link to="/compare/percentages">
+                  <button type="button">Check Summary</button>
+               </Link>
+               <Link to="/">
+                  <button type="button">Compare New Items</button>
+               </Link>
+               <ButtonShareModal />
             </div>
 
-            <button type="button" onClick={handleClickPreviousSection}>
-               Go Back
-            </button>
-            <Link to="/compare/percentages">
-               <button type="button">Check Summary</button>
-            </Link>
-            <Link to="/">
-               <button type="button">Compare New Items</button>
-            </Link>
-            <ButtonShareModal />
+            <div className="results-item-group">
+               <div
+                  className={
+                     totalCo2e1 > totalCo2e2
+                        ? 'results-before-click'
+                        : 'results-after-click'
+                  }
+               >
+                  <img
+                     src={itemTypeAdress2}
+                     alt={itemTypeAdress2}
+                     className="results-img-cover"
+                  />
+                  <div>
+                     Second item
+                     <p className="results-carbon-result vivify popIn delay-1000">
+                        Total: {totalCo2e2}
+                     </p>
+                  </div>
+               </div>
+            </div>
          </div>
 
-         <button type="button" onClick={handleClickPreviousSection}>
-            Go Back
-         </button>
-         <Link to="/compare/percentages">
-            <button type="button">Check Summary</button>
+         {totalCo2e1 === totalCo2e2 ? messageEven : messageUneven}
+
+         <Link to="/compare/percentages" className="results-details">
+            SEE DETAILS
          </Link>
+         <ButtonShareModal />
          <Link to="/">
-            <button type="button">Compare New Items</button>
+            <button type="button">COMPARE NEW ITEMS</button>
          </Link>
       </div>
    );

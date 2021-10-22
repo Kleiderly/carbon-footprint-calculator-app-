@@ -5,16 +5,11 @@
   "main": "server.js",
   "scripts": {
     "client-install": "npm install --prefix client",
-
     "start": "node server.js",
-    
     "server": "nodemon server.js",
-    
     "client": "npm start --prefix client",
-    
-    "dev": "concurrently \"npm run server\" \"npm run client\""
-    
-    
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "both": "rm -rf build && cd client && npm run build && mv build ../ && cd .. && nodemon server.js"
   },
   "keywords": [],
   "author": "",
@@ -32,12 +27,14 @@
     "mongodb": "^4.1.2",
     "mongoose": "^6.0.8",
     "nodemailer": "^6.6.5",
-    "nodemon": "^2.0.13",
+    "nodemon": "^2.0.14",
     "passport": "^0.5.0",
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
+    "react-animate-on-scroll": "^2.1.5",
     "react-responsive-modal": "^6.1.0",
     "react-share": "^4.4.0",
+    "react-tsparticles": "^1.36.0",
     "reactjs-popup": "^2.0.5"
   }
 }

@@ -18,10 +18,35 @@
    border-radius: 20px;
    margin: 20px;
    padding: 20px;
-   width: 300px;
+   width: 250px;
    background-color: #f7ebe8;
    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
    font-family: 'Montserrat', sans-serif;
+}
+
+.admin-text {
+    margin: 15px 0 5px 0;
+    text-align: left;
+}
+
+.admin-password-text {
+    font-size: 3.5vw;
+    margin: 5px 0 10px 0;
+    display: block;
+}
+
+.admin-forgotpassword {
+    display: block;
+    width: 300px;
+    text-align: left;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.admin-pw-recovery-button-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
 }
 
 /* FORMS */
@@ -36,35 +61,37 @@
     padding: 20px;
 }
 
+.form-main-title {
+    font-size: 6vw;
+    margin: 10px 0 10px 0;
+    text-align: left;
+}
+
 .form-section {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: flex-start;
-    margin: 20px;
+    justify-content: center;
+    width: 90%;
+    
 }
 
 .form-item {
     display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: auto;
 }
 
 .form-input {
     margin: 10px;
     text-align: left;
+    flex-wrap: wrap;
 }
 
 .admin-title {
     margin-bottom: 1px;
-}
-
-.light-pink {
-    background-color: #f7ebe89d;
-}
-
-.center-align {
-    display: flex;
-    justify-content: center;
-    width: 100%;
 }
 
 .form-submit {
@@ -79,25 +106,86 @@
 }
 
 .password-field {
-    margin-left: auto;
-    margin-right: 15px;
+    padding: 10px 85px 10px 0;
     font-size: small;
 }
 
 .pw-checkbox {
     width: auto;
+    margin-right: 5px;
 }
 
-.form-admin {
-    display: block;
-}
-
-.form-member {
-    display: none;
+.password-field2 {
+    margin: 5px 0 0 40px;
+    font-size: small;
 }
 
 .hr {
     border: 1px solid #091b18;
+    width: 200px;
+}
+
+.admin-form-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5vw;
+    background-color: #0E2823;
+    color: #F7EBE8;
+    width: 150px;
+    padding: 5px;
+    border-radius: 50px;
+    box-shadow: 0px 2px 2px rgb(0 0 0 / 25%);
+
+}
+
+.admin-form-button:hover, .admin-form-button:active {
+    background-color: #415551;
+}
+
+.admin-input-label {
+    margin: 5px 0 10px 0;
+}
+
+@media only screen and (min-device-width: 660px) {
+
+.admin-login {
+    width: 300px;
+}
+
+.admin-password-text {
+    font-size: 14px;
+}
+
+/* FORMS */
+.forms-wrapper {
+    padding: 20px;
+}
+
+.form-section {
     width: 500px;
 }
 
+.form-main-title {
+    font-size: 25px;
+}
+
+.hr {
+    width: 500px;
+}
+
+.form-item {
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 0;
+}
+
+.password-field2 {
+    margin: 5px 0 0 10px;
+}
+
+.admin-form-button {
+    font-size: 12px;
+    padding: 9px;
+ }
+}
