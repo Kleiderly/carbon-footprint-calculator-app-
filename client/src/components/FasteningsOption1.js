@@ -6,11 +6,8 @@ import { Link } from 'react-router-dom';
 import ProgressBar from './ProgressBar';
 import './css/Fastenings.css';
 import Tips from './Tips';
-<<<<<<< HEAD
 import { tipsList } from './data.js';
-=======
 import './css/vivify.min.css';
->>>>>>> a11e4b11673d8ee8d8b738a80b3b9b7f8de248e5
 
 const FasteningsOption1 = (props) => {
    const { itemTypeAdress1, setFasteningCO2e1, fasteningCO2e1 } =
@@ -68,7 +65,11 @@ const FasteningsOption1 = (props) => {
 
          <div className="fastenings-items-container">
             <div className="fastenings-before-click">
-               <img src={itemTypeAdress1} alt={itemTypeAdress1} className="fastenings-img-cover"/>
+               <img
+                  src={itemTypeAdress1}
+                  alt={itemTypeAdress1}
+                  className="fastenings-img-cover"
+               />
                <span className="fastenings-small-text">Fastenings</span>
             </div>
          </div>
@@ -98,11 +99,19 @@ const FasteningsOption1 = (props) => {
          </div>
 
          <div className="fastenings-back-next-buttons">
-            <button className="back-button" type="button" onClick={handleClickPreviousSection} >
+            <button
+               className="back-button"
+               type="button"
+               onClick={handleClickPreviousSection}
+            >
                BACK
             </button>
             <Link to="/calculate/logistics">
-               <button className="next-button" type="button" onClick={addFastenings} >
+               <button
+                  className="next-button"
+                  type="button"
+                  onClick={addFastenings}
+               >
                   NEXT
                </button>
             </Link>

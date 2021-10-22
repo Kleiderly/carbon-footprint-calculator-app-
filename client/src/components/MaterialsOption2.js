@@ -9,11 +9,8 @@ import ItemBox from './ItemBox';
 import './css/Materials.css';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-<<<<<<< HEAD
 import { tipsList } from './data';
-=======
 import './css/vivify.min.css';
->>>>>>> a11e4b11673d8ee8d8b738a80b3b9b7f8de248e5
 
 const MaterialsOption2 = (props) => {
    const {
@@ -84,22 +81,30 @@ const MaterialsOption2 = (props) => {
       <div className="material-wrapper vivify fadeIn">
          <ProgressBar stage={1} previous="Choice" next="Fastenings" />
 
-         <p className="material-title">
-            What material are they made from?
-         </p>
+         <p className="material-title">What material are they made from?</p>
 
          <div className="material-items-container2 fadeIn vivify">
-
             <div className="material-item-group">
                <div className="material-before-click">
-                  <img src={itemTypeAdress1} alt={itemTypeAdress1} className="material-img-cover" />
+                  <img
+                     src={itemTypeAdress1}
+                     alt={itemTypeAdress1}
+                     className="material-img-cover"
+                  />
                   <span>1st Item</span>
                </div>
 
                <div className="material-container">
                   {materials.map((item, i) => (
-                     <div onClick={() => handleClickMappedItem1(item, i)} key={item._id} >
-                        <ItemBox index={i} name={item.name} selected={selected1} />
+                     <div
+                        onClick={() => handleClickMappedItem1(item, i)}
+                        key={item._id}
+                     >
+                        <ItemBox
+                           index={i}
+                           name={item.name}
+                           selected={selected1}
+                        />
                      </div>
                   ))}
                </div>
@@ -109,28 +114,46 @@ const MaterialsOption2 = (props) => {
 
             <div className="material-item-group">
                <div className="material-before-click">
-                  <img src={itemTypeAdress2} alt={itemTypeAdress2} className="material-img-cover" />
+                  <img
+                     src={itemTypeAdress2}
+                     alt={itemTypeAdress2}
+                     className="material-img-cover"
+                  />
                   <span>2nd Item</span>
                </div>
 
                <div className="material-container">
                   {materials.map((item, i) => (
-                     <div onClick={() => handleClickMappedItem2(item, i)} key={item._id}>
-                        <ItemBox index={i} name={item.name} selected={selected2} />
+                     <div
+                        onClick={() => handleClickMappedItem2(item, i)}
+                        key={item._id}
+                     >
+                        <ItemBox
+                           index={i}
+                           name={item.name}
+                           selected={selected2}
+                        />
                      </div>
                   ))}
                </div>
             </div>
-
          </div>
-         
+
          <div className="material-back-next-buttons">
-            <button className="back-button" type="button" onClick={handleClickPreviousSection}>
+            <button
+               className="back-button"
+               type="button"
+               onClick={handleClickPreviousSection}
+            >
                BACK
             </button>
             {selectMaterial1 && selectMaterial2 ? (
                <Link to="/compare/fastenings">
-                  <button className="next-button" type="button" onClick={handleClick}>
+                  <button
+                     className="next-button"
+                     type="button"
+                     onClick={handleClick}
+                  >
                      NEXT
                   </button>
                </Link>

@@ -8,16 +8,14 @@ import Tips from './Tips';
 import './css/Materials.css';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-<<<<<<< HEAD
 import { tipsList } from './data';
-=======
 import './css/vivify.min.css';
->>>>>>> a11e4b11673d8ee8d8b738a80b3b9b7f8de248e5
 
 const MaterialsOption1 = (props) => {
    const { itemTypeAdress1, setMaterialCO2e1 } = useContext(Context);
 
    const [tip, setTip] = useState('');
+
    const [selected, setSelected] = useState('');
    const [materials, setMaterials] = useState([]);
    const [selectMaterial1, setSelectMaterial1] = useState(null);
@@ -70,38 +68,46 @@ const MaterialsOption1 = (props) => {
          </div>
          <div className="material-container1">
             {materials.map((item, i) => (
-               <div onClick={() => handleClickMappedItem(item, i)} key={item._id} >
+               <div
+                  onClick={() => handleClickMappedItem(item, i)}
+                  key={item._id}
+               >
                   <ItemBox index={i} name={item.name} selected={selected} />
                </div>
             ))}
          </div>
 
          <div className="category-back-next-buttons">
-            <button className="back-button" type="button" onClick={handleClickPreviousSection} >
+            <button
+               className="back-button"
+               type="button"
+               onClick={handleClickPreviousSection}
+            >
                BACK
             </button>
 
             {selectMaterial1 ? (
                <Link to="/calculate/fastenings">
                   <button
-                     className="next-button" type="button" onClick={() => setMaterialCO2e1(selectMaterial1)} >
+                     className="next-button"
+                     type="button"
+                     onClick={() => setMaterialCO2e1(selectMaterial1)}
+                  >
                      NEXT
                   </button>
                </Link>
             ) : (
-               <Popup trigger={<button className="next-button"> NEXT</button>} position="top center" >
+               <Popup
+                  trigger={<button className="next-button"> NEXT</button>}
+                  position="top center"
+               >
                   <div className="pop-up-box">Please make a selection.</div>
                </Popup>
             )}
          </div>
 
-<<<<<<< HEAD
          <div className="tips">
             <Tips tipObj={tip} />
-=======
-         <div>
-            <Tips category="materials" />
->>>>>>> a11e4b11673d8ee8d8b738a80b3b9b7f8de248e5
          </div>
       </div>
    );
