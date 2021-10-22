@@ -158,8 +158,6 @@ exports.users =  (req, res) =>{
 }
 
 
-
-
 const sendToken = (user, statusCode, res) =>{
     const token =  user.getSignedToken();
 

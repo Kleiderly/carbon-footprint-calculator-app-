@@ -1,4 +1,5 @@
 import React from 'react';
+import './css/ButtonShare.css';
 
 import {
    EmailShareButton,
@@ -18,25 +19,25 @@ import {
 function ButtonShare(props) {
    const sharedUrl = 'https://kleiderly.com/';
    return (
-      <div>
+      <div className="buttonshare-wrapper">
          <TwitterShareButton url={sharedUrl}>
-            <TwitterIcon size={32} round={true} style={{ margin: '5px' }} />
+            <TwitterIcon size={32} round={true} className="buttonshare-detail" />
          </TwitterShareButton>
 
          <FacebookShareButton url={sharedUrl}>
-            <FacebookIcon size={32} round={true} style={{ margin: '5px' }} />
+            <FacebookIcon size={32} round={true} className="buttonshare-detail" />
          </FacebookShareButton>
 
          <WhatsappShareButton url={sharedUrl}>
-            <WhatsappIcon size={32} round={true} style={{ margin: '5px' }} />
+            <WhatsappIcon size={32} round={true} className="buttonshare-detail" />
          </WhatsappShareButton>
 
          <LinkedinShareButton url={sharedUrl}>
-            <LinkedinIcon size={32} round={true} style={{ margin: '5px' }} />
+            <LinkedinIcon size={32} round={true} className="buttonshare-detail" />
          </LinkedinShareButton>
 
          <EmailShareButton url={sharedUrl}>
-            <EmailIcon size={32} round={true} style={{ margin: '5px' }} />
+            <EmailIcon size={32} round={true} className="buttonshare-detail" />
          </EmailShareButton>
       </div>
    );

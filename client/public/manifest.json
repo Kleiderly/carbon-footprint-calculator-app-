@@ -1,9 +1,9 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Carbon Footprint Calculator",
+  "name": "Carbon Footprint Calculator",
   "icons": [
     {
-      "src": "",
+      "src": "%PUBLIC_URL%/kleiderly_logo.png",
       "type": "image/x-icon"
     }
   ],

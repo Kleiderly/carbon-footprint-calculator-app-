@@ -5,6 +5,7 @@ import CategoryItemBox1 from './CategoryItemBox1';
 import { itemList } from './data';
 import ProgressBar from './ProgressBar';
 import Context from '../contexts/ContextApi';
+import './css/vivify.min.css';
 
 const CategoryOption1 = (props) => {
    const { setItemTypeAdress1 } = useContext(Context);
@@ -28,11 +29,13 @@ const CategoryOption1 = (props) => {
 
    return (
       <div className="category-choice-container">
-         <ProgressBar stage={0} previous="Start" next="Material" />
+         <div className="swoopInTop vivify delay-100">
+            <ProgressBar stage={0} previous="Start" next="Material" />
+         </div>
          <div>
             <div>
                <p className="category-direction-text">Choose your item</p>
-               <div className="category-items-container">
+               <div className="category-items-container fadeIn vivify">
                   <div className="category-before-click-category">
                      <img src={selectType} alt="" />
                   </div>
@@ -41,10 +44,7 @@ const CategoryOption1 = (props) => {
          </div>
          <div className="category-type-of-item-container">
             {itemList.map((item, i) => (
-               <div
-                  onClick={() => mapOnItemClickImageClassHandler(item, i)}
-                  key={item.id}
-               >
+               <div onClick={() => mapOnItemClickImageClassHandler(item, i)} key={item.id} >
                   <CategoryItemBox1
                      index={i}
                      type={item.type}
@@ -55,22 +55,11 @@ const CategoryOption1 = (props) => {
             ))}
          </div>
          <div className="category-back-next-buttons">
-            <button
-               className="back-button"
-               type="button"
-               onClick={handleClickPreviousSection}
-            >
+            <button className="back-button" type="button" onClick={handleClickPreviousSection} >
                BACK
             </button>
-            <Link
-               className={selectType ? null : 'disabled-link'}
-               to="/calculate/materials"
-            >
-               <button
-                  className="next-button"
-                  type="button"
-                  onClick={() => setItemTypeAdress1(selectType)}
-               >
+            <Link className={selectType ? null : 'disabled-link'} to="/calculate/materials" >
+               <button className="next-button" type="button" onClick={() => setItemTypeAdress1(selectType)} >
                   NEXT
                </button>
             </Link>

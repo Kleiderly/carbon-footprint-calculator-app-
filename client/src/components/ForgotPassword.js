@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
-
+import './css/Admin.css';
+import './css/vivify.min.css';
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -34,21 +35,21 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className="forgotpassword-screen">
-      <form
-        onSubmit={forgotPasswordHandler}
-        className="forgotpassword-screen__form"
-      >
-        <h3 className="forgotpassword-screen__title">Forgot Password</h3>
+    <div className="admin-wrapper vivify fadeIn">
+
+      <form onSubmit={forgotPasswordHandler}>
+        <h3>Password Recovery</h3>
         {error && <span >{error}</span>}
         {success && <span >{success}</span>}
-        <div >
-          <p >
-            Please enter the email address you register your account with. We
-            will send you reset password confirmation to this email
+
+        <div className="admin-recover-wrap">
+          <p className="admin-forgotpassword">
+            Please enter the email address you registered your account with,
+            and we will send you instructions to reset your password.
           </p>
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="email">Email: </label>
           <input
+            className="light-pink"
             type="email"
             required
             id="email"
@@ -57,9 +58,11 @@ const ForgotPassword = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <button type="submit">
-          Send Email
+      <div className="admin-pw-recovery-button-wrap">
+        <button className="admin-form-button" type="submit">
+          SEND EMAIL
         </button>
+      </div>
       </form>
     </div>
   );
