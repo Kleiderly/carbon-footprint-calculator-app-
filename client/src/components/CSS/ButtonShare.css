@@ -1,5 +1,5 @@
 .buttonshare-wrapper {
-    background-color: #000000;
+    background-color: #00000000;
 }
 
 .buttonshare-container {
@@ -9,6 +9,12 @@
 .buttonshare-detail {
     border: solid 2px #F7EBE8;
     border-radius: 50px;
+}
+
+button.react-share__ShareButton {
+    margin: 0;
+    padding: 0;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0);
 }
 
 .buttonshare-share-button {
@@ -26,7 +32,6 @@
     box-shadow: 0px 2px 0px #ffc2b3;
     margin: 15px;
 }
-
 
 @media only screen and (min-device-width: 660px) {
 .buttonshare-share-button {

@@ -106,15 +106,15 @@ const ResultsOption2 = (props) => {
     history.push("/calculate/logistics");
   };
 
-   const messageUneven =
-      <span className="results-message">
+  const messageUneven =
+      <span className="results-message vivify popIn delay-1000">
          The <b>{totalCo2e1 < totalCo2e2 ? 'first item' : 'second item'} </b> 
          is <b>{percentage}%</b> more eco-responsible than the
          <b> {totalCo2e1 > totalCo2e2 ? 'first Item' : 'second Item'}</b>.
       </span>;
 
    const messageEven = 
-      <span className="results-message">
+      <span className="results-message vivify popIn delay-1000">
          It's a tie!
       </span>;
 
