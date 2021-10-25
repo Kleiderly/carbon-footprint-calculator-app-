@@ -22,6 +22,8 @@ function AdminForms() {
     const [modCo2e, setModCo2e] = useState(0);
     const [modId, setModId] = useState();
     const [error, setError] = useState("")
+/* Makes active input fields available */
+    const [openInput, setOpenInput] = useState("");
 /* API call links */
     const materialAPI = axios.get(`/api/material`);
     const logisticAPI = axios.get(`/api/logistic`);
@@ -180,13 +182,14 @@ function AdminForms() {
                           setCat("material")
                           setModCo2e("")
                           setModName2("")
+                          setOpenInput("form1cat1")
                         }}
                         />
                     </div>        
                     <div className="form-input">
                         <p className="admin-input-label">Co2e per item: </p>
                         <input 
-                        className="light-pink"
+                        className={openInput === "form1cat1" ? "input-available light-pink" : "input-not-available light-pink"}
                         type="text"
                         name="co2e"
                         value={cat === "material" && section === "form1" ? modCo2e : ""}
@@ -213,13 +216,14 @@ function AdminForms() {
                           setSection("form1")
                           setModCo2e("")
                           setModName2("")
+                          setOpenInput("form1cat2")
                         }}
                         />
                     </div>
                     <div className="form-input">
                     <p className="admin-input-label">Consumer Location: </p>
                         <input 
-                        className="light-pink" 
+                        className={openInput === "form1cat2" ? "input-available light-pink" : "input-not-available light-pink"} 
                         value={cat === "logistic" && section === "form1" ? modName2 : ""}
                         type="text"
                         name="logistics"
@@ -233,7 +237,7 @@ function AdminForms() {
                     <div className="form-input">
                         <p className="admin-input-label">Co2e per item: </p>
                         <input 
-                        className="light-pink"
+                        className={openInput === "form1cat2" ? "input-available light-pink" : "input-not-available light-pink"}
                         type="text"
                         name="co2e"
                         value={cat === "logistic" && section === "form1" ? modCo2e : ""}
@@ -260,13 +264,14 @@ function AdminForms() {
                           setCat("fastening")
                           setModCo2e("")
                           setModName2("")
+                          setOpenInput("form1cat3")
                         }}
                         />
                     </div>
                     <div className="form-input">
                         <p className="admin-input-label">Co2e per item: </p>
                         <input 
-                        className="light-pink"
+                        className={openInput === "form1cat3" ? "input-available light-pink" : "input-not-available light-pink"}
                         type="text"
                         name="co2e"
                         value={cat === "fastening" && section === "form1" ? modCo2e : ""}
@@ -308,6 +313,7 @@ function AdminForms() {
                             setCat("material")
                             setModName2("")
                             setModCo2e("")
+                            setOpenInput("form2cat1")
                             console.log("Material", modCo2e, modId, modName, filterArr);
                         }}>
                             <option></option>
@@ -328,7 +334,7 @@ function AdminForms() {
                     <div className="form-input">
                     <p className="admin-input-label">Co2e per item: </p>
                         <input
-                        className="light-pink"
+                        className={openInput === "form2cat1" ? "input-available light-pink" : "input-not-available light-pink"}
                         type="text"
                         name="co2e"
                         value={cat === "material" && section === "form2" ? modCo2e : ""}
@@ -351,6 +357,7 @@ function AdminForms() {
                             setCat("logistic")
                             setSection("form2")
                             setModCo2e("")
+                            setOpenInput("form2cat2")
                             console.log("Logistics", modCo2e, modId, modName, modName2, filterArr);
                         }}>
                             <option></option>
@@ -372,7 +379,7 @@ function AdminForms() {
                     <div className="form-input">
                     <p className="admin-input-label">Consumer Location: </p>
                         <input
-                        className="light-pink"
+                        className={openInput === "form2cat2" ? "input-available light-pink" : "input-not-available light-pink"}
                         type="text"
                         name="logistic"
                         value={cat === "logistic" && section === "form2" ? modName2 : ""}
@@ -385,7 +392,7 @@ function AdminForms() {
                     <div className="form-input">
                     <p className="admin-input-label">Co2e per item: </p>
                         <input
-                        className="light-pink"
+                        className={openInput === "form2cat2" ? "input-available light-pink" : "input-not-available light-pink"}
                         type="text"
                         name="co2e"
                         value={cat === "logistic" && section === "form2"  ? modCo2e : ""}
@@ -409,6 +416,7 @@ function AdminForms() {
                             setSection("form2")
                             setModName2("")
                             setModCo2e("")
+                            setOpenInput("form2cat3")
                             console.log("Fastenings", modCo2e, modId, modName, filterArr);
                         }}>
                             <option></option>
@@ -429,7 +437,7 @@ function AdminForms() {
                     <div className="form-input">
                     <p className="admin-input-label">Co2e per item: </p>
                         <input
-                        className="light-pink"
+                        className={openInput === "form2cat3" ? "input-available light-pink" : "input-not-available light-pink"}
                         type="text"
                         name="co2e"
                         value={cat === "fastening" && section === "form2" ? modCo2e : ""}
