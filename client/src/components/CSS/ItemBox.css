@@ -1,3 +1,9 @@
+@media only screen and (min-device-width: 300px) and (max-device-width: 375) {
+   .itembox-deselected-item-box, .itembox-selected-item-box {
+      width: 130px;
+   }
+}
+
 .itembox-deselected-item-box, .itembox-selected-item-box {
     display: flex;
     align-items: center;
@@ -14,6 +20,7 @@
  .itembox-selected-item-box {
     background-color: #415551;
  }
+
 
  @media only screen and (min-device-width: 660px) {
 .itembox-deselected-item-box, .itembox-selected-item-box {

@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
     font-size: 10px;
-    width: 400px;
+    width: 314px;
 }
 
 .progressbar {
@@ -22,7 +22,7 @@
 }
 
 .progressbar-category {
-    width: 100px;
+    width: 70px;
 }
 
 .progressbar-empty {

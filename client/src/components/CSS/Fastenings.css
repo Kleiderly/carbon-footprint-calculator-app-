@@ -1,3 +1,14 @@
+@media only screen and (min-device-width: 300px) and (max-device-width: 375) {
+   .fastenings-after-click, .fastenings-before-click {
+      width: 140px;
+      height: 140px;
+   }
+
+   .fastenings-item-group {
+      width: 150px;
+   }
+}
+
 .fastenings-wrapper {
    display: flex;
    flex-direction: column;
