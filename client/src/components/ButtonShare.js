@@ -20,25 +20,25 @@ function ButtonShare(props) {
    const sharedUrl = 'https://kleiderly.com/';
    return (
       <div className="buttonshare-wrapper">
-         <TwitterShareButton url={sharedUrl}>
-            <TwitterIcon size={32} round={true} className="buttonshare-detail" />
-         </TwitterShareButton>
+            <TwitterShareButton url={sharedUrl}>
+               <TwitterIcon size={40} round={true} className="buttonshare-detail" />
+            </TwitterShareButton>
 
-         <FacebookShareButton url={sharedUrl}>
-            <FacebookIcon size={32} round={true} className="buttonshare-detail" />
-         </FacebookShareButton>
+            <FacebookShareButton url={sharedUrl}>
+               <FacebookIcon size={40} round={true} className="buttonshare-detail" />
+            </FacebookShareButton>
 
-         <WhatsappShareButton url={sharedUrl}>
-            <WhatsappIcon size={32} round={true} className="buttonshare-detail" />
-         </WhatsappShareButton>
+            <WhatsappShareButton url={sharedUrl}>
+               <WhatsappIcon size={40} round={true} className="buttonshare-detail" />
+            </WhatsappShareButton>
 
-         <LinkedinShareButton url={sharedUrl}>
-            <LinkedinIcon size={32} round={true} className="buttonshare-detail" />
-         </LinkedinShareButton>
+            <LinkedinShareButton url={sharedUrl}>
+               <LinkedinIcon size={40} round={true} className="buttonshare-detail" />
+            </LinkedinShareButton>
 
-         <EmailShareButton url={sharedUrl}>
-            <EmailIcon size={32} round={true} className="buttonshare-detail" />
-         </EmailShareButton>
+            <EmailShareButton url={sharedUrl}>
+               <EmailIcon size={40} round={true} className="buttonshare-detail" />
+            </EmailShareButton>
       </div>
    );
 }

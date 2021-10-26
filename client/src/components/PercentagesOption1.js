@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import Context from '../contexts/ContextApi';
+import { itemListBlack } from './data';
 import { Link, useHistory } from 'react-router-dom';
 import './css/Percentages.css';
 // import { divModeExecute } from 'tsparticles';
@@ -18,6 +19,15 @@ const PercentagesOption1 = (props) => {
       totalCo2e1,
    } = useContext(Context);
 
+// Switch image to black
+  const imgName1 = itemTypeAdress1.substring(20,23)
+  const itemTypeAdress1Black = itemListBlack.filter((item)=> {
+    return item.adress.substring(20,23) === imgName1
+    })
+    .map((name)=> {
+      return name.adress
+  })
+
    //To Go Back
    let history = useHistory();
    const handleClickPreviousSection = () => {
@@ -31,7 +41,7 @@ const PercentagesOption1 = (props) => {
          <div className="percentages-main-container">
             <div className="percentages-item-group">
                <div className="percentages-after-click">
-                  <img src={itemTypeAdress1} alt={itemTypeAdress1} className="percentages-img-cover1" />
+                  <img src={itemTypeAdress1Black} alt={itemTypeAdress1} className="percentages-img-cover1" />
                </div>
             </div>
 

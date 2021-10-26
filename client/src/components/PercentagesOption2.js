@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import Context from '../contexts/ContextApi';
 import { Link, useHistory } from 'react-router-dom';
+import { itemListBlack } from './data';
 import './css/Percentages.css';
 import './css/vivify.min.css';
 
@@ -18,7 +19,21 @@ const PercentagesOption2 = (props) => {
       totalCo2e2,
    } = useContext(Context);
 
-   //    useEffect(() => {}, []);
+  // Switch image to black
+  const imgName1 = itemTypeAdress1.substring(20,23)
+  const itemTypeAdress1Black = itemListBlack.filter((item)=> {
+    return item.adress.substring(20,23) === imgName1
+    })
+    .map((name)=> {
+      return name.adress
+  })
+  const imgName2 = itemTypeAdress2.substring(20,23)
+  const itemTypeAdress2Black = itemListBlack.filter((item)=> {
+    return item.adress.substring(20,23) === imgName2
+    })
+    .map((name)=> {
+      return name.adress
+  })
 
    //To Go Back
    let history = useHistory();
@@ -28,112 +43,65 @@ const PercentagesOption2 = (props) => {
 
    return (
       <div className="percentages-wrapper vivify fadeIn">
+
          <p className="percentages-title">Co2E Details</p>
          <div className="percentages-main-container2">
-            <div className="percentages-item-group">
-               <div
-                  className={
-                     totalCo2e1 > totalCo2e2
-                        ? 'percentages-before-click'
-                        : 'percentages-after-click'
-                  }
-               >
-                  <img
-                     src={itemTypeAdress1}
-                     alt={itemTypeAdress1}
-                     className="percentages-img-cover"
-                  />
-                  <div>
-                     First item
-                     <p className="percentages-carbon-result">
-                        Total: {totalCo2e1.toFixed(2)}
-                     </p>
+               <div className="percentages-item-group">
+                  <div className={totalCo2e1 > totalCo2e2 ? "percentages-before-click" : "percentages-after-click"}>
+                     <img src={totalCo2e1 < totalCo2e2 ? itemTypeAdress1Black : itemTypeAdress1} alt={itemTypeAdress1} className="percentages-img-cover" />
+                     <div className="percentages-img-text">
+                        First item
+                        <p className="percentages-carbon-result">Total: {totalCo2e1.toFixed(2)}</p>
+                     </div>
                   </div>
                </div>
-            </div>
 
-            <div className="percentages-item-group">
-               <div
-                  className={
-                     totalCo2e1 < totalCo2e2
-                        ? 'percentages-before-click'
-                        : 'percentages-after-click'
-                  }
-               >
-                  <img
-                     src={itemTypeAdress2}
-                     alt={itemTypeAdress2}
-                     className="percentages-img-cover"
-                  />
-                  <div>
-                     Second item
-                     <p className="percentages-carbon-result">
-                        Total: {totalCo2e2.toFixed(2)}
-                     </p>
+               <div className="percentages-item-group">
+                  <div className={totalCo2e1 < totalCo2e2 ? "percentages-before-click" : "percentages-after-click"}>
+                     <img src={totalCo2e1 > totalCo2e2 ? itemTypeAdress2Black : itemTypeAdress2} alt={itemTypeAdress2} className="percentages-img-cover" />
+                     <div className="percentages-img-text">
+                        Second item
+                        <p className="percentages-carbon-result">Total: {totalCo2e2.toFixed(2)}</p>
+                     </div>
                   </div>
                </div>
-            </div>
          </div>
 
          <div className="percentages-container2 vivify fadeIn delay-500">
             <div className="percentages-totals">
-               <div className="percentages-detail">
-                  {materialCO2e1.toFixed(2)}
-               </div>
-               <div className="percentages-detail">
-                  {fasteningCO2e1.toFixed(2)}
-               </div>
-               <div className="percentages-detail">
-                  {countryCO2e1.toFixed(2)}
-               </div>
+               <div className="percentages-detail">{materialCO2e1.toFixed(2)}</div>
+               <div className="percentages-detail">{fasteningCO2e1.toFixed(2)}</div>
+               <div className="percentages-detail">{countryCO2e1.toFixed(2)}</div>
                <div>&nbsp;</div>
                <div className="percentages-detail">{totalCo2e1.toFixed(2)}</div>
             </div>
             <div className="percentages-categories">
-               <div className="percentages-detail">
-                  <b>Material</b>
-               </div>
-               <div className="percentages-detail">
-                  <b>Fastenings</b>
-               </div>
-               <div className="percentages-detail">
-                  <b>Logistics</b>
-               </div>
+               <div className="percentages-detail"><b>Material</b></div>
+               <div className="percentages-detail"><b>Fastenings</b></div>
+               <div className="percentages-detail"><b>Logistics</b></div>
                <div>&nbsp;</div>
-               <div className="percentages-detail">
-                  <b>TOTAL</b>
-               </div>
+               <div className="percentages-detail"><b>TOTAL</b></div>
             </div>
             <div className="percentages-totals">
-               <div className="percentages-detail">
-                  {materialCO2e2.toFixed(2)}
-               </div>
-               <div className="percentages-detail">
-                  {fasteningCO2e2.toFixed(2)}
-               </div>
-               <div className="percentages-detail">
-                  {countryCO2e2.toFixed(2)}
-               </div>
+               <div className="percentages-detail">{materialCO2e2.toFixed(2)}</div>
+               <div className="percentages-detail">{fasteningCO2e2.toFixed(2)}</div>
+               <div className="percentages-detail">{countryCO2e2.toFixed(2)}</div>
                <div>&nbsp;</div>
                <div className="percentages-detail">{totalCo2e2.toFixed(2)}</div>
             </div>
          </div>
 
-         <p className="percentages-explanation">
-            Text explaining the Co2E principles, etc.
-         </p>
+         <p className="percentages-explanation">Text explaining the Co2E principles, etc.</p>
 
-         <span
-            className="percentages-go-back"
-            onClick={handleClickPreviousSection}
-         >
-            GO BACK TO RESULTS
+         <span className="percentages-go-back" onClick={handleClickPreviousSection}>
+               GO BACK TO RESULTS
          </span>
          <br />
 
          <Link to="/">
             <button type="button">COMPARE NEW ITEMS</button>
          </Link>
+
       </div>
    );
 };

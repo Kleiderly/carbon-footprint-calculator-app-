@@ -9,6 +9,8 @@
 .logo {
     height: 50px;
     width: auto;
+    -webkit-filter: invert(100%) sepia(3%) saturate(815%) hue-rotate(319deg) brightness(105%) contrast(94%);
+    filter: invert(100%) sepia(3%) saturate(815%) hue-rotate(319deg) brightness(105%) contrast(94%);
 }
 
 .header-title, .header-title a {
@@ -24,11 +26,11 @@
 }
 
 @media only screen and (min-device-width: 660px) {
-.logo {
-    height: 100px;
-}
-
-.header-title, .header-title a {
-    font-size: 28px;
-}
-}
+    .logo {
+        height: 100px;
+    }
+    
+    .header-title, .header-title a {
+        font-size: 28px;
+    }
+    }

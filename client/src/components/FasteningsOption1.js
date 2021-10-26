@@ -70,7 +70,7 @@ const FasteningsOption1 = (props) => {
                   alt={itemTypeAdress1}
                   className="fastenings-img-cover"
                />
-               <span className="fastenings-small-text">Fastenings</span>
+               <span className="fastenings-img-text">Fastenings</span>
             </div>
          </div>
 
