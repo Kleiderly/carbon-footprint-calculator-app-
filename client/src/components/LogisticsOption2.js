@@ -8,6 +8,7 @@ import Tips from './Tips';
 import './css/Logistics.css';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import { tipsList } from './data';
 import './css/vivify.min.css';
 
 function Logistics(props) {
@@ -18,6 +19,7 @@ function Logistics(props) {
       setCountryCO2e2,
    } = useContext(Context);
 
+   const [tip, setTip] = useState('');
    //For data from database
    const [countriesFrom, setCountriesFrom] = useState([]);
 
@@ -35,6 +37,12 @@ function Logistics(props) {
          .catch((error) => {
             console.log(error);
          });
+   }, []);
+
+   useEffect(() => {
+      const tips = tipsList.filter((tip) => tip.category === 'logistics');
+      const tip = tips[Math.floor(Math.random() * tips.length)];
+      setTip(tip);
    }, []);
 
    //To Go Back
@@ -66,9 +74,7 @@ function Logistics(props) {
       <div className="logistics-wrapper vivify fadeIn">
          <ProgressBar stage={3} previous="Fastenings" next="Results" />
 
-         <p className="logistics-title">
-            Where were they produced?
-         </p>
+         <p className="logistics-title">Where were they produced?</p>
 
          <div className="logistics-items-container2">
             <div className="logistics-item-group">
@@ -78,8 +84,15 @@ function Logistics(props) {
                </div>
                <div className="logistics-container">
                   {countriesFrom.map((item, i) => (
-                     <div onClick={() => handleClickMappedItem1(item, i)} key={item._id} >
-                        <ItemBox name={item.productionLocation} index={i} selected={selected1} />
+                     <div
+                        onClick={() => handleClickMappedItem1(item, i)}
+                        key={item._id}
+                     >
+                        <ItemBox
+                           name={item.productionLocation}
+                           index={i}
+                           selected={selected1}
+                        />
                      </div>
                   ))}
                </div>
@@ -94,23 +107,37 @@ function Logistics(props) {
                </div>
                <div className="logistics-container">
                   {countriesFrom.map((item, i) => (
-                     <div onClick={() => handleClickMappedItem2(item, i)} key={item._id} >
-                        <ItemBox name={item.productionLocation} index={i} selected={selected2} />
+                     <div
+                        onClick={() => handleClickMappedItem2(item, i)}
+                        key={item._id}
+                     >
+                        <ItemBox
+                           name={item.productionLocation}
+                           index={i}
+                           selected={selected2}
+                        />
                      </div>
                   ))}
                </div>
             </div>
-
          </div>
 
          <div className="category-back-next-buttons">
-            <button className="back-button" type="button" onClick={handleClickPreviousSection} >
+            <button
+               className="back-button"
+               type="button"
+               onClick={handleClickPreviousSection}
+            >
                BACK
             </button>
 
             {selectCountry1 && selectCountry2 ? (
                <Link to="/compare/results">
-                  <button className="next-button" type="button" onClick={handleClick} >
+                  <button
+                     className="next-button"
+                     type="button"
+                     onClick={handleClick}
+                  >
                      NEXT
                   </button>
                </Link>
@@ -122,7 +149,7 @@ function Logistics(props) {
          </div>
 
          <div className="tips">
-            <Tips category="logistics" />
+            <Tips category="logistics" tipObj={tip} />
          </div>
       </div>
    );

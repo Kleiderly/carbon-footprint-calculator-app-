@@ -8,10 +8,13 @@ import Tips from './Tips';
 import './css/Materials.css';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import { tipsList } from './data';
 import './css/vivify.min.css';
 
 const MaterialsOption1 = (props) => {
    const { itemTypeAdress1, setMaterialCO2e1 } = useContext(Context);
+
+   const [tip, setTip] = useState('');
 
    const [selected, setSelected] = useState('');
    const [materials, setMaterials] = useState([]);
@@ -35,10 +38,19 @@ const MaterialsOption1 = (props) => {
          });
    }, []);
 
+   // GETTING RANDOM TIP(literal object) FROM tipsList FROM data.js FILTERED BY CATEGORY
+   useEffect(() => {
+      const tips = tipsList.filter((tip) => tip.category === 'material');
+      const tip = tips[Math.floor(Math.random() * tips.length)];
+      setTip(tip);
+   }, []);
+
    let history = useHistory();
    const handleClickPreviousSection = () => {
       history.push('/calculate/category');
    };
+
+   console.log(tipsList[0]);
 
    return (
       <div className="material-wrapper vivify fadeIn">
@@ -56,33 +68,46 @@ const MaterialsOption1 = (props) => {
          </div>
          <div className="material-container1">
             {materials.map((item, i) => (
-               <div onClick={() => handleClickMappedItem(item, i)} key={item._id} >
+               <div
+                  onClick={() => handleClickMappedItem(item, i)}
+                  key={item._id}
+               >
                   <ItemBox index={i} name={item.name} selected={selected} />
                </div>
             ))}
          </div>
 
          <div className="category-back-next-buttons">
-            <button className="back-button" type="button" onClick={handleClickPreviousSection} >
+            <button
+               className="back-button"
+               type="button"
+               onClick={handleClickPreviousSection}
+            >
                BACK
             </button>
 
             {selectMaterial1 ? (
                <Link to="/calculate/fastenings">
                   <button
-                     className="next-button" type="button" onClick={() => setMaterialCO2e1(selectMaterial1)} >
+                     className="next-button"
+                     type="button"
+                     onClick={() => setMaterialCO2e1(selectMaterial1)}
+                  >
                      NEXT
                   </button>
                </Link>
             ) : (
-               <Popup trigger={<button className="next-button"> NEXT</button>} position="top center" >
+               <Popup
+                  trigger={<button className="next-button"> NEXT</button>}
+                  position="top center"
+               >
                   <div className="pop-up-box">Please make a selection.</div>
                </Popup>
             )}
          </div>
 
-         <div>
-            <Tips category="materials" />
+         <div className="tips">
+            <Tips tipObj={tip} />
          </div>
       </div>
    );

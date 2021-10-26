@@ -5,6 +5,7 @@ import { Link, useHistory } from 'react-router-dom';
 import ProgressBar from './ProgressBar';
 import './css/Fastenings.css';
 import Tips from './Tips';
+import { tipsList } from './data.js';
 import './css/vivify.min.css';
 
 const FasteningsOption2 = () => {
@@ -16,6 +17,7 @@ const FasteningsOption2 = () => {
       setFasteningCO2e2,
    } = useContext(Context);
 
+   const [tip, setTip] = useState('');
    const [fastenings, setFastenings] = useState([]);
 
    useEffect(() => {
@@ -55,6 +57,12 @@ const FasteningsOption2 = () => {
       setFasteningCO2e2(result2);
    };
 
+   useEffect(() => {
+      const tips = tipsList.filter((tip) => tip.category === 'fastening');
+      const tip = tips[Math.floor(Math.random() * tips.length)];
+      setTip(tip);
+   }, []);
+
    //To Go Back
    let history = useHistory();
    const handleClickPreviousSection = () => {
@@ -65,12 +73,9 @@ const FasteningsOption2 = () => {
       <div className="fastenings-wrapper vivify fadeIn">
          <ProgressBar stage={2} previous="Material" next="Fabrication" />
 
-         <p className="fastenings-direction-text">
-            Do they have fastenings?
-         </p>
-         
-         <div className="fastenings-items-container">
+         <p className="fastenings-direction-text">Do they have fastenings?</p>
 
+         <div className="fastenings-items-container">
             <div className="fastenings-item-group">
                <div className="fastenings-before-click">
                   <img src={itemTypeAdress1} alt={itemTypeAdress1} className="fastenings-img-cover" />
@@ -81,7 +86,9 @@ const FasteningsOption2 = () => {
                      fastenings.map((fastening, i) => {
                         return (
                            <div key={i} className="fastenings-item">
-                              <span className="fastenings-name">{fastening.name}</span>
+                              <span className="fastenings-name">
+                                 {fastening.name}
+                              </span>
                               <br />
                               <input
                                  type="number"
@@ -90,14 +97,15 @@ const FasteningsOption2 = () => {
                                  step="1"
                                  value={listOfQuantities[i].quantity}
                                  onChange={(e) => {
-                                    copyOfQuantities[i].quantity = e.target.value;
+                                    copyOfQuantities[i].quantity =
+                                       e.target.value;
                                     setlistOfQuantities([...copyOfQuantities]);
                                  }}
                               />
                            </div>
                         );
                      })}
-                  </div>
+               </div>
             </div>
 
             <div>&nbsp;&nbsp;</div>
@@ -112,7 +120,9 @@ const FasteningsOption2 = () => {
                      fastenings.map((fastening, i) => {
                         return (
                            <div key={i} className="fastenings-item">
-                              <span className="fastenings-name">{fastening.name}</span>
+                              <span className="fastenings-name">
+                                 {fastening.name}
+                              </span>
                               <br />
                               <input
                                  type="number"
@@ -121,8 +131,11 @@ const FasteningsOption2 = () => {
                                  step="1"
                                  value={listOfQuantities2[i].quantity}
                                  onChange={(e) => {
-                                    copyOfQuantities2[i].quantity = e.target.value;
-                                    setlistOfQuantities2([...copyOfQuantities2]);
+                                    copyOfQuantities2[i].quantity =
+                                       e.target.value;
+                                    setlistOfQuantities2([
+                                       ...copyOfQuantities2,
+                                    ]);
                                  }}
                               />
                            </div>
@@ -133,20 +146,27 @@ const FasteningsOption2 = () => {
          </div>
 
          <div className="fastenings-back-next-buttons">
-            <button className="back-button" type="button" onClick={handleClickPreviousSection}>
+            <button
+               className="back-button"
+               type="button"
+               onClick={handleClickPreviousSection}
+            >
                BACK
             </button>
-               <Link to="/compare/logistics">
-                  <button className="next-button" type="button" onClick={addFastenings}>
-                     NEXT
-                  </button>
-               </Link>
+            <Link to="/compare/logistics">
+               <button
+                  className="next-button"
+                  type="button"
+                  onClick={addFastenings}
+               >
+                  NEXT
+               </button>
+            </Link>
          </div>
 
          <div className="tips">
-            <Tips category="fastenings" />
+            <Tips category="fastenings" tipObj={tip} />
          </div>
-
       </div>
    );
 };
