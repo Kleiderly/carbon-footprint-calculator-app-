@@ -25,6 +25,7 @@ import PrivateRoute from './components/PrivateRoute';
 import ForgotPassword from './components/ForgotPassword';
 import ResetPassword from './components/ResetPassword';
 
+
 function App() {
    // CALCULATE STATES
    const [itemTypeAdress1, setItemTypeAdress1] = useState(
@@ -45,7 +46,7 @@ function App() {
 
    const [totalCo2e2, setTotalCo2e2] = useState();
    const [percentage, setPercentage] = useState();
-   const [email, setEmail] = useState()
+
 
    return (
       <div className="App">
@@ -78,8 +79,6 @@ function App() {
                      setTotalCo2e2,
                      percentage,
                      setPercentage,
-                     email,
-                     setEmail
                   }}
                >
                   <div className="fadeInTop vivify">

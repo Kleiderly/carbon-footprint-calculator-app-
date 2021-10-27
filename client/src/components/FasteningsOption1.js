@@ -24,60 +24,88 @@ const FasteningsOption1 = (props) => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+      setlistOfQuantities([...temporalArray]);
+   }, [fastenings]);
 
-  const [listOfQuantities, setlistOfQuantities] = useState([]);
-  const copyOfQuantities = [...listOfQuantities];
+   const addFastenings = () => {
+      let result = 0;
+      for (let i = 0; i < fastenings.length; i++) {
+         result += listOfQuantities[i].quantity * fastenings[i].co2e;
+      }
+      setFasteningCO2e1(result);
+   };
 
-  let history = useHistory();
-  const handleClickPreviousSection = () => {
-    history.push("/calculate/materials");
-  };
+   useEffect(() => {
+      const tips = tipsList.filter((tip) => tip.category === 'fastening');
+      const tip = tips[Math.floor(Math.random() * tips.length)];
+      setTip(tip);
+   }, []);
 
-  useEffect(() => {
-    const temporalArray = [];
-    fastenings.forEach((fastening) => {
-      temporalArray.push({ quantity: 0 });
-    });
-    setlistOfQuantities([...temporalArray]);
-  }, [fastenings]);
+   console.log('result Fastening: ', fasteningCO2e1);
 
-  const addFastenings = () => {
-    let result = 0;
-    for (let i = 0; i < fastenings.length; i++) {
-      result += listOfQuantities[i].quantity * fastenings[i].co2e;
-    }
-    setFasteningCO2e1(result);
-  };
+   return (
+      <div className="fastenings-wrapper vivify fadeIn">
+         <ProgressBar stage={2} previous="Material" next="Fabrication" />
 
-  useEffect(() => {
-    const tips = tipsList.filter((tip) => tip.category === "fastening");
-    const tip = tips[Math.floor(Math.random() * tips.length)];
-    setTip(tip);
-  }, []);
+         <p className="fastenings-direction-text">Does it have fastenings?</p>
 
-  const options = [
-    { value: "1", label: "1" },
-    { value: "2", label: "2" },
-    { value: "3", label: "3" },
-  ];
-  console.log("result Fastening: ", fasteningCO2e1);
+         <div className="fastenings-items-container">
+            <div className="fastenings-before-click">
+               <img
+                  src={itemTypeAdress1}
+                  alt={itemTypeAdress1}
+                  className="fastenings-img-cover"
+               />
+               <span className="fastenings-img-text">Fastenings</span>
+            </div>
+         </div>
 
-  return (
-    <div className="fastenings-wrapper vivify fadeIn">
-      <ProgressBar stage={2} previous="Material" next="Fabrication" />
+         <div>
+            {listOfQuantities.length > 0 &&
+               fastenings.map((fastening, i) => {
+                  return (
+                     <div key={i}>
+                        <p className="fastenings-option-text">
+                           {fastening.name}
+                        </p>
+                        <input
+                           type="number"
+                           min="0"
+                           step="1"
+                           className="light-pink"
+                           value={listOfQuantities[i].quantity}
+                           onChange={(e) => {
+                              copyOfQuantities[i].quantity = e.target.value;
+                              setlistOfQuantities([...copyOfQuantities]);
+                           }}
+                        />
+                     </div>
+                  );
+               })}
+         </div>
 
-      <p className="fastenings-direction-text">Does it have fastenings?</p>
+         <div className="fastenings-back-next-buttons">
+            <button
+               className="back-button"
+               type="button"
+               onClick={handleClickPreviousSection}
+            >
+               BACK
+            </button>
+            <Link to="/calculate/logistics">
+               <button
+                  className="next-button"
+                  type="button"
+                  onClick={addFastenings}
+               >
+                  NEXT
+               </button>
+            </Link>
+         </div>
 
-      <div className="fastenings-items-container">
-        <div className="fastenings-before-click">
-          <img
-            src={itemTypeAdress1}
-            alt={itemTypeAdress1}
-            className="fastenings-img-cover"
-          />
-          <span className="fastenings-small-text">Fastenings</span>
-        </div>
+         <div className="tips">
+            <Tips category="fastenings" tipObj={tip} />
+         </div>
       </div>
 
       <div>

@@ -22,6 +22,8 @@ function AdminForms() {
     const [modCo2e, setModCo2e] = useState(0);
     const [modId, setModId] = useState();
     const [error, setError] = useState("")
+/* Makes active input fields available */
+    const [openInput, setOpenInput] = useState("");
 /* API call links */
     const materialAPI = axios.get(`/api/material`);
     const logisticAPI = axios.get(`/api/logistic`);
@@ -53,10 +55,7 @@ function AdminForms() {
     
         fetchPrivateDate();
       }, []);
-   
 
-        // let superAdmin = JSON.parse(localStorage.getItem("superAdmin"));
-        
 
 /* API calls */
     useEffect(()=>{
@@ -104,15 +103,6 @@ function AdminForms() {
         }             
     };
 
-/* Tells which category to modify */
-    function modInstruction() {
-        if(cat === "logistic"){
-            return {productionLocation: modName, consumerLocation: modName2, co2e: modCo2e}
-        }else{
-            return {name: modName, co2e: modCo2e}
-        }
-    };
-
 /* POST */
     const handleAdd = (e)=>{
         e.preventDefault();
@@ -130,23 +120,6 @@ function AdminForms() {
         })
     };
     
-/* PUT */
-    const handleModify = (e)=>{
-        e.preventDefault();
-        
-        axios
-        .put(`/api/${cat}/${modId}`, modInstruction())
-        .then((res) => {
-            console.log(res);
-            console.log("Modified:", modName, modName2, modCo2e, modId);
-            setSubmit(success);
-            setTimeout(()=> clearForm(), 1000);
-        })
-        .catch((err) => {
-            console.log(err);
-            setSubmit(failed);
-        });
-    };
 
 //Logout 
     const handleLogout = () => {
@@ -180,13 +153,14 @@ function AdminForms() {
                           setCat("material")
                           setModCo2e("")
                           setModName2("")
+                          setOpenInput("form1cat1")
                         }}
                         />
                     </div>        
                     <div className="form-input">
                         <p className="admin-input-label">Co2e per item: </p>
                         <input 
-                        className="light-pink"
+                        className={openInput === "form1cat1" ? "input-available light-pink" : "input-not-available light-pink"}
                         type="text"
                         name="co2e"
                         value={cat === "material" && section === "form1" ? modCo2e : ""}
@@ -213,13 +187,14 @@ function AdminForms() {
                           setSection("form1")
                           setModCo2e("")
                           setModName2("")
+                          setOpenInput("form1cat2")
                         }}
                         />
                     </div>
                     <div className="form-input">
                     <p className="admin-input-label">Consumer Location: </p>
                         <input 
-                        className="light-pink" 
+                        className={openInput === "form1cat2" ? "input-available light-pink" : "input-not-available light-pink"} 
                         value={cat === "logistic" && section === "form1" ? modName2 : ""}
                         type="text"
                         name="logistics"
@@ -233,7 +208,7 @@ function AdminForms() {
                     <div className="form-input">
                         <p className="admin-input-label">Co2e per item: </p>
                         <input 
-                        className="light-pink"
+                        className={openInput === "form1cat2" ? "input-available light-pink" : "input-not-available light-pink"}
                         type="text"
                         name="co2e"
                         value={cat === "logistic" && section === "form1" ? modCo2e : ""}
@@ -260,13 +235,14 @@ function AdminForms() {
                           setCat("fastening")
                           setModCo2e("")
                           setModName2("")
+                          setOpenInput("form1cat3")
                         }}
                         />
                     </div>
                     <div className="form-input">
                         <p className="admin-input-label">Co2e per item: </p>
                         <input 
-                        className="light-pink"
+                        className={openInput === "form1cat3" ? "input-available light-pink" : "input-not-available light-pink"}
                         type="text"
                         name="co2e"
                         value={cat === "fastening" && section === "form1" ? modCo2e : ""}
@@ -288,165 +264,6 @@ function AdminForms() {
 
             <hr className="hr" />
 
-
-{/* MODIFY FORM */}
-            <div className="form-section">
-                <h2 className="form-main-title">Modify item from database</h2>
-                    
-{/* MODIFY MATERIAL*/}
-                <h4 className="admin-title">Materials</h4>
-                <div className="form-item">
-                    <div className="form-input">
-                    <p className="admin-input-label">Material: </p>
-                        <select
-                        className="light-pink" 
-                        value={section === "form2" && modName}
-                        onChange={(e) => {
-                            setFilterArr(material.find((type)=> type.name === e.target.value));
-                            setModName(e.target.value)
-                            setSection("form2")
-                            setCat("material")
-                            setModName2("")
-                            setModCo2e("")
-                            console.log("Material", modCo2e, modId, modName, filterArr);
-                        }}>
-                            <option></option>
-                            {material.map((type, i) => {
-                                return (
-                                    <option 
-                                    id={type._id} 
-                                    key={i} 
-                                    name="material"
-                                    value={type.name}
-                                    >
-                                    {type.name}
-                                    </option>
-                                );
-                            })};
-                        </select>
-                    </div>
-                    <div className="form-input">
-                    <p className="admin-input-label">Co2e per item: </p>
-                        <input
-                        className="light-pink"
-                        type="text"
-                        name="co2e"
-                        value={cat === "material" && section === "form2" ? modCo2e : ""}
-                        onChange={(e) => setModCo2e(e.target.value)}
-                        />
-                    </div>
-                </div>
-
-{/* MODIFY LOGISTICS */}
-                <h4 className="admin-title">Logistics</h4>
-                <div className="form-item">
-                    <div className="form-input">
-                    <p className="admin-input-label">Production Location: </p>
-                        <select 
-                        className="light-pink"
-                        value={section === "form2" && modName}
-                        onChange={(e) => {
-                            setFilterArr(logistic.find((type)=> type.productionLocation === e.target.value));
-                            setModName(e.target.value)
-                            setCat("logistic")
-                            setSection("form2")
-                            setModCo2e("")
-                            console.log("Logistics", modCo2e, modId, modName, modName2, filterArr);
-                        }}>
-                            <option></option>
-                            {logistic.map((type, i) => {
-                                return (
-                                    <option 
-                                    id={type._id} 
-                                    key={i} 
-                                    name="logistic"
-                                    value={type.productionLocation}
-                                    >
-                                        {type.productionLocation}
-                                    </option>
-                                )
-                            })};
-                        </select>
-                    </div>
-
-                    <div className="form-input">
-                    <p className="admin-input-label">Consumer Location: </p>
-                        <input
-                        className="light-pink"
-                        type="text"
-                        name="logistic"
-                        value={cat === "logistic" && section === "form2" ? modName2 : ""}
-                        onChange={(e) => setModName2(e.target.value)}
-                        />
-                    </div>
-                </div>
-
-                <div className="form-item">
-                    <div className="form-input">
-                    <p className="admin-input-label">Co2e per item: </p>
-                        <input
-                        className="light-pink"
-                        type="text"
-                        name="co2e"
-                        value={cat === "logistic" && section === "form2"  ? modCo2e : ""}
-                        onChange={(e) => setModCo2e(e.target.value)}
-                        />
-                    </div>
-                </div>
-                
-{/* MODIFY FASTENINGS */}
-                <h4 className="admin-title">Fastenings</h4>
-                <div className="form-item">
-                    <div className="form-input">
-                    <p className="admin-input-label">Name: </p>
-                        <select 
-                        className="light-pink"
-                        value={section === "form2" && modName}
-                        onChange={(e) => {
-                            setFilterArr(fastening.find((type)=> type.name === e.target.value));
-                            setModName(e.target.value)
-                            setCat("fastening")
-                            setSection("form2")
-                            setModName2("")
-                            setModCo2e("")
-                            console.log("Fastenings", modCo2e, modId, modName, filterArr);
-                        }}>
-                            <option></option>
-                            {fastening.map((type, i) => {
-                                return (
-                                    <option 
-                                    id={type._id} 
-                                    key={i} 
-                                    name="fastening"
-                                    value={type.name}
-                                    >
-                                        {type.name}
-                                    </option>
-                                )
-                            })};
-                        </select>
-                    </div>
-                    <div className="form-input">
-                    <p className="admin-input-label">Co2e per item: </p>
-                        <input
-                        className="light-pink"
-                        type="text"
-                        name="co2e"
-                        value={cat === "fastening" && section === "form2" ? modCo2e : ""}
-                        onChange={(e) => setModCo2e(e.target.value)}
-                        />
-                    </div>
-                </div>
-
-{/* SUBMIT buttons */}
-                <div className="form-input center-align">
-                    <button className="admin-form-button" onClick={handleModify}>MODIFY</button>
-                    <button className="admin-form-button" onClick={clearForm}>CLEAR FORM</button>
-                </div>
-                <div className="form-submit">&nbsp;{section === "form2" && submit}&nbsp;</div>
-            </div>
-
-            <hr className="hr" />
 
             <div className="center-align">
                 <button onClick={handleLogout} className="back-button logout-button">LOG OUT</button>

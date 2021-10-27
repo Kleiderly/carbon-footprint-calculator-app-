@@ -28,6 +28,9 @@ const ButtonShareModal = () => {
             center
          >
             <ButtonShare />
+            <div className="buttonshare-text">
+               Thank you for spreading the word!
+            </div>
          </Modal>
       </div>
    );

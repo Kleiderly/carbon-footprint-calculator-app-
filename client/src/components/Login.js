@@ -2,15 +2,17 @@ import {React, useState, useEffect, useContext }from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import './css/Admin.css';
-import Context from '../contexts/ContextApi';
 import axios from "axios";
 import './css/vivify.min.css';
+import '../components/css/Modal.css'
+
 
 function Login() {
 
-    const{ email, setEmail } = useContext(Context);
+    const [email, setEmail]  = useState("");
     const [password, setPassword] = useState("");
-    const [error, setError] = useState("");
+    const [error, setError] = useState();
+    const [modal, setModal] = useState(false);
     /* Show/Hide password field */
     const showPw = ()=> {
       const pw = document.getElementById("pwbox");
@@ -19,8 +21,6 @@ function Login() {
 
     let history = useHistory();
 
-    console.log(email)
-  
     useEffect(() => {
       if (localStorage.getItem("authToken")) {
         history.push("/adminpage/login");
@@ -52,20 +52,37 @@ function Login() {
             history.push("/adminpage/forms")
           }
       } catch (error) {
-        setError(error.response.data.error);
-        setTimeout(() => {
-          setError("");
-        }, 5000);
+        setError(error.response.data.error)
       }
     };
+
+    
+    const toggleModal = () => {
+      if(error){
+      setModal(!modal)};
+    };
+
+    // const clickHandler = () =>{
+    //   if(error) {
+    //     setModal(!modal)
+    //    }else{
+    //     loginHandler()
+    //    }
+    //   }
+
+    const errorEmpty = () =>{
+      setModal(!modal)
+      setError(null)
+    }
+  
   
     return (
         <div className="admin-wrapper vivify fadeIn">
             <div>
                 <h2>Admin Login</h2>
-                {error && <span className="error-message">{error}</span>}
+                {/* {error && <span>{error}</span>} */}
                 <div className="admin-login">
-                    <form onSubmit={loginHandler}>
+                
                     <p className="admin-text">Email:</p>
                     <input 
                     type="text"
@@ -90,13 +107,27 @@ function Login() {
                       <input type="checkbox" className="pw-checkbox" onClick={showPw} />&nbsp;Show Password
                     </div>
 
-                    <button type="submit">LOGIN</button>
+                    <button  onClick={error ? toggleModal :loginHandler}>LOGIN</button>
 
                     <Link to="/adminpage/forgotpassword" className="admin-password-text">
                         Forgot Password?
                     </Link>
-                   
-                    </form>
+
+
+                    
+
+                    {modal && (
+                        <div className="modal">
+                          <div onClick={errorEmpty} className="overlay"></div>
+                          <div className="modal-content">
+                            <h2>Oops!!</h2>
+                            <span>{error}</span>
+                            <button className="close-modal" onClick={errorEmpty}>
+                              X 
+                            </button>
+                          </div>
+                        </div>
+                      )}
                 </div>
             </div>
         </div>

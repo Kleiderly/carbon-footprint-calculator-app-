@@ -63,7 +63,7 @@ const MaterialsOption1 = (props) => {
                   alt={itemTypeAdress1}
                   className="material-img-cover"
                />
-               <span className="material-small-text">Material</span>
+               <span className="material-img-text">Material</span>
             </div>
          </div>
          <div className="material-container1">
