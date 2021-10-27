@@ -75,7 +75,7 @@ const FasteningsOption2 = () => {
 
          <p className="fastenings-title">Do they have fastenings?</p>
 
-         <div className="fastenings-items-container">
+         <div className="fastenings-items-container2">
             <div className="fastenings-item-group light-accent-bg">
                <div className="fastenings-before-click">
                   <img src={itemTypeAdress1} alt={itemTypeAdress1} className="fastenings-img-cover" />
