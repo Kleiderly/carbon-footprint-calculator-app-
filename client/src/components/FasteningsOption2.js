@@ -7,6 +7,7 @@ import './css/Fastenings.css';
 import Tips from './Tips';
 import { tipsList } from './data.js';
 import './css/vivify.min.css';
+import Select from 'react-select';
 
 const FasteningsOption2 = () => {
    const {
@@ -34,6 +35,19 @@ const FasteningsOption2 = () => {
 
    const copyOfQuantities = [...listOfQuantities];
    const copyOfQuantities2 = [...listOfQuantities2];
+
+   const options = [
+      { value: 1, label: '1' },
+      { value: 2, label: '2' },
+      { value: 3, label: '3' },
+      { value: 4, label: '4' },
+      { value: 5, label: '5' },
+      { value: 6, label: '6' },
+      { value: 7, label: '7' },
+      { value: 8, label: '8' },
+      { value: 9, label: '9' },
+      { value: 10, label: '10' },
+   ];
 
    useEffect(() => {
       const temporalArray = [];
@@ -90,7 +104,7 @@ const FasteningsOption2 = () => {
                                  {fastening.name}
                               </span>
                               <br />
-                              <input
+                              {/* <input
                                  type="number"
                                  className="fastenings-input"
                                  min="0"
@@ -99,6 +113,15 @@ const FasteningsOption2 = () => {
                                  onChange={(e) => {
                                     copyOfQuantities[i].quantity =
                                        e.target.value;
+                                    setlistOfQuantities([...copyOfQuantities]);
+                                 }}
+                              /> */}
+                              <Select
+                                 options={options}
+                                 className="fastenings-input"
+                                 defaultValue={listOfQuantities[i].quantity}
+                                 onChange={(e) => {
+                                    copyOfQuantities[i].quantity = e.value;
                                     setlistOfQuantities([...copyOfQuantities]);
                                  }}
                               />
@@ -124,7 +147,7 @@ const FasteningsOption2 = () => {
                                  {fastening.name}
                               </span>
                               <br />
-                              <input
+                              {/* <input
                                  type="number"
                                  className="fastenings-input"
                                  min="0"
@@ -133,6 +156,17 @@ const FasteningsOption2 = () => {
                                  onChange={(e) => {
                                     copyOfQuantities2[i].quantity =
                                        e.target.value;
+                                    setlistOfQuantities2([
+                                       ...copyOfQuantities2,
+                                    ]);
+                                 }}
+                              /> */}
+                              <Select
+                                 options={options}
+                                 className="fastenings-input"
+                                 defaultValue={listOfQuantities2[i].quantity}
+                                 onChange={(e) => {
+                                    copyOfQuantities2[i].quantity = e.value;
                                     setlistOfQuantities2([
                                        ...copyOfQuantities2,
                                     ]);
