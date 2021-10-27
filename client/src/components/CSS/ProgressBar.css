@@ -4,19 +4,18 @@
     justify-content: center;
     align-items: center;
     font-size: 10px;
-    width: 340px;
+    width: 300px;
 }
 
 .progressbar {
     display: flex;
-    background-color: #415551;
     border-radius: 20px;
-    width: 200px;
+    width: 170px;
     height: 10px;
 }
 
 .progressbar-start {
-    width: 40px;
+    width: 30px;
     background-color: #000000;
     border-radius: 20px 0 0 20px;
 }
@@ -26,11 +25,11 @@
 }
 
 .progressbar-empty {
-    width: 40px;
+    width: 30px;
 }
 
 .progressbar-full {
-    width: 40px;
+    width: 30px;
     background-color: #000000;
 }
 
@@ -38,5 +37,26 @@
 @media only screen and (min-device-width: 660px) {
 .progressbar-wrapper {
     font-size: 12px;
+    width: 360px;
+}
+
+.progressbar {
+    width: 200px;
+}
+
+.progressbar-start {
+    width: 40px;
+}
+
+.progressbar-category {
+    width: 80px;
+}
+
+.progressbar-empty {
+    width: 40px;
+}
+
+.progressbar-full {
+    width: 40px;
 }
 }

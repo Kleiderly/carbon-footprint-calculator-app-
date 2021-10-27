@@ -61,7 +61,7 @@ const FasteningsOption1 = (props) => {
       <div className="fastenings-wrapper vivify fadeIn">
          <ProgressBar stage={2} previous="Material" next="Fabrication" />
 
-         <p className="fastenings-direction-text">Does it have fastenings?</p>
+         <p className="fastenings-title">Does it have fastenings?</p>
 
          <div className="fastenings-items-container">
             <div className="fastenings-before-click">
@@ -70,7 +70,7 @@ const FasteningsOption1 = (props) => {
                   alt={itemTypeAdress1}
                   className="fastenings-img-cover"
                />
-               <span className="fastenings-img-text">Fastenings</span>
+               <span className="fastenings-img-text light-accent-text">Fastenings</span>
             </div>
          </div>
 
@@ -86,7 +86,7 @@ const FasteningsOption1 = (props) => {
                            type="number"
                            min="0"
                            step="1"
-                           className="light-pink"
+                           className="light-accent-bg"
                            value={listOfQuantities[i].quantity}
                            onChange={(e) => {
                               copyOfQuantities[i].quantity = e.target.value;

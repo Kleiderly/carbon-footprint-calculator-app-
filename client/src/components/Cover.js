@@ -35,8 +35,8 @@ function Cover() {
                   <div
                      className={
                         choice === 'calculate'
-                           ? 'cover-after-click'
-                           : 'cover-before-click'
+                           ? 'cover-after-click light-accent-text light-tone-bg'
+                           : 'cover-before-click light-accent-text'
                      } onClick={handleClick1} value={choice}>
                      <img
                         className="cover-img-cover"
@@ -49,8 +49,8 @@ function Cover() {
                   <div
                      className={
                         choice === 'compare'
-                           ? 'cover-after-click2'
-                           : 'cover-before-click2'
+                           ? 'cover-after-click2 light-accent-text light-tone-bg'
+                           : 'cover-before-click2 light-accent-text'
                      } onClick={handleClick2} value={choice}>
                         &nbsp;&nbsp;&nbsp;&nbsp;
                      <img

@@ -61,9 +61,9 @@ const LogisticsOption1 = (props) => {
 
          <p className="logistics-title">Where was it produced?</p>
          <div className="logistics-items-container">
-            <div className="logistics-before-click">
+            <div className="logistics-before-click light-accent-text light-tone-bg">
                <img src={itemTypeAdress1} alt={itemTypeAdress1} className="logistics-img-cover" />
-               <span className="logistic-img-text">Origin</span>
+               <span className="logistic-img-text light-accent-text">Origin</span>
             </div>
          </div>
          <div className="logistics-main-container1">

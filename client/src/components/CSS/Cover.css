@@ -15,18 +15,15 @@
 .cover-paragraph {
    text-align: left;
    font-size: 3.5vw;
-   color: #0e2823;
 }
 
 .cover-direction-text {
    font-size: 6vw;
-   color: #0e2823;
    margin: 10px;
 }
 
 .cover-direction-text2 {
    font-size: 3.5vw;
-   color: #0e2823;
    margin: 0 0 20px 0;
 }
 
@@ -57,8 +54,6 @@
    flex-direction: row;
    align-items: center;
    justify-content: center;
-   background-color: #000000;
-   color: #F7EBE8;
    width: 150px;
    height: 150px;
    margin: 10px;
@@ -67,9 +62,9 @@
    cursor: pointer;
 }
 
-.cover-after-click,
-.cover-after-click2 {
-   background-color: #415551;
+.cover-before-click,
+.cover-before-click2 {
+   background-color: #000000;
 }
 
 .cover-before-click2,
@@ -81,7 +76,7 @@
 .cover-after-click:hover,
 .cover-before-click2:hover,
 .cover-after-click2:hover {
-   background-color:#415551;
+   background-color:#67725d;
    transition: all 0.25s;
 }
 

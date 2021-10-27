@@ -47,27 +47,27 @@ const PercentagesOption2 = (props) => {
          <p className="percentages-title">Co2E Details</p>
          <div className="percentages-main-container2">
                <div className="percentages-item-group">
-                  <div className={totalCo2e1 > totalCo2e2 ? "percentages-before-click" : "percentages-after-click"}>
-                     <img src={totalCo2e1 < totalCo2e2 ? itemTypeAdress1Black : itemTypeAdress1} alt={itemTypeAdress1} className="percentages-img-cover" />
-                     <div className="percentages-img-text">
+                  <div className={totalCo2e1 > totalCo2e2 ? "percentages-before-click" : "percentages-after-click light-accent-bg"}>
+                     <img src={totalCo2e1 > totalCo2e2 ? itemTypeAdress1 : itemTypeAdress1Black} alt={itemTypeAdress1} className="percentages-img-cover" />
+                     <div className={totalCo2e1 > totalCo2e2 ? "percentages-img-text light-accent-text" : "light-accent-bg"}>
                         First item
-                        <p className="percentages-carbon-result">Total: {totalCo2e1.toFixed(2)}</p>
+                        <p className={totalCo2e1 > totalCo2e2 ? "percentages-carbon-result vivify popIn delay-1000 light-accent-text" : "percentages-carbon-result vivify popIn delay-1000"}>Total: {totalCo2e1}</p>
                      </div>
                   </div>
                </div>
 
                <div className="percentages-item-group">
-                  <div className={totalCo2e1 < totalCo2e2 ? "percentages-before-click" : "percentages-after-click"}>
-                     <img src={totalCo2e1 > totalCo2e2 ? itemTypeAdress2Black : itemTypeAdress2} alt={itemTypeAdress2} className="percentages-img-cover" />
-                     <div className="percentages-img-text">
-                        Second item
-                        <p className="percentages-carbon-result">Total: {totalCo2e2.toFixed(2)}</p>
+                     <div className={totalCo2e1 < totalCo2e2 ? "percentages-before-click" : "percentages-after-click light-accent-bg"}>
+                        <img src={totalCo2e1 < totalCo2e2 ? itemTypeAdress1 : itemTypeAdress1Black} alt={itemTypeAdress2} className="percentages-img-cover" />
+                        <div className={totalCo2e1 < totalCo2e2 ? "percentages-img-text light-accent-text" : "light-accent-bg"}>
+                           Second item
+                           <p className={totalCo2e1 < totalCo2e2 ? "percentages-carbon-result vivify popIn delay-1000 light-accent-text" : "percentages-carbon-result vivify popIn delay-1000"}>Total: {totalCo2e2}</p>
                      </div>
                   </div>
                </div>
          </div>
 
-         <div className="percentages-container2 vivify fadeIn delay-500">
+         <div className="percentages-container2 light-accent-bg vivify fadeIn delay-500">
             <div className="percentages-totals">
                <div className="percentages-detail">{materialCO2e1.toFixed(2)}</div>
                <div className="percentages-detail">{fasteningCO2e1.toFixed(2)}</div>

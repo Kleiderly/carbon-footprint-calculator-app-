@@ -57,13 +57,13 @@ const MaterialsOption1 = (props) => {
          <ProgressBar stage={1} previous="Choice" next="Fastenings" />
          <p className="material-title">What material is it made of?</p>
          <div className="material-items-container fadeIn vivify">
-            <div className="material-before-click">
+            <div className="material-before-click light-accent-text">
                <img
                   src={itemTypeAdress1}
                   alt={itemTypeAdress1}
                   className="material-img-cover"
                />
-               <span className="material-img-text">Material</span>
+               <span className="material-img-text light-accent-text">Material</span>
             </div>
          </div>
          <div className="material-container1">

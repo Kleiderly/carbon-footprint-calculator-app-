@@ -49,7 +49,7 @@ const ForgotPassword = () => {
           </p>
           <label htmlFor="email">Email: </label>
           <input
-            className="light-pink"
+            className="light-accent-bg"
             type="email"
             required
             id="email"
@@ -59,7 +59,7 @@ const ForgotPassword = () => {
           />
         </div>
       <div className="admin-pw-recovery-button-wrap">
-        <button className="admin-form-button" type="submit">
+        <button className="admin-form-button light-accent-text dark-tone-bg" type="submit">
           SEND EMAIL
         </button>
       </div>
