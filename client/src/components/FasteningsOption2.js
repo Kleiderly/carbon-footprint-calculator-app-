@@ -92,12 +92,8 @@ const FasteningsOption2 = () => {
          <div className="fastenings-items-container">
             <div className="fastenings-item-group">
                <div className="fastenings-before-click">
-                  <img
-                     src={itemTypeAdress1}
-                     alt={itemTypeAdress1}
-                     className="fastenings-img-cover"
-                  />
-                  <span>1st Item</span>
+                  <img src={itemTypeAdress1} alt={itemTypeAdress1} className="fastenings-img-cover" />
+                  <span className="fastenings-img-text">1st Item</span>
                </div>
                <div className="fastenings-container">
                   {listOfQuantities.length > 0 &&
@@ -139,12 +135,8 @@ const FasteningsOption2 = () => {
 
             <div className="fastenings-item-group">
                <div className="fastenings-before-click">
-                  <img
-                     src={itemTypeAdress2}
-                     alt={itemTypeAdress2}
-                     className="fastenings-img-cover"
-                  />
-                  <span>2nd Item</span>
+                  <img src={itemTypeAdress2} alt={itemTypeAdress2} className="fastenings-img-cover" />
+                  <span className="fastenings-img-text">2nd Item</span>
                </div>
                <div className="fastenings-container">
                   {listOfQuantities2.length > 0 &&

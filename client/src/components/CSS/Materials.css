@@ -1,3 +1,14 @@
+@media only screen and (min-device-width: 300px) and (max-device-width: 375) {
+   .material-after-click, .material-before-click {
+      width: 140px;
+      height: 140px;
+   }
+
+   .material-item-group {
+      width: 150px;
+   }
+}
+
 .material-wrapper {
    display: flex;
    flex-direction: column;
@@ -51,8 +62,8 @@
    background-color: #415551;
 }
 
-.material-small-text {
-   font-size: small;
+.material-img-text {
+   margin: 5px 0 0 0;
 }
 
 .material-img-cover {

@@ -79,12 +79,8 @@ function Logistics(props) {
          <div className="logistics-items-container2">
             <div className="logistics-item-group">
                <div className="logistics-before-click">
-                  <img
-                     src={itemTypeAdress1}
-                     alt={itemTypeAdress1}
-                     className="logistics-img-cover"
-                  />
-                  <span>1st Item</span>
+                  <img src={itemTypeAdress1} alt={itemTypeAdress1} className="logistics-img-cover" />
+                  <span className="logistics-img-text">1st Item</span>
                </div>
                <div className="logistics-container">
                   {countriesFrom.map((item, i) => (
@@ -106,12 +102,8 @@ function Logistics(props) {
 
             <div className="logistics-item-group">
                <div className="logistics-before-click">
-                  <img
-                     src={itemTypeAdress2}
-                     alt={itemTypeAdress2}
-                     className="logistics-img-cover"
-                  />
-                  <span>2nd Item</span>
+                  <img src={itemTypeAdress2} alt={itemTypeAdress2} className="logistics-img-cover" />
+                  <span className="logistics-img-text">2nd Item</span>
                </div>
                <div className="logistics-container">
                   {countriesFrom.map((item, i) => (

@@ -28,15 +28,15 @@ const CategoryOption1 = (props) => {
    };
 
    return (
-      <div className="category-choice-container">
+      <div className="category-wrapper">
          <div className="swoopInTop vivify delay-100">
             <ProgressBar stage={0} previous="Start" next="Material" />
          </div>
          <div>
             <div>
-               <p className="category-direction-text">Choose your item</p>
+               <p className="category-title">Choose your item</p>
                <div className="category-items-container fadeIn vivify">
-                  <div className="category-before-click-category">
+                  <div className="category-before-click">
                      <img src={selectType} alt="" />
                   </div>
                </div>

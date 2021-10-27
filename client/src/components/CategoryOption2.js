@@ -54,19 +54,19 @@ const CategoryOption2 = (props) => {
   };
   console.log(classChanger, classChanger2);
   return (
-    <div className="category-choice-container">
+    <div className="category-wrapper">
       <div className="swoopInTop vivify delay-100">
         <ProgressBar stage={0} previous="Start" next="Material" />
       </div>
       <div>
         <div>
-          <p className="category-direction-text">Choose your items</p>
+          <p className="category-title">Choose your items</p>
           <div className="category-items-container fadeIn vivify">
             <div
               className={
                 choice
-                  ? "category-after-click-category"
-                  : "category-before-click-category"
+                  ? "category-after-click"
+                  : "category-before-click"
               } onClick={handleClick1} value={choice} >
               <img src={selectType1} alt={selectType1} />
               <span>1st Item</span>
@@ -74,8 +74,8 @@ const CategoryOption2 = (props) => {
             <div
               className={
                 !choice
-                  ? "category-after-click-category"
-                  : "category-before-click-category"
+                  ? "category-after-click"
+                  : "category-before-click"
               } onClick={handleClick2} value={choice} >
               <img src={selectType2} alt={selectType2} />
               <span>2nd Item</span>

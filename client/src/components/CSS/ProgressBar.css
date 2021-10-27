@@ -1,36 +1,36 @@
 .progressbar-wrapper {
     display: flex;
-    margin: 5px;
+    margin: 15px 0 5px 0;
     justify-content: center;
     align-items: center;
     font-size: 10px;
-    width: 300px;
+    width: 340px;
 }
 
 .progressbar {
     display: flex;
     background-color: #415551;
     border-radius: 20px;
-    width: 100px;
+    width: 200px;
     height: 10px;
 }
 
 .progressbar-start {
-    width: 20px;
+    width: 40px;
     background-color: #000000;
     border-radius: 20px 0 0 20px;
 }
 
 .progressbar-category {
-    width: 100px;
+    width: 70px;
 }
 
 .progressbar-empty {
-    width: 20px;
+    width: 40px;
 }
 
 .progressbar-full {
-    width: 20px;
+    width: 40px;
     background-color: #000000;
 }
 

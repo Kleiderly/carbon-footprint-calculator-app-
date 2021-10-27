@@ -86,12 +86,8 @@ const MaterialsOption2 = (props) => {
          <div className="material-items-container2 fadeIn vivify">
             <div className="material-item-group">
                <div className="material-before-click">
-                  <img
-                     src={itemTypeAdress1}
-                     alt={itemTypeAdress1}
-                     className="material-img-cover"
-                  />
-                  <span>1st Item</span>
+                  <img src={itemTypeAdress1} alt={itemTypeAdress1} className="material-img-cover" />
+                  <span className="material-img-text">1st Item</span>
                </div>
 
                <div className="material-container">
@@ -114,12 +110,8 @@ const MaterialsOption2 = (props) => {
 
             <div className="material-item-group">
                <div className="material-before-click">
-                  <img
-                     src={itemTypeAdress2}
-                     alt={itemTypeAdress2}
-                     className="material-img-cover"
-                  />
-                  <span>2nd Item</span>
+                  <img src={itemTypeAdress2} alt={itemTypeAdress2} className="material-img-cover" />
+                  <span className="material-img-text">2nd Item</span>
                </div>
 
                <div className="material-container">
