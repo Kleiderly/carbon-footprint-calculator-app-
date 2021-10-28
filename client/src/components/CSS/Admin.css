@@ -47,13 +47,12 @@
     margin-bottom: 1px;
 }
 
-.admin-form-button {
+.admin-form-button, .admin-clear {
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 3.5vw;
     width: 150px;
-    padding: 5px;
     border-radius: 50px;
     box-shadow: 0px 2px 2px rgb(0 0 0 / 25%);
 
@@ -61,6 +60,18 @@
 
 .admin-form-button:hover, .admin-form-button:active {
     background-color: #67725d;
+}
+
+.admin-clear {
+    border: solid 2px #373d32;
+    width: 151px;
+    height: 34px;
+    background-color: transparent;
+}
+
+.admin-clear:hover {
+    color: #EDEAE4;
+    background-color: #373d32;
 }
 
 .admin-input-label {

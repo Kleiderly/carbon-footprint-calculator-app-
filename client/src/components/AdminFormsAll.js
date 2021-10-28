@@ -368,7 +368,7 @@ function AdminForms() {
 {/* SUBMIT buttons */}
                 <div className="form-input center-align">
                     <button className="admin-form-button light-accent-text dark-tone-bg" onClick={handleAdd}>ADD</button>
-                    <button className="admin-form-button light-accent-text dark-tone-bg" onClick={clearForm}>CLEAR FORM</button>
+                    <button className="admin-form-button admin-clear dark-tone-text" onClick={clearForm}>CLEAR FORM</button>
                 </div>
                 <div className="form-submit">&nbsp;{section === "form1" && submit}&nbsp;</div>
             </div>
@@ -533,7 +533,7 @@ function AdminForms() {
                 <div className="form-input center-align">
                     <button className="admin-form-button light-accent-text dark-tone-bg" onClick={handleModify}>MODIFY</button>
                     <button className="admin-form-button light-accent-text dark-tone-bg" onClick={handleDelete}>DELETE</button>
-                    <button className="admin-form-button light-accent-text dark-tone-bg" onClick={clearForm}>CLEAR FORM</button>
+                    <button className="admin-form-button admin-clear dark-tone-text" onClick={clearForm}>CLEAR FORM</button>
                 </div>
                 <div className="form-submit">&nbsp;{section === "form2" && submit}&nbsp;</div>
             </div>
@@ -609,7 +609,7 @@ function AdminForms() {
                 <div className="form-input center-align">
 {/* POST to ADMIN  buttons*/}
                     <button className="admin-form-button light-accent-text dark-tone-bg" onClick={handledAddAdmins}>ADD</button>
-                    <button className="admin-form-button light-accent-text dark-tone-bg" onClick={clearForm}>CLEAR FORM</button>
+                    <button className="admin-form-button admin-clear dark-tone-text" onClick={clearForm}>CLEAR FORM</button>
                 </div>
                 <div className="form-submit">&nbsp; {error &&  <span>{error}</span>}{section === "form3" && submit}&nbsp;</div>
             </div>
@@ -652,7 +652,7 @@ function AdminForms() {
                 <div className="form-input center-align">
 {/* DELETE/MODIFY ADMIN buttons*/}
                     <button className="admin-form-button light-accent-text dark-tone-bg" onClick={handleDeleteAdmin}>DELETE</button>
-                    <button className="admin-form-button light-accent-text dark-tone-bg" onClick={clearForm}>CLEAR FORM</button>
+                    <button className="admin-form-button admin-clear dark-tone-text" onClick={clearForm}>CLEAR FORM</button>
                 </div>
                 <div className="form-submit">&nbsp; {error &&  <span>{error}</span>}{section === "form4" && submit}&nbsp;</div>
             </div>

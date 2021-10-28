@@ -22,11 +22,16 @@ function Cover() {
       <div className="cover-wrapper">
          <div>
             <div className="cover-text-container fadeIn vivify delay-900">
-               <h1 className="cover-title">INTRODUCTION</h1>
+               {/* <h1 className="cover-title">INTRODUCTION</h1> */}
+               <br />
                <p className="cover-paragraph">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s.
+               <b>Each and every one of our actions is contributing to global warming. </b> 
+               If you want to understand, measure and track your carbon footprint 
+               specifically related to your fashion habits, then this is the 
+               calculator for you. We help you to calculate the footprint of 
+               new/used/existing items, to make better, fairer fashion choices, 
+               whilst giving you tips to help reduce your fashion footprint. 
+               Thank you for using XYZ. 
                </p>
             </div>
             <p className="cover-direction-text fadeIn vivify delay-1000">What will you calculate?</p>

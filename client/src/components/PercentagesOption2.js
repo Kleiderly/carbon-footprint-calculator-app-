@@ -91,7 +91,29 @@ const PercentagesOption2 = (props) => {
             </div>
          </div>
 
-         <p className="percentages-explanation">Text explaining the Co2E principles, etc.</p>
+         <p className="percentages-explanation">
+         Thank you for being a conscious consumer. Taking the time to calculate your 
+         fashion footprint is an important step.
+         <br /><br />
+         Want to reduce your impact? Read our 
+         tips <a href="#" target="new">here</a>.
+         <br /><br />
+         <b>What is CO2e?</b>
+         <br />
+         “Carbon dioxide equivalent” or “CO2e” is a term for describing different 
+         greenhouse gases in a common unit. It takes into account the quantity and 
+         type of greenhouse gas, and it’s equivalent global warming impact. 
+         <p className="percentages-table">
+         <b>1kg CO2e</b> = emitted per year by charging 1 phone per day
+         <br />
+         <b>35 kg CO2e</b> = 100km drive using Petrol
+         <br />
+         <b>150 kg CO2e</b> = 1 way flight from Berlin to Munich
+         <br />
+         <b>400 kg CO2e</b> = 1 roundtrip flight from Berlin to London
+         </p>
+         For more information, <a href="#" target="new">read here</a>. 
+         </p>
 
          <span className="percentages-go-back" onClick={handleClickPreviousSection}>
                GO BACK TO RESULTS

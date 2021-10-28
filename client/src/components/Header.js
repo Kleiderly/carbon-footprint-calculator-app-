@@ -6,7 +6,7 @@ function Header() {
    return (
       <div className="header-wrapper light-accent-text">
          <img className="logo" src="../img/kleiderly_logo.png" alt="Logo" />
-         <div className="header-title">
+         <div className="header-main">
             <Link to="/">
                <p className="header-title">CARBON FOOTPRINT CALCULATOR</p>
             </Link>
