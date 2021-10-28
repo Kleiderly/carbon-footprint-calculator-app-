@@ -94,11 +94,24 @@ const ResultsOption1 = (props) => {
                </div>
             </div>
          </div>
+         
+         <div className="results-explanation">
+            <span className="results-thanks-text">
+               Thank you for being a conscious consumer.
+            </span>
+            <p>
+               Taking the time to calculate your 
+               fashion footprint is an important step.
+            </p>
+            <p>
+               Want to reduce your impact? Read our 
+               tips <b><a href="#" target="new">here</a></b>.
+            </p>
+         </div>
 
          <Link to="/calculate/percentages" className="results-details">
             SEE DETAILS
          </Link>
-         <p className="results-explanation">Text explaining what this means.</p>
 
          <ButtonShareModal />
 

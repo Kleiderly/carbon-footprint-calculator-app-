@@ -155,10 +155,26 @@ return (
 
       {totalCo2e1 === totalCo2e2 ? messageEven : messageUneven}
 
+      <div className="results-explanation">
+          <span className="results-thanks-text">
+              Thank you for being a conscious consumer.
+          </span>
+          <p>
+              Taking the time to calculate your 
+              fashion footprint is an important step.
+          </p>
+          <p>
+              Want to reduce your impact? Read our 
+              tips <b><a href="#" target="new">here</a></b>.
+          </p>
+      </div>
+
       <Link to="/compare/percentages" className="results-details">
         SEE DETAILS
       </Link>
+      
       <ButtonShareModal />
+
       <Link to="/">
         <button type="button">COMPARE NEW ITEMS</button>
       </Link>

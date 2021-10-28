@@ -4,7 +4,10 @@
 }
 
 .cover-text-container {
-   margin: 20px 30px 25px 30px;
+   margin: 30px 10px 35px 10px;
+   text-align: left;
+   font-size: 4vw;
+   line-height: 1.4;
 }
 
 .cover-title {
@@ -12,14 +15,14 @@
    font-size: 4vw;
 }
 
-.cover-paragraph {
-   text-align: left;
-   font-size: 3.5vw;
+.cover-intro {
+   font-size: 5.5vw;
+   margin-bottom: 20px;
 }
 
 .cover-direction-text {
    font-size: 6vw;
-   margin: 10px;
+   margin: 15px;
 }
 
 .cover-direction-text2 {
@@ -98,10 +101,14 @@
    margin: 30px;
 }
 
-.cover-paragraph {
+.cover-text-container {
    font-size: 16px;
    width: 80%;
-   margin: 0 auto 40px auto;
+   margin: 20px auto 40px auto;
+}
+
+.cover-intro {
+   font-size: 23px;
 }
 
 .cover-direction-text {

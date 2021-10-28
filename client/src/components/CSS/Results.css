@@ -49,8 +49,14 @@
 }
 
 .results-explanation {
-   font-size: 3.8vw;
-   margin: 10px 0 20px 0;
+   text-align: left;
+   font-size: 4vw;
+   line-height: 1.4;
+   margin: 15px 5px 5px 5px;
+}
+
+.results-thanks-text {
+   font-size: 5vw;
 }
 
 .results-back-link {
@@ -109,6 +115,10 @@
 .results-explanation {
    font-size: 18px;
    margin: 20px;
+}
+
+.results-thanks-text {
+   font-size: 20px;
 }
 
 .results-back-link {
