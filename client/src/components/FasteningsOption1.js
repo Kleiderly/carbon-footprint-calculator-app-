@@ -8,6 +8,7 @@ import './css/Fastenings.css';
 import Tips from './Tips';
 import { tipsList } from './data.js';
 import './css/vivify.min.css';
+import Select from 'react-select';
 
 const FasteningsOption1 = (props) => {
    const { itemTypeAdress1, setFasteningCO2e1, fasteningCO2e1 } =
@@ -15,6 +16,19 @@ const FasteningsOption1 = (props) => {
 
    const [tip, setTip] = useState('');
    const [fastenings, setFastenings] = useState([]);
+
+   const options = [
+      { value: 1, label: '1' },
+      { value: 2, label: '2' },
+      { value: 3, label: '3' },
+      { value: 4, label: '4' },
+      { value: 5, label: '5' },
+      { value: 6, label: '6' },
+      { value: 7, label: '7' },
+      { value: 8, label: '8' },
+      { value: 9, label: '9' },
+      { value: 10, label: '10' },
+   ];
 
    useEffect(() => {
       axios
@@ -73,7 +87,7 @@ const FasteningsOption1 = (props) => {
                <span className="fastenings-img-text light-accent-text">Fastenings</span>
             </div>
 
-            <div className="fastenings-input-box">
+            {/* <div className="fastenings-input-box">
                {listOfQuantities.length > 0 &&
                   fastenings.map((fastening, i) => {
                      return (
@@ -95,7 +109,42 @@ const FasteningsOption1 = (props) => {
                         </div>
                      );
                   })}
+            </div> */}
+
+            <div>
+               {listOfQuantities.length > 0 &&
+                  fastenings.map((fastening, i) => {
+                     return (
+                        <div key={i}>
+                           <p className="fastenings-option-text">
+                              {fastening.name}
+                           </p>
+                           {/* <input
+                              type="number"
+                              min="0"
+                              step="1"
+                              className="light-pink"
+                              value={listOfQuantities[i].quantity}
+                              onChange={(e) => {
+                                 copyOfQuantities[i].quantity = e.target.value;
+                                 setlistOfQuantities([...copyOfQuantities]);
+                              }}
+                           /> */}
+
+                           <Select
+                              options={options}
+                              className="fastenings-input"
+                              defaultValue={listOfQuantities[i].quantity}
+                              onChange={(e) => {
+                                 copyOfQuantities[i].quantity = e.value;
+                                 setlistOfQuantities([...copyOfQuantities]);
+                              }}
+                           />
+                        </div>
+                     );
+                  })}
             </div>
+
          </div>
 
          <div className="fastenings-back-next-buttons">
