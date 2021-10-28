@@ -1,23 +1,23 @@
 .cover-wrapper {
    height: 100%;
-   margin: 10px 10px 50px 10px;
+   margin: 0 10px 50px 10px;
 }
 
 .cover-text-container {
-   margin: 30px 10px 35px 10px;
+   margin: 0 10px 35px 10px;
    text-align: left;
    font-size: 4vw;
    line-height: 1.4;
 }
 
-.cover-title {
-   margin: 5px;
-   font-size: 4vw;
-}
-
 .cover-intro {
    font-size: 5.5vw;
    margin-bottom: 20px;
+}
+
+.cover-title {
+   margin: 5px;
+   font-size: 4vw;
 }
 
 .cover-direction-text {

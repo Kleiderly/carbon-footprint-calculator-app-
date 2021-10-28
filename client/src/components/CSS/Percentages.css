@@ -3,12 +3,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 10px 10px 50px 10px;
+    margin: 0 10px 50px 10px;
  }
  
  .percentages-title {
     font-size: 6vw;
-    margin: 10px 0 10px 0;
+    margin: 0 0 10px 0;
  }
  
  .percentages-img-cover, .percentages-img-cover1 {

@@ -4,12 +4,12 @@
    align-items: center;
    justify-content: center;
    overflow: hidden;
-   margin: 10px 10px 50px 10px;
+   margin: 0 10px 50px 10px;
 }
 
 .results-title {
    font-size: 6vw;
-   margin: 10px;
+   margin: 0 10px 10px 10px;
 }
 
 .results-img-cover, .results-img-cover1 {

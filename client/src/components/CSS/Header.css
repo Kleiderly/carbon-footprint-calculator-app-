@@ -3,7 +3,9 @@
     align-items: center;
     background-color: #ffffff;
     height: 130px;
+    width: 100%;
     position: relative;
+    overflow: hidden;
 }
 
 .header-wrapper::before {
@@ -46,17 +48,7 @@
 }
 
 @media only screen and (min-device-width: 660px) {
-    .header-wrapper {
-        display: flex;
-        align-items: center;
-        background-color: #ffffff;
-        height: 200px;
-        width: 100%;
-        overflow: hidden;
-        position: relative;
-    }
-    
-    .header-wrapper::before {
+  .header-wrapper::before {
         background-position: -8% -13%;
         height: 200px;
     }
