@@ -18,7 +18,8 @@
 }
 
 .tips-info {
-    margin: 0;
+    margin: 10px 0 0 0;
+    line-height: 1.4;
 }
 
 .tips-img {

@@ -3,12 +3,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 10px;
+    margin: 0 10px 50px 10px;
  }
  
  .percentages-title {
     font-size: 6vw;
-    margin: 10px 0 10px 0;
+    margin: 0 0 10px 0;
  }
  
  .percentages-img-cover, .percentages-img-cover1 {
@@ -117,51 +117,54 @@
 
 
  @media only screen and (min-device-width: 660px) {
+   .percentages-wrapper {
+      margin: 10px 10px 100px 10px;
+   }
 
-.percentages-title {
-   font-size: 30px;
-   margin: 30px 20px 10px 20px;
-}
+   .percentages-title {
+      font-size: 30px;
+      margin: 30px 20px 10px 20px;
+   }
 
-.percentages-item-group, .percentages-container2, .percentages-container2-1 {
-   justify-content: space-between;
-   margin: 5px 0 0 0;
-   font-size: 16px;
-   padding: 10px;
-}
+   .percentages-item-group, .percentages-container2, .percentages-container2-1 {
+      justify-content: space-between;
+      margin: 5px 0 0 0;
+      font-size: 16px;
+      padding: 10px;
+   }
 
-.percentages-container2 {
-   width: 440px;
-   margin: 10px 0 10px 0;
-}
+   .percentages-container2 {
+      width: 440px;
+      margin: 10px 0 10px 0;
+   }
 
-.percentages-main-container2 {
-   flex-direction: row;
-}
+   .percentages-main-container2 {
+      flex-direction: row;
+   }
 
-.percentages-main-container {
-   width: 300px;
-}
+   .percentages-main-container {
+      width: 300px;
+   }
 
-.percentages-explanation {
-   font-size: 18px;
-   margin: 30px 20% 35px 20%;
-   line-height: 1.4;
-}
+   .percentages-explanation {
+      font-size: 18px;
+      margin: 30px 20% 35px 20%;
+      line-height: 1.4;
+   }
 
-.percentages-co2e-title {
-   font-size: 20px;
- }
+   .percentages-co2e-title {
+      font-size: 20px;
+   }
 
-.percentages-carbon-result {
-   font-size: 20px;
-}
+   .percentages-carbon-result {
+      font-size: 20px;
+   }
 
-.percentages-go-back {
-    font-size: 12px;
-}
+   .percentages-go-back {
+      font-size: 12px;
+   }
 
-.percentages-table {
-   font-size: 14px;
- }
+   .percentages-table {
+      font-size: 14px;
+   }
 }
