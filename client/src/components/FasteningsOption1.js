@@ -71,6 +71,15 @@ const FasteningsOption1 = (props) => {
 
    console.log('result Fastening: ', fasteningCO2e1);
 
+   //To remove blue border on select focus
+   const style = {
+      control: base => ({
+        ...base,
+        boxShadow: 'none',
+        border: 0
+      })
+    };
+
    return (
       <div className="fastenings-wrapper vivify fadeIn">
          <ProgressBar stage={2} previous="Material" next="Fabrication" />
@@ -87,31 +96,7 @@ const FasteningsOption1 = (props) => {
                <span className="fastenings-img-text light-accent-text">Fastenings</span>
             </div>
 
-            {/* <div className="fastenings-input-box">
-               {listOfQuantities.length > 0 &&
-                  fastenings.map((fastening, i) => {
-                     return (
-                        <div key={i}>
-                           <p className="fastenings-option-text">
-                              {fastening.name}
-                           </p>
-                           <input
-                              className="fastenings-input"
-                              type="number"
-                              min="0"
-                              step="1"
-                              value={listOfQuantities[i].quantity}
-                              onChange={(e) => {
-                                 copyOfQuantities[i].quantity = e.target.value;
-                                 setlistOfQuantities([...copyOfQuantities]);
-                              }}
-                           />
-                        </div>
-                     );
-                  })}
-            </div> */}
-
-            <div>
+            <div className="fastenings-input-box">
                {listOfQuantities.length > 0 &&
                   fastenings.map((fastening, i) => {
                      return (
@@ -133,6 +118,7 @@ const FasteningsOption1 = (props) => {
 
                            <Select
                               options={options}
+                              styles={style}
                               className="fastenings-input"
                               defaultValue={listOfQuantities[i].quantity}
                               onChange={(e) => {
