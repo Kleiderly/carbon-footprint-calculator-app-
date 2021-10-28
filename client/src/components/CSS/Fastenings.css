@@ -3,7 +3,7 @@
    flex-direction: column;
    align-items: center;
    justify-content: center;
-   margin: 10px;
+   margin: 10px 10px 50px 10px;
 }
 
 .fastenings-title {
@@ -100,67 +100,71 @@
 
 
 @media only screen and (min-device-width: 660px) {
-.fastenings-title {
-   font-size: 30px;
-   margin: 30px 20px 20px 20px;
-}
+   .fastenings-wrapper {
+      margin: 10px 10px 100px 10px;
+   }
 
-.fastenings-container1 {
-   flex-direction: row;
-   justify-content: center;
-   flex-wrap: wrap;
-   width: 500px;
-}
+   .fastenings-title {
+      font-size: 30px;
+      margin: 30px 20px 20px 20px;
+   }
 
-.fastenings-item-group {
-   width: 350px;
-   padding: 5px;
-   margin: 5px;
-}
+   .fastenings-container1 {
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+      width: 500px;
+   }
 
-.fastenings-container {
-   flex-direction: row;
-   align-items: center;
-   justify-content: center;
-   flex-wrap: wrap;
-   width: 473px;
-}
+   .fastenings-item-group {
+      width: 350px;
+      padding: 5px;
+      margin: 5px;
+   }
 
-.fastenings-item {
-   padding: 5px;
-   margin: 3px;
-   border-radius: 5px;
-   width: 102px;
-   background-color: #0000000a;
-}
+   .fastenings-container {
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      width: 473px;
+   }
 
-.fastenings-items-container {
-   width: 365px;
-}
+   .fastenings-item {
+      padding: 5px;
+      margin: 3px;
+      border-radius: 5px;
+      width: 102px;
+      background-color: #0000000a;
+   }
 
-.fastenings-items-container2 {
-   width: 700px;
-   justify-content: space-between;
-}
+   .fastenings-items-container {
+      width: 365px;
+   }
 
-.fastenings-back-next-buttons {
-   margin: 30px 0 20px 0;
-}
+   .fastenings-items-container2 {
+      width: 700px;
+      justify-content: space-between;
+   }
 
-.fastenings-name {
-   font-size: 14px;
-}
+   .fastenings-back-next-buttons {
+      margin: 30px 0 20px 0;
+   }
 
-.fastenings-option-text {
-   font-size: 18px;
-}
+   .fastenings-name {
+      font-size: 14px;
+   }
 
-.fastenings-before-click {
-   width: 150px;
-   height: 150px;
-}
+   .fastenings-option-text {
+      font-size: 18px;
+   }
 
-.fastenings-img-cover {
-   width: 100px;
-}
+   .fastenings-before-click {
+      width: 150px;
+      height: 150px;
+   }
+
+   .fastenings-img-cover {
+      width: 100px;
+   }
 }

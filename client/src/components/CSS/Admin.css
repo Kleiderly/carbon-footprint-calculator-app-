@@ -2,8 +2,8 @@
     display: flex;
     justify-content: center;
     text-align: center;
-    margin: auto;
     padding: 20px;
+    margin: 10px 10px 50px 10px;
 }
 
 .admin-login {
@@ -158,44 +158,47 @@
 }
 
 @media only screen and (min-device-width: 660px) {
+    .admin-wrapper {
+        margin: 10px 10px 100px 10px;
+    }
 
-.admin-login {
-    width: 300px;
-}
+    .admin-login {
+        width: 300px;
+    }
 
-.admin-password-text {
-    font-size: 14px;
-}
+    .admin-password-text {
+        font-size: 14px;
+    }
 
-.admin-form-button {
-    font-size: 12px;
-    padding: 9px;
- }
+    .admin-form-button {
+        font-size: 12px;
+        padding: 9px;
+    }
 
-/* FORMS */
-.forms-wrapper {
-    padding: 20px;
-}
+    /* FORMS */
+    .forms-wrapper {
+        padding: 20px;
+    }
 
-.form-section {
-    width: 500px;
-}
+    .form-section {
+        width: 500px;
+    }
 
-.form-main-title {
-    font-size: 25px;
-}
+    .form-main-title {
+        font-size: 25px;
+    }
 
-.hr {
-    width: 500px;
-}
+    .hr {
+        width: 500px;
+    }
 
-.form-item {
-    align-items: flex-start;
-    justify-content: flex-start;
-    margin: 0;
-}
+    .form-item {
+        align-items: flex-start;
+        justify-content: flex-start;
+        margin: 0;
+    }
 
-.password-field2 {
-    margin: 5px 0 0 10px;
-}
+    .password-field2 {
+        margin: 5px 0 0 10px;
+    }
 }

@@ -3,7 +3,7 @@
    flex-direction: column;
    align-items: center;
    justify-content: center;
-   margin: 10px;
+   margin: 10px 10px 50px 10px;
 }
 
 .category-items-container {
@@ -118,13 +118,16 @@
 
 
 @media only screen and (min-device-width: 660px) {
-.category-title {
-   font-size: 30px;
-   margin: 30px 20px 20px 20px;
-}
+   .category-wrapper {
+      margin: 10px 10px 100px 10px;
+   }
+   .category-title {
+      font-size: 30px;
+      margin: 30px 20px 20px 20px;
+   }
 
-.category-after-click, .category-before-click {
-   width: 150px;
-   height: 150px;
-}
+   .category-after-click, .category-before-click {
+      width: 150px;
+      height: 150px;
+   }
 }
