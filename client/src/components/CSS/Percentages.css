@@ -8,7 +8,6 @@
  
  .percentages-title {
     font-size: 6vw;
-    color: #0e2823;
     margin: 10px 0 10px 0;
  }
  
@@ -68,26 +67,35 @@
     align-items: center;
     text-align: center;
     margin-top: 5px;
-    color: #0E2823;
     font-size: 3.5vw;
  }
 
  .percentages-container2, .percentages-container2-1 {
     text-align: left;
     width: 90%;
-    background-color: #d2cdc62a;
     border-radius: 5px;
     padding: 3px;
     margin: 10px;
  }
 
+ .percentages-table {
+   font-size: 3.7vw;
+   margin: 10px 5px 10px 5px;
+ }
+
  .percentages-container2-1 {
-   width: 80%;
+   width: 90%;
 }
 
  .percentages-explanation {
-    font-size: 3.8vw;
-    margin: 20px 0 30px 0;
+    margin: 20px 5px 30px 5px;
+    text-align: left;
+    font-size: 4vw;
+    line-height: 1.4;
+ }
+
+ .percentages-co2e-title {
+   font-size: 5vw;
  }
 
 .percentages-before-click, .percentages-after-click {
@@ -95,20 +103,17 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #000000;
     width: 200px;
     height: 200px;
     margin: 10px;
     padding: 5px;
     border-radius: 10px;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.692);
-    color: #F7EBE8;
  }
 
- .percentages-after-click {
-    background-color: #F7EBE8;
-    color: #000000;
- }
+ .percentages-before-click {
+   background-color: #000000;
+}
 
 
  @media only screen and (min-device-width: 660px) {
@@ -122,7 +127,7 @@
    justify-content: space-between;
    margin: 5px 0 0 0;
    font-size: 16px;
-   padding: 5px;
+   padding: 10px;
 }
 
 .percentages-container2 {
@@ -140,8 +145,13 @@
 
 .percentages-explanation {
    font-size: 18px;
-   margin: 30px;
+   margin: 30px 20% 35px 20%;
+   line-height: 1.4;
 }
+
+.percentages-co2e-title {
+   font-size: 20px;
+ }
 
 .percentages-carbon-result {
    font-size: 20px;
@@ -150,4 +160,8 @@
 .percentages-go-back {
     font-size: 12px;
 }
+
+.percentages-table {
+   font-size: 14px;
+ }
 }

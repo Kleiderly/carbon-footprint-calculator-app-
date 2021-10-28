@@ -87,13 +87,13 @@ const FasteningsOption2 = () => {
       <div className="fastenings-wrapper vivify fadeIn">
          <ProgressBar stage={2} previous="Material" next="Fabrication" />
 
-         <p className="fastenings-direction-text">Do they have fastenings?</p>
+         <p className="fastenings-title">Do they have fastenings?</p>
 
-         <div className="fastenings-items-container">
-            <div className="fastenings-item-group">
+         <div className="fastenings-items-container2">
+            <div className="fastenings-item-group light-accent-bg">
                <div className="fastenings-before-click">
                   <img src={itemTypeAdress1} alt={itemTypeAdress1} className="fastenings-img-cover" />
-                  <span className="fastenings-img-text">1st Item</span>
+                  <span className="fastenings-img-text light-accent-text">1st Item</span>
                </div>
                <div className="fastenings-container">
                   {listOfQuantities.length > 0 &&
@@ -131,12 +131,12 @@ const FasteningsOption2 = () => {
                </div>
             </div>
 
-            <div>&nbsp;&nbsp;</div>
+            <div> </div>
 
-            <div className="fastenings-item-group">
+            <div className="fastenings-item-group light-accent-bg">
                <div className="fastenings-before-click">
                   <img src={itemTypeAdress2} alt={itemTypeAdress2} className="fastenings-img-cover" />
-                  <span className="fastenings-img-text">2nd Item</span>
+                  <span className="fastenings-img-text light-accent-text">2nd Item</span>
                </div>
                <div className="fastenings-container">
                   {listOfQuantities2.length > 0 &&

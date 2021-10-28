@@ -65,20 +65,20 @@ const CategoryOption2 = (props) => {
             <div
               className={
                 choice
-                  ? "category-after-click"
+                  ? "category-after-click light-tone-bg"
                   : "category-before-click"
               } onClick={handleClick1} value={choice} >
               <img src={selectType1} alt={selectType1} />
-              <span>1st Item</span>
+              <span className="category-img-text light-accent-text">1st Item</span>
             </div>
             <div
               className={
                 !choice
-                  ? "category-after-click"
+                  ? "category-after-click light-tone-bg"
                   : "category-before-click"
               } onClick={handleClick2} value={choice} >
               <img src={selectType2} alt={selectType2} />
-              <span>2nd Item</span>
+              <span className="category-img-text light-accent-text">2nd Item</span>
             </div>
           </div>
         </div>

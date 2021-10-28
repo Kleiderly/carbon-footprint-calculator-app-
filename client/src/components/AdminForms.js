@@ -143,7 +143,7 @@ function AdminForms() {
                     <div className="form-input">
                     <p className="admin-input-label">Material: </p>
                         <input 
-                        className="light-pink" 
+                        className="light-accent-bg" 
                         type="text"
                         name="material"
                         value={cat === "material" && section === "form1" ? modName : ""}
@@ -160,7 +160,7 @@ function AdminForms() {
                     <div className="form-input">
                         <p className="admin-input-label">Co2e per item: </p>
                         <input 
-                        className={openInput === "form1cat1" ? "input-available light-pink" : "input-not-available light-pink"}
+                        className={openInput === "form1cat1" ? "input-available light-accent-bg" : "input-not-available light-accent-bg"}
                         type="text"
                         name="co2e"
                         value={cat === "material" && section === "form1" ? modCo2e : ""}
@@ -177,7 +177,7 @@ function AdminForms() {
                     <div className="form-input">
                     <p className="admin-input-label">Production Location: </p>
                         <input 
-                        className="light-pink" 
+                        className="light-accent-bg" 
                         value={cat === "logistic" && section === "form1" ? modName : ""}
                         type="text"
                         name="logistics"
@@ -194,7 +194,7 @@ function AdminForms() {
                     <div className="form-input">
                     <p className="admin-input-label">Consumer Location: </p>
                         <input 
-                        className={openInput === "form1cat2" ? "input-available light-pink" : "input-not-available light-pink"} 
+                        className={openInput === "form1cat2" ? "input-available light-accent-bg" : "input-not-available light-accent-bg"} 
                         value={cat === "logistic" && section === "form1" ? modName2 : ""}
                         type="text"
                         name="logistics"
@@ -208,7 +208,7 @@ function AdminForms() {
                     <div className="form-input">
                         <p className="admin-input-label">Co2e per item: </p>
                         <input 
-                        className={openInput === "form1cat2" ? "input-available light-pink" : "input-not-available light-pink"}
+                        className={openInput === "form1cat2" ? "input-available light-accent-bg" : "input-not-available light-accent-bg"}
                         type="text"
                         name="co2e"
                         value={cat === "logistic" && section === "form1" ? modCo2e : ""}
@@ -225,7 +225,7 @@ function AdminForms() {
                     <div className="form-input">
                     <p className="admin-input-label">Name: </p>
                         <input 
-                        className="light-pink" 
+                        className="light-accent-bg" 
                         value={cat === "fastening" && section === "form1" ? modName : ""}
                         type="text"
                         name="fastenings"
@@ -242,7 +242,7 @@ function AdminForms() {
                     <div className="form-input">
                         <p className="admin-input-label">Co2e per item: </p>
                         <input 
-                        className={openInput === "form1cat3" ? "input-available light-pink" : "input-not-available light-pink"}
+                        className={openInput === "form1cat3" ? "input-available light-accent-bg" : "input-not-available light-accent-bg"}
                         type="text"
                         name="co2e"
                         value={cat === "fastening" && section === "form1" ? modCo2e : ""}
@@ -255,8 +255,8 @@ function AdminForms() {
 
 {/* SUBMIT buttons */}
                 <div className="form-input center-align">
-                    <button className="admin-form-button" onClick={handleAdd}>ADD</button>
-                    <button className="admin-form-button" onClick={clearForm}>CLEAR FORM</button>
+                    <button className="admin-form-button light-accent-text dark-tone-bg" onClick={handleAdd}>ADD</button>
+                    <button className="admin-form-button admin-clear dark-tone-text" onClick={clearForm}>CLEAR FORM</button>
                 </div>
                 <div className="form-submit">&nbsp;{section === "form1" && submit}&nbsp;</div>
             </div>

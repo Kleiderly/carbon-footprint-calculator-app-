@@ -6,7 +6,7 @@ function ProgressBar(props) {
     return (
         <div className="progressbar-wrapper">
             <div className="progressbar-category">{props.previous} &nbsp;</div>
-            <div className="progressbar">
+            <div className="progressbar light-tone-bg">
                 <div className="progressbar-start">&nbsp;</div>
                 <div className={props.stage >= 1 ? "progressbar-full" : "progressbar-empty"}>&nbsp;</div>
                 <div className={props.stage >= 2 ? "progressbar-full" : "progressbar-empty"}>&nbsp;</div>

@@ -84,10 +84,10 @@ const MaterialsOption2 = (props) => {
          <p className="material-title">What material are they made from?</p>
 
          <div className="material-items-container2 fadeIn vivify">
-            <div className="material-item-group">
-               <div className="material-before-click">
+            <div className="material-item-group light-accent-bg">
+               <div className="material-before-click light-accent-text">
                   <img src={itemTypeAdress1} alt={itemTypeAdress1} className="material-img-cover" />
-                  <span className="material-img-text">1st Item</span>
+                  <span className="material-img-text light-accent-text">1st Item</span>
                </div>
 
                <div className="material-container">
@@ -106,12 +106,12 @@ const MaterialsOption2 = (props) => {
                </div>
             </div>
 
-            <div>&nbsp;&nbsp;</div>
+            <div> </div>
 
-            <div className="material-item-group">
-               <div className="material-before-click">
+            <div className="material-item-group light-accent-bg">
+               <div className="material-before-click light-accent-text">
                   <img src={itemTypeAdress2} alt={itemTypeAdress2} className="material-img-cover" />
-                  <span className="material-img-text">2nd Item</span>
+                  <span className="material-img-text light-accent-text">2nd Item</span>
                </div>
 
                <div className="material-container">

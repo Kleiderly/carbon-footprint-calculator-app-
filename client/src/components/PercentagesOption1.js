@@ -40,12 +40,12 @@ const PercentagesOption1 = (props) => {
          <p className="percentages-title">Co2E Details</p>
          <div className="percentages-main-container">
             <div className="percentages-item-group">
-               <div className="percentages-after-click">
+               <div className="percentages-after-click light-accent-bg">
                   <img src={itemTypeAdress1Black} alt={itemTypeAdress1} className="percentages-img-cover1" />
                </div>
             </div>
 
-            <div className="percentages-container2-1 vivify fadeIn delay-500">
+            <div className="percentages-container2-1 light-accent-bg vivify fadeIn delay-500">
                <div>
                   <div><b>Material:</b></div>
                   <div><b>Fastenings:</b></div>
@@ -64,7 +64,21 @@ const PercentagesOption1 = (props) => {
             </div>
          </div>
 
-         <p className="percentages-explanation">Text explaining the Co2E principles, etc.</p>
+         <div className="percentages-explanation vivify fadeIn delay-1000">
+            <span className="percentages-co2e-title">What is CO2e?</span>
+            <p>
+               “Carbon dioxide equivalent” or “CO2e” is a term for describing different 
+               greenhouse gases in a common unit. It takes into account the quantity and 
+               type of greenhouse gas, and it’s equivalent global warming impact. 
+            </p>
+            <ul className="percentages-table">
+               <li><b>1kg CO2e</b> = emitted per year by charging 1 phone per day</li>
+               <li><b>35 kg CO2e</b> = 100km drive using Petrol</li>
+               <li><b>150 kg CO2e</b> = 1 way flight from Berlin to Munich</li>
+               <li><b>400 kg CO2e</b> = 1 roundtrip flight from Berlin to London</li>
+            </ul>
+               For more information, read <b><a href="#" target="new">here</a></b>. 
+         </div>
          
          <span className="percentages-go-back" onClick={handleClickPreviousSection}>
             GO BACK TO RESULTS

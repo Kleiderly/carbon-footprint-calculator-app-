@@ -4,7 +4,7 @@ import './css/Footer.css';
 
 function Footer() {
    return (
-      <div className="footer-wrapper">
+      <div className="footer-wrapper light-accent-text">
          <div className="footer-social">FB | INST | TWI</div>
          <div className="footer-copyrights">© 2021 KLEIDERLY</div>
          <div className="footer-admin">

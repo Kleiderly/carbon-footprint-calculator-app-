@@ -55,26 +55,23 @@ const MaterialsOption1 = (props) => {
    return (
       <div className="material-wrapper vivify fadeIn">
          <ProgressBar stage={1} previous="Choice" next="Fastenings" />
-         <p className="material-title">What material is it made of?</p>
-         <div className="material-items-container fadeIn vivify">
-            <div className="material-before-click">
-               <img
-                  src={itemTypeAdress1}
-                  alt={itemTypeAdress1}
-                  className="material-img-cover"
-               />
-               <span className="material-img-text">Material</span>
+         <p className="material-title">What material is it made from?</p>
+
+         <div className="material-items-container light-accent-bg">
+            <div className="material-before-click light-accent-text">
+               <img src={itemTypeAdress1} alt={itemTypeAdress1} className="material-img-cover" />
+               <span className="material-img-text light-accent-text">Material</span>
             </div>
-         </div>
-         <div className="material-container1">
-            {materials.map((item, i) => (
-               <div
-                  onClick={() => handleClickMappedItem(item, i)}
-                  key={item._id}
-               >
-                  <ItemBox index={i} name={item.name} selected={selected} />
-               </div>
-            ))}
+            <div className="material-container1">
+               {materials.map((item, i) => (
+                  <div
+                     onClick={() => handleClickMappedItem(item, i)}
+                     key={item._id}
+                  >
+                     <ItemBox index={i} name={item.name} selected={selected} />
+                  </div>
+               ))}
+            </div>
          </div>
 
          <div className="category-back-next-buttons">

@@ -60,28 +60,28 @@ const LogisticsOption1 = (props) => {
          <ProgressBar stage={3} previous="Fastenings" next="Results" />
 
          <p className="logistics-title">Where was it produced?</p>
-         <div className="logistics-items-container">
-            <div className="logistics-before-click">
+
+         <div className="logistics-items-container light-accent-bg">
+            <div className="logistics-before-click light-accent-text">
                <img src={itemTypeAdress1} alt={itemTypeAdress1} className="logistics-img-cover" />
-               <span className="logistic-img-text">Origin</span>
+               <span className="logistic-img-text light-accent-text">Origin</span>
             </div>
+               <div className="logistics-container1">
+                  {countriesFrom.map((item, i) => (
+                     <div
+                        onClick={() => handleClickMappedItem(item, i)}
+                        key={item._id}
+                     >
+                        <ItemBox
+                           name={item.productionLocation}
+                           index={i}
+                           selected={selected}
+                        />
+                     </div>
+                  ))}
+               </div>
          </div>
-         <div className="logistics-main-container1">
-            <div className="logistics-container1">
-               {countriesFrom.map((item, i) => (
-                  <div
-                     onClick={() => handleClickMappedItem(item, i)}
-                     key={item._id}
-                  >
-                     <ItemBox
-                        name={item.productionLocation}
-                        index={i}
-                        selected={selected}
-                     />
-                  </div>
-               ))}
-            </div>
-         </div>
+
          <div className="category-back-next-buttons">
             <button
                className="back-button"
