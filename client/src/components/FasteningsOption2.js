@@ -83,6 +83,15 @@ const FasteningsOption2 = () => {
       history.push('/compare/materials');
    };
 
+   //To remove blue border on select focus
+   const style = {
+      control: base => ({
+        ...base,
+        boxShadow: 'none',
+        border: 0
+      })
+    };
+
    return (
       <div className="fastenings-wrapper vivify fadeIn">
          <ProgressBar stage={2} previous="Material" next="Fabrication" />
@@ -119,6 +128,7 @@ const FasteningsOption2 = () => {
                               <Select
                                  options={options}
                                  className="fastenings-input"
+                                 styles={style}
                                  defaultValue={listOfQuantities[i].quantity}
                                  onChange={(e) => {
                                     copyOfQuantities[i].quantity = e.value;
@@ -163,6 +173,7 @@ const FasteningsOption2 = () => {
                               /> */}
                               <Select
                                  options={options}
+                                 styles={style}
                                  className="fastenings-input"
                                  defaultValue={listOfQuantities2[i].quantity}
                                  onChange={(e) => {
