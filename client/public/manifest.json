@@ -1,9 +1,9 @@
 {
-  "short_name": "Carbon Footprint Calculator",
-  "name": "Carbon Footprint Calculator",
+  "short_name": "Fashion Footprint Calculator",
+  "name": "Fashion Footprint Calculator",
   "icons": [
     {
-      "src": "%PUBLIC_URL%/kleiderly_logo.png",
+      "src": "%PUBLIC_URL%/img/KLEIDERLY_favicon.png",
       "type": "image/x-icon"
     }
   ],

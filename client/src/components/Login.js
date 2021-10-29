@@ -81,7 +81,7 @@ function Login() {
             <div>
                 <h2>Admin Login</h2>
                 {/* {error && <span>{error}</span>} */}
-                <div className="admin-login">
+                <div className="admin-login light-accent-bg">
                 
                     <p className="admin-text">Email:</p>
                     <input 

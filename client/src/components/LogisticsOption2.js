@@ -77,10 +77,10 @@ function Logistics(props) {
          <p className="logistics-title">Where were they produced?</p>
 
          <div className="logistics-items-container2">
-            <div className="logistics-item-group">
-               <div className="logistics-before-click">
+            <div className="logistics-item-group light-accent-bg">
+               <div className="logistics-before-click  light-accent-text light-tone-bg">
                   <img src={itemTypeAdress1} alt={itemTypeAdress1} className="logistics-img-cover" />
-                  <span className="logistics-img-text">1st Item</span>
+                  <span className="logistics-img-text light-accent-text">1st Item</span>
                </div>
                <div className="logistics-container">
                   {countriesFrom.map((item, i) => (
@@ -98,12 +98,12 @@ function Logistics(props) {
                </div>
             </div>
 
-            <div>&nbsp;&nbsp;</div>
+            <div> </div>
 
-            <div className="logistics-item-group">
-               <div className="logistics-before-click">
+            <div className="logistics-item-group light-accent-bg">
+               <div className="logistics-before-click light-accent-text light-tone-bg">
                   <img src={itemTypeAdress2} alt={itemTypeAdress2} className="logistics-img-cover" />
-                  <span className="logistics-img-text">2nd Item</span>
+                  <span className="logistics-img-text light-accent-text">2nd Item</span>
                </div>
                <div className="logistics-container">
                   {countriesFrom.map((item, i) => (

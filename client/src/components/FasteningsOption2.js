@@ -7,6 +7,7 @@ import './css/Fastenings.css';
 import Tips from './Tips';
 import { tipsList } from './data.js';
 import './css/vivify.min.css';
+import Select from 'react-select';
 
 const FasteningsOption2 = () => {
    const {
@@ -34,6 +35,11 @@ const FasteningsOption2 = () => {
 
    const copyOfQuantities = [...listOfQuantities];
    const copyOfQuantities2 = [...listOfQuantities2];
+
+// Select options callback
+   const runCallback = (cb) => {
+      return cb();
+   };
 
    useEffect(() => {
       const temporalArray = [];
@@ -69,17 +75,26 @@ const FasteningsOption2 = () => {
       history.push('/compare/materials');
    };
 
+   //To remove blue border on select focus
+   const style = {
+      control: base => ({
+        ...base,
+        boxShadow: 'none',
+        border: 0
+      })
+    };
+
    return (
       <div className="fastenings-wrapper vivify fadeIn">
          <ProgressBar stage={2} previous="Material" next="Fabrication" />
 
-         <p className="fastenings-direction-text">Do they have fastenings?</p>
+         <p className="fastenings-title">Do they have fastenings?</p>
 
-         <div className="fastenings-items-container">
-            <div className="fastenings-item-group">
+         <div className="fastenings-items-container2">
+            <div className="fastenings-item-group light-accent-bg">
                <div className="fastenings-before-click">
                   <img src={itemTypeAdress1} alt={itemTypeAdress1} className="fastenings-img-cover" />
-                  <span className="fastenings-img-text">1st Item</span>
+                  <span className="fastenings-img-text light-accent-text">1st Item</span>
                </div>
                <div className="fastenings-container">
                   {listOfQuantities.length > 0 &&
@@ -90,7 +105,7 @@ const FasteningsOption2 = () => {
                                  {fastening.name}
                               </span>
                               <br />
-                              <input
+                              {/* <input
                                  type="number"
                                  className="fastenings-input"
                                  min="0"
@@ -101,6 +116,25 @@ const FasteningsOption2 = () => {
                                        e.target.value;
                                     setlistOfQuantities([...copyOfQuantities]);
                                  }}
+                              /> */}
+                              <Select
+                                 options={
+                                    runCallback(()=> {
+                                    let options = [];
+                                    let a = 1
+                                    for(a = 1; a < 21; a++){
+                                       options.push({ value: a, label: a})
+                                    };
+                                    return options;
+                                    })
+                                 }
+                                 className="fastenings-input"
+                                 styles={style}
+                                 defaultValue={listOfQuantities[i].quantity}
+                                 onChange={(e) => {
+                                    copyOfQuantities[i].quantity = e.value;
+                                    setlistOfQuantities([...copyOfQuantities]);
+                                 }}
                               />
                            </div>
                         );
@@ -108,12 +142,12 @@ const FasteningsOption2 = () => {
                </div>
             </div>
 
-            <div>&nbsp;&nbsp;</div>
+            <div> </div>
 
-            <div className="fastenings-item-group">
+            <div className="fastenings-item-group light-accent-bg">
                <div className="fastenings-before-click">
                   <img src={itemTypeAdress2} alt={itemTypeAdress2} className="fastenings-img-cover" />
-                  <span className="fastenings-img-text">2nd Item</span>
+                  <span className="fastenings-img-text light-accent-text">2nd Item</span>
                </div>
                <div className="fastenings-container">
                   {listOfQuantities2.length > 0 &&
@@ -124,7 +158,7 @@ const FasteningsOption2 = () => {
                                  {fastening.name}
                               </span>
                               <br />
-                              <input
+                              {/* <input
                                  type="number"
                                  className="fastenings-input"
                                  min="0"
@@ -133,6 +167,27 @@ const FasteningsOption2 = () => {
                                  onChange={(e) => {
                                     copyOfQuantities2[i].quantity =
                                        e.target.value;
+                                    setlistOfQuantities2([
+                                       ...copyOfQuantities2,
+                                    ]);
+                                 }}
+                              /> */}
+                              <Select
+                                 options={
+                                    runCallback(()=> {
+                                    let options = [];
+                                    let a = 1
+                                    for(a = 1; a < 21; a++){
+                                       options.push({ value: a, label: a})
+                                    };
+                                    return options;
+                                    })
+                                 }
+                                 styles={style}
+                                 className="fastenings-input"
+                                 defaultValue={listOfQuantities2[i].quantity}
+                                 onChange={(e) => {
+                                    copyOfQuantities2[i].quantity = e.value;
                                     setlistOfQuantities2([
                                        ...copyOfQuantities2,
                                     ]);

@@ -13,13 +13,13 @@
 }
 
 .buttonshare-detail {
-    border: solid 3px #F7EBE8;
+    border: solid 3px #ffffff00;
     border-radius: 50px;
     margin: 5px;
 }
 
 .buttonshare-detail:hover {
-    border: solid 3px #0E2823;
+    border: solid 3px #67725d;
     transition: all 0.20s;
 }
 

@@ -1,7 +1,6 @@
 .tips-box {
     display: flex;
     margin: auto;
-    background-color: #F7EBE8;
     border-radius: 5px;
     padding: 5px;
     text-align: left;
@@ -11,17 +10,16 @@
 .tips-title {
     font-size: 4vw;
     font-weight: bold;
-    color: #415551;
 }
 
 .tips-text {
     font-size: 3.3vw;
     margin: 5px;
-    color: #0e2823;
 }
 
 .tips-info {
-    margin: 0;
+    margin: 10px 0 0 0;
+    line-height: 1.4;
 }
 
 .tips-img {
