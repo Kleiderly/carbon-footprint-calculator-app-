@@ -4,19 +4,11 @@
     background-color: #ffffff;
     height: 130px;
     width: 100%;
-    position: relative;
+    position: static;
     overflow: hidden;
-}
-
-.header-wrapper::before {
-    position: absolute;
-    /* background-image: url('../img/feet-bg.png'); */
     background-image: url(feet-bg.png);
     background-repeat: no-repeat;
-    background-position: -102% 0;
-    content: "";
-    height: 100%;
-    width: 100%;
+    background-position: -131px -8px;
 }
 
 .logo {
@@ -48,9 +40,8 @@
 }
 
 @media only screen and (min-device-width: 660px) {
-  .header-wrapper::before {
-        background-position: -8% -13%;
-        height: 200px;
+    .header-wrapper {
+        background-position: -75px 0;
     }
     
     .header-title, .header-title a {
