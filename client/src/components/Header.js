@@ -5,11 +5,13 @@ import './css/Header.css';
 function Header() {
    return (
       <div className="header-wrapper">
-         <img className="logo" src="../img/kleiderly_logo.png" alt="Logo" />
-         <div className="header-title">
+         <div className="header-main">
             <Link to="/">
-               <p>CARBON FOOTPRINT CALCULATOR</p>
+               <p className="header-title">Fashion Footprint</p>
             </Link>
+         </div>
+         <div className="logo">
+            <img src="../img/kleiderly_logo.png" alt="Logo" />
          </div>
       </div>
    );

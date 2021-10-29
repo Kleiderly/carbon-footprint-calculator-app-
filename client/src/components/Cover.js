@@ -21,13 +21,22 @@ function Cover() {
    return (
       <div className="cover-wrapper">
          <div>
-            <div className="cover-text-container fadeIn vivify delay-900">
-               <h1 className="cover-title">INTRODUCTION</h1>
-               <p className="cover-paragraph">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s.
+            <div className="cover-text-container fadeIn vivify delay-500">
+               <p className="cover-intro">
+                  Each and every one of our actions is 
+                  contributing to global warming. 
                </p>
+               <p>
+                  If you want to understand, measure and track your carbon footprint 
+                  specifically related to your fashion habits, then this is the 
+                  calculator for you.
+               </p>
+               <p>
+                  We help you to calculate the footprint of 
+                  new/used/existing items, to make better, fairer fashion choices, 
+                  whilst giving you tips to help reduce your fashion footprint. 
+               </p>
+               Thank you for using XYZ. 
             </div>
             <p className="cover-direction-text fadeIn vivify delay-1000">What will you calculate?</p>
             <div className="cover-choice-container">
@@ -35,8 +44,8 @@ function Cover() {
                   <div
                      className={
                         choice === 'calculate'
-                           ? 'cover-after-click'
-                           : 'cover-before-click'
+                           ? 'cover-after-click light-accent-text light-tone-bg'
+                           : 'cover-before-click light-accent-text'
                      } onClick={handleClick1} value={choice}>
                      <img
                         className="cover-img-cover"
@@ -49,18 +58,18 @@ function Cover() {
                   <div
                      className={
                         choice === 'compare'
-                           ? 'cover-after-click2'
-                           : 'cover-before-click2'
+                           ? 'cover-after-click2 light-accent-text light-tone-bg'
+                           : 'cover-before-click2 light-accent-text'
                      } onClick={handleClick2} value={choice}>
                         &nbsp;&nbsp;&nbsp;&nbsp;
                      <img
                         className="cover-img-cover"
-                        src="../img/items-images/t-shirtW.png"
+                        src="../img/items-images/skirtW.png"
                         alt="T-shirt"
                      /> VS 
                      <img
                         className="cover-img-cover"
-                        src="../img/items-images/skirtW.png"
+                        src="../img/items-images/jacketW.png"
                         alt="T-shirt"
                      />
                      &nbsp;&nbsp;&nbsp;&nbsp;

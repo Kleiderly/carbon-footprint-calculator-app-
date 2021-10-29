@@ -2,15 +2,18 @@
 
 * {
    font-family: 'Montserrat', sans-serif;
+   color: #000000;
 }
 
 .App {
-  display: flex;
-  text-align: center;
-  justify-content: space-around;
-  flex-direction: column;
-  align-items: stretch;
   height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  align-items: stretch;
+  
 }
 
 a {
@@ -43,9 +46,9 @@ button, .buttonnext-button {
   padding: 10px 20px 10px 20px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
   border-radius: 30px;
-  background-color: #0E2823;
+  background-color: #373d32;
   border: 0;
-  color: #F7EBE8;
+  color: #EDEAE4;
   font-size: 4vw;
   font-family: 'Montserrat', sans-serif;
   cursor: pointer;
@@ -53,7 +56,7 @@ button, .buttonnext-button {
 
 button:hover, button:active, .buttonnext-button:hover, .buttonnext-button:active {
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.25);
-  background-color: #415551;
+  background-color: #67725d;
   transition: all 0.20s;
 }
 
@@ -67,29 +70,29 @@ button:hover, button:active, .buttonnext-button:hover, .buttonnext-button:active
   height: 30px;
   font-family: 'Montserrat', sans-serif;
   cursor: pointer;
-  background-color: #ffffff;
-  border: solid 2px #0E2823;
-  color: #0E2823;
+  background-color: #FFFFFF;
+  border: solid 2px #373d32;
+  color: #373d32;
   font-size: 3vw;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0);
 }
 
 .next-button {
-  color: #ffffff;
-  background-color: #0E2823;
+  color: #EDEAE4;
+  background-color: #373d32;
 }
 
 .back-button:hover, .next-button:hover, .back-button:active, .next-button:active {
-  background-color: #0E2823;
-  color: #ffffff;
+  background-color: #373d32;
+  color: #EDEAE4;
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
   transition: all 0.20s;
 }
 
 .next-button:hover, .next-button:active  {
-  border: solid 2px #415551;
-  background-color: #415551;
-  color: #ffffff;
+  border: solid 2px #67725d;
+  background-color: #67725d;
+  color: #EDEAE4;
 }
 
 .logout-button {
@@ -103,23 +106,44 @@ button:hover, button:active, .buttonnext-button:hover, .buttonnext-button:active
 .buttonnext-button {
   margin: 10px;
   padding: 10px 25px 10px 25px;
+  width: 150px;
 }
 
 .pop-up-box {
   padding: 3px;
-  color: #0E2823;
+  color: #373d32;
 }
 
-.light-pink {
-  background-color: #F7EBE8;
+.light-accent-bg {
+  background-color: #EDEAE4;
 }
 
-.light-green {
-  background-color: #415551;
+.dark-accent-bg {
+  background-color: #DDD8CB;
 }
 
-.dark-green {
-  background-color: #0E2823;
+.light-tone-bg {
+  background-color: #67725d;
+}
+
+.dark-tone-bg {
+  background-color: #373d32;
+}
+
+.dark-accent-text {
+  color: #D4C8BF;
+}
+
+.light-accent-text {
+  color: #EDEAE4;
+}
+
+.light-tone-text {
+  color: #67725d;
+}
+
+.dark-tone-text {
+  color: #373d32;
 }
 
 .center-align {
@@ -152,6 +176,15 @@ button, .buttonnext-button {
 .center-align {
   width: 100%;
 }
+.footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+.content {
+  flex: 1 0 auto;
+}
 }
 
 @media only screen and (min-device-width: 1200px){
@@ -159,5 +192,6 @@ button, .buttonnext-button {
     display: flex;
     justify-content: center;
     align-items: center;
+   
   }
 }

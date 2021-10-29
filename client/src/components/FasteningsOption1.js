@@ -17,18 +17,11 @@ const FasteningsOption1 = (props) => {
    const [tip, setTip] = useState('');
    const [fastenings, setFastenings] = useState([]);
 
-   const options = [
-      { value: 1, label: '1' },
-      { value: 2, label: '2' },
-      { value: 3, label: '3' },
-      { value: 4, label: '4' },
-      { value: 5, label: '5' },
-      { value: 6, label: '6' },
-      { value: 7, label: '7' },
-      { value: 8, label: '8' },
-      { value: 9, label: '9' },
-      { value: 10, label: '10' },
-   ];
+// Select options callback
+   const runCallback = (cb) => {
+      return cb();
+   };
+
 
    useEffect(() => {
       axios
@@ -71,55 +64,76 @@ const FasteningsOption1 = (props) => {
 
    console.log('result Fastening: ', fasteningCO2e1);
 
+   //To remove blue border on select focus
+   const style = {
+      control: base => ({
+        ...base,
+        boxShadow: 'none',
+        border: 0
+      })
+    };
+
    return (
       <div className="fastenings-wrapper vivify fadeIn">
          <ProgressBar stage={2} previous="Material" next="Fabrication" />
 
-         <p className="fastenings-direction-text">Does it have fastenings?</p>
+         <p className="fastenings-title">Does it have fastenings?</p>
 
-         <div className="fastenings-items-container">
+         <div className="fastenings-items-container light-accent-bg">
             <div className="fastenings-before-click">
                <img
                   src={itemTypeAdress1}
                   alt={itemTypeAdress1}
                   className="fastenings-img-cover"
                />
-               <span className="fastenings-img-text">Fastenings</span>
+               <span className="fastenings-img-text light-accent-text">Fastenings</span>
             </div>
-         </div>
 
-         <div>
-            {listOfQuantities.length > 0 &&
-               fastenings.map((fastening, i) => {
-                  return (
-                     <div key={i}>
-                        <p className="fastenings-option-text">
-                           {fastening.name}
-                        </p>
-                        {/* <input
-                           type="number"
-                           min="0"
-                           step="1"
-                           className="light-pink"
-                           value={listOfQuantities[i].quantity}
-                           onChange={(e) => {
-                              copyOfQuantities[i].quantity = e.target.value;
-                              setlistOfQuantities([...copyOfQuantities]);
-                           }}
-                        /> */}
+            <div className="fastenings-input-box">
+               {listOfQuantities.length > 0 &&
+                  fastenings.map((fastening, i) => {
+                     return (
+                        <div key={i}>
+                           <p className="fastenings-option-text">
+                              {fastening.name}
+                           </p>
+                           {/* <input
+                              type="number"
+                              min="0"
+                              step="1"
+                              className="light-pink"
+                              value={listOfQuantities[i].quantity}
+                              onChange={(e) => {
+                                 copyOfQuantities[i].quantity = e.target.value;
+                                 setlistOfQuantities([...copyOfQuantities]);
+                              }}
+                           /> */}
 
-                        <Select
-                           options={options}
-                           className="light-pink"
-                           defaultValue={listOfQuantities[i].quantity}
-                           onChange={(e) => {
-                              copyOfQuantities[i].quantity = e.value;
-                              setlistOfQuantities([...copyOfQuantities]);
-                           }}
-                        />
-                     </div>
-                  );
-               })}
+                           <Select
+                              options={
+                                    runCallback(()=> {
+                                    let options = [];
+                                    let a = 1
+                                    for(a = 1; a < 21; a++){
+                                       options.push({ value: a, label: a})
+                                    };
+                                    return options;
+                                 })
+                              }
+                              styles={style}
+                              menuPlacement="top"
+                              className="fastenings-input"
+                              defaultValue={listOfQuantities[i].quantity}
+                              onChange={(e) => {
+                                 copyOfQuantities[i].quantity = e.value;
+                                 setlistOfQuantities([...copyOfQuantities]);
+                              }}
+                           />
+                        </div>
+                     );
+                  })}
+            </div>
+
          </div>
 
          <div className="fastenings-back-next-buttons">

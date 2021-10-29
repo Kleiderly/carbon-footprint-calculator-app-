@@ -1,36 +1,57 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap');
 .header-wrapper {
     display: flex;
     align-items: center;
-    background-color: #000000;
-    border-bottom: solid 1px #000000;
+    background-color: #ffffff;
+    height: 130px;
+    width: 100%;
+    position: static;
+    overflow: hidden;
+    background-image: url(feet-bg.png);
+    background-repeat: no-repeat;
+    background-position: -131px -8px;
 }
 
 .logo {
-    height: 50px;
-    width: auto;
-    -webkit-filter: invert(100%) sepia(3%) saturate(815%) hue-rotate(319deg) brightness(105%) contrast(94%);
-    filter: invert(100%) sepia(3%) saturate(815%) hue-rotate(319deg) brightness(105%) contrast(94%);
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100%;
 }
 
-.header-title, .header-title a {
+.logo img {
+    margin: 10px;
+    width: 100px;
+    height: auto;
+}
+
+.header-main {
     width: 100%;
-    text-align: center;
-    margin: 0;
-    color: #F7EBE8;
-    letter-spacing: 3px;
-    font-family: 'Montserrat', sans-serif;
+    text-align: left;
+    position: relative;
+}
+
+.header-title, .header-title a, .header-title a:visited, .header-title a:active {
     text-decoration: none;
-    font-size: 3vw;
+    font-size: 6vw;
+    width: 100%;
     font-weight: bold;
+    position: absolute;
+    margin: 0 0 10px 60px;
 }
 
 @media only screen and (min-device-width: 660px) {
-    .logo {
-        height: 100px;
+    .header-wrapper {
+        background-position: -75px 0;
     }
     
     .header-title, .header-title a {
         font-size: 28px;
+        margin: 0 0 0 120px;
     }
+
+    .logo img {
+        margin: 20px;
+        width: 150px;
+        height: auto;
     }
+}

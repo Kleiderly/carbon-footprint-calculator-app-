@@ -19,7 +19,7 @@ function Footer() {
       <div>
         <img
           className="footer-logo"
-          src="../img/kleiderly_logo.png"
+          src="../img/KLEIDERLY_favicon.png"
           alt="Logo"
         />
       </div>

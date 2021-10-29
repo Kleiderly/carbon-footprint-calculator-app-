@@ -1,10 +1,18 @@
 .cover-wrapper {
-   margin: 10px;
    height: 100%;
+   margin: 0 10px 50px 10px;
 }
 
 .cover-text-container {
-   margin: 20px 30px 25px 30px;
+   margin: 0 10px 35px 10px;
+   text-align: left;
+   font-size: 4vw;
+   line-height: 1.4;
+}
+
+.cover-intro {
+   font-size: 5.5vw;
+   margin-bottom: 20px;
 }
 
 .cover-title {
@@ -12,21 +20,13 @@
    font-size: 4vw;
 }
 
-.cover-paragraph {
-   text-align: left;
-   font-size: 3.5vw;
-   color: #0e2823;
-}
-
 .cover-direction-text {
    font-size: 6vw;
-   color: #0e2823;
-   margin: 10px;
+   margin: 15px;
 }
 
 .cover-direction-text2 {
    font-size: 3.5vw;
-   color: #0e2823;
    margin: 0 0 20px 0;
 }
 
@@ -57,8 +57,6 @@
    flex-direction: row;
    align-items: center;
    justify-content: center;
-   background-color: #000000;
-   color: #F7EBE8;
    width: 150px;
    height: 150px;
    margin: 10px;
@@ -67,9 +65,9 @@
    cursor: pointer;
 }
 
-.cover-after-click,
-.cover-after-click2 {
-   background-color: #415551;
+.cover-before-click,
+.cover-before-click2 {
+   background-color: #000000;
 }
 
 .cover-before-click2,
@@ -81,7 +79,7 @@
 .cover-after-click:hover,
 .cover-before-click2:hover,
 .cover-after-click2:hover {
-   background-color:#415551;
+   background-color:#67725d;
    transition: all 0.25s;
 }
 
@@ -94,27 +92,36 @@
 }
 
 @media only screen and (min-device-width: 660px) {
-.cover-wrapper {
-   margin: 10px 30px 10px 30px;
-}
+   .cover-wrapper {
+      margin: 10px 10px 100px 10px;
+   }
+   .cover-choice-container {
+      flex-direction: row;
+      justify-content: space-between;
+      width: 500px;
+      margin: auto auto 5px auto;
+   }
+   .cover-title {
+      font-size: 20px;
+      margin: 30px;
+   }
 
-.cover-title {
-   font-size: 20px;
-   margin: 30px;
-}
+   .cover-text-container {
+      font-size: 16px;
+      width: 80%;
+      margin: 20px auto 40px auto;
+   }
 
-.cover-paragraph {
-   font-size: 16px;
-   width: 80%;
-   margin: 0 auto 40px auto;
-}
+   .cover-intro {
+      font-size: 23px;
+   }
 
-.cover-direction-text {
-   font-size: 28px;
-   margin: 30px;
-}
+   .cover-direction-text {
+      font-size: 28px;
+      margin: 30px;
+   }
 
-.cover-direction-text2 {
-   font-size: 17px;
-}
+   .cover-direction-text2 {
+      font-size: 17px;
+   }
 }

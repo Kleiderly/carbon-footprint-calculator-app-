@@ -36,18 +36,10 @@ const FasteningsOption2 = () => {
    const copyOfQuantities = [...listOfQuantities];
    const copyOfQuantities2 = [...listOfQuantities2];
 
-   const options = [
-      { value: 1, label: '1' },
-      { value: 2, label: '2' },
-      { value: 3, label: '3' },
-      { value: 4, label: '4' },
-      { value: 5, label: '5' },
-      { value: 6, label: '6' },
-      { value: 7, label: '7' },
-      { value: 8, label: '8' },
-      { value: 9, label: '9' },
-      { value: 10, label: '10' },
-   ];
+// Select options callback
+   const runCallback = (cb) => {
+      return cb();
+   };
 
    useEffect(() => {
       const temporalArray = [];
@@ -83,17 +75,26 @@ const FasteningsOption2 = () => {
       history.push('/compare/materials');
    };
 
+   //To remove blue border on select focus
+   const style = {
+      control: base => ({
+        ...base,
+        boxShadow: 'none',
+        border: 0
+      })
+    };
+
    return (
       <div className="fastenings-wrapper vivify fadeIn">
          <ProgressBar stage={2} previous="Material" next="Fabrication" />
 
-         <p className="fastenings-direction-text">Do they have fastenings?</p>
+         <p className="fastenings-title">Do they have fastenings?</p>
 
-         <div className="fastenings-items-container">
-            <div className="fastenings-item-group">
+         <div className="fastenings-items-container2">
+            <div className="fastenings-item-group light-accent-bg">
                <div className="fastenings-before-click">
                   <img src={itemTypeAdress1} alt={itemTypeAdress1} className="fastenings-img-cover" />
-                  <span className="fastenings-img-text">1st Item</span>
+                  <span className="fastenings-img-text light-accent-text">1st Item</span>
                </div>
                <div className="fastenings-container">
                   {listOfQuantities.length > 0 &&
@@ -117,8 +118,19 @@ const FasteningsOption2 = () => {
                                  }}
                               /> */}
                               <Select
-                                 options={options}
+                                 options={
+                                    runCallback(()=> {
+                                    let options = [];
+                                    let a = 1
+                                    for(a = 1; a < 21; a++){
+                                       options.push({ value: a, label: a})
+                                    };
+                                    return options;
+                                    })
+                                 }
                                  className="fastenings-input"
+                                 menuPlacement="top"
+                                 styles={style}
                                  defaultValue={listOfQuantities[i].quantity}
                                  onChange={(e) => {
                                     copyOfQuantities[i].quantity = e.value;
@@ -131,12 +143,12 @@ const FasteningsOption2 = () => {
                </div>
             </div>
 
-            <div>&nbsp;&nbsp;</div>
+            <div> </div>
 
-            <div className="fastenings-item-group">
+            <div className="fastenings-item-group light-accent-bg">
                <div className="fastenings-before-click">
                   <img src={itemTypeAdress2} alt={itemTypeAdress2} className="fastenings-img-cover" />
-                  <span className="fastenings-img-text">2nd Item</span>
+                  <span className="fastenings-img-text light-accent-text">2nd Item</span>
                </div>
                <div className="fastenings-container">
                   {listOfQuantities2.length > 0 &&
@@ -162,7 +174,18 @@ const FasteningsOption2 = () => {
                                  }}
                               /> */}
                               <Select
-                                 options={options}
+                                 options={
+                                    runCallback(()=> {
+                                    let options = [];
+                                    let a = 1
+                                    for(a = 1; a < 21; a++){
+                                       options.push({ value: a, label: a})
+                                    };
+                                    return options;
+                                    })
+                                 }
+                                 styles={style}
+                                 menuPlacement="top"
                                  className="fastenings-input"
                                  defaultValue={listOfQuantities2[i].quantity}
                                  onChange={(e) => {

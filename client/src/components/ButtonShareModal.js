@@ -17,7 +17,7 @@ const ButtonShareModal = () => {
 
    return (
       <div className="buttonshare-container vivify popIn delay-2000">
-         <button className="buttonshare-share-button" onClick={onOpenModal}>
+         <button className="buttonshare-share-button light-accent-text" onClick={onOpenModal}>
             SHARE!
          </button>
          <Modal

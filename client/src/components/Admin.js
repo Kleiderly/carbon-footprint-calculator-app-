@@ -5,10 +5,10 @@ import "./css/Admin.css";
 function Admin() {
 
     return (
-        <div className="admin-wrapper">
+        <div className="admin-wrapper dark-tone-text">
             <div>
                 <h2>Admin Login</h2>
-                <div className="admin-login">
+                <div className="admin-login light-accent-bg">
                     <p>Username:</p>
                     <input
                         type="text"
