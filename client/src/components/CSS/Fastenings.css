@@ -35,11 +35,6 @@
    width: 160px;
 }
 
-.fastenings-option-text {
-   margin: 5px 0 0 1px;
-   font-size: 4vw;
-}
-
 .fastenings-img-text {
    margin: 5px 0 0 0;
 }
@@ -49,22 +44,31 @@
    margin-bottom: 3px;
 }
 
+
 .fastenings-input-box {
    margin: 5px;
 }
 
-.fastenings-input {
-   padding: 5px;
+.fastenings-container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
 }
 
-.fastenings-input-one {
-   width: 50px;
+
+.fastenings-input {
    padding: 5px;
+   width: 100%;
+}
+
+.fastenings-item {
+   margin: 5px;
 }
 
 .fastenings-name {
    font-size: 4vw;
    font-weight: bold;
+   margin: 5px;
 }
 
 .fastenings-before-click {
@@ -87,17 +91,6 @@
    align-items: center;
    margin: 20px;
 }
-
-.fastenings-item {
-   margin: 5px;
-}
-
-.fastenings-container {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-}
-
 
 @media only screen and (min-device-width: 660px) {
    .fastenings-wrapper {
@@ -122,20 +115,10 @@
       margin: 5px;
    }
 
-   .fastenings-container {
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      width: 473px;
-   }
-
    .fastenings-item {
       padding: 5px;
       margin: 3px;
       border-radius: 5px;
-      width: 102px;
-      background-color: #0000000a;
    }
 
    .fastenings-items-container {
@@ -153,10 +136,6 @@
 
    .fastenings-name {
       font-size: 14px;
-   }
-
-   .fastenings-option-text {
-      font-size: 18px;
    }
 
    .fastenings-before-click {

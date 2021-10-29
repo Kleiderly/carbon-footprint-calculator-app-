@@ -70,7 +70,11 @@ const FasteningsOption1 = (props) => {
         ...base,
         boxShadow: 'none',
         border: 0
-      })
+      }),
+      container: base => ({
+         ...base,
+         width: 150
+       })
     };
 
    return (
@@ -93,8 +97,8 @@ const FasteningsOption1 = (props) => {
                {listOfQuantities.length > 0 &&
                   fastenings.map((fastening, i) => {
                      return (
-                        <div key={i}>
-                           <p className="fastenings-option-text">
+                        <div key={i} className="fastenings-item">
+                           <p className="fastenings-name">
                               {fastening.name}
                            </p>
                            {/* <input
@@ -112,13 +116,13 @@ const FasteningsOption1 = (props) => {
                            <Select
                               options={
                                     runCallback(()=> {
-                                    let options = [];
-                                    let a = 1
-                                    for(a = 1; a < 21; a++){
-                                       options.push({ value: a, label: a})
-                                    };
-                                    return options;
-                                 })
+                                       let options = [];
+                                       let a = 1
+                                       for(a = 1; a < 21; a++){
+                                          options.push({ value: a, label: a})
+                                       };
+                                       return options;
+                                    })
                               }
                               styles={style}
                               menuPlacement="top"
