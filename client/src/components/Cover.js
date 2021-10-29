@@ -21,7 +21,7 @@ function Cover() {
    return (
       <div className="cover-wrapper">
          <div>
-            <div className="cover-text-container fadeIn vivify delay-900">
+            <div className="cover-text-container fadeIn vivify delay-500">
                <p className="cover-intro">
                   Each and every one of our actions is 
                   contributing to global warming. 
@@ -64,12 +64,12 @@ function Cover() {
                         &nbsp;&nbsp;&nbsp;&nbsp;
                      <img
                         className="cover-img-cover"
-                        src="../img/items-images/t-shirtW.png"
+                        src="../img/items-images/skirtW.png"
                         alt="T-shirt"
                      /> VS 
                      <img
                         className="cover-img-cover"
-                        src="../img/items-images/skirtW.png"
+                        src="../img/items-images/jacketW.png"
                         alt="T-shirt"
                      />
                      &nbsp;&nbsp;&nbsp;&nbsp;
