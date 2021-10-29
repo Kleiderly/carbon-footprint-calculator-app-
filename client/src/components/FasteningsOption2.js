@@ -36,18 +36,10 @@ const FasteningsOption2 = () => {
    const copyOfQuantities = [...listOfQuantities];
    const copyOfQuantities2 = [...listOfQuantities2];
 
-   const options = [
-      { value: 1, label: '1' },
-      { value: 2, label: '2' },
-      { value: 3, label: '3' },
-      { value: 4, label: '4' },
-      { value: 5, label: '5' },
-      { value: 6, label: '6' },
-      { value: 7, label: '7' },
-      { value: 8, label: '8' },
-      { value: 9, label: '9' },
-      { value: 10, label: '10' },
-   ];
+// Select options callback
+   const runCallback = (cb) => {
+      return cb();
+   };
 
    useEffect(() => {
       const temporalArray = [];
@@ -126,7 +118,16 @@ const FasteningsOption2 = () => {
                                  }}
                               /> */}
                               <Select
-                                 options={options}
+                                 options={
+                                    runCallback(()=> {
+                                    let options = [];
+                                    let a = 1
+                                    for(a = 1; a < 21; a++){
+                                       options.push({ value: a, label: a})
+                                    };
+                                    return options;
+                                    })
+                                 }
                                  className="fastenings-input"
                                  styles={style}
                                  defaultValue={listOfQuantities[i].quantity}
@@ -172,7 +173,16 @@ const FasteningsOption2 = () => {
                                  }}
                               /> */}
                               <Select
-                                 options={options}
+                                 options={
+                                    runCallback(()=> {
+                                    let options = [];
+                                    let a = 1
+                                    for(a = 1; a < 21; a++){
+                                       options.push({ value: a, label: a})
+                                    };
+                                    return options;
+                                    })
+                                 }
                                  styles={style}
                                  className="fastenings-input"
                                  defaultValue={listOfQuantities2[i].quantity}

@@ -144,7 +144,7 @@ return (
 
          <div className="results-item-group">
             <div className={totalCo2e1 < totalCo2e2 ? "results-before-click" : "results-after-click light-accent-bg"}>
-               <img src={totalCo2e1 < totalCo2e2 ? itemTypeAdress1 : itemTypeAdress1Black} alt={itemTypeAdress2} className="results-img-cover" />
+               <img src={totalCo2e1 < totalCo2e2 ? itemTypeAdress2 : itemTypeAdress2Black} alt={itemTypeAdress2} className="results-img-cover" />
                <div className={totalCo2e1 < totalCo2e2 ? "results-img-text light-accent-text" : "light-accent-bg"}>
                   Second item
                   <p className={totalCo2e1 < totalCo2e2 ? "results-carbon-result vivify popIn delay-1000 light-accent-text" : "results-carbon-result vivify popIn delay-1000"}>Total: {totalCo2e2}</p>
