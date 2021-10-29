@@ -95,14 +95,12 @@
    .cover-wrapper {
       margin: 10px 10px 100px 10px;
    }
-
    .cover-choice-container {
       flex-direction: row;
       justify-content: space-between;
       width: 500px;
       margin: auto auto 5px auto;
    }
-
    .cover-title {
       font-size: 20px;
       margin: 30px;
