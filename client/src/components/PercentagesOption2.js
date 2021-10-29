@@ -69,24 +69,27 @@ const PercentagesOption2 = (props) => {
 
          <div className="percentages-container2 light-accent-bg vivify fadeIn delay-500">
             <div className="percentages-totals">
+               <div className="percentages-detail"><b>First item</b></div>
                <div className="percentages-detail">{materialCO2e1.toFixed(2)}</div>
                <div className="percentages-detail">{fasteningCO2e1.toFixed(2)}</div>
                <div className="percentages-detail">{countryCO2e1.toFixed(2)}</div>
-               <div>&nbsp;</div>
+               <div className="percentages-detail">&nbsp;</div>
                <div className="percentages-detail">{totalCo2e1.toFixed(2)}</div>
             </div>
             <div className="percentages-categories">
+               <div className="percentages-detail">&nbsp;</div>
                <div className="percentages-detail"><b>Material</b></div>
                <div className="percentages-detail"><b>Fastenings</b></div>
                <div className="percentages-detail"><b>Logistics</b></div>
-               <div>&nbsp;</div>
+               <div className="percentages-detail">&nbsp;</div>
                <div className="percentages-detail"><b>TOTAL</b></div>
             </div>
             <div className="percentages-totals">
+               <div className="percentages-detail"><b>Second item</b></div>
                <div className="percentages-detail">{materialCO2e2.toFixed(2)}</div>
                <div className="percentages-detail">{fasteningCO2e2.toFixed(2)}</div>
                <div className="percentages-detail">{countryCO2e2.toFixed(2)}</div>
-               <div>&nbsp;</div>
+               <div className="percentages-detail">&nbsp;</div>
                <div className="percentages-detail">{totalCo2e2.toFixed(2)}</div>
             </div>
          </div>
