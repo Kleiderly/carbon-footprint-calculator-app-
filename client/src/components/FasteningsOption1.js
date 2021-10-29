@@ -121,6 +121,7 @@ const FasteningsOption1 = (props) => {
                                  })
                               }
                               styles={style}
+                              menuPlacement="top"
                               className="fastenings-input"
                               defaultValue={listOfQuantities[i].quantity}
                               onChange={(e) => {

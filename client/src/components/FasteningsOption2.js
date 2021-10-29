@@ -129,6 +129,7 @@ const FasteningsOption2 = () => {
                                     })
                                  }
                                  className="fastenings-input"
+                                 menuPlacement="top"
                                  styles={style}
                                  defaultValue={listOfQuantities[i].quantity}
                                  onChange={(e) => {
@@ -184,6 +185,7 @@ const FasteningsOption2 = () => {
                                     })
                                  }
                                  styles={style}
+                                 menuPlacement="top"
                                  className="fastenings-input"
                                  defaultValue={listOfQuantities2[i].quantity}
                                  onChange={(e) => {
