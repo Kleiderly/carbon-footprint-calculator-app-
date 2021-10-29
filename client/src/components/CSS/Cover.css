@@ -95,6 +95,11 @@
    .cover-wrapper {
       margin: 10px 10px 100px 10px;
    }
+   
+   .cover-choice-container {
+      flex-direction: row;
+   }
+   
    .cover-title {
       font-size: 20px;
       margin: 30px;
