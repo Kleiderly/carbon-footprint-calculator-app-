@@ -58,7 +58,7 @@ const PercentagesOption2 = (props) => {
 
                <div className="percentages-item-group">
                      <div className={totalCo2e1 < totalCo2e2 ? "percentages-before-click" : "percentages-after-click light-accent-bg"}>
-                        <img src={totalCo2e1 < totalCo2e2 ? itemTypeAdress1 : itemTypeAdress1Black} alt={itemTypeAdress2} className="percentages-img-cover" />
+                        <img src={totalCo2e1 < totalCo2e2 ? itemTypeAdress2 : itemTypeAdress2Black} alt={itemTypeAdress2} className="percentages-img-cover" />
                         <div className={totalCo2e1 < totalCo2e2 ? "percentages-img-text light-accent-text" : "light-accent-bg"}>
                            Second item
                            <p className={totalCo2e1 < totalCo2e2 ? "percentages-carbon-result vivify popIn delay-1000 light-accent-text" : "percentages-carbon-result vivify popIn delay-1000"}>Total: {totalCo2e2}</p>
