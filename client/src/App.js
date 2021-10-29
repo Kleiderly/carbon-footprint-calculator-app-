@@ -181,7 +181,7 @@ function App() {
                      />
                      </div>
                   </Switch>
-                  <div className="">
+                  <div className="footer">
                      <Footer />
                   </div>
                </Context.Provider>
