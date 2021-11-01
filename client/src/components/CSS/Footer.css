@@ -1,26 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap');
 
-/* @media only screen and (min-device-width: 1200px) {
-   .footer-wrapper {
-      justify-content: space-between;
-      align-items: center;
-      position: relative;
-      bottom: 0;
-      width: 90%;
-   }
-   .footer-logo {
-      justify-content: center;
-      align-items: center;
-      margin-left: 0px;
-      margin-right: auto;
-   }
-} */
-@media only screen and (min-device-width: 1300px) and (min-device-height: 900px) {
-   .footer-wrapper {
-      bottom: 0;
-      position: fixed;
-   }
-}
 
 .footer-wrapper {
    display: flex;
@@ -108,7 +87,7 @@
 
       width: 100%;
       bottom: 0;
-      position: fixed;
+      /* position: fixed; */
    }
 
    .footer-copyrights {
@@ -151,9 +130,9 @@
       margin-right: auto;
    }
 }
-@media only screen and (min-device-width: 1300px) and (min-device-height: 900px) {
+@media only screen and (min-device-width: 660px) and (min-device-height: 900px) {
    .footer-wrapper {
       bottom: 0;
-      /* position: fixed; */
+      position: fixed;
    }
 }
