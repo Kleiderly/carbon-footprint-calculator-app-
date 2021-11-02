@@ -39,6 +39,14 @@ select {
   width: 220px;
 }
 
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
 button, .buttonnext-button {
   margin: 10px;
   padding: 10px 20px 10px 20px;
