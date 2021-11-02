@@ -1,6 +1,6 @@
 .cover-wrapper {
    height: 100%;
-   margin: 0 10px 50px 10px;
+   margin: 0 10px 0 10px;
 }
 
 .cover-text-container {
@@ -93,7 +93,7 @@
 
 @media only screen and (min-device-width: 660px) {
    .cover-wrapper {
-      margin: 10px 10px 100px 10px;
+      margin: 10px 10px 160px 10px;
    }
    .cover-choice-container {
       flex-direction: row;

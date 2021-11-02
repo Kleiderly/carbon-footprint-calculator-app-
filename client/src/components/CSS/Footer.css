@@ -1,15 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap');
-
-
 .footer-wrapper {
    display: flex;
    flex-direction: column;
    justify-content: space-around;
    align-items: center;
    background-color: #ffffff;
-   margin: 30px 0 20px 0;
    padding: 10px;
-   /* width: 100%; */
+   height: 110px;
    bottom: 0;
    flex-wrap: wrap;
 }
@@ -20,11 +16,8 @@
 .footer-social a,
 .footer-copyrights a,
 .footer-admin a {
-   /* width: 100%; */
    text-align: center;
-   /* margin: auto; */
    color: #000000;
-   font-family: 'Montserrat', sans-serif;
    text-decoration: none;
    font-size: 3vw;
    color: #edeae4;
@@ -37,8 +30,6 @@
 
 .footer-logo {
    display: none;
-   /* height: 50px;
-    width: auto; */
 }
 
 .footer-social-icon {
@@ -59,17 +50,22 @@
 }
 
 @media only screen and (min-device-width: 660px) {
+   .footer-wrapper {
+      position: fixed;
+      margin: 30px 30px 0 30px;
+      flex-direction: row;
+      justify-content: space-around;
+      width: 100%;
+      bottom: 0;
+   }
+
    .footer-social,
-   .footer-copyrights,
    .footer-admin,
    .footer-social a,
-   .footer-copyrights a,
    .footer-admin a {
       font-size: 15px;
    }
-}
 
-@media only screen and (min-device-width: 660px) {
    .footer-logo {
       display: block;
       height: 100px;
@@ -77,23 +73,9 @@
       margin-left: -20px;
    }
 
-   .footer-wrapper {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      align-items: center;
-      background-color: #ffffff;
-      /* margin: 0 30px 0 30px; */
-
-      width: 100%;
-      bottom: 0;
-      /* position: fixed; */
-   }
-
    .footer-copyrights {
       display: flex;
       flex-wrap: wrap;
-      /* margin-right: 75px; */
       font-size: 12px;
    }
 
@@ -119,7 +101,6 @@
    .footer-wrapper {
       justify-content: space-between;
       align-items: center;
-      position: relative;
       bottom: 0;
       width: 90%;
    }
@@ -130,9 +111,9 @@
       margin-right: auto;
    }
 }
-@media only screen and (min-device-width: 660px) and (min-device-height: 1200px) {
+
+@media only screen and (min-device-height: 1300px) {
    .footer-wrapper {
-      bottom: 0;
       position: fixed;
    }
 }

@@ -81,7 +81,11 @@ const FasteningsOption2 = () => {
         ...base,
         boxShadow: 'none',
         border: 0
-      })
+      }),
+      container: base => ({
+         ...base,
+         width: 150
+       })
     };
 
    return (
@@ -120,12 +124,12 @@ const FasteningsOption2 = () => {
                               <Select
                                  options={
                                     runCallback(()=> {
-                                    let options = [];
-                                    let a = 1
-                                    for(a = 1; a < 21; a++){
-                                       options.push({ value: a, label: a})
-                                    };
-                                    return options;
+                                       let options = [];
+                                       let a = 1
+                                       for(a = 1; a < 21; a++){
+                                          options.push({ value: a, label: a})
+                                       };
+                                       return options;
                                     })
                                  }
                                  className="fastenings-input"
