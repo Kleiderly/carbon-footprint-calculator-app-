@@ -1,9 +1,6 @@
 {
   "name": "carbon-footprint-calculator-app",
   "version": "0.1.0",
-  "engines": {
-    "node": "16.3.0"
-  },
   "private": true,
   "proxy": "http://localhost:5000",
   "dependencies": {
