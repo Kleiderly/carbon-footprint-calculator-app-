@@ -70,7 +70,6 @@ export const tipsList = [
       image: '../img/tips/tips3.png',
       text: "The 5 R's of slow fashion: Recycle, Repair, Resell, Reduce, Rewear",
    },
-
    {
       category: 'fastening',
       image: '../img/tips/tips4.png',
@@ -98,3 +97,4 @@ export const tipsList = [
       text: '4 easy ways YOU can live more SUSTAINABLY today. Use a drying rack instead of a drying machine. Get a refillable water bottle instead of using plastic water bottles. When traveling, take a train instead of flying (if you can)Buy clothing from ethical brands',
    },
 ];
+
