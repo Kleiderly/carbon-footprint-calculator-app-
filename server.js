@@ -28,7 +28,7 @@ mongoose
 
 // To solve issue with dual servers
 app.use((req, res, next) => {
-   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+   res.setHeader('Access-Control-Allow-Origin', 'https://frozen-dawn-41015.herokuapp.com/');
    res.setHeader('Access-Control-Allow-Credentials', true);
    next();
 });
