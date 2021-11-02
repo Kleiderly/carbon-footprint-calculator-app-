@@ -3,6 +3,7 @@
 * {
    font-family: 'Montserrat', sans-serif;
    color: #000000;
+   -webkit-tap-highlight-color: transparent;
 }
 
 .App {
@@ -29,22 +30,23 @@ input, select {
   width: 200px;
 }
 
-input:focus,
-textarea:focus,
-select:focus {
- outline: none;
-}
-
 select {
   width: 220px;
 }
 
+input:focus,
+textarea:focus,
+select:focus,
 input,
 textarea,
 button,
 select,
-a {
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+a,
+a:focus,
+a:visited, 
+a:active {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
 }
 
 button, .buttonnext-button {
