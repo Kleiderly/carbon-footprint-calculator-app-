@@ -130,7 +130,7 @@
       margin-right: auto;
    }
 }
-@media only screen and (min-device-width: 660px) and (min-device-height: 900px) {
+@media only screen and (min-device-width: 660px) and (min-device-height: 1200px) {
    .footer-wrapper {
       bottom: 0;
       position: fixed;

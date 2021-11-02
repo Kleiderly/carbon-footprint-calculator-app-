@@ -48,10 +48,10 @@ const ResultsOption2 = (props) => {
 
   useEffect(() => {
     setTotalCo2e1(
-      Number((materialCO2e1 + fasteningCO2e1 + countryCO2e1).toFixed(4))
+      Number((materialCO2e1 + fasteningCO2e1 + countryCO2e1).toFixed(3))
     );
     setTotalCo2e2(
-      Number((materialCO2e2 + fasteningCO2e2 + countryCO2e2).toFixed(4))
+      Number((materialCO2e2 + fasteningCO2e2 + countryCO2e2).toFixed(3))
     );
 
     setPercentage(
