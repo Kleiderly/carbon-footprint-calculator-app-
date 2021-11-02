@@ -3,7 +3,7 @@
    flex-direction: column;
    align-items: center;
    justify-content: center;
-   margin: 0 10px 50px 10px;
+   margin: 0 10px 0 10px;
 }
 
 .material-title {
@@ -74,7 +74,7 @@
 
 @media only screen and (min-device-width: 660px) {
    .material-wrapper {
-      margin: 10px 10px 100px 10px;
+      margin: 10px 10px 160px 10px;
    }
 
    .material-title {
