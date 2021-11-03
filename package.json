@@ -1,7 +1,10 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
+  "engines": {
+    "node": "16.3.0"
+  },
+  "description": "KLEIDERLY Carboon Footprint Calculator App",
   "main": "server.js",
   "engines": {
     "node": "6.11.1"

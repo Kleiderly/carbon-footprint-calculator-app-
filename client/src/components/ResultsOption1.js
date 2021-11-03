@@ -90,7 +90,7 @@ const ResultsOption1 = (props) => {
             <div className="results-after-click light-accent-bg">
                <img src={itemTypeAdress1Black} alt={itemTypeAdress1} className="results-img-cover1" />
                <div className="results-carbon-result vivify popIn delay-1000">
-                  Total: {totalCo2e1}
+                  Co2E: {totalCo2e1}
                </div>
             </div>
          </div>

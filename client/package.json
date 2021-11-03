@@ -1,8 +1,11 @@
 {
   "name": "carbon-footprint-calculator-app",
   "version": "0.1.0",
+  "engines": {
+    "node": "16.3.0"
+  },
   "private": true,
-  "proxy": "http://localhost:5000",
+  "proxy": "https://frozen-dawn-41015.herokuapp.com/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
