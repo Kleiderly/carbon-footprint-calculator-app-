@@ -157,6 +157,10 @@
     width: 200px;
 }
 
+.errorHandler {
+    color: red;
+}
+
 @media only screen and (min-device-width: 660px) {
     .admin-wrapper {
         margin: 10px;

@@ -5,6 +5,7 @@ import './css/Admin.css';
 import axios from "axios";
 import './css/vivify.min.css';
 import '../components/css/Modal.css'
+import { colorMix } from "tsparticles";
 
 
 function Login() {
@@ -12,7 +13,7 @@ function Login() {
     const [email, setEmail]  = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState();
-    const [modal, setModal] = useState(false);
+    // const [modal, setModal] = useState(false);
     /* Show/Hide password field */
     const showPw = ()=> {
       const pw = document.getElementById("pwbox");
@@ -53,14 +54,17 @@ function Login() {
           }
       } catch (error) {
         setError(error.response.data.error)
+        setTimeout(()=>{
+          setError("");
+      }, 5000)
       }
     };
 
     
-    const toggleModal = () => {
-      if(error){
-      setModal(!modal)};
-    };
+    // const toggleModal = () => {
+    //   if(error){
+    //   setModal(!modal)};
+    // };
 
     // const clickHandler = () =>{
     //   if(error) {
@@ -70,17 +74,17 @@ function Login() {
     //    }
     //   }
 
-    const errorEmpty = () =>{
-      setModal(!modal)
-      setError(null)
-    }
+    // const errorEmpty = () =>{
+    //   setModal(!modal)
+    //   setError(null)
+    // }
   
   
     return (
         <div className="admin-wrapper vivify fadeIn">
             <div>
                 <h2>Admin Login</h2>
-                {/* {error && <span>{error}</span>} */}
+                {error && <span className="errorHandler">{error}</span>}
                 <div className="admin-login light-accent-bg">
                 
                     <p className="admin-text">Email:</p>
@@ -107,7 +111,7 @@ function Login() {
                       <input type="checkbox" className="pw-checkbox" onClick={showPw} />&nbsp;Show Password
                     </div>
 
-                    <button  onClick={error ? toggleModal :loginHandler}>LOGIN</button>
+                    <button  onClick={loginHandler}>LOGIN</button>
 
                     <Link to="/adminpage/forgotpassword" className="admin-password-text">
                         Forgot Password?
@@ -116,7 +120,7 @@ function Login() {
 
                     
 
-                    {modal && (
+                    {/* {modal && (
                         <div className="modal">
                           <div onClick={errorEmpty} className="overlay"></div>
                           <div className="modal-content">
@@ -127,7 +131,7 @@ function Login() {
                             </button>
                           </div>
                         </div>
-                      )}
+                      )} */}
                 </div>
             </div>
         </div>

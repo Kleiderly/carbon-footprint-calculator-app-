@@ -6,6 +6,9 @@
   },
   "description": "KLEIDERLY Carboon Footprint Calculator App",
   "main": "server.js",
+  "engines": {
+    "node": "6.11.1"
+  },
   "scripts": {
     "client-install": "npm install --prefix client",
     "start": "node server.js",
