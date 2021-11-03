@@ -107,7 +107,7 @@ function Login() {
                       <input type="checkbox" className="pw-checkbox" onClick={showPw} />&nbsp;Show Password
                     </div>
 
-                    <button  onClick={error ? toggleModal :loginHandler}>LOGIN</button>
+                    <button  onClick={error ? toggleModal : loginHandler}>LOGIN</button>
 
                     <Link to="/adminpage/forgotpassword" className="admin-password-text">
                         Forgot Password?
