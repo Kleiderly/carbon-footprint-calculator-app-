@@ -29,7 +29,7 @@ const MaterialsOption1 = (props) => {
 
    useEffect(() => {
       axios
-         .get(`http://localhost:5000/api/material`)
+         .get(`https://frozen-dawn-41015.herokuapp.com/api/material`)
          .then((response) => {
             setMaterials(response.data);
          })

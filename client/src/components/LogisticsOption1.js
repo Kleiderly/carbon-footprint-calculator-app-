@@ -26,7 +26,7 @@ const LogisticsOption1 = (props) => {
 
    useEffect(() => {
       axios
-         .get(`http://localhost:5000/api/logistic`)
+         .get(`https://frozen-dawn-41015.herokuapp.com/api/logistic`)
          .then((response) => setCountriesFrom(response.data))
          .catch((error) => {
             console.log(error);

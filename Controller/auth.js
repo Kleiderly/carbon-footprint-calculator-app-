@@ -65,7 +65,7 @@ exports.forgotpassword =  async (req, res, next) => {
 
         await admin.save();
 
-        const resetUrl = `http://localhost:5000/adminpage/passwordreset/${resetToken}`;
+        const resetUrl = `https://frozen-dawn-41015.herokuapp.com/adminpage/passwordreset/${resetToken}`;
 
         const message = `
         <h1> You have requested a password reset</h1>

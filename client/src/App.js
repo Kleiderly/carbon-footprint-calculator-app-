@@ -98,105 +98,108 @@ function App() {
         ) : (
           <div>
           <div className="content">
-              <div className="fadeInTop vivify">
+              <div className="fadeInTop vivify header">
                 <Header />
               </div>
-              <Switch>
-                <Route exact path="/" component={(browser) => <Cover />} />
+              
+              <div className="main">
+                  <Switch>
+                    <Route exact path="/" component={(browser) => <Cover />} />
 
-                {/*  CALCULATE FLOW  */}
+                    {/*  CALCULATE FLOW  */}
 
-                <Route
-                  exact
-                  path="/calculate/category"
-                  component={(browser) => <CategoryOption1 />}
-                />
-                <Route
-                  exact
-                  path="/calculate/materials"
-                  component={(browser) => <MaterialsOption1 />}
-                />
-                <Route
-                  exact
-                  path="/calculate/logistics"
-                  component={(browser) => <LogisticsOption1 />}
-                />
-                <Route
-                  exact
-                  path="/calculate/fastenings"
-                  component={(browser) => <FasteningsOption1 />}
-                />
-                <Route
-                  exact
-                  path="/calculate/results"
-                  component={(browser) => <ResultsOption1 />}
-                />
-                <Route
-                  exact
-                  path="/calculate/percentages"
-                  component={(browser) => <PercentagesOption1 />}
-                />
+                    <Route
+                      exact
+                      path="/calculate/category"
+                      component={(browser) => <CategoryOption1 />}
+                    />
+                    <Route
+                      exact
+                      path="/calculate/materials"
+                      component={(browser) => <MaterialsOption1 />}
+                    />
+                    <Route
+                      exact
+                      path="/calculate/logistics"
+                      component={(browser) => <LogisticsOption1 />}
+                    />
+                    <Route
+                      exact
+                      path="/calculate/fastenings"
+                      component={(browser) => <FasteningsOption1 />}
+                    />
+                    <Route
+                      exact
+                      path="/calculate/results"
+                      component={(browser) => <ResultsOption1 />}
+                    />
+                    <Route
+                      exact
+                      path="/calculate/percentages"
+                      component={(browser) => <PercentagesOption1 />}
+                    />
 
-                {/* COMPARE FLOW */}
+                    {/* COMPARE FLOW */}
 
-                <Route
-                  exact
-                  path="/compare/category"
-                  component={(browser) => <CategoryOption2 />}
-                />
-                <Route
-                  exact
-                  path="/compare/materials"
-                  component={(browser) => <MaterialsOption2 />}
-                />
-                <Route
-                  exact
-                  path="/compare/logistics"
-                  component={(browser) => <LogisticsOption2 />}
-                />
-                <Route
-                  exact
-                  path="/compare/fastenings"
-                  component={(browser) => <FasteningsOption2 />}
-                />
-                <Route
-                  exact
-                  path="/compare/results"
-                  component={(browser) => <ResultsOption2 />}
-                />
-                <Route
-                  exact
-                  path="/compare/percentages"
-                  component={(browser) => <PercentagesOption2 />}
-                />
+                    <Route
+                      exact
+                      path="/compare/category"
+                      component={(browser) => <CategoryOption2 />}
+                    />
+                    <Route
+                      exact
+                      path="/compare/materials"
+                      component={(browser) => <MaterialsOption2 />}
+                    />
+                    <Route
+                      exact
+                      path="/compare/logistics"
+                      component={(browser) => <LogisticsOption2 />}
+                    />
+                    <Route
+                      exact
+                      path="/compare/fastenings"
+                      component={(browser) => <FasteningsOption2 />}
+                    />
+                    <Route
+                      exact
+                      path="/compare/results"
+                      component={(browser) => <ResultsOption2 />}
+                    />
+                    <Route
+                      exact
+                      path="/compare/percentages"
+                      component={(browser) => <PercentagesOption2 />}
+                    />
 
-                {/* ADMIN ROUTES */}
+                    {/* ADMIN ROUTES */}
 
-                {/* ADMIN ROUTES */}
+                    {/* ADMIN ROUTES */}
 
-                <PrivateRoute
-                  exact
-                  path="/adminpage/forms"
-                  component={AdminForms}
-                />
-                <PrivateRoute
-                  exact
-                  path="/adminpage/formsAll"
-                  component={AdminFormsAll}
-                />
-                <Route exact path="/adminpage/login" component={Login} />
-                <Route
-                  exact
-                  path="/adminpage/forgotpassword"
-                  component={ForgotPassword}
-                />
-                <Route
-                  exact
-                  path="/adminpage/passwordreset/:resetToken"
-                  component={ResetPassword}
-                />
-              </Switch>
-            </div>
+                    <PrivateRoute
+                      exact
+                      path="/adminpage/forms"
+                      component={AdminForms}
+                    />
+                    <PrivateRoute
+                      exact
+                      path="/adminpage/formsAll"
+                      component={AdminFormsAll}
+                    />
+                    <Route exact path="/adminpage/login" component={Login} />
+                    <Route
+                      exact
+                      path="/adminpage/forgotpassword"
+                      component={ForgotPassword}
+                    />
+                    <Route
+                      exact
+                      path="/adminpage/passwordreset/:resetToken"
+                      component={ResetPassword}
+                    />
+                  </Switch>
+              </div>
+          </div>
           <div className="footer">
             <Footer />
           </div>

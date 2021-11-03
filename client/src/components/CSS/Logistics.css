@@ -73,7 +73,7 @@
 
 @media only screen and (min-device-width: 660px) {
    .logistics-wrapper {
-      margin: 10px;
+      margin: 10px 10px 150px 30px;
    }
       
    .logistics-title {
