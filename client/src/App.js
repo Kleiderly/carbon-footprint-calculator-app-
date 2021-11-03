@@ -52,11 +52,11 @@ function App() {
     const [loader, setLoader] = useState("../img/KLEIDERLY_favicon.png");
 
     // LOADER USEEFFECT
-    useEffect(() => {
-      setTimeout(() => {
-        setLoader();
-      }, 3000);
-    }, []);
+    // useEffect(() => {
+    //   setTimeout(() => {
+    //     setLoader();
+    //   }, 3000);
+    // }, []);
 
   return (
     <div className="App">
