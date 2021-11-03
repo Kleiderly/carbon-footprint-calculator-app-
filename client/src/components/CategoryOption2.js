@@ -83,7 +83,7 @@ const CategoryOption2 = (props) => {
           </div>
         </div>
         
-        <div className="category-type-of-item-container">
+        <div className="category-type-of-item-container-row">
           {itemList.map((item, i) => (
             <div onClick={() => handleClickTypes(item, i)} key={item.id}>
               <CategoryItemBox2

@@ -117,8 +117,8 @@ const FasteningsOption1 = (props) => {
                               options={
                                     runCallback(()=> {
                                        let options = [];
-                                       let a = 1
-                                       for(a = 1; a < 21; a++){
+                                       let a = 0
+                                       for(a = 0; a <= 20; a++){
                                           options.push({ value: a, label: a})
                                        };
                                        return options;
