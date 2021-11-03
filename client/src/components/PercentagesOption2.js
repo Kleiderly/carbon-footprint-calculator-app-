@@ -107,7 +107,7 @@ const PercentagesOption2 = (props) => {
                <li><b>150 kg CO2e</b> = 1 way flight from Berlin to Munich</li>
                <li><b>400 kg CO2e</b> = 1 roundtrip flight from Berlin to London</li>
             </ul>
-               For more information, read <b><a href="#" target="new">here</a></b>. 
+               For more information, read <b><a href="https://kleiderly.com/blogs/kleiderly-magazine" target="new">here</a></b>. 
          </div>
 
          <span className="percentages-go-back" onClick={handleClickPreviousSection}>

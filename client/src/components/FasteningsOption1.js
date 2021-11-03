@@ -25,7 +25,7 @@ const FasteningsOption1 = (props) => {
 
    useEffect(() => {
       axios
-         .get(`http://localhost:5000/api/fastening`)
+         .get(`https://frozen-dawn-41015.herokuapp.com/api/fastening`)
          .then((response) => setFastenings(response.data))
          .catch((error) => {
             console.log(error);

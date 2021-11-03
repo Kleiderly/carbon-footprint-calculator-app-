@@ -79,7 +79,7 @@
  }
 
  .percentages-table {
-   font-size: 3.7vw;
+   font-size: 4vw;
    margin: 10px 5px 10px 5px;
  }
 
@@ -96,6 +96,7 @@
 
  .percentages-co2e-title {
    font-size: 5vw;
+   font-weight: bold;
  }
 
 .percentages-before-click, .percentages-after-click {
@@ -165,6 +166,6 @@
    }
 
    .percentages-table {
-      font-size: 14px;
+      font-size: 18px;
    }
 }

@@ -105,7 +105,7 @@ const ResultsOption1 = (props) => {
             </p>
             <p>
                Want to reduce your impact? Read our 
-               tips <b><a href="#" target="new">here</a></b>.
+               tips <b><a href="https://kleiderly.com/blogs/kleiderly-magazine" target="new">here</a></b>.
             </p>
          </div>
 
