@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Context from "./contexts/ContextApi";
 // import Components
 import Header from "./components/Header";
@@ -24,6 +24,8 @@ import Login from "./components/Login";
 import PrivateRoute from "./components/PrivateRoute";
 import ForgotPassword from "./components/ForgotPassword";
 import ResetPassword from "./components/ResetPassword";
+// AUTOSCROLL TO THE TOP
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   // CALCULATE STATES
@@ -46,9 +48,20 @@ function App() {
   const [totalCo2e2, setTotalCo2e2] = useState();
   const [percentage, setPercentage] = useState();
 
+    // LOADER STATE
+    const [loader, setLoader] = useState("../img/KLEIDERLY_favicon.png");
+
+    // LOADER USEEFFECT
+    useEffect(() => {
+      setTimeout(() => {
+        setLoader();
+      }, 3000);
+    }, []);
+
   return (
     <div className="App">
       <Router>
+      <ScrollToTop />
         <Context.Provider
           value={{
             // CALCULATE PROPS
@@ -77,7 +90,13 @@ function App() {
             percentage,
             setPercentage,
           }}
-        >
+        >{loader ? (
+          <div className='divLoader'>
+            <img src={loader} alt={loader} className="loader"/>
+            {/* <p class="header-title">Fashion Footprint</p> */}
+          </div>
+        ) : (
+          <div>
           <div className="content">
               <div className="fadeInTop vivify">
                 <Header />
@@ -181,6 +200,8 @@ function App() {
           <div className="footer">
             <Footer />
           </div>
+          </div>
+        )}
         </Context.Provider>
       </Router>
     </div>
