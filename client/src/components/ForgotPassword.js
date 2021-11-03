@@ -39,7 +39,7 @@ const ForgotPassword = () => {
 
       <form onSubmit={forgotPasswordHandler}>
         <h3>Password Recovery</h3>
-        {error && <span >{error}</span>}
+        {error && <span className="errorHandler" >{error}</span>}
         {success && <span >{success}</span>}
 
         <div className="admin-recover-wrap">

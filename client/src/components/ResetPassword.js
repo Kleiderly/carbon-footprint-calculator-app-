@@ -55,7 +55,7 @@ const ResetPassword = ({ match }) => {
         onSubmit={resetPasswordHandler}
       >
         <h3>Reset Password</h3>
-        {error && <span >{error} </span>}
+        {error && <span className="errorHandler" >{error} </span>}
         {success && (
           <span>
             {success} <Link to="/adminpage/login">Login</Link>
