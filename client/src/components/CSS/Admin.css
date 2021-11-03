@@ -163,7 +163,7 @@
 
 @media only screen and (min-device-width: 660px) {
     .admin-wrapper {
-        margin: 10px 10px 160px 10px;
+        margin: 10px;
     }
 
     .admin-login {
