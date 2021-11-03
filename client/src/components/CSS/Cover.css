@@ -11,7 +11,7 @@
 
 .cover-intro {
    font-size: 5.5vw;
-   margin-bottom: 20px;
+   margin: 5px auto 20px auto;
 }
 
 .cover-title {
@@ -104,7 +104,7 @@
 
 @media only screen and (min-device-width: 660px) {
    .cover-wrapper {
-      margin: 10px 10px 150px 30px;
+      margin: 10px 10px 150px 10px;
    }
    .cover-choice-container {
       flex-direction: row;

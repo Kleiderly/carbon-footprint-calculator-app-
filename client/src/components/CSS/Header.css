@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     background-color: #ffffff;
-    height: 160px;
+    height: 110px;
     width: 100%;
     position: static;
     overflow: hidden;
@@ -42,6 +42,7 @@
 @media only screen and (min-device-width: 660px) {
     .header-wrapper {
         background-position: -75px 0;
+        height: 140px;
     }
     
     .header-title, .header-title a {
