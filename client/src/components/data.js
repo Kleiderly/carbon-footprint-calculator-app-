@@ -21,7 +21,7 @@ export const itemList = [
    },
    {
       id: 5,
-      type: 'Cap',
+      type: 'Hat',
       adress: '../img/items-images/capW.png',
    },
    {
