@@ -37,7 +37,7 @@ const PercentagesOption1 = (props) => {
    return (
       <div className="percentages-wrapper vivify fadeIn">
 
-         <p className="percentages-title">Co2E Details</p>
+         <p className="percentages-title">Co2e Details</p>
          <div className="percentages-main-container">
             <div className="percentages-item-group">
                <div className="percentages-after-click light-accent-bg">
