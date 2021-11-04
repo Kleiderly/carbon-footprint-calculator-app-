@@ -73,7 +73,8 @@ button:hover, button:active, .buttonnext-button:hover, .buttonnext-button:active
   align-items: center;
   justify-content: center;
   border-radius: 15px;
-  margin: 5px;
+  margin: 5px 5px 5px 5px;
+  padding: 10px 10px 10px 10px;
   width: 90px;
   height: 30px;
   cursor: pointer;
@@ -214,11 +215,11 @@ button, .buttonnext-button {
 }
 
 .main {
-  /* position: absolute;
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%; */
+  width: 100%;
 }
 
 .footer {
