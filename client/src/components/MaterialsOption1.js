@@ -79,9 +79,7 @@ const MaterialsOption1 = (props) => {
                className="back-button"
                type="button"
                onClick={handleClickPreviousSection}
-            >
-               BACK
-            </button>
+            >BACK</button>
 
             {selectMaterial1 ? (
                <Link to="/calculate/fastenings">
@@ -89,13 +87,11 @@ const MaterialsOption1 = (props) => {
                      className="next-button"
                      type="button"
                      onClick={() => setMaterialCO2e1(selectMaterial1)}
-                  >
-                     NEXT
-                  </button>
+                  >NEXT</button>
                </Link>
             ) : (
                <Popup
-                  trigger={<button className="next-button"> NEXT</button>}
+                  trigger={<button className="next-button">NEXT</button>}
                   position="top center"
                >
                   <div className="pop-up-box">Please make a selection.</div>

@@ -211,17 +211,13 @@ const FasteningsOption2 = () => {
                className="back-button"
                type="button"
                onClick={handleClickPreviousSection}
-            >
-               BACK
-            </button>
+            >BACK</button>
             <Link to="/compare/logistics">
                <button
                   className="next-button"
                   type="button"
                   onClick={addFastenings}
-               >
-                  NEXT
-               </button>
+               >NEXT</button>
             </Link>
          </div>
 

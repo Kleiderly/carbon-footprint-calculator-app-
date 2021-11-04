@@ -127,9 +127,7 @@ function Logistics(props) {
                className="back-button"
                type="button"
                onClick={handleClickPreviousSection}
-            >
-               BACK
-            </button>
+            >BACK</button>
 
             {selectCountry1 && selectCountry2 ? (
                <Link to="/compare/results">
@@ -137,12 +135,10 @@ function Logistics(props) {
                      className="next-button"
                      type="button"
                      onClick={handleClick}
-                  >
-                     NEXT
-                  </button>
+                  >NEXT</button>
                </Link>
             ) : (
-               <Popup trigger={<button className="next-button"> NEXT</button>}>
+               <Popup trigger={<button className="next-button">NEXT</button>}>
                   <div>Please make a selection.</div>
                </Popup>
             )}

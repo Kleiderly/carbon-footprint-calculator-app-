@@ -136,21 +136,17 @@ const MaterialsOption2 = (props) => {
                className="back-button"
                type="button"
                onClick={handleClickPreviousSection}
-            >
-               BACK
-            </button>
+            >BACK</button>
             {selectMaterial1 && selectMaterial2 ? (
                <Link to="/compare/fastenings">
                   <button
                      className="next-button"
                      type="button"
                      onClick={handleClick}
-                  >
-                     NEXT
-                  </button>
+                  >NEXT</button>
                </Link>
             ) : (
-               <Popup trigger={<button className="next-button"> NEXT</button>}>
+               <Popup trigger={<button className="next-button">NEXT</button>}>
                   <div>Please make a selection.</div>
                </Popup>
             )}

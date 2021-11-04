@@ -98,14 +98,10 @@ const CategoryOption2 = (props) => {
         </div>
         <div className="category-container">
             <div className="category-back-next-buttons">
-               <button className="back-button" type="button" onClick={handleClickPreviousSection} >
-                  BACK
-               </button>
+               <button className="back-button" type="button" onClick={handleClickPreviousSection}>BACK </button>
                {selectType1 && selectType2 ? (
                   <Link to="/compare/materials">
-                     <button className="next-button" type="button" onClick={handleClick3} >
-                        NEXT
-                     </button>
+                     <button className="next-button" type="button" onClick={handleClick3}>NEXT</button>
                   </Link>
                ) : (
                   <Popup trigger={<button className="next-button"> NEXT</button>}>

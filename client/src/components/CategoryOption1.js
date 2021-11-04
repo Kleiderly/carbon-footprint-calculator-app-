@@ -55,13 +55,9 @@ const CategoryOption1 = (props) => {
             ))}
          </div>
          <div className="category-back-next-buttons">
-            <button className="back-button" type="button" onClick={handleClickPreviousSection} >
-               BACK
-            </button>
+            <button className="back-button" type="button" onClick={handleClickPreviousSection}>BACK</button>
             <Link className={selectType ? null : 'disabled-link'} to="/calculate/materials" >
-               <button className="next-button" type="button" onClick={() => setItemTypeAdress1(selectType)} >
-                  NEXT
-               </button>
+               <button className="next-button" type="button" onClick={() => setItemTypeAdress1(selectType)}>NEXT</button>
             </Link>
          </div>
       </div>

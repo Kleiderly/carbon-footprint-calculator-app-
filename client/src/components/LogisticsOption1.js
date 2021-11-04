@@ -87,9 +87,7 @@ const LogisticsOption1 = (props) => {
                className="back-button"
                type="button"
                onClick={handleClickPreviousSection}
-            >
-               BACK
-            </button>
+            >BACK</button>
 
             {selectCountry1 ? (
                <Link to="/calculate/results">
@@ -97,13 +95,11 @@ const LogisticsOption1 = (props) => {
                      className="next-button"
                      type="button"
                      onClick={handleClick}
-                  >
-                     NEXT
-                  </button>
+                  >NEXT</button>
                </Link>
             ) : (
                <Popup
-                  trigger={<button className="next-button"> NEXT</button>}
+                  trigger={<button className="next-button">NEXT</button>}
                   position="top center"
                >
                   <div className="pop-up-box">Please make a selection.</div>
