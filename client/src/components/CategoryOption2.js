@@ -64,7 +64,7 @@ const CategoryOption2 = (props) => {
           <div className="category-items-container fadeIn vivify">
             <div
               className={
-                choice
+                selectType1 
                   ? "category-after-click light-tone-bg"
                   : "category-before-click"
               } onClick={handleClick1} value={choice} >
@@ -73,7 +73,7 @@ const CategoryOption2 = (props) => {
             </div>
             <div
               className={
-                !choice
+                selectType2 
                   ? "category-after-click light-tone-bg"
                   : "category-before-click"
               } onClick={handleClick2} value={choice} >
