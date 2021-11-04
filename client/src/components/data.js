@@ -1,32 +1,32 @@
 export const itemList = [
    {
       id: 1,
-      type: 'tshirtW',
+      type: 'T-shirt',
       adress: '../img/items-images/t-shirtW.png',
    },
    {
       id: 2,
-      type: 'skirt',
+      type: 'Skirt',
       adress: '../img/items-images/skirtW.png',
    },
    {
       id: 3,
-      type: 'trouser',
+      type: 'Trouser',
       adress: '../img/items-images/trouserW.png',
    },
    {
       id: 4,
-      type: 'long-dress',
+      type: 'Dress',
       adress: '../img/items-images/long-dressW.png',
    },
    {
       id: 5,
-      type: 'cap',
+      type: 'Hat',
       adress: '../img/items-images/capW.png',
    },
    {
       id: 6,
-      type: 'jacket',
+      type: 'Jacket',
       adress: '../img/items-images/jacketW.png',
    },
 ];

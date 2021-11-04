@@ -110,7 +110,7 @@ const ResultsOption2 = (props) => {
       <span className="results-message light-accent-bg vivify popIn delay-1000">
          The <b>{totalCo2e1 < totalCo2e2 ? 'first item' : 'second item'} </b> 
          is <b>{percentage}%</b> more eco-responsible than the
-         <b> {totalCo2e1 > totalCo2e2 ? 'first Item' : 'second Item'}</b>.
+         <b> {totalCo2e1 > totalCo2e2 ? 'first Item' : 'second item'}</b>.
       </span>;
 
    const messageEven = 
