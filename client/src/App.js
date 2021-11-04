@@ -93,7 +93,6 @@ function App() {
         >{loader ? (
           <div className='divLoader'>
             <img src={loader} alt={loader} className="loader"/>
-            {/* <p class="header-title">Fashion Footprint</p> */}
           </div>
         ) : (
           <div>
