@@ -1,6 +1,6 @@
 {
-  "short_name": "Fashion Footprint Calculator",
-  "name": "Fashion Footprint Calculator",
+  "short_name": "Clothing Comparison Tool",
+  "name": "Clothing Comparison Tool",
   "icons": [
     {
       "src": "%PUBLIC_URL%/img/KLEIDERLY_favicon.png",

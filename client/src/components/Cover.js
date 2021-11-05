@@ -36,7 +36,7 @@ function Cover() {
               to make better, fairer fashion choices, whilst giving you tips to
               help reduce your fashion footprint.
             </p>
-              Thank you for using Kleiderly Fashion Footprint.
+              Thank you for using the Clothing Comparison Tool.
           </div>
           <p className="cover-direction-text fadeIn vivify delay-1000">
             What will you calculate?

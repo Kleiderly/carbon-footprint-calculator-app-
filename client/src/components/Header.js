@@ -7,7 +7,7 @@ function Header() {
     <div className="header-wrapper">
       <div className="header-main">
         <Link to="/">
-          <p className="header-title">Fashion Footprint</p>
+          <p className="header-title">Clothing Comparison Tool</p>
         </Link>
       </div>
       <div className="logo">

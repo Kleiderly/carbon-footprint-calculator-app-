@@ -114,7 +114,11 @@ const ResultsOption1 = (props) => {
          </Link>
 
          <div className="results-explanation">
-            Take a screenshot of your results, then share it with your network!
+            Thank you for comparing your items purchases with us. It's important to use data to make 
+            more sustainable decisions, and we hope we helped you with this process. Please take a 
+            screenshot of your results and share with your friends and family. The more consumers we 
+            have tracking their carbon footprint, the more aware we become collectively and can understand 
+            how to reduce it.
          </div>
          <ButtonShareModal />
 
