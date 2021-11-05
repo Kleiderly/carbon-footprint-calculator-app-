@@ -113,8 +113,12 @@ const ResultsOption1 = (props) => {
             SEE DETAILS
          </Link>
 
+         <div className="results-explanation">
+            Take a screenshot of your results, then share it with your network!
+         </div>
          <ButtonShareModal />
 
+         <br />
          <Link to="/">
             <button type="button">CALCULATE ANOTHER ITEM</button>
          </Link>
